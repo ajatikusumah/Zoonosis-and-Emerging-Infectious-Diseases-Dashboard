@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T14:45:34.119883Z",
+  "generated_at": "2026-08-15T19:11:02.117858Z",
   "sources": [
     {
       "id": "kemkes-infem",
@@ -10,7 +10,7 @@
       "url": "https://infeksiemerging.kemkes.go.id/",
       "note": "Weekly update dan spot report publik; diperlakukan sebagai publikasi, bukan angka kasus terstruktur.",
       "status": "live",
-      "last_checked": "2026-08-15T14:45:34.119883Z",
+      "last_checked": "2026-08-15T19:11:02.117858Z",
       "records": 33,
       "error": null
     },
@@ -62,7 +62,7 @@
       "url": "https://www.who.int/southeastasia/outbreaks-and-emergencies/surveillance-and-alert/sear-epi-bulletins",
       "note": "Buletin regional ditampilkan sebagai publikasi; ekstraksi angka tabel belum dilakukan.",
       "status": "live",
-      "last_checked": "2026-08-15T14:45:34.119883Z",
+      "last_checked": "2026-08-15T19:11:02.117858Z",
       "records": 24,
       "error": null
     },
@@ -101,7 +101,7 @@
       "url": "https://www.who.int/emergencies/disease-outbreak-news",
       "note": "Diambil dari API publik WHO dan dipetakan pada centroid negara bila lokasi lebih rinci tidak tersedia.",
       "status": "live",
-      "last_checked": "2026-08-15T14:45:34.119883Z",
+      "last_checked": "2026-08-15T19:11:02.117858Z",
       "records": 44,
       "error": null
     },
@@ -113,10 +113,10 @@
       "access_level": "public",
       "url": "https://www.gdeltproject.org/",
       "note": "Semua rekaman tetap berstatus rumor/verifikasi; negara hanya dipetakan bila disebut dalam judul.",
-      "status": "live",
-      "last_checked": "2026-08-15T14:45:34.119883Z",
+      "status": "stale",
+      "last_checked": "2026-08-15T19:11:02.117858Z",
       "records": 75,
-      "error": null
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
     },
     {
       "id": "fao-empres",
