@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="referrer" content="no-referrer">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="description" content="Dashboard prototipe untuk pemantauan kejadian zoonosis dan penyakit infeksi emerging dengan pendekatan One Health.">
 <title>Zoonosis and Emerging Infectious Diseases Dashboard</title>
 <style>:root {
@@ -876,6 +876,8 @@ svg {
 </style>
 <div id="zoonosis-dashboard-v2" aria-label="Mock-up dashboard operasional kejadian zoonosis">
   <style>
+    @import url("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
+
     #zoonosis-dashboard-v2 {
       color: var(--foreground);
       display: grid;
@@ -903,39 +905,75 @@ svg {
       gap: 12px;
     }
     #zoonosis-dashboard-v2 .map-wrap {
-      min-height: 330px;
+      min-height: 420px;
       position: relative;
       width: 100%;
     }
-    #zoonosis-dashboard-v2 .map-svg,
+    #zoonosis-dashboard-v2 .leaflet-map {
+      height: 420px;
+      width: 100%;
+    }
     #zoonosis-dashboard-v2 .trend-svg {
       display: block;
       width: 100%;
     }
-    #zoonosis-dashboard-v2 .country {
-      fill: color-mix(in srgb, var(--muted) 72%, transparent);
-      stroke: var(--border);
-      stroke-width: 0.8;
-      vector-effect: non-scaling-stroke;
+    #zoonosis-dashboard-v2 .leaflet-container {
+      background: var(--muted);
+      color: var(--foreground);
+      font: inherit;
     }
-    #zoonosis-dashboard-v2 .country.in-scope {
-      fill: color-mix(in srgb, var(--accent) 58%, transparent);
+    #zoonosis-dashboard-v2 .leaflet-control-zoom a,
+    #zoonosis-dashboard-v2 .leaflet-control-attribution {
+      background: var(--secondary);
+      color: var(--secondary-foreground);
     }
-    #zoonosis-dashboard-v2 .marker {
+    #zoonosis-dashboard-v2 .leaflet-control-zoom a:hover,
+    #zoonosis-dashboard-v2 .leaflet-control-zoom a:focus {
+      background: var(--accent);
+      color: var(--accent-foreground);
+    }
+    #zoonosis-dashboard-v2 .leaflet-control-attribution a {
+      color: var(--foreground);
+    }
+    #zoonosis-dashboard-v2 .zv2-leaflet-icon {
+      background: transparent;
+      border: 0;
+    }
+    #zoonosis-dashboard-v2 .event-marker {
+      border: 2px solid var(--background);
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--foreground) 25%, transparent);
       cursor: pointer;
-      stroke: var(--background);
-      stroke-width: 2;
-      vector-effect: non-scaling-stroke;
+      display: block;
+      height: 14px;
+      width: 14px;
     }
-    #zoonosis-dashboard-v2 .marker-confirmed {
-      fill: var(--viz-series-1);
+    #zoonosis-dashboard-v2 .event-marker-confirmed {
+      background: var(--viz-series-1);
+      border-radius: 50%;
     }
-    #zoonosis-dashboard-v2 .marker-rumor {
-      fill: var(--viz-series-4);
+    #zoonosis-dashboard-v2 .event-marker-rumor {
+      background: var(--viz-series-4);
+      transform: rotate(45deg);
     }
-    #zoonosis-dashboard-v2 .marker.is-selected {
-      stroke: var(--foreground);
-      stroke-width: 3;
+    #zoonosis-dashboard-v2 .event-marker.is-selected {
+      box-shadow: 0 0 0 3px var(--foreground);
+    }
+    #zoonosis-dashboard-v2 .leaflet-tooltip {
+      background: var(--popover);
+      border-color: var(--border);
+      color: var(--popover-foreground);
+      max-width: 280px;
+      white-space: normal;
+    }
+    #zoonosis-dashboard-v2 .leaflet-tooltip::before {
+      border-top-color: var(--border);
+    }
+    #zoonosis-dashboard-v2 .map-tooltip-content {
+      display: grid;
+      gap: 3px;
+    }
+    #zoonosis-dashboard-v2 .map-tooltip-content span {
+      display: block;
     }
     #zoonosis-dashboard-v2 .legend-item {
       align-items: center;
@@ -1053,7 +1091,10 @@ svg {
         grid-template-columns: 1fr;
       }
       #zoonosis-dashboard-v2 .map-wrap {
-        min-height: 300px;
+        min-height: 340px;
+      }
+      #zoonosis-dashboard-v2 .leaflet-map {
+        height: 340px;
       }
     }
   </style>
@@ -1142,10 +1183,7 @@ svg {
     </div>
     <div class="map-wrap" id="zv2-map-wrap">
       <div class="load-state text-small" id="zv2-map-loading">Memuat peta…</div>
-      <svg class="map-svg" id="zv2-map" role="img" aria-labelledby="zv2-map-title zv2-map-desc">
-        <title id="zv2-map-title">Peta kejadian zoonosis menurut status bukti</title>
-        <desc id="zv2-map-desc">Lingkaran menunjukkan kejadian terkonfirmasi dan wajik menunjukkan rumor atau kejadian yang masih diverifikasi.</desc>
-      </svg>
+      <div class="leaflet-map" id="zv2-map" role="region" aria-label="Peta OpenStreetMap kejadian zoonosis. Sorot atau fokuskan marker untuk melihat nama kejadian dan sumbernya."></div>
     </div>
   </section>
 
@@ -1225,16 +1263,20 @@ svg {
   </section>
 
   <script type="module">
-    import { geoNaturalEarth1, geoPath } from "https://esm.sh/d3-geo@3.1.1";
-    import { feature } from "https://esm.sh/topojson-client@3.1.0";
-    import world from "https://esm.sh/@d3-maps/atlas@1.0.0/world/countries/countries-110m";
+    import L from "https://esm.sh/leaflet@1.9.4";
 
     const root = document.getElementById("zoonosis-dashboard-v2");
-    const mapSvg = root.querySelector("#zv2-map");
+    const mapElement = root.querySelector("#zv2-map");
     const mapWrap = root.querySelector("#zv2-map-wrap");
     const trendSvg = root.querySelector("#zv2-trend");
     const now = new Date("2026-08-15T19:00:00+07:00");
-    const countries = feature(world, world.objects.features).features;
+
+    const scopeBounds = {
+      "Indonesia": [[-11.5, 94], [6.5, 142]],
+      "ASEAN": [[-12, 91], [29, 142]],
+      "Asia-Pacific": [[-49, 60], [56, 180]],
+      "Global": [[-58, -170], [72, 180]]
+    };
 
     const scopeCountries = {
       "Indonesia": ["IDN"],
@@ -1467,73 +1509,100 @@ svg {
       return element;
     }
 
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function evidenceLabel(event) {
+      return event.evidence === "confirmed" ? "Terkonfirmasi" : "Rumor/sedang diverifikasi";
+    }
+
+    function markerTooltip(event) {
+      return [
+        '<div class="map-tooltip-content">',
+        "<strong>" + escapeHtml(event.disease + " • " + event.location) + "</strong>",
+        "<span>Status: " + escapeHtml(evidenceLabel(event)) + "</span>",
+        "<span>Sumber: " + escapeHtml(event.source) + "</span>",
+        "</div>"
+      ].join("");
+    }
+
+    const eventMap = L.map(mapElement, {
+      attributionControl: true,
+      minZoom: 2,
+      maxZoom: 19,
+      scrollWheelZoom: false,
+      worldCopyJump: true
+    });
+
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      noWrap: true,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(eventMap);
+
+    const markerLayer = L.layerGroup().addTo(eventMap);
+
     function renderMap(items) {
       const scope = root.querySelector("#zv2-scope").value;
-      const width = Math.max(300, Math.floor(mapWrap.getBoundingClientRect().width));
-      const height = width < 520 ? 300 : 420;
-      mapSvg.setAttribute("viewBox", "0 0 " + width + " " + height);
-      mapSvg.setAttribute("height", String(height));
-      mapSvg.replaceChildren();
+      markerLayer.clearLayers();
 
-      const title = makeSvgElement("title", { id: "zv2-map-title" });
-      title.textContent = "Peta kejadian zoonosis menurut status bukti";
-      const desc = makeSvgElement("desc", { id: "zv2-map-desc" });
-      desc.textContent = items.length + " kejadian terlihat. Lingkaran adalah kejadian terkonfirmasi; wajik adalah rumor atau kejadian yang masih diverifikasi.";
-      mapSvg.append(title, desc);
-
-      const projection = geoNaturalEarth1();
-      let frameFeatures = countries;
-      if (scope !== "Global") {
-        const frameIds = new Set(scopeCountries[scope]);
-        frameFeatures = countries.filter((country) => frameIds.has(country.properties.id));
-      }
-      projection.fitExtent([[16, 18], [width - 16, height - 22]], { type: "FeatureCollection", features: frameFeatures });
-      const path = geoPath(projection);
-      const allowed = new Set(scopeCountries[scope]);
-
-      const countryLayer = makeSvgElement("g", { "aria-hidden": "true" });
-      countries.forEach((country) => {
-        countryLayer.appendChild(makeSvgElement("path", {
-          d: path(country) || "",
-          class: "country" + ((scope === "Global" || allowed.has(country.properties.id)) ? " in-scope" : "")
-        }));
-      });
-      mapSvg.appendChild(countryLayer);
-
-      const markerLayer = makeSvgElement("g");
       items.forEach((event) => {
-        const point = projection([event.lon, event.lat]);
-        if (!point) return;
-        let marker;
-        if (event.evidence === "confirmed") {
-          marker = makeSvgElement("circle", {
-            cx: point[0], cy: point[1], r: 6,
-            class: "marker marker-confirmed" + (event.id === state.selectedId ? " is-selected" : "")
-          });
-        } else {
-          marker = makeSvgElement("rect", {
-            x: point[0] - 5, y: point[1] - 5, width: 10, height: 10,
-            transform: "rotate(45 " + point[0] + " " + point[1] + ")",
-            class: "marker marker-rumor" + (event.id === state.selectedId ? " is-selected" : "")
-          });
-        }
-        marker.setAttribute("role", "button");
-        marker.setAttribute("aria-label", event.disease + " di " + event.location + ", " + (event.evidence === "confirmed" ? "terkonfirmasi" : "rumor atau sedang diverifikasi"));
-        marker.addEventListener("click", () => {
+        const selectedClass = event.id === state.selectedId ? " is-selected" : "";
+        const statusClass = event.evidence === "confirmed" ? "event-marker-confirmed" : "event-marker-rumor";
+        const label = event.disease + " di " + event.location + ", " + evidenceLabel(event) + ", sumber " + event.source;
+        const icon = L.divIcon({
+          className: "zv2-leaflet-icon",
+          html: '<span class="event-marker ' + statusClass + selectedClass + '" aria-hidden="true"></span>',
+          iconSize: [18, 18],
+          iconAnchor: [9, 9],
+          tooltipAnchor: [0, -11]
+        });
+        const marker = L.marker([event.lat, event.lon], {
+          alt: label,
+          icon,
+          keyboard: true,
+          riseOnHover: true,
+          title: event.disease + " • " + event.location
+        });
+        marker.bindTooltip(markerTooltip(event), {
+          direction: "top",
+          opacity: 1,
+          sticky: false
+        });
+        marker.on("click", () => {
           state.selectedId = event.id;
           updateDetail(event);
           renderMap(items);
         });
-        markerLayer.appendChild(marker);
+        marker.on("add", () => {
+          const element = marker.getElement();
+          if (!element) return;
+          element.setAttribute("aria-label", label);
+          element.setAttribute("role", "button");
+          element.addEventListener("focus", () => marker.openTooltip());
+          element.addEventListener("blur", () => marker.closeTooltip());
+        });
+        marker.addTo(markerLayer);
       });
-      mapSvg.appendChild(markerLayer);
 
       if (items.length === 0) {
-        const empty = makeSvgElement("text", { x: width / 2, y: height / 2, class: "map-message text-small", "text-anchor": "middle" });
-        empty.textContent = "Tidak ada kejadian dalam filter";
-        mapSvg.appendChild(empty);
+        root.querySelector("#zv2-map-loading").textContent = "Tidak ada kejadian dalam filter";
+        root.querySelector("#zv2-map-loading").hidden = false;
+      } else {
+        root.querySelector("#zv2-map-loading").hidden = true;
       }
-      root.querySelector("#zv2-map-loading").hidden = true;
+
+      eventMap.invalidateSize({ animate: false });
+      eventMap.fitBounds(scopeBounds[scope], {
+        animate: false,
+        padding: [12, 12]
+      });
     }
 
     function dateKey(date) {
@@ -1603,7 +1672,14 @@ svg {
     }
 
     root.querySelectorAll("select, input[type='checkbox']").forEach((control) => control.addEventListener("change", render));
-    const resizeObserver = new ResizeObserver(() => render());
+    let resizeTimer;
+    const resizeObserver = new ResizeObserver(() => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        eventMap.invalidateSize({ animate: false });
+        renderTrend(filteredEvents());
+      }, 80);
+    });
     resizeObserver.observe(mapWrap);
     render();
   </script>
