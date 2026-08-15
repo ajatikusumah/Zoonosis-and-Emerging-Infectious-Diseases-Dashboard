@@ -1,6 +1,10 @@
 name: Update surveillance data
 
 on:
+  push:
+    paths:
+      - "scripts/update_events.py"
+      - ".github/workflows/update-data.yml"
   schedule:
     - cron: "17 */6 * * *"
   workflow_dispatch:
