@@ -6,6 +6,9 @@ on:
       - "scripts/update_events.py"
       - "data/import/**"
       - ".github/workflows/update-data.yml"
+  repository_dispatch:
+    types:
+      - new-surveillance-report
   schedule:
     - cron: "17 */6 * * *"
   workflow_dispatch:

@@ -13,7 +13,7 @@ Situs: https://ajatikusumah.github.io/Zoonosis-and-Emerging-Infectious-Diseases-
 - Registri sumber menunjukkan apakah suatu sumber aktif, hanya tersedia melalui portal, memerlukan akun, token, akses institusi, atau lisensi.
 - Impor CSV/Excel terotorisasi dengan validasi skema, persetujuan eksplisit `publish=true`, dan tampilan tingkat akses sumber.
 - Angka yang tidak tersedia disimpan sebagai `null` dan ditampilkan sebagai `—`, bukan dianggap nol.
-- Pembaruan otomatis setiap 6 jam melalui GitHub Actions.
+- Pembaruan segera saat file laporan baru masuk atau saat gateway mengirim sinyal `new-surveillance-report`, dengan pemeriksaan cadangan setiap 6 jam.
 
 ## Sumber yang diambil otomatis
 
@@ -41,7 +41,26 @@ Situs: https://ajatikusumah.github.io/Zoonosis-and-Emerging-Infectious-Diseases-
 - `data/source-status.json` untuk status konektor.
 - `data/import-validation.json` untuk hasil validasi impor tanpa menyalin isi baris.
 
-Workflow `.github/workflows/update-data.yml` berjalan setiap 6 jam dan dapat dijalankan manual dari tab **Actions**. Commit data baru otomatis memicu workflow deployment GitHub Pages yang sudah ada.
+Workflow `.github/workflows/update-data.yml` mempunyai empat pemicu:
+
+1. file baru atau perubahan pada `data/import/**` — diproses segera;
+2. sinyal eksternal `repository_dispatch` dengan tipe `new-surveillance-report` — diproses segera;
+3. jadwal cadangan setiap 6 jam untuk memeriksa sumber publik;
+4. pemicu manual dari tab **Actions**.
+
+Sumber publik seperti WHO, Kemenkes, WHO SEARO, dan GDELT tidak semuanya menyediakan webhook. Karena itu, kasus baru pada sumber tersebut akan terdeteksi pada pemeriksaan berikutnya, paling lambat sesuai jadwal 6 jam. Sistem/gateway yang memiliki notifikasi kasus baru dapat memanggil `repository_dispatch` agar pemeriksaan dilakukan tanpa menunggu jadwal.
+
+Contoh pemicu dari gateway terotorisasi:
+
+```bash
+curl -L -X POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer $GITHUB_TOKEN" \
+  https://api.github.com/repos/ajatikusumah/Zoonosis-and-Emerging-Infectious-Diseases-Dashboard/dispatches \
+  -d '{"event_type":"new-surveillance-report"}'
+```
+
+Simpan token hanya di secret manager/gateway privat, bukan di HTML atau repository. Setelah pipeline selesai, dashboard GitHub Pages langsung dideploy ulang.
 
 ## Impor CSV/Excel yang aman
 
