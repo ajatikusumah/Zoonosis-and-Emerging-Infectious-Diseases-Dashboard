@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "generated_at": "2026-08-15T14:41:39.969199Z",
+    "generated_at": "2026-08-15T14:45:34.119883Z",
     "update_interval_hours": 6,
     "mode": "near-real-time",
-    "records": 101,
-    "events": 44,
-    "reports": 57,
+    "records": 176,
+    "events": 84,
+    "reports": 92,
     "imported_records": 0,
     "import_files_scanned": 0,
     "import_validation_errors": 0,
@@ -22,7 +22,7 @@
       "url": "https://infeksiemerging.kemkes.go.id/",
       "note": "Weekly update dan spot report publik; diperlakukan sebagai publikasi, bukan angka kasus terstruktur.",
       "status": "live",
-      "last_checked": "2026-08-15T14:41:39.969199Z",
+      "last_checked": "2026-08-15T14:45:34.119883Z",
       "records": 33,
       "error": null
     },
@@ -74,7 +74,7 @@
       "url": "https://www.who.int/southeastasia/outbreaks-and-emergencies/surveillance-and-alert/sear-epi-bulletins",
       "note": "Buletin regional ditampilkan sebagai publikasi; ekstraksi angka tabel belum dilakukan.",
       "status": "live",
-      "last_checked": "2026-08-15T14:41:39.969199Z",
+      "last_checked": "2026-08-15T14:45:34.119883Z",
       "records": 24,
       "error": null
     },
@@ -113,7 +113,7 @@
       "url": "https://www.who.int/emergencies/disease-outbreak-news",
       "note": "Diambil dari API publik WHO dan dipetakan pada centroid negara bila lokasi lebih rinci tidak tersedia.",
       "status": "live",
-      "last_checked": "2026-08-15T14:41:39.969199Z",
+      "last_checked": "2026-08-15T14:45:34.119883Z",
       "records": 44,
       "error": null
     },
@@ -125,10 +125,10 @@
       "access_level": "public",
       "url": "https://www.gdeltproject.org/",
       "note": "Semua rekaman tetap berstatus rumor/verifikasi; negara hanya dipetakan bila disebut dalam judul.",
-      "status": "error",
-      "last_checked": "2026-08-15T14:41:39.969199Z",
-      "records": 0,
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "status": "live",
+      "last_checked": "2026-08-15T14:45:34.119883Z",
+      "records": 75,
+      "error": null
     },
     {
       "id": "fao-empres",
@@ -185,6 +185,203 @@
   ],
   "records": [
     {
+      "id": "gdelt-9b1f4f826b18",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "NSW confirms fifth H5 bird flu case , expands vaccine plans | Gloucester Advocate",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-15T10:30:00Z",
+      "onset": null,
+      "reported": "2026-08-15T10:30:00Z",
+      "updated": "2026-08-15T10:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": true,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • gloucesteradvocate.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.gloucesteradvocate.com.au/story/9330870/nsw-confirms-fifth-h5-bird-flu-case-expands-vaccine-plans/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-18bb69c4ae14",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "More cases of H5 bird flu detected in Tasmania as crested terns on King Island return positive test",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-15T09:45:00Z",
+      "onset": null,
+      "reported": "2026-08-15T09:45:00Z",
+      "updated": "2026-08-15T09:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": true,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • abc.net.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.abc.net.au/news/2026-08-14/tas-more-cases-of-bird-flu-in-tasmania/107037894",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-412b4b24deba",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "Penguin found dead from bird flu",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-15T09:15:00Z",
+      "onset": null,
+      "reported": "2026-08-15T09:15:00Z",
+      "updated": "2026-08-15T09:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": true,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • smh.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.smh.com.au/national/penguin-found-dead-from-bird-flu-20260815-p60onc.html",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-ae18dc0eed0b",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "Little penguin dies from bird flu as case numbers grow",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-15T07:45:00Z",
+      "onset": null,
+      "reported": "2026-08-15T07:45:00Z",
+      "updated": "2026-08-15T07:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": true,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • canberratimes.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.canberratimes.com.au/story/9330891/little-penguin-dies-from-bird-flu-as-case-numbers-grow/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
       "id": "kemkes-weekly-ad8fe6a6d67b",
       "record_type": "report",
       "disease": "Ringkasan penyakit infeksi emerging",
@@ -237,6 +434,154 @@
       "summary": null
     },
     {
+      "id": "gdelt-9ffd554aa87f",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "Pacific reach out to NZ for information on bird flu",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-15T00:15:00Z",
+      "onset": null,
+      "reported": "2026-08-15T00:15:00Z",
+      "updated": "2026-08-15T00:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": true,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • rnz.co.nz",
+      "source_id": "gdelt",
+      "source_url": "https://www.rnz.co.nz/news/pacific/1006220/pacific-reach-out-to-nz-for-information-on-bird-flu",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: —."
+    },
+    {
+      "id": "gdelt-ce8597b63055",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Bird flu has been evolving and migrating for 30 years . It is a far more deadly virus that has now arrived in Australia",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-14T16:00:00Z",
+      "onset": null,
+      "reported": "2026-08-14T16:00:00Z",
+      "updated": "2026-08-14T16:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": true,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • theguardian.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.theguardian.com/world/2026/aug/15/bird-flu-h5n1-mutation-more-deadly-virus-australia",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United Kingdom."
+    },
+    {
+      "id": "gdelt-27400697c6ec",
+      "record_type": "report",
+      "disease": "广东 ： 7月报告新冠感染超7 . 1万例 、 流感超43万例",
+      "title": "广东 ： 7月报告新冠感染超7 . 1万例 、 流感超43万例",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-14T16:00:00Z",
+      "onset": null,
+      "reported": "2026-08-14T16:00:00Z",
+      "updated": "2026-08-14T16:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": true,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • health.ycwb.com",
+      "source_id": "gdelt",
+      "source_url": "https://health.ycwb.com/2026-08/14/content_54269190.htm",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: Chinese; negara media: China."
+    },
+    {
       "id": "who-don-e8844b5f6fb0",
       "record_type": "event",
       "disease": "Ebola virus disease",
@@ -284,6 +629,3372 @@
       "verification": "Sumber resmi WHO; koordinat menggunakan centroid negara.",
       "economic": null,
       "summary": "The Bundibugyo virus disease (BVD) outbreak in the Democratic Republic of the Congo is in a phase of intense transmission. It is the largest Ebola outbreak ever reported in the country and expanding faster than any previous Ebola outbreak. The epidemic is increasingly characterized by sustained transmission within interconnected geographic clusters. Initially confined to the Mongbwalu health zone in Ituri Province, the outbreak has now expanded to 54 health zones across six provinces (Ituri, North Kivu, South Kivu, Haut-Uélé, Tshopo, and Bas-Uélé). The most recently affected Bas-Uélé province "
+    },
+    {
+      "id": "gdelt-9f64ceea151d",
+      "record_type": "report",
+      "disease": "Rats will disappear when they take one smell of natural deterrent",
+      "title": "Rats will disappear when they take one smell of natural deterrent",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-14T10:00:00Z",
+      "onset": null,
+      "reported": "2026-08-14T10:00:00Z",
+      "updated": "2026-08-14T10:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • express.co.uk",
+      "source_id": "gdelt",
+      "source_url": "https://www.express.co.uk/life-style/garden/2239118/keep-rats-out-of-garden-natural-deterrent",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United Kingdom."
+    },
+    {
+      "id": "gdelt-5f2abe7fc2a8",
+      "record_type": "report",
+      "disease": "Rats will run out of your garden when they smell natural repellent",
+      "title": "Rats will run out of your garden when they smell natural repellent",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-14T09:45:00Z",
+      "onset": null,
+      "reported": "2026-08-14T09:45:00Z",
+      "updated": "2026-08-14T09:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • walesonline.co.uk",
+      "source_id": "gdelt",
+      "source_url": "https://www.walesonline.co.uk/whats-on/keep-rats-out-garden-natural-34457555",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United Kingdom."
+    },
+    {
+      "id": "gdelt-70c04f4656ab",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "Perth Royal Show cancels poultry exhibits amid bird flu crisis",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-14T05:00:00Z",
+      "onset": null,
+      "reported": "2026-08-14T05:00:00Z",
+      "updated": "2026-08-14T05:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • perthnow.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.perthnow.com.au/wa/perth/perth-royal-show-cancels-poultry-exhibits-amid-bird-flu-crisis-c-22724555",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-544755cd75d5",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "Online Bird Flu Guidance for Pet and Poultry Owners",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-14T02:45:00Z",
+      "onset": null,
+      "reported": "2026-08-14T02:45:00Z",
+      "updated": "2026-08-14T02:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • miragenews.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.miragenews.com/online-bird-flu-guidance-for-pet-and-poultry-1727243/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United States."
+    },
+    {
+      "id": "gdelt-4c89e5700902",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Bird keepers call for vaccines as bird flu detected inland in South Australia",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-14T02:15:00Z",
+      "onset": null,
+      "reported": "2026-08-14T02:15:00Z",
+      "updated": "2026-08-14T02:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • abc.net.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.abc.net.au/news/2026-08-14/bird-keepers-want-vaccines-as-bird-flu-detected-inland-in-sa/107031862",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-9a041cf6d757",
+      "record_type": "report",
+      "disease": "Sentinels : New book explores how human impact and environmental destruction drive the ris",
+      "title": "Sentinels : New book explores how human impact and environmental destruction drive the rise of zoonotic diseases",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-14T01:30:00Z",
+      "onset": null,
+      "reported": "2026-08-14T01:30:00Z",
+      "updated": "2026-08-14T01:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • smh.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.smh.com.au/culture/books/it-scares-me-more-than-anything-else-inside-the-next-global-health-crisis-20260805-p60lmt.html",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-464a261bd7b4",
+      "record_type": "report",
+      "disease": "Sentinels : New book explores how human impact and environmental destruction drive the ris",
+      "title": "Sentinels : New book explores how human impact and environmental destruction drive the rise of zoonotic diseases",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-14T01:30:00Z",
+      "onset": null,
+      "reported": "2026-08-14T01:30:00Z",
+      "updated": "2026-08-14T01:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • theage.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.theage.com.au/culture/books/it-scares-me-more-than-anything-else-inside-the-next-global-health-crisis-20260805-p60lmt.html",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-812b219ed85f",
+      "record_type": "report",
+      "disease": "Sentinels : New book explores how human impact and environmental destruction drive the ris",
+      "title": "Sentinels : New book explores how human impact and environmental destruction drive the rise of zoonotic diseases",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-14T01:30:00Z",
+      "onset": null,
+      "reported": "2026-08-14T01:30:00Z",
+      "updated": "2026-08-14T01:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • watoday.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.watoday.com.au/culture/books/it-scares-me-more-than-anything-else-inside-the-next-global-health-crisis-20260805-p60lmt.html",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-417e574841a2",
+      "record_type": "report",
+      "disease": "Sentinels : New book explores how human impact and environmental destruction drive the ris",
+      "title": "Sentinels : New book explores how human impact and environmental destruction drive the rise of zoonotic diseases",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-14T01:30:00Z",
+      "onset": null,
+      "reported": "2026-08-14T01:30:00Z",
+      "updated": "2026-08-14T01:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • brisbanetimes.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.brisbanetimes.com.au/culture/books/it-scares-me-more-than-anything-else-inside-the-next-global-health-crisis-20260805-p60lmt.html",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-37840a273cc5",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "Bird flu detection at Narooma sparks fear for upcoming tourist season",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-13T22:30:00Z",
+      "onset": null,
+      "reported": "2026-08-13T22:30:00Z",
+      "updated": "2026-08-13T22:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • abc.net.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.abc.net.au/news/2026-08-14/bird-flu-detection-creates-fear-for-bird-filled-tourist-drawcard/107024950",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-924a911d61d7",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "Indiana reaches HPAI - free status ; officials warn bird flu risk remains – Inside INdiana Business",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-13T19:15:00Z",
+      "onset": null,
+      "reported": "2026-08-13T19:15:00Z",
+      "updated": "2026-08-13T19:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • insideindianabusiness.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.insideindianabusiness.com/articles/indiana-reaches-hpai-free-status-officials-warn-bird-flu-risk-remains",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United States."
+    },
+    {
+      "id": "gdelt-12af23268498",
+      "record_type": "event",
+      "disease": "Epidemics Tracker Archives",
+      "title": "Epidemics Tracker Archives - The Independent Uganda :",
+      "location": "Uganda",
+      "iso3": "UGA",
+      "lat": 1.37,
+      "lon": 32.29,
+      "location_precision": "country",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-13T12:30:00Z",
+      "onset": null,
+      "reported": "2026-08-13T12:30:00Z",
+      "updated": "2026-08-13T12:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • independent.co.ug",
+      "source_id": "gdelt",
+      "source_url": "https://www.independent.co.ug/epidemics-tracker/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Uganda."
+    },
+    {
+      "id": "gdelt-3983ca267fd2",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Australia Tasmania reports 1st H5N1 bird flu case",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T09:15:00Z",
+      "onset": null,
+      "reported": "2026-08-13T09:15:00Z",
+      "updated": "2026-08-13T09:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • sydneysun.com",
+      "source_id": "gdelt",
+      "source_url": "http://www.sydneysun.com/news/279237896/australia-tasmania-reports-1st-h5n1-bird-flu-case",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-8943775e1757",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Australia Tasmania reports 1st H5N1 bird flu case",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T09:15:00Z",
+      "onset": null,
+      "reported": "2026-08-13T09:15:00Z",
+      "updated": "2026-08-13T09:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • australianherald.com",
+      "source_id": "gdelt",
+      "source_url": "http://www.australianherald.com/news/279237896/australia-tasmania-reports-1st-h5n1-bird-flu-case",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-d4f443d74ccc",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Bird flu confirmed in Tassie as battle for survival looms for Coorong pelicans",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T09:15:00Z",
+      "onset": null,
+      "reported": "2026-08-13T09:15:00Z",
+      "updated": "2026-08-13T09:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • abc.net.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.abc.net.au/listen/programs/australia-wide/australia-wide/107015088",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-3f3108548d82",
+      "record_type": "report",
+      "disease": "Ebola virus disease",
+      "title": "ഏറ്റവും മാരകമായ എബോള വ്യാപനം ; അടുത്ത ആറുമാസത്തിൽ ഏറ്റവും ഉയർന്നഘട്ടമെന്ന് WHO | WHO Warns Worst Ebola Outbreak Peak Expected in Six Months",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-13T09:00:00Z",
+      "onset": null,
+      "reported": "2026-08-13T09:00:00Z",
+      "updated": "2026-08-13T09:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • mathrubhumi.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.mathrubhumi.com/health/news/who-warns-ebola-outbreak-peak-expected-in-six-months-rsu3q97o",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: Malayalam; negara media: India."
+    },
+    {
+      "id": "gdelt-ce4c956ec804",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Australia Tasmania reports 1st H5N1 bird flu case",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T06:45:00Z",
+      "onset": null,
+      "reported": "2026-08-13T06:45:00Z",
+      "updated": "2026-08-13T06:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • prokerala.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.prokerala.com/news/articles/a1799720.html",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: India."
+    },
+    {
+      "id": "gdelt-fe5523a02513",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Australia Tasmania reports 1st H5N1 bird flu case - Xinhua",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T05:00:00Z",
+      "onset": null,
+      "reported": "2026-08-13T05:00:00Z",
+      "updated": "2026-08-13T05:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • english.news.cn",
+      "source_id": "gdelt",
+      "source_url": "https://english.news.cn/20260813/87ac48e9544245f399e2233fc2297f44/c.html",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: —."
+    },
+    {
+      "id": "gdelt-e04b85cb6f4c",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "H5 bird flu case confirmed in Tasmania",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T04:30:00Z",
+      "onset": null,
+      "reported": "2026-08-13T04:30:00Z",
+      "updated": "2026-08-13T04:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • odt.co.nz",
+      "source_id": "gdelt",
+      "source_url": "https://www.odt.co.nz/news/world/h5-bird-flu-case-confirmed-in-tasmania-hhki7azi",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: New Zealand."
+    },
+    {
+      "id": "gdelt-cd98fa45ba0b",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Australia Tasmania reports 1st H5N1 bird flu case",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T03:00:00Z",
+      "onset": null,
+      "reported": "2026-08-13T03:00:00Z",
+      "updated": "2026-08-13T03:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • bignewsnetwork.com",
+      "source_id": "gdelt",
+      "source_url": "http://www.bignewsnetwork.com/news/279237896/australia-tasmania-reports-1st-h5n1-bird-flu-case",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United States."
+    },
+    {
+      "id": "gdelt-e5723857a6b3",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Tasmania records first case of deadly bird flu strain",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T02:00:00Z",
+      "onset": null,
+      "reported": "2026-08-13T02:00:00Z",
+      "updated": "2026-08-13T02:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • naroomanewsonline.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.naroomanewsonline.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-444beda1d3bd",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Tasmania records first case of deadly bird flu strain",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T02:00:00Z",
+      "onset": null,
+      "reported": "2026-08-13T02:00:00Z",
+      "updated": "2026-08-13T02:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • bunburymail.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.bunburymail.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-28ef555b4d1b",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Tasmania records first case of deadly bird flu strain",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T01:45:00Z",
+      "onset": null,
+      "reported": "2026-08-13T01:45:00Z",
+      "updated": "2026-08-13T01:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • macleayargus.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.macleayargus.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-f24f3766cb89",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Tasmania records first case of deadly bird flu strain",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T01:45:00Z",
+      "onset": null,
+      "reported": "2026-08-13T01:45:00Z",
+      "updated": "2026-08-13T01:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • edenmagnet.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.edenmagnet.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-3ee7ac719357",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Tasmania records first case of deadly bird flu strain",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T01:45:00Z",
+      "onset": null,
+      "reported": "2026-08-13T01:45:00Z",
+      "updated": "2026-08-13T01:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • bluemountainsgazette.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.bluemountainsgazette.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-84329f340200",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Tasmania records first case of deadly bird flu strain",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T01:45:00Z",
+      "onset": null,
+      "reported": "2026-08-13T01:45:00Z",
+      "updated": "2026-08-13T01:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • theleader.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.theleader.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-91cd4b87138c",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Tasmania records first case of deadly bird flu strain",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T01:15:00Z",
+      "onset": null,
+      "reported": "2026-08-13T01:15:00Z",
+      "updated": "2026-08-13T01:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • tenterfieldstar.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.tenterfieldstar.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-6b9a4183cb19",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Tasmania records first case of deadly bird flu strain",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T01:15:00Z",
+      "onset": null,
+      "reported": "2026-08-13T01:15:00Z",
+      "updated": "2026-08-13T01:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • portnews.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.portnews.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-8629feaccba0",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Tasmania records first case of deadly bird flu strain",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T01:00:00Z",
+      "onset": null,
+      "reported": "2026-08-13T01:00:00Z",
+      "updated": "2026-08-13T01:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • illawarramercury.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.illawarramercury.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-3a6d730e4218",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Tasmania records first case of deadly bird flu strain",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T01:00:00Z",
+      "onset": null,
+      "reported": "2026-08-13T01:00:00Z",
+      "updated": "2026-08-13T01:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • canberratimes.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.canberratimes.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-391f11fbf20b",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Tasmania records first case of deadly bird flu strain",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T01:00:00Z",
+      "onset": null,
+      "reported": "2026-08-13T01:00:00Z",
+      "updated": "2026-08-13T01:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • southernhighlandnews.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.southernhighlandnews.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-e34b74ae9abb",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Tasmania records first case of deadly bird flu strain",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T00:45:00Z",
+      "onset": null,
+      "reported": "2026-08-13T00:45:00Z",
+      "updated": "2026-08-13T00:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • oberonreview.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.oberonreview.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-e203da86dc8b",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Tasmania records first case of deadly bird flu strain",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T00:45:00Z",
+      "onset": null,
+      "reported": "2026-08-13T00:45:00Z",
+      "updated": "2026-08-13T00:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • portstephensexaminer.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.portstephensexaminer.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-34db72697eb5",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Tasmania records first case of deadly bird flu strain",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T00:45:00Z",
+      "onset": null,
+      "reported": "2026-08-13T00:45:00Z",
+      "updated": "2026-08-13T00:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • armidaleexpress.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.armidaleexpress.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-cd0dca72c1c8",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Tasmania records first case of deadly bird flu strain",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T00:45:00Z",
+      "onset": null,
+      "reported": "2026-08-13T00:45:00Z",
+      "updated": "2026-08-13T00:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • merimbulanewsweekly.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.merimbulanewsweekly.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-f37dbb9c99db",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Tasmania records first case of deadly bird flu strain",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T00:45:00Z",
+      "onset": null,
+      "reported": "2026-08-13T00:45:00Z",
+      "updated": "2026-08-13T00:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • begadistrictnews.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.begadistrictnews.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-dea700ac81f3",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Tasmania confirms first case of deadly bird flu strain H5N1",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T00:15:00Z",
+      "onset": null,
+      "reported": "2026-08-13T00:15:00Z",
+      "updated": "2026-08-13T00:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • abc.net.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.abc.net.au/news/2026-08-13/tasmania-confirms-first-case-of-deadly-bird-flu-strain-h5n1/106831126",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-5314e744322d",
+      "record_type": "report",
+      "disease": "Wildlife Responds As Gingham Waterhole Fills | News",
+      "title": "Wildlife Responds As Gingham Waterhole Fills | News",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-12T23:45:00Z",
+      "onset": null,
+      "reported": "2026-08-12T23:45:00Z",
+      "updated": "2026-08-12T23:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • miragenews.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.miragenews.com/wildlife-responds-as-gingham-waterhole-fills-1726380/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United States."
+    },
+    {
+      "id": "gdelt-277ab78f644a",
+      "record_type": "event",
+      "disease": "Argentina Wins Back EU Market Access for Its Poultry",
+      "title": "Argentina Wins Back EU Market Access for Its Poultry",
+      "location": "Argentina",
+      "iso3": "ARG",
+      "lat": -38.42,
+      "lon": -63.62,
+      "location_precision": "country",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-12T19:30:00Z",
+      "onset": null,
+      "reported": "2026-08-12T19:30:00Z",
+      "updated": "2026-08-12T19:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • riotimesonline.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.riotimesonline.com/argentina-wins-back-eu-market-access-for-its-poultry/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Brazil."
+    },
+    {
+      "id": "gdelt-d991b035256c",
+      "record_type": "event",
+      "disease": "Researchers Boost Singapore Biosurveillance Skills",
+      "title": "Researchers Boost Singapore Biosurveillance Skills",
+      "location": "Singapore",
+      "iso3": "SGP",
+      "lat": 1.35,
+      "lon": 103.82,
+      "location_precision": "country",
+      "scopes": [
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-12T03:30:00Z",
+      "onset": null,
+      "reported": "2026-08-12T03:30:00Z",
+      "updated": "2026-08-12T03:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • miragenews.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.miragenews.com/researchers-boost-singapores-biosurveillance-1725716/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United States."
+    },
+    {
+      "id": "gdelt-43f8ac45c6f6",
+      "record_type": "report",
+      "disease": "Leptospirosis",
+      "title": "Dengue , leptospirosis y tosferina se multiplican respecto a 2025 para esta fecha",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-12T02:00:00Z",
+      "onset": null,
+      "reported": "2026-08-12T02:00:00Z",
+      "updated": "2026-08-12T02:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • elnacional.com.do",
+      "source_id": "gdelt",
+      "source_url": "https://elnacional.com.do/nacionales/dengue-leptospirosis-tosferina-multiplican-respecto-2025-fecha_578134.html",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: Spanish; negara media: Dominican Republic."
+    },
+    {
+      "id": "gdelt-4c47af73b098",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "Iowa State University H5N1 study highlights need for broader livestock surveillance",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-12T01:15:00Z",
+      "onset": null,
+      "reported": "2026-08-12T01:15:00Z",
+      "updated": "2026-08-12T01:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • thecattlesite.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.thecattlesite.com/articles/iowa-state-universitys-h5n1-study-highlights-need-for-broader-livestock-surveillance",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United Kingdom."
+    },
+    {
+      "id": "gdelt-442fd4ee58a5",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "Dairy manure and U . S . bird flu : Connection explored",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-11T17:00:00Z",
+      "onset": null,
+      "reported": "2026-08-11T17:00:00Z",
+      "updated": "2026-08-11T17:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • manitobacooperator.ca",
+      "source_id": "gdelt",
+      "source_url": "https://www.manitobacooperator.ca/livestock/dairy-manure-and-bird-flu-spread-fertilizer-spreading-and-disease-risk-h5n1/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Canada."
+    },
+    {
+      "id": "gdelt-f856f219afab",
+      "record_type": "report",
+      "disease": "Australien vil vaccinere udsatte arter mod fugleinfluenza | Nyheder",
+      "title": "Australien vil vaccinere udsatte arter mod fugleinfluenza | Nyheder",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-11T08:45:00Z",
+      "onset": null,
+      "reported": "2026-08-11T08:45:00Z",
+      "updated": "2026-08-11T08:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • dr.dk",
+      "source_id": "gdelt",
+      "source_url": "https://www.dr.dk/nyheder/seneste/australien-vil-vaccinere-udsatte-arter-mod-fugleinfluenza",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: Danish; negara media: Denmark."
+    },
+    {
+      "id": "gdelt-ca50ecac0ace",
+      "record_type": "report",
+      "disease": "澳洲防範H5禽流感擴大 將為鳥類接種疫苗 | 國際",
+      "title": "澳洲防範H5禽流感擴大 將為鳥類接種疫苗 | 國際",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-11T08:15:00Z",
+      "onset": null,
+      "reported": "2026-08-11T08:15:00Z",
+      "updated": "2026-08-11T08:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • cna.com.tw",
+      "source_id": "gdelt",
+      "source_url": "https://www.cna.com.tw:443/news/aopl/202608110176.aspx",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: Chinese; negara media: Taiwan."
+    },
+    {
+      "id": "gdelt-c8e599b6c9b0",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Australia to roll out bird flu vaccines for most vulnerable native birds",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-11T07:45:00Z",
+      "onset": null,
+      "reported": "2026-08-11T07:45:00Z",
+      "updated": "2026-08-11T07:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • the-star.co.ke",
+      "source_id": "gdelt",
+      "source_url": "https://www.the-star.co.ke/news/world/2026-08-11-australia-to-roll-out-bird-flu-vaccines-for-most-vulnerable-native-birds",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Kenya."
+    },
+    {
+      "id": "gdelt-50f1d6c4390e",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "H5N1 infections remain rare among workers exposed to infected birds",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-11T03:30:00Z",
+      "onset": null,
+      "reported": "2026-08-11T03:30:00Z",
+      "updated": "2026-08-11T03:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • news-medical.net",
+      "source_id": "gdelt",
+      "source_url": "https://www.news-medical.net/news/20260810/H5N1-infections-remain-rare-among-workers-exposed-to-infected-birds.aspx",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United States."
+    },
+    {
+      "id": "gdelt-80ce911601a5",
+      "record_type": "report",
+      "disease": "Heavy rainfall and flooding raise infectious disease risks across Europe",
+      "title": "Heavy rainfall and flooding raise infectious disease risks across Europe",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-11T03:30:00Z",
+      "onset": null,
+      "reported": "2026-08-11T03:30:00Z",
+      "updated": "2026-08-11T03:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • news-medical.net",
+      "source_id": "gdelt",
+      "source_url": "https://www.news-medical.net/news/20260810/Heavy-rainfall-and-flooding-raise-infectious-disease-risks-across-Europe.aspx",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United States."
+    },
+    {
+      "id": "gdelt-e702b6bda36d",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Australia to vaccinate vulnerable species against H5N1 bird flu",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-11T02:45:00Z",
+      "onset": null,
+      "reported": "2026-08-11T02:45:00Z",
+      "updated": "2026-08-11T02:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • bignewsnetwork.com",
+      "source_id": "gdelt",
+      "source_url": "http://www.bignewsnetwork.com/news/279233669/australia-to-vaccinate-vulnerable-species-against-h5n1-bird-flu",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United States."
+    },
+    {
+      "id": "gdelt-ed1b3954ecb7",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Australia to vaccinate vulnerable species against H5N1 bird flu - Xinhua",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-11T02:30:00Z",
+      "onset": null,
+      "reported": "2026-08-11T02:30:00Z",
+      "updated": "2026-08-11T02:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • english.news.cn",
+      "source_id": "gdelt",
+      "source_url": "https://english.news.cn/20260811/e99f96a84e7b49148e57bc1c98efe63c/c.html",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: —."
+    },
+    {
+      "id": "gdelt-02e07e2bcc0a",
+      "record_type": "report",
+      "disease": "Flu vaccinations to be rolled out for endangered birds",
+      "title": "Flu vaccinations to be rolled out for endangered birds",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-11T02:30:00Z",
+      "onset": null,
+      "reported": "2026-08-11T02:30:00Z",
+      "updated": "2026-08-11T02:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • perthnow.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.perthnow.com.au/news/politics/flu-vaccinations-to-be-rolled-out-for-endangered-birds-c-22705415",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-3fb43309328d",
+      "record_type": "report",
+      "disease": "Flu vaccinations to be rolled out for endangered birds",
+      "title": "Flu vaccinations to be rolled out for endangered birds",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-11T02:15:00Z",
+      "onset": null,
+      "reported": "2026-08-11T02:15:00Z",
+      "updated": "2026-08-11T02:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • canberratimes.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.canberratimes.com.au/story/9327936/flu-vaccinations-to-be-rolled-out-for-endangered-birds/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-fa8976313009",
+      "record_type": "event",
+      "disease": "Flu vaccinations to be rolled out for endangered birds in Australia",
+      "title": "Flu vaccinations to be rolled out for endangered birds in Australia",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-11T02:15:00Z",
+      "onset": null,
+      "reported": "2026-08-11T02:15:00Z",
+      "updated": "2026-08-11T02:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • odt.co.nz",
+      "source_id": "gdelt",
+      "source_url": "https://www.odt.co.nz/news/world/flu-vaccinations-to-be-rolled-out-for-endangered-birds-in-australia-avhw2c4t",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: New Zealand."
+    },
+    {
+      "id": "gdelt-52118fc6c2a8",
+      "record_type": "report",
+      "disease": "Mpox",
+      "title": "Clade I mpox case diagnosed in San Diego County after travel abroad",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-11T01:45:00Z",
+      "onset": null,
+      "reported": "2026-08-11T01:45:00Z",
+      "updated": "2026-08-11T01:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • nbcsandiego.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.nbcsandiego.com/news/local/first-clade-i-mpox-case-diagnosed-in-san-diego-county/4059372/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United States."
+    },
+    {
+      "id": "gdelt-6d1a3944653c",
+      "record_type": "report",
+      "disease": "EPA Extends EVP Guidance for Antimicrobial Pesticides",
+      "title": "EPA Extends EVP Guidance for Antimicrobial Pesticides",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-11T01:15:00Z",
+      "onset": null,
+      "reported": "2026-08-11T01:15:00Z",
+      "updated": "2026-08-11T01:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • natlawreview.com",
+      "source_id": "gdelt",
+      "source_url": "https://natlawreview.com/article/epa-extends-emerging-viral-pathogen-guidance-mpox-virus",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United States."
+    },
+    {
+      "id": "gdelt-aee078d9d522",
+      "record_type": "report",
+      "disease": "Mpox",
+      "title": "Clade I Mpox case diagnosed in San Diego County after tavel abroad",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-10T23:00:00Z",
+      "onset": null,
+      "reported": "2026-08-10T23:00:00Z",
+      "updated": "2026-08-10T23:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • 10news.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.10news.com/news/local-news/clade-i-mpox-case-diagnosed-in-san-diego-county-after-tavel-abroad",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United States."
+    },
+    {
+      "id": "gdelt-3a24003f0cb9",
+      "record_type": "event",
+      "disease": "Ebola virus disease",
+      "title": "NanoViricides Has Received Regulatory Approval for a Phase II Clinical Trial of NV - 387 Oral Gummies as a Treatment for Ebola in DR Congo To Fight the Current Largest Ever and Expanding Ebola Outbreak",
+      "location": "Democratic Republic of the Congo",
+      "iso3": "COD",
+      "lat": -4.04,
+      "lon": 21.76,
+      "location_precision": "country",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-10T17:15:00Z",
+      "onset": null,
+      "reported": "2026-08-10T17:15:00Z",
+      "updated": "2026-08-10T17:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • tennesseedaily.com",
+      "source_id": "gdelt",
+      "source_url": "http://www.tennesseedaily.com/news/279229228/nanoviricides-has-received-regulatory-approval-for-a-phase-ii-clinical-trial-of-nv-387-oral-gummies-as-a-treatment-for-ebola-in-dr-congo-to-fight-the-current-largest-ever-and-expanding-ebola-outbreak",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United States."
+    },
+    {
+      "id": "gdelt-4b94f4d3d1da",
+      "record_type": "event",
+      "disease": "Ebola virus disease",
+      "title": "NanoViricides Has Received Regulatory Approval for a Phase II Clinical Trial of NV - 387 Oral Gummies as a Treatment for Ebola in DR Congo To Fight the Current Largest Ever and Expanding Ebola Outbreak",
+      "location": "Democratic Republic of the Congo",
+      "iso3": "COD",
+      "lat": -4.04,
+      "lon": 21.76,
+      "location_precision": "country",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-10T16:30:00Z",
+      "onset": null,
+      "reported": "2026-08-10T16:30:00Z",
+      "updated": "2026-08-10T16:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • californiatelegraph.com",
+      "source_id": "gdelt",
+      "source_url": "http://www.californiatelegraph.com/news/279229228/nanoviricides-has-received-regulatory-approval-for-a-phase-ii-clinical-trial-of-nv-387-oral-gummies-as-a-treatment-for-ebola-in-dr-congo-to-fight-the-current-largest-ever-and-expanding-ebola-outbreak",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United States."
+    },
+    {
+      "id": "gdelt-e475aa2f450d",
+      "record_type": "event",
+      "disease": "Ebola virus disease",
+      "title": "NanoViricides Has Received Regulatory Approval for a Phase II Clinical Trial of NV - 387 Oral Gummies as a Treatment for Ebola in DR Congo To Fight the Current Largest Ever and Expanding Ebola Outbreak",
+      "location": "Democratic Republic of the Congo",
+      "iso3": "COD",
+      "lat": -4.04,
+      "lon": 21.76,
+      "location_precision": "country",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-10T13:00:00Z",
+      "onset": null,
+      "reported": "2026-08-10T13:00:00Z",
+      "updated": "2026-08-10T13:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • finanznachrichten.de",
+      "source_id": "gdelt",
+      "source_url": "https://www.finanznachrichten.de/nachrichten-2026-08/69265393-nanoviricides-has-received-regulatory-approval-for-a-phase-ii-clinical-trial-of-nv-387-oral-gummies-as-a-treatment-for-ebola-in-dr-congo-to-fight-the-200.htm",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Germany."
+    },
+    {
+      "id": "gdelt-d04f1ebaac1f",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "Quest for dairy cow vaccine against bird flu gets new clues",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-10T12:30:00Z",
+      "onset": null,
+      "reported": "2026-08-10T12:30:00Z",
+      "updated": "2026-08-10T12:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • manitobacooperator.ca",
+      "source_id": "gdelt",
+      "source_url": "https://www.manitobacooperator.ca/livestock/dairy-cow-vaccine-against-highly-pathogenic-avian-influenza-bird-flu-clues/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Canada."
+    },
+    {
+      "id": "gdelt-e62b7bfa2029",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "Researchers develop potential vaccine to protect cattle from bird flu",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-10T02:30:00Z",
+      "onset": null,
+      "reported": "2026-08-10T02:30:00Z",
+      "updated": "2026-08-10T02:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • thecattlesite.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.thecattlesite.com/articles/university-of-nebraska-lincoln-researchers-develop-potential-vaccine-to-protect-livestock-from-bird-flu",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United Kingdom."
+    },
+    {
+      "id": "gdelt-743d8e8406dd",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "São Paulo bird flu case | The Rio Times",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-10T00:00:00Z",
+      "onset": null,
+      "reported": "2026-08-10T00:00:00Z",
+      "updated": "2026-08-10T00:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • riotimesonline.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.riotimesonline.com/sao-paulo-second-bird-flu-wild-bird-2026/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Brazil."
+    },
+    {
+      "id": "gdelt-a3a2cea1dd60",
+      "record_type": "report",
+      "disease": "Letter to the Editor : When USAID was fed into the woodchipper",
+      "title": "Letter to the Editor : When USAID was fed into the woodchipper",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-09T10:45:00Z",
+      "onset": null,
+      "reported": "2026-08-09T10:45:00Z",
+      "updated": "2026-08-09T10:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • chicoer.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.chicoer.com/2026/08/09/letter-to-the-editor-when-usaid-was-fed-into-the-woodchipper/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United States."
+    },
+    {
+      "id": "gdelt-48d3948b5e78",
+      "record_type": "report",
+      "disease": "Emergent Biosolutions Q2 Earnings Call Highlights",
+      "title": "Emergent Biosolutions Q2 Earnings Call Highlights",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-09T09:45:00Z",
+      "onset": null,
+      "reported": "2026-08-09T09:45:00Z",
+      "updated": "2026-08-09T09:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • finance.yahoo.com",
+      "source_id": "gdelt",
+      "source_url": "https://finance.yahoo.com/healthcare/articles/emergent-biosolutions-q2-earnings-call-050348201.html",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United States."
+    },
+    {
+      "id": "gdelt-416a630f273b",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "Which animals are at risk amid the global bird flu outbreak ?",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-09T04:30:00Z",
+      "onset": null,
+      "reported": "2026-08-09T04:30:00Z",
+      "updated": "2026-08-09T04:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • abc.net.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.abc.net.au/listen/programs/abc-news-top-stories/the-animals-at-risk-amid-the-global-bird-flu-outbreak/107014158",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-f6d3df5822ab",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Everything you need to know about Australia bird flu surge",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-08T19:30:00Z",
+      "onset": null,
+      "reported": "2026-08-08T19:30:00Z",
+      "updated": "2026-08-08T19:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • abc.net.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.abc.net.au/news/2026-08-09/everything-you-need-to-know-about-australias-bird-flu-surge/106998006",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-5e8e437bde04",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "H5 bird flu in Australia : How WA is preparing endangered species for a potential outbreak",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-08T19:00:00Z",
+      "onset": null,
+      "reported": "2026-08-08T19:00:00Z",
+      "updated": "2026-08-08T19:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • brisbanetimes.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.brisbanetimes.com.au/national/western-australia/on-the-front-line-of-wa-s-fight-against-bird-flu-as-fears-grow-for-endangered-species-20260807-p60mei.html",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-b6bb9cf24792",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "H5 bird flu in Australia : How WA is preparing endangered species for a potential outbreak",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-08T18:30:00Z",
+      "onset": null,
+      "reported": "2026-08-08T18:30:00Z",
+      "updated": "2026-08-08T18:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • theage.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.theage.com.au/national/western-australia/on-the-front-line-of-wa-s-fight-against-bird-flu-as-fears-grow-for-endangered-species-20260807-p60mei.html",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
     },
     {
       "id": "who-don-c54e162c456b",
