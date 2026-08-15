@@ -291,7 +291,7 @@ SOURCE_REGISTRY = [
         "access_level": "public",
         "url": "https://www.gdeltproject.org/",
         "default_status": "scheduled",
-        "note": "Semua rekaman tetap berstatus rumor/verifikasi; negara hanya dipetakan bila disebut dalam judul.",
+        "note": "Judul disaring untuk nama penyakit dan indikator kejadian; semua rekaman tetap berstatus rumor/verifikasi, dan negara hanya dipetakan bila disebut dalam judul.",
     },
     {
         "id": "fao-empres",
