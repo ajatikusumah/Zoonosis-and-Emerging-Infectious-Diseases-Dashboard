@@ -820,7 +820,29 @@ svg {
 }
 </style>
 <style>
+  :root[data-visualize-standalone] {
+    background: linear-gradient(135deg, #fff1f2 0%, #fff7ed 28%, #fefce8 54%, #f0fdf4 78%, #eff6ff 100%) fixed !important;
+    color-scheme: light !important;
+    --background: #f8fafc;
+    --foreground: #172033;
+    --card: rgba(255, 255, 255, .88);
+    --card-foreground: #172033;
+    --popover: #ffffff;
+    --popover-foreground: #172033;
+    --primary: #2563eb;
+    --primary-foreground: #ffffff;
+    --secondary: rgba(255, 255, 255, .94);
+    --secondary-foreground: #172033;
+    --muted: rgba(23, 32, 51, .08);
+    --muted-foreground: #5b6474;
+    --accent: #e8f1ff;
+    --accent-foreground: #1d4ed8;
+    --border: rgba(23, 32, 51, .14);
+    --input: rgba(23, 32, 51, .12);
+    --ring: #2563eb;
+  }
   html > body {
+    background: transparent !important;
     margin: 0 auto;
     max-width: 1500px;
     padding: 18px clamp(12px, 3vw, 40px) 40px;
@@ -876,6 +898,10 @@ svg {
     @import url("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
 
     #zoonosis-dashboard-v2 {
+      --case-critical: #dc2626;
+      --case-high: #f97316;
+      --case-moderate: #eab308;
+      --case-signal: #22c55e;
       color: var(--foreground);
       display: grid;
       gap: 18px;
@@ -944,13 +970,22 @@ svg {
       height: 14px;
       width: 14px;
     }
-    #zoonosis-dashboard-v2 .event-marker-confirmed {
-      background: var(--viz-series-1);
+    #zoonosis-dashboard-v2 .event-marker-critical {
+      background: var(--case-critical);
       border-radius: 50%;
     }
-    #zoonosis-dashboard-v2 .event-marker-rumor {
-      background: var(--viz-series-4);
+    #zoonosis-dashboard-v2 .event-marker-high {
+      background: var(--case-high);
+      border-radius: 4px;
+    }
+    #zoonosis-dashboard-v2 .event-marker-moderate {
+      background: var(--case-moderate);
       transform: rotate(45deg);
+    }
+    #zoonosis-dashboard-v2 .event-marker-signal {
+      background: var(--case-signal);
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--background) 72%, transparent);
     }
     #zoonosis-dashboard-v2 .event-marker.is-selected {
       box-shadow: 0 0 0 3px var(--foreground);
@@ -977,19 +1012,49 @@ svg {
       display: inline-flex;
       gap: 7px;
     }
-    #zoonosis-dashboard-v2 .legend-circle,
-    #zoonosis-dashboard-v2 .legend-diamond {
-      background: var(--viz-series-1);
+    #zoonosis-dashboard-v2 .case-swatch {
       display: inline-block;
       height: 11px;
       width: 11px;
     }
-    #zoonosis-dashboard-v2 .legend-circle {
+    #zoonosis-dashboard-v2 .case-swatch-critical {
+      background: var(--case-critical);
       border-radius: 50%;
     }
-    #zoonosis-dashboard-v2 .legend-diamond {
-      background: var(--viz-series-4);
+    #zoonosis-dashboard-v2 .case-swatch-high {
+      background: var(--case-high);
+      border-radius: 3px;
+    }
+    #zoonosis-dashboard-v2 .case-swatch-moderate {
+      background: var(--case-moderate);
       transform: rotate(45deg);
+    }
+    #zoonosis-dashboard-v2 .case-swatch-signal {
+      background: var(--case-signal);
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--background) 72%, transparent);
+    }
+    #zoonosis-dashboard-v2 .case-status {
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      flex: 0 0 auto;
+      padding: 2px 7px;
+    }
+    #zoonosis-dashboard-v2 .case-critical {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+    #zoonosis-dashboard-v2 .case-high {
+      background: #ffedd5;
+      color: #9a3412;
+    }
+    #zoonosis-dashboard-v2 .case-moderate {
+      background: #fef9c3;
+      color: #854d0e;
+    }
+    #zoonosis-dashboard-v2 .case-signal {
+      background: #dcfce7;
+      color: #166534;
     }
     #zoonosis-dashboard-v2 .detail-card {
       display: grid;
@@ -1051,10 +1116,10 @@ svg {
       stroke-width: 1;
     }
     #zoonosis-dashboard-v2 .bar-confirmed {
-      fill: var(--viz-series-1);
+      fill: var(--case-high);
     }
     #zoonosis-dashboard-v2 .bar-rumor {
-      fill: var(--viz-series-4);
+      fill: var(--case-signal);
     }
     #zoonosis-dashboard-v2 .map-message {
       fill: var(--foreground);
@@ -1278,10 +1343,13 @@ svg {
     <div class="section-heading">
       <h3 id="zv2-map-heading">Peta kejadian</h3>
       <div class="legend-items text-small" aria-label="Legenda peta">
-        <span class="legend-item"><span class="legend-circle" aria-hidden="true"></span>Terkonfirmasi</span>
-        <span class="legend-item"><span class="legend-diamond" aria-hidden="true"></span>Rumor/sedang diverifikasi</span>
+        <span class="legend-item"><span class="case-swatch case-swatch-critical" aria-hidden="true"></span>Kritis: ada kematian</span>
+        <span class="legend-item"><span class="case-swatch case-swatch-high" aria-hidden="true"></span>Tinggi: kasus/outbreak terkonfirmasi</span>
+        <span class="legend-item"><span class="case-swatch case-swatch-moderate" aria-hidden="true"></span>Sedang: monitoring resmi</span>
+        <span class="legend-item"><span class="case-swatch case-swatch-signal" aria-hidden="true"></span>Sinyal awal: belum diverifikasi</span>
       </div>
     </div>
+    <div class="text-small text-muted">Warna menunjukkan kategori operasional berdasarkan status verifikasi dan dampak yang tersedia. Hijau berarti sinyal belum diverifikasi, bukan berarti bebas risiko.</div>
     <div class="map-wrap" id="zv2-map-wrap">
       <div class="load-state text-small" id="zv2-map-loading">Memuat peta…</div>
       <div class="leaflet-map" id="zv2-map" role="region" aria-label="Peta OpenStreetMap kejadian zoonosis. Sorot atau fokuskan marker untuk melihat nama kejadian dan sumbernya."></div>
@@ -1295,6 +1363,7 @@ svg {
         <span class="text-small text-muted" id="zv2-detail-id">Event ID: —</span>
       </div>
       <div class="detail-badges">
+        <span class="case-status case-moderate text-small" id="zv2-case-category">Kategori: —</span>
         <span class="viz-badge" id="zv2-evidence-status">Status bukti: —</span>
         <span class="viz-badge" id="zv2-response-status">Penanganan: —</span>
       </div>
@@ -1648,6 +1717,9 @@ svg {
         setText("#zv2-detail-id", "Event ID: —");
         setText("#zv2-evidence-status", "Status bukti: —");
         setText("#zv2-response-status", "Penanganan: —");
+        const emptyCategory = root.querySelector("#zv2-case-category");
+        emptyCategory.className = "case-status case-moderate text-small";
+        emptyCategory.textContent = "Kategori: —";
         setText("#zv2-detail-change", "Ubah filter untuk melihat kejadian lain.");
         grid.hidden = true;
         return;
@@ -1655,6 +1727,10 @@ svg {
       grid.hidden = false;
       setText("#zv2-detail-name", event.disease + " • " + event.location);
       setText("#zv2-detail-id", "Event ID: " + event.id);
+      const category = caseCategory(event);
+      const categoryBadge = root.querySelector("#zv2-case-category");
+      categoryBadge.className = "case-status case-" + category.key + " text-small";
+      categoryBadge.textContent = "Kategori: " + category.label;
       setText("#zv2-evidence-status", "Status bukti: " + (event.evidence === "confirmed" ? "Terkonfirmasi" : "Rumor/verifikasi"));
       setText("#zv2-response-status", "Penanganan: " + event.response);
       setText("#zv2-detail-change", "Perubahan terbaru: " + (event.change || event.summary || "—"));
@@ -1704,6 +1780,24 @@ svg {
         .replaceAll("'", "&#039;");
     }
 
+    function caseCategory(event) {
+      const humanDeaths = Number.isFinite(event.human?.deaths) ? event.human.deaths : 0;
+      const animalDeaths = Number.isFinite(event.animal?.deaths) ? event.animal.deaths : 0;
+      const humanConfirmed = Number.isFinite(event.human?.confirmed) ? event.human.confirmed : 0;
+      const animalOutbreaks = Number.isFinite(event.animal?.outbreaks) ? event.animal.outbreaks : 0;
+      const animalSick = Number.isFinite(event.animal?.sick) ? event.animal.sick : 0;
+      if (event.evidence === "confirmed" && humanDeaths + animalDeaths > 0) {
+        return { key: "critical", label: "Kritis" };
+      }
+      if (event.evidence === "confirmed" && humanConfirmed + animalOutbreaks + animalSick > 0) {
+        return { key: "high", label: "Tinggi" };
+      }
+      if (event.evidence === "confirmed") {
+        return { key: "moderate", label: "Sedang/monitoring" };
+      }
+      return { key: "signal", label: "Sinyal awal" };
+    }
+
     function evidenceLabel(event) {
       return event.evidence === "confirmed" ? "Terkonfirmasi" : "Rumor/sedang diverifikasi";
     }
@@ -1712,6 +1806,7 @@ svg {
       return [
         '<div class="map-tooltip-content">',
         "<strong>" + escapeHtml(event.disease + " • " + event.location) + "</strong>",
+        "<span>Kategori: " + escapeHtml(caseCategory(event).label) + "</span>",
         "<span>Status: " + escapeHtml(evidenceLabel(event)) + "</span>",
         "<span>Sumber: " + escapeHtml(event.source) + "</span>",
         "</div>"
@@ -1824,10 +1919,9 @@ svg {
         link.rel = "noopener noreferrer";
         link.textContent = record.title || record.disease + " • " + record.location;
         const badge = document.createElement("span");
-        badge.className = "source-status text-small " + (record.evidence === "confirmed" ? "source-status-live" : "source-status-limited");
-        badge.textContent = record.record_type === "report"
-          ? "Publikasi"
-          : (record.evidence === "confirmed" ? "Resmi" : "Rumor");
+        const category = caseCategory(record);
+        badge.className = "case-status case-" + category.key + " text-small";
+        badge.textContent = category.label;
         head.append(link, badge);
         const meta = document.createElement("div");
         meta.className = "text-small text-muted";
@@ -1859,8 +1953,9 @@ svg {
 
       items.forEach((event) => {
         const selectedClass = event.id === state.selectedId ? " is-selected" : "";
-        const statusClass = event.evidence === "confirmed" ? "event-marker-confirmed" : "event-marker-rumor";
-        const label = event.disease + " di " + event.location + ", " + evidenceLabel(event) + ", sumber " + event.source;
+        const category = caseCategory(event);
+        const statusClass = "event-marker-" + category.key;
+        const label = event.disease + " di " + event.location + ", kategori " + category.label + ", " + evidenceLabel(event) + ", sumber " + event.source;
         const icon = L.divIcon({
           className: "zv2-leaflet-icon",
           html: '<span class="event-marker ' + statusClass + selectedClass + '" aria-hidden="true"></span>',

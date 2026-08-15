@@ -6,7 +6,8 @@ Situs: https://ajatikusumah.github.io/Zoonosis-and-Emerging-Infectious-Diseases-
 
 ## Fitur
 
-- Peta OpenStreetMap dengan tooltip nama penyakit, lokasi, status bukti, dan sumber.
+- Peta OpenStreetMap dengan tooltip nama penyakit, lokasi, kategori kasus, status bukti, dan sumber.
+- Skala warna operasional: merah untuk kejadian terkonfirmasi dengan kematian, jingga untuk kasus/outbreak terkonfirmasi, kuning untuk monitoring resmi tanpa angka dampak terstruktur, dan hijau untuk sinyal awal yang belum diverifikasi.
 - Pemisahan tegas antara rekaman resmi/terkonfirmasi dan rumor atau sinyal media yang masih perlu diverifikasi.
 - Filter wilayah, periode, penyakit, sumber, dan status bukti.
 - Publikasi dan laporan ditampilkan terpisah dari kejadian agar tidak menaikkan KPI kasus.
