@@ -128,9 +128,12 @@ COUNTRIES = {
 
 
 DISEASES = [
-    ("Avian influenza", ["avian influenza", "bird flu", "h5n1", "h5n5", "h5n6", "h9n2", "flu burung"]),
+    ("Avian influenza", [
+        "avian influenza", "avian flu", "bird flu", "h5n1", "h5n5", "h5n6", "h9n2",
+        "flu burung", "gripe aviar", "influenza aviar", "grippe aviaire", "influenza aviária",
+    ]),
     ("Anthrax", ["anthrax", "antraks"]),
-    ("Rabies", ["rabies"]),
+    ("Rabies", ["rabies", "rabia", "raiva"]),
     ("Leptospirosis", ["leptospirosis"]),
     ("Nipah", ["nipah"]),
     ("Hantavirus", ["hantavirus", "hanta"]),
@@ -141,13 +144,62 @@ DISEASES = [
     ("West Nile fever", ["west nile"]),
     ("Crimean-Congo haemorrhagic fever", ["crimean-congo", "cchf"]),
     ("Rift Valley fever", ["rift valley fever"]),
-    ("Brucellosis", ["brucellosis", "brucellosis"]),
+    ("Brucellosis", ["brucellosis", "brucelosis"]),
     ("Lassa fever", ["lassa fever"]),
     ("Yellow fever", ["yellow fever", "demam kuning"]),
     ("Dengue", ["dengue"]),
     ("Cholera", ["cholera", "kolera"]),
     ("Meningococcal disease", ["meningococcal", "meningokokus"]),
 ]
+
+
+# GDELT searches full article text, so a query hit does not prove that the headline
+# describes a disease event. These terms provide a deliberately high-precision
+# event screen before a media item can enter the dashboard.
+GDELT_EVENT_TERMS = (
+    "outbreak", "case", "cases", "confirm", "confirms", "confirmed", "confirmation", "detected", "detection",
+    "positive", "infection", "infections", "infected", "death", "deaths", "dead", "died", "dies",
+    "fatal", "mortality",
+    "suspect", "suspected", "sick", "illness", "culled", "culling", "quarantine",
+    "wabah", "kasus", "terkonfirmasi", "terdeteksi", "positif", "infeksi", "terinfeksi",
+    "kematian", "meninggal", "suspek", "sakit", "dimusnahkan", "karantina",
+    "brote", "caso", "casos", "confirmado", "confirmada", "detectado", "detectada",
+    "infectado", "infectada", "muertes", "muerte", "sospechoso", "sospechosa",
+    "surto", "confirmada", "detectada", "infectada", "mortes", "suspeito", "suspeita",
+    "épidémie", "foyer", "confirmé", "confirmée", "détecté", "détectée", "infecté",
+    "infectée", "décès", "suspecté", "suspectée",
+)
+
+# These terms override a non-event context because they directly describe an
+# epidemiological occurrence, e.g. "outbreak prompts vaccination".
+GDELT_HARD_EVENT_TERMS = (
+    "outbreak", "confirm", "confirms", "confirmed", "detected", "positive", "infection", "infections", "infected",
+    "death", "deaths", "dead", "died", "dies", "fatal", "mortality", "culled", "culling",
+    "wabah", "terkonfirmasi", "terdeteksi", "positif", "infeksi", "terinfeksi", "kematian",
+    "meninggal", "dimusnahkan", "brote", "confirmado", "confirmada", "detectado", "detectada",
+    "infectado", "infectada", "muertes", "muerte", "surto", "épidémie", "foyer", "confirmé",
+    "confirmée", "détecté", "détectée", "infecté", "infectée", "décès",
+)
+
+GDELT_NON_EVENT_TERMS = (
+    "market access", "market", "export", "exports", "import", "imports", "trade", "tariff",
+    "earnings", "stock", "shares", "investor", "sales", "price", "economic impact",
+    "vaccine", "vaccination", "vaccinate", "immunization", "immunisation",
+    "research", "researchers", "study", "review", "book", "conference", "seminar", "training",
+    "guideline", "guidance", "policy", "preparedness", "readiness", "simulation", "exercise",
+    "awareness", "campaign", "prevention", "prevent", "anniversary", "history", "evolving",
+    "akses pasar", "ekspor", "impor", "perdagangan", "harga", "penelitian", "kajian",
+    "pelatihan", "pedoman", "kebijakan", "kesiapsiagaan", "simulasi", "kampanye", "pencegahan",
+)
+
+# These phrases indicate that the headline is about preparedness, commentary,
+# or a product/research announcement even when it mentions an existing outbreak.
+GDELT_ALWAYS_NON_EVENT_TERMS = (
+    "potential outbreak", "possible outbreak", "free status", "declared free", "at risk",
+    "clinical trial", "regulatory approval", "phase i trial", "phase ii trial", "phase iii trial",
+    "everything you need to know", "what you need to know", "explainer",
+    "potensi wabah", "kemungkinan wabah", "uji klinis", "persetujuan regulatori",
+)
 
 
 SOURCE_REGISTRY = [
@@ -309,13 +361,62 @@ def strip_markup(value: str) -> str:
     return re.sub(r"\s+", " ", html.unescape(value)).strip()
 
 
-def disease_from_title(title: str) -> str:
-    folded = title.casefold()
+def term_in_text(text: str, term: str) -> bool:
+    """Match a term on Unicode word boundaries to avoid hits such as MERS in farmers."""
+    return re.search(rf"(?<!\w){re.escape(term.casefold())}(?!\w)", text.casefold()) is not None
+
+
+def recognized_disease_from_text(text: str) -> str | None:
     for disease, keywords in DISEASES:
-        if any(keyword in folded for keyword in keywords):
+        if any(term_in_text(text, keyword) for keyword in keywords):
             return disease
+    return None
+
+
+def disease_from_title(title: str) -> str:
+    recognized = recognized_disease_from_text(title)
+    if recognized:
+        return recognized
     head = re.split(r"\s[-–—]\s|,", title, maxsplit=1)[0].strip()
     return head[:90] if head else "Penyakit infeksi emerging"
+
+
+def gdelt_signal_disease(title: str) -> str | None:
+    """Return a disease only when a GDELT headline plausibly describes an event."""
+    disease = recognized_disease_from_text(title)
+    if not disease:
+        return None
+
+    has_event_term = any(term_in_text(title, term) for term in GDELT_EVENT_TERMS)
+    has_hard_event_term = any(term_in_text(title, term) for term in GDELT_HARD_EVENT_TERMS)
+    has_non_event_term = any(term_in_text(title, term) for term in GDELT_NON_EVENT_TERMS)
+    has_always_non_event_term = any(term_in_text(title, term) for term in GDELT_ALWAYS_NON_EVENT_TERMS)
+    disease_keywords = next(keywords for name, keywords in DISEASES if name == disease)
+    folded = title.casefold().lstrip(" \t:;,-–—[]()")
+    disease_led = any(re.match(rf"{re.escape(keyword.casefold())}(?!\w)", folded) for keyword in disease_keywords)
+    has_location = bool(locations_from_text(title))
+
+    if has_always_non_event_term:
+        return None
+    if has_non_event_term and not has_hard_event_term:
+        return None
+    if not has_event_term and not (disease_led and has_location):
+        return None
+    return disease
+
+
+def sanitize_retained_gdelt(records: list[dict]) -> list[dict]:
+    """Re-screen retained GDELT data so stale false positives cannot persist."""
+    screened = []
+    for record in records:
+        disease = gdelt_signal_disease(record.get("title") or "")
+        if not disease:
+            continue
+        cleaned = dict(record)
+        cleaned["disease"] = disease
+        cleaned["record_type"] = "event" if cleaned.get("iso3") else "report"
+        screened.append(cleaned)
+    return screened
 
 
 def locations_from_text(text: str) -> list[dict]:
@@ -912,6 +1013,9 @@ def gdelt_records() -> list[dict]:
         link = article.get("url") or ""
         if not title or not link:
             continue
+        disease = gdelt_signal_disease(title)
+        if not disease:
+            continue
         locations = locations_from_text(title)
         loc = locations[0] if locations else {"iso3": None, "location": "Lokasi belum teridentifikasi", "lat": None, "lon": None}
         seen = article.get("seendate") or ""
@@ -922,7 +1026,7 @@ def gdelt_records() -> list[dict]:
         records.append(base_record(
             id=stable_id("gdelt", link),
             record_type="event" if loc["iso3"] else "report",
-            disease=disease_from_title(title),
+            disease=disease,
             title=title,
             location=loc["location"],
             iso3=loc["iso3"],
@@ -997,6 +1101,8 @@ def main() -> int:
             print(f"{source_id}: {len(records)} records", file=sys.stderr)
         except Exception as exc:  # Keep last known good data per source.
             retained = [record for record in previous_records if record.get("source_id") == source_id]
+            if source_id == "gdelt":
+                retained = sanitize_retained_gdelt(retained)
             all_records.extend(retained)
             source_runtime[source_id] = {
                 "status": "stale" if retained else "error",

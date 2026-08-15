@@ -23,7 +23,7 @@ Situs: https://ajatikusumah.github.io/Zoonosis-and-Emerging-Infectious-Diseases-
 | WHO Disease Outbreak News | Global | Kejadian resmi dari API publik WHO; lokasi dipetakan pada centroid negara bila lokasi rinci tidak tersedia |
 | Kemenkes RI Infeksi Emerging | Nasional | Weekly update dan spot report publik sebagai publikasi, bukan angka kasus terstruktur |
 | WHO SEARO Epidemiological Bulletin | Regional | Buletin resmi sebagai publikasi regional |
-| GDELT | Global | Sinyal media; selalu berstatus rumor/verifikasi sampai ada sumber primer |
+| GDELT | Global | Sinyal media tersaring; wajib memuat penyakit yang dikenali dan indikator kejadian, serta selalu berstatus rumor/verifikasi sampai ada sumber primer |
 
 ## Sumber yang tercatat tetapi belum diambil otomatis
 
@@ -51,6 +51,8 @@ Workflow `.github/workflows/update-data.yml` mempunyai empat pemicu:
 
 Sumber publik seperti WHO, Kemenkes, WHO SEARO, dan GDELT tidak semuanya menyediakan webhook. Karena itu, kasus baru pada sumber tersebut akan terdeteksi pada pemeriksaan berikutnya, paling lambat sesuai jadwal 6 jam. Sistem/gateway yang memiliki notifikasi kasus baru dapat memanggil `repository_dispatch` agar pemeriksaan dilakukan tanpa menunggu jadwal.
 
+Sinyal GDELT disaring secara konservatif sebelum dipublikasikan. Judul harus memuat nama penyakit yang dikenali dan indikator kejadian epidemiologis, atau berupa judul langsung nama penyakit dengan lokasi yang dapat dikenali. Artikel perdagangan, akses pasar, laporan keuangan, riset, vaksinasi, kebijakan, dan materi non-kejadian ditolak kecuali judul juga memuat bukti kejadian yang kuat. Judul media tidak pernah digunakan sebagai nama penyakit.
+
 Contoh pemicu dari gateway terotorisasi:
 
 ```bash
@@ -72,6 +74,7 @@ Repository dan GitHub Pages ini bersifat publik. **Jangan mengunggah data indivi
 ## Menjalankan secara lokal
 
 ```bash
+python3 -m unittest discover -s tests -v
 python3 scripts/update_events.py
 python3 -m http.server 8000
 ```
