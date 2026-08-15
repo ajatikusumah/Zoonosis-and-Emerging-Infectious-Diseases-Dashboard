@@ -1076,6 +1076,41 @@ svg {
       display: grid;
       gap: 4px;
     }
+    #zoonosis-dashboard-v2 .import-card {
+      display: grid;
+      gap: 12px;
+    }
+    #zoonosis-dashboard-v2 .import-copy,
+    #zoonosis-dashboard-v2 .import-status {
+      display: grid;
+      gap: 5px;
+    }
+    #zoonosis-dashboard-v2 .import-actions {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    #zoonosis-dashboard-v2 .import-button {
+      background: var(--secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      color: var(--secondary-foreground);
+      display: inline-flex;
+      font-size: var(--font-size-small);
+      font-weight: 500;
+      padding: 7px 10px;
+      text-decoration: none;
+    }
+    #zoonosis-dashboard-v2 .import-button:hover,
+    #zoonosis-dashboard-v2 .import-button:focus-visible {
+      background: var(--accent);
+      color: var(--accent-foreground);
+    }
+    #zoonosis-dashboard-v2 .import-button-primary {
+      background: var(--primary);
+      color: var(--primary-foreground);
+    }
     #zoonosis-dashboard-v2 .source-grid {
       display: grid;
       gap: 12px;
@@ -1336,6 +1371,29 @@ svg {
     <div class="card feed-card">
       <div class="feed-list" id="zv2-feed-list"></div>
     </div>
+  </section>
+
+  <section aria-labelledby="zv2-import-heading">
+    <div class="section-heading">
+      <h3 id="zv2-import-heading">Impor data terotorisasi</h3>
+      <span class="text-small text-muted">CSV/Excel • validasi otomatis • diproses setiap 6 jam</span>
+    </div>
+    <article class="card import-card" aria-labelledby="zv2-import-heading">
+      <div class="import-copy">
+        <strong>Hanya data agregat atau sudah dide-identifikasi.</strong>
+        <span class="text-small text-muted">Repository ini publik. Baris baru tidak akan tampil kecuali lolos validasi dan ditandai eksplisit dengan <code>publish=true</code>.</span>
+        <div class="import-status text-small">
+          <span id="zv2-import-summary">Belum ada rekaman impor aktif.</span>
+          <a href="./data/import-validation.json" target="_blank" rel="noopener noreferrer" id="zv2-import-validation">Buka laporan validasi</a>
+        </div>
+      </div>
+      <div class="import-actions" aria-label="Aksi impor data">
+        <a class="import-button" href="./data/import/template.csv" download>Unduh template CSV</a>
+        <a class="import-button" href="./data/import/template.xlsx" download>Unduh template Excel</a>
+        <a class="import-button" href="./data/import/README.md" target="_blank" rel="noopener noreferrer">Panduan impor</a>
+        <a class="import-button import-button-primary" href="https://github.com/ajatikusumah/Zoonosis-and-Emerging-Infectious-Diseases-Dashboard/upload/main/data/import" target="_blank" rel="noopener noreferrer">Unggah ke folder import</a>
+      </div>
+    </article>
   </section>
 
   <section aria-labelledby="zv2-sources-heading">
@@ -1683,6 +1741,12 @@ svg {
       root.querySelector("#zv2-last-updated").textContent = usingLiveData
         ? "Terakhir diperbarui " + formatDate(liveMetadata.generated_at, true) + " • jadwal 6 jam"
         : "Data langsung gagal dimuat; menampilkan data contoh";
+      const importCount = Number(liveMetadata.imported_records || 0);
+      const importFiles = Number(liveMetadata.import_files_scanned || 0);
+      const importErrors = Number(liveMetadata.import_validation_errors || 0);
+      const importWarnings = Number(liveMetadata.import_validation_warnings || 0);
+      root.querySelector("#zv2-import-summary").textContent = importCount + " rekaman impor aktif • " + importFiles + " file diproses";
+      root.querySelector("#zv2-import-validation").textContent = importErrors + " kesalahan • " + importWarnings + " peringatan • buka laporan validasi";
     }
 
     const statusLabels = {
@@ -1693,7 +1757,16 @@ svg {
       portal_only: "Portal saja",
       authentication_required: "Token diperlukan",
       institutional_access: "Akses institusi",
-      license_required: "Lisensi diperlukan"
+      license_required: "Lisensi diperlukan",
+      imported: "Impor terotorisasi"
+    };
+
+    const accessLabels = {
+      public: "Publik",
+      restricted: "Terbatas",
+      licensed: "Berlisensi",
+      institutional: "Institusional",
+      internal: "Internal"
     };
 
     function renderSources() {
@@ -1704,19 +1777,21 @@ svg {
         card.className = "card source-card";
         const head = document.createElement("div");
         head.className = "source-card-head";
-        const title = document.createElement("a");
-        title.href = source.url;
-        title.target = "_blank";
-        title.rel = "noopener noreferrer";
+        const title = document.createElement(source.url ? "a" : "strong");
+        if (source.url) {
+          title.href = source.url;
+          title.target = "_blank";
+          title.rel = "noopener noreferrer";
+        }
         title.textContent = source.name;
         const status = document.createElement("span");
-        const isLive = source.status === "live";
+        const isLive = source.status === "live" || source.status === "imported";
         status.className = "source-status text-small " + (isLive ? "source-status-live" : "source-status-limited");
         status.textContent = statusLabels[source.status] || source.status;
         head.append(title, status);
         const meta = document.createElement("div");
         meta.className = "text-small text-muted";
-        meta.textContent = source.level + " • " + source.kind + " • " + source.records + " rekaman";
+        meta.textContent = source.level + " • " + source.kind + " • Akses: " + (accessLabels[source.access_level] || source.access_level || "—") + " • " + source.records + " rekaman";
         const note = document.createElement("div");
         note.className = "text-small";
         note.textContent = source.error ? source.note + " Gangguan terakhir: " + source.error : source.note;

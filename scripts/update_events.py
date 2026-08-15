@@ -13,10 +13,15 @@ import html
 import json
 import re
 import sys
+import csv
+import posixpath
+import zipfile
+from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlencode, urljoin
 from urllib.request import Request, urlopen
+from xml.etree import ElementTree as ET
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -24,6 +29,8 @@ DATA_DIR = ROOT / "data"
 EVENTS_PATH = DATA_DIR / "events.json"
 STATUS_PATH = DATA_DIR / "source-status.json"
 JS_PATH = DATA_DIR / "events.js"
+IMPORT_DIR = DATA_DIR / "import"
+IMPORT_VALIDATION_PATH = DATA_DIR / "import-validation.json"
 USER_AGENT = (
     "ZoonosisDashboard/1.0 "
     "(+https://github.com/ajatikusumah/"
@@ -31,6 +38,19 @@ USER_AGENT = (
 )
 NOW = datetime.now(timezone.utc)
 MAX_AGE_DAYS = 365
+
+
+IMPORT_FIELDS = [
+    "publish", "event_id", "record_type", "evidence", "disease", "title", "location", "iso3",
+    "latitude", "longitude", "location_precision", "published", "updated", "response",
+    "human_suspected", "human_confirmed", "human_deaths", "animal_outbreaks", "animal_sick",
+    "animal_deaths", "animal_culled", "species", "source_id", "source_name", "source_level",
+    "source_kind", "access_level", "source_url", "verification", "summary",
+]
+ALLOWED_RECORD_TYPES = {"event", "report"}
+ALLOWED_EVIDENCE = {"confirmed", "rumor"}
+ALLOWED_ACCESS_LEVELS = {"public", "restricted", "licensed", "institutional", "internal"}
+ALLOWED_SOURCE_LEVELS = {"Lokal", "Nasional", "Regional", "Global"}
 
 
 COUNTRIES = {
@@ -136,6 +156,7 @@ SOURCE_REGISTRY = [
         "name": "Kemenkes RI • Infeksi Emerging",
         "level": "Nasional",
         "kind": "Laporan resmi",
+        "access_level": "public",
         "url": "https://infeksiemerging.kemkes.go.id/",
         "default_status": "scheduled",
         "note": "Weekly update dan spot report publik; diperlakukan sebagai publikasi, bukan angka kasus terstruktur.",
@@ -145,6 +166,7 @@ SOURCE_REGISTRY = [
         "name": "SIZE Nasional",
         "level": "Nasional",
         "kind": "Sistem lintas sektor",
+        "access_level": "restricted",
         "url": "https://www.fao.org/indonesia/news/detail/SIZE-Nasional-Harnessing-Technology-for-Effective-Control-of-Infectious-Diseases/en",
         "default_status": "restricted",
         "note": "Akses data operasional memerlukan kemitraan/otorisasi.",
@@ -154,6 +176,7 @@ SOURCE_REGISTRY = [
         "name": "SKDR Kemenkes",
         "level": "Nasional",
         "kind": "Surveilans indikator/event",
+        "access_level": "restricted",
         "url": "https://skdr.surveilans.org/",
         "default_status": "restricted",
         "note": "Data rinci memerlukan akun berwenang.",
@@ -163,6 +186,7 @@ SOURCE_REGISTRY = [
         "name": "iSIKHNAS",
         "level": "Nasional",
         "kind": "Kesehatan hewan",
+        "access_level": "restricted",
         "url": "https://isikhnas.pertanian.go.id/",
         "default_status": "restricted",
         "note": "Akses data memerlukan akun/izin Direktorat Jenderal Peternakan dan Kesehatan Hewan.",
@@ -172,6 +196,7 @@ SOURCE_REGISTRY = [
         "name": "WHO SEARO • Epidemiological Bulletin",
         "level": "Regional",
         "kind": "Buletin resmi",
+        "access_level": "public",
         "url": "https://www.who.int/southeastasia/outbreaks-and-emergencies/surveillance-and-alert/sear-epi-bulletins",
         "default_status": "scheduled",
         "note": "Buletin regional ditampilkan sebagai publikasi; ekstraksi angka tabel belum dilakukan.",
@@ -181,6 +206,7 @@ SOURCE_REGISTRY = [
         "name": "WHO WPRO • Outbreaks and emergencies",
         "level": "Regional",
         "kind": "Portal resmi",
+        "access_level": "public",
         "url": "https://www.who.int/westernpacific/emergencies",
         "default_status": "portal_only",
         "note": "Belum ditemukan feed peristiwa publik yang terdokumentasi; tautan portal disediakan.",
@@ -190,6 +216,7 @@ SOURCE_REGISTRY = [
         "name": "ASEAN BioDiaspora Virtual Center",
         "level": "Regional",
         "kind": "Risk assessment",
+        "access_level": "public",
         "url": "https://asean.org/our-communities/asean-socio-cultural-community/health/",
         "default_status": "portal_only",
         "note": "Publikasi regional tersedia, tetapi belum ada API peristiwa publik terdokumentasi.",
@@ -199,6 +226,7 @@ SOURCE_REGISTRY = [
         "name": "WHO • Disease Outbreak News",
         "level": "Global",
         "kind": "Kejadian resmi",
+        "access_level": "public",
         "url": "https://www.who.int/emergencies/disease-outbreak-news",
         "default_status": "scheduled",
         "note": "Diambil dari API publik WHO dan dipetakan pada centroid negara bila lokasi lebih rinci tidak tersedia.",
@@ -208,6 +236,7 @@ SOURCE_REGISTRY = [
         "name": "GDELT • Media signals",
         "level": "Global",
         "kind": "Sinyal media",
+        "access_level": "public",
         "url": "https://www.gdeltproject.org/",
         "default_status": "scheduled",
         "note": "Semua rekaman tetap berstatus rumor/verifikasi; negara hanya dipetakan bila disebut dalam judul.",
@@ -217,6 +246,7 @@ SOURCE_REGISTRY = [
         "name": "FAO • EMPRES-i+",
         "level": "Global",
         "kind": "Kesehatan hewan",
+        "access_level": "restricted",
         "url": "https://empres-i.apps.fao.org/",
         "default_status": "authentication_required",
         "note": "Endpoint peristiwa memerlukan token; tidak dilakukan scraping aplikasi.",
@@ -226,6 +256,7 @@ SOURCE_REGISTRY = [
         "name": "WOAH • WAHIS",
         "level": "Global",
         "kind": "Notifikasi kesehatan hewan",
+        "access_level": "public",
         "url": "https://wahis.woah.org/",
         "default_status": "portal_only",
         "note": "Data publik tersedia melalui portal; belum ada API publik terdokumentasi untuk otomasi ini.",
@@ -235,6 +266,7 @@ SOURCE_REGISTRY = [
         "name": "GLEWS+ (FAO–WHO–WOAH)",
         "level": "Global",
         "kind": "Validasi lintas organisasi",
+        "access_level": "institutional",
         "url": "https://www.fao.org/animal-health/areas-of-work/early-warning-and-disease-intelligence/FAO%27s-EMPRES-Global-Animal-Disease-Information-System-%28EMPRES-i-%29/en",
         "default_status": "institutional_access",
         "note": "Mekanisme institusional; tidak tersedia feed peristiwa publik terpisah.",
@@ -244,6 +276,7 @@ SOURCE_REGISTRY = [
         "name": "ProMED",
         "level": "Global",
         "kind": "Expert-moderated signals",
+        "access_level": "licensed",
         "url": "https://www.promedmail.org/subscribe/",
         "default_status": "license_required",
         "note": "API memerlukan lisensi; syarat layanan melarang scraping tanpa izin.",
@@ -354,6 +387,317 @@ def scope_list(iso3: str | None) -> list[str]:
     }:
         scopes.insert(-1, "Asia-Pacific")
     return list(dict.fromkeys(scopes))
+
+
+def import_issue(report: dict, severity: str, file_name: str, row: int | None, field: str | None, message: str) -> None:
+    """Record validation details without copying any row values into public output."""
+    report[severity].append({
+        "file": file_name,
+        "row": row,
+        "field": field,
+        "message": message,
+    })
+
+
+def clean_cell(value) -> str:
+    if value is None:
+        return ""
+    if isinstance(value, float) and value.is_integer():
+        return str(int(value))
+    return str(value).strip()
+
+
+def xlsx_column_index(reference: str) -> int:
+    letters = re.match(r"[A-Z]+", reference.upper())
+    if not letters:
+        return 0
+    result = 0
+    for char in letters.group(0):
+        result = result * 26 + ord(char) - 64
+    return result - 1
+
+
+def xlsx_rows(path: Path) -> tuple[list[str], list[tuple[int, dict[str, str]]]]:
+    """Read the first/Import worksheet using only the Python standard library."""
+    main_ns = "http://schemas.openxmlformats.org/spreadsheetml/2006/main"
+    rel_ns = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+    pkg_rel_ns = "http://schemas.openxmlformats.org/package/2006/relationships"
+    with zipfile.ZipFile(path) as archive:
+        shared: list[str] = []
+        if "xl/sharedStrings.xml" in archive.namelist():
+            shared_root = ET.fromstring(archive.read("xl/sharedStrings.xml"))
+            for item in shared_root.findall(f"{{{main_ns}}}si"):
+                shared.append("".join(node.text or "" for node in item.iter(f"{{{main_ns}}}t")))
+
+        workbook_root = ET.fromstring(archive.read("xl/workbook.xml"))
+        rel_root = ET.fromstring(archive.read("xl/_rels/workbook.xml.rels"))
+        relationships = {
+            rel.attrib["Id"]: rel.attrib["Target"]
+            for rel in rel_root.findall(f"{{{pkg_rel_ns}}}Relationship")
+        }
+        sheets = workbook_root.find(f"{{{main_ns}}}sheets")
+        if sheets is None or not list(sheets):
+            raise ValueError("Workbook tidak memiliki worksheet.")
+        sheet_node = next((item for item in sheets if item.attrib.get("name", "").casefold() == "import"), list(sheets)[0])
+        rel_id = sheet_node.attrib.get(f"{{{rel_ns}}}id")
+        target = relationships.get(rel_id or "")
+        if not target:
+            raise ValueError("Worksheet tidak dapat ditemukan di dalam workbook.")
+        sheet_path = target.lstrip("/") if target.startswith("/") else posixpath.normpath("xl/" + target)
+        sheet_root = ET.fromstring(archive.read(sheet_path))
+
+        raw_rows: list[tuple[int, list[str]]] = []
+        for row_node in sheet_root.iter(f"{{{main_ns}}}row"):
+            row_number = int(row_node.attrib.get("r") or len(raw_rows) + 1)
+            cells: dict[int, str] = {}
+            for cell in row_node.findall(f"{{{main_ns}}}c"):
+                index = xlsx_column_index(cell.attrib.get("r", "A1"))
+                cell_type = cell.attrib.get("t")
+                if cell_type == "inlineStr":
+                    value = "".join(node.text or "" for node in cell.iter(f"{{{main_ns}}}t"))
+                else:
+                    value_node = cell.find(f"{{{main_ns}}}v")
+                    value = value_node.text if value_node is not None and value_node.text is not None else ""
+                    if cell_type == "s" and value:
+                        value = shared[int(value)]
+                    elif cell_type == "b":
+                        value = "true" if value == "1" else "false"
+                cells[index] = clean_cell(value)
+            if cells:
+                width = max(cells) + 1
+                raw_rows.append((row_number, [cells.get(index, "") for index in range(width)]))
+
+    if not raw_rows:
+        return [], []
+    header_position = next((i for i, (_, values) in enumerate(raw_rows) if any(values)), None)
+    if header_position is None:
+        return [], []
+    headers = [clean_cell(value).casefold() for value in raw_rows[header_position][1]]
+    output: list[tuple[int, dict[str, str]]] = []
+    for row_number, values in raw_rows[header_position + 1:]:
+        if not any(clean_cell(value) for value in values):
+            continue
+        padded = values + [""] * max(0, len(headers) - len(values))
+        output.append((row_number, {header: clean_cell(padded[index]) for index, header in enumerate(headers) if header}))
+    return headers, output
+
+
+def csv_rows(path: Path) -> tuple[list[str], list[tuple[int, dict[str, str]]]]:
+    with path.open("r", encoding="utf-8-sig", newline="") as stream:
+        reader = csv.DictReader(stream)
+        headers = [clean_cell(value).casefold() for value in (reader.fieldnames or [])]
+        rows = []
+        for row_number, row in enumerate(reader, start=2):
+            normalized = {clean_cell(key).casefold(): clean_cell(value) for key, value in row.items() if key is not None}
+            if any(normalized.values()):
+                rows.append((row_number, normalized))
+    return headers, rows
+
+
+def parse_import_date(value: str, field: str) -> tuple[str, datetime]:
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError as exc:
+        raise ValueError(f"{field} harus tanggal ISO 8601, misalnya 2026-08-15 atau 2026-08-15T09:00:00Z.") from exc
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    parsed = parsed.astimezone(timezone.utc)
+    return parsed.isoformat().replace("+00:00", "Z"), parsed
+
+
+def parse_nonnegative_integer(value: str, field: str) -> int | None:
+    if not value:
+        return None
+    try:
+        number = int(value)
+    except ValueError as exc:
+        raise ValueError(f"{field} harus bilangan bulat non-negatif atau kosong.") from exc
+    if number < 0:
+        raise ValueError(f"{field} tidak boleh negatif.")
+    return number
+
+
+def parse_coordinate(value: str, field: str, minimum: float, maximum: float) -> float | None:
+    if not value:
+        return None
+    try:
+        number = float(value)
+    except ValueError as exc:
+        raise ValueError(f"{field} harus berupa angka.") from exc
+    if not minimum <= number <= maximum:
+        raise ValueError(f"{field} harus berada antara {minimum:g} dan {maximum:g}.")
+    return number
+
+
+def normalize_import_row(row: dict[str, str]) -> dict:
+    required = ["record_type", "evidence", "disease", "title", "location", "published", "source_id", "source_name", "source_level", "access_level"]
+    missing = [field for field in required if not row.get(field)]
+    if missing:
+        raise ValueError("Kolom wajib kosong: " + ", ".join(missing) + ".")
+
+    record_type = row["record_type"].casefold()
+    evidence = row["evidence"].casefold()
+    access_level = row["access_level"].casefold()
+    source_level = row["source_level"].title()
+    if record_type not in ALLOWED_RECORD_TYPES:
+        raise ValueError("record_type harus event atau report.")
+    if evidence not in ALLOWED_EVIDENCE:
+        raise ValueError("evidence harus confirmed atau rumor.")
+    if access_level not in ALLOWED_ACCESS_LEVELS:
+        raise ValueError("access_level harus public, restricted, licensed, institutional, atau internal.")
+    if source_level not in ALLOWED_SOURCE_LEVELS:
+        raise ValueError("source_level harus Lokal, Nasional, Regional, atau Global.")
+
+    source_id = row["source_id"].casefold()
+    if not re.fullmatch(r"[a-z0-9][a-z0-9._-]{1,79}", source_id):
+        raise ValueError("source_id hanya boleh berisi huruf kecil, angka, titik, garis bawah, atau tanda hubung.")
+    source_url = row.get("source_url", "")
+    if source_url and not re.match(r"^https?://", source_url, re.I):
+        raise ValueError("source_url harus kosong atau URL http/https.")
+
+    published, published_dt = parse_import_date(row["published"], "published")
+    if row.get("updated"):
+        updated, updated_dt = parse_import_date(row["updated"], "updated")
+    else:
+        updated, updated_dt = published, published_dt
+
+    iso3 = row.get("iso3", "").upper() or None
+    if iso3 and not re.fullmatch(r"[A-Z]{3}", iso3):
+        raise ValueError("iso3 harus kode negara tiga huruf atau kosong.")
+    lat = parse_coordinate(row.get("latitude", ""), "latitude", -90, 90)
+    lon = parse_coordinate(row.get("longitude", ""), "longitude", -180, 180)
+    if (lat is None) != (lon is None):
+        raise ValueError("latitude dan longitude harus diisi bersama-sama atau sama-sama kosong.")
+    precision = row.get("location_precision", "").casefold() or "unknown"
+    if lat is None and iso3 in COUNTRIES:
+        _, lat, lon, _ = COUNTRIES[iso3]
+        precision = "country"
+
+    human = {
+        "suspected": parse_nonnegative_integer(row.get("human_suspected", ""), "human_suspected"),
+        "confirmed": parse_nonnegative_integer(row.get("human_confirmed", ""), "human_confirmed"),
+        "deaths": parse_nonnegative_integer(row.get("human_deaths", ""), "human_deaths"),
+    }
+    animal = {
+        "outbreaks": parse_nonnegative_integer(row.get("animal_outbreaks", ""), "animal_outbreaks"),
+        "sick": parse_nonnegative_integer(row.get("animal_sick", ""), "animal_sick"),
+        "deaths": parse_nonnegative_integer(row.get("animal_deaths", ""), "animal_deaths"),
+        "culled": parse_nonnegative_integer(row.get("animal_culled", ""), "animal_culled"),
+        "species": row.get("species") or None,
+    }
+    record_id = row.get("event_id") or stable_id("import", source_id, row["title"], row["location"], published)
+    return base_record(
+        id=record_id,
+        record_type=record_type,
+        disease=row["disease"],
+        title=row["title"],
+        location=row["location"],
+        iso3=iso3,
+        lat=lat,
+        lon=lon,
+        location_precision=precision,
+        scopes=scope_list(iso3),
+        published=published,
+        reported=published,
+        updated=updated,
+        evidence=evidence,
+        response=row.get("response") or ("Perlu verifikasi" if evidence == "rumor" else "Monitoring"),
+        changed24h=updated_dt >= NOW - timedelta(hours=24),
+        changeType="Impor terotorisasi",
+        change="Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+        human=human,
+        animal=animal,
+        source=row["source_name"],
+        source_id=source_id,
+        source_url=source_url,
+        source_level=source_level,
+        source_kind=row.get("source_kind") or "Impor terotorisasi",
+        access_level=access_level,
+        verification=row.get("verification") or "Rekaman impor; buka sumber primer dan periksa otorisasi publikasi.",
+        summary=row.get("summary") or None,
+    )
+
+
+def imported_records() -> tuple[list[dict], list[dict], dict]:
+    report = {
+        "generated_at": NOW.isoformat().replace("+00:00", "Z"),
+        "files_scanned": 0,
+        "rows_scanned": 0,
+        "rows_published": 0,
+        "rows_skipped": 0,
+        "errors": [],
+        "warnings": [],
+    }
+    records: list[dict] = []
+    source_counts: dict[str, int] = defaultdict(int)
+    source_metadata: dict[str, dict] = {}
+    if not IMPORT_DIR.exists():
+        return records, [], report
+
+    candidates = sorted(
+        path for path in IMPORT_DIR.iterdir()
+        if path.is_file() and path.suffix.casefold() in {".csv", ".xlsx"} and not path.name.casefold().startswith("template")
+    )
+    for path in candidates:
+        report["files_scanned"] += 1
+        try:
+            headers, rows = csv_rows(path) if path.suffix.casefold() == ".csv" else xlsx_rows(path)
+        except Exception as exc:
+            import_issue(report, "errors", path.name, None, None, f"File tidak dapat dibaca: {type(exc).__name__}.")
+            continue
+        report["rows_scanned"] += len(rows)
+        unexpected = sorted({header for header in headers if header and header not in IMPORT_FIELDS})
+        if unexpected:
+            report["rows_skipped"] += len(rows)
+            import_issue(report, "errors", path.name, None, None, "File ditolak karena memiliki kolom di luar skema yang diizinkan: " + ", ".join(unexpected) + ".")
+            continue
+        if "publish" not in headers:
+            report["rows_skipped"] += len(rows)
+            import_issue(report, "errors", path.name, None, "publish", "File ditolak karena kolom publish tidak tersedia.")
+            continue
+
+        for row_number, row in rows:
+            publish_value = row.get("publish", "").casefold()
+            if publish_value not in {"true", "1", "yes", "ya"}:
+                report["rows_skipped"] += 1
+                if publish_value not in {"", "false", "0", "no", "tidak"}:
+                    import_issue(report, "warnings", path.name, row_number, "publish", "Baris dilewati karena nilai publish tidak dikenali.")
+                continue
+            try:
+                record = normalize_import_row(row)
+            except ValueError as exc:
+                report["rows_skipped"] += 1
+                import_issue(report, "errors", path.name, row_number, None, str(exc))
+                continue
+            records.append(record)
+            report["rows_published"] += 1
+            source_id = record["source_id"]
+            source_counts[source_id] += 1
+            candidate = {
+                "id": source_id,
+                "name": record["source"],
+                "level": record["source_level"],
+                "kind": record["source_kind"],
+                "access_level": record["access_level"],
+                "url": record["source_url"],
+            }
+            if source_id in source_metadata and source_metadata[source_id] != candidate:
+                import_issue(report, "warnings", path.name, row_number, "source_id", "Metadata source_id tidak konsisten; metadata dari baris valid pertama dipertahankan.")
+            else:
+                source_metadata.setdefault(source_id, candidate)
+
+    sources = []
+    checked_at = report["generated_at"]
+    for source_id, metadata in sorted(source_metadata.items()):
+        sources.append({
+            **metadata,
+            "status": "imported",
+            "last_checked": checked_at,
+            "records": source_counts[source_id],
+            "error": None,
+            "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true.",
+        })
+    return records, sources, report
 
 
 def who_don_records() -> list[dict]:
@@ -621,7 +965,12 @@ def load_previous() -> dict:
 def deduplicate(records: list[dict]) -> list[dict]:
     unique: dict[tuple, dict] = {}
     for record in records:
-        key = (record.get("source_id"), record.get("source_url"), record.get("iso3"), record.get("record_type"))
+        key = (
+            record.get("source_id"),
+            record.get("source_url") or record.get("id"),
+            record.get("iso3"),
+            record.get("record_type"),
+        )
         current = unique.get(key)
         if not current or (record.get("updated") or "") > (current.get("updated") or ""):
             unique[key] = record
@@ -657,6 +1006,14 @@ def main() -> int:
             }
             print(f"{source_id}: {type(exc).__name__}: {exc}; retained {len(retained)}", file=sys.stderr)
 
+    manual_records, manual_sources, import_validation = imported_records()
+    all_records.extend(manual_records)
+    print(
+        f"authorized-import: {import_validation['rows_published']} published, "
+        f"{import_validation['rows_skipped']} skipped",
+        file=sys.stderr,
+    )
+
     all_records = deduplicate(all_records)
     sources = []
     for source in SOURCE_REGISTRY:
@@ -673,6 +1030,7 @@ def main() -> int:
             })
         merged.pop("default_status", None)
         sources.append(merged)
+    sources.extend(manual_sources)
 
     generated_at = NOW.isoformat().replace("+00:00", "Z")
     payload = {
@@ -683,6 +1041,10 @@ def main() -> int:
             "records": len(all_records),
             "events": sum(record.get("record_type") == "event" for record in all_records),
             "reports": sum(record.get("record_type") == "report" for record in all_records),
+            "imported_records": len(manual_records),
+            "import_files_scanned": import_validation["files_scanned"],
+            "import_validation_errors": len(import_validation["errors"]),
+            "import_validation_warnings": len(import_validation["warnings"]),
             "method_note": "Official records and open media signals are stored separately; unknown counts remain null.",
         },
         "sources": sources,
@@ -692,6 +1054,7 @@ def main() -> int:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     EVENTS_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     STATUS_PATH.write_text(json.dumps({"generated_at": generated_at, "sources": sources}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    IMPORT_VALIDATION_PATH.write_text(json.dumps(import_validation, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     js = (
         "// Generated by scripts/update_events.py. Do not edit manually.\n"
         f"export const metadata = {json.dumps(payload['metadata'], ensure_ascii=False, separators=(',', ':'))};\n"
