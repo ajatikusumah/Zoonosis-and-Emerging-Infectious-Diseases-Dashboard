@@ -1,0 +1,161 @@
+{
+  "generated_at": "2026-08-15T14:04:02.778394Z",
+  "sources": [
+    {
+      "id": "kemkes-infem",
+      "name": "Kemenkes RI • Infeksi Emerging",
+      "level": "Nasional",
+      "kind": "Laporan resmi",
+      "url": "https://infeksiemerging.kemkes.go.id/",
+      "note": "Weekly update dan spot report publik; diperlakukan sebagai publikasi, bukan angka kasus terstruktur.",
+      "status": "live",
+      "last_checked": "2026-08-15T14:04:02.778394Z",
+      "records": 33,
+      "error": null
+    },
+    {
+      "id": "size-nasional",
+      "name": "SIZE Nasional",
+      "level": "Nasional",
+      "kind": "Sistem lintas sektor",
+      "url": "https://www.fao.org/indonesia/news/detail/SIZE-Nasional-Harnessing-Technology-for-Effective-Control-of-Infectious-Diseases/en",
+      "note": "Akses data operasional memerlukan kemitraan/otorisasi.",
+      "status": "restricted",
+      "last_checked": null,
+      "records": 0,
+      "error": null
+    },
+    {
+      "id": "skdr",
+      "name": "SKDR Kemenkes",
+      "level": "Nasional",
+      "kind": "Surveilans indikator/event",
+      "url": "https://skdr.surveilans.org/",
+      "note": "Data rinci memerlukan akun berwenang.",
+      "status": "restricted",
+      "last_checked": null,
+      "records": 0,
+      "error": null
+    },
+    {
+      "id": "isikhnas",
+      "name": "iSIKHNAS",
+      "level": "Nasional",
+      "kind": "Kesehatan hewan",
+      "url": "https://isikhnas.pertanian.go.id/",
+      "note": "Akses data memerlukan akun/izin Direktorat Jenderal Peternakan dan Kesehatan Hewan.",
+      "status": "restricted",
+      "last_checked": null,
+      "records": 0,
+      "error": null
+    },
+    {
+      "id": "who-sear",
+      "name": "WHO SEARO • Epidemiological Bulletin",
+      "level": "Regional",
+      "kind": "Buletin resmi",
+      "url": "https://www.who.int/southeastasia/outbreaks-and-emergencies/surveillance-and-alert/sear-epi-bulletins",
+      "note": "Buletin regional ditampilkan sebagai publikasi; ekstraksi angka tabel belum dilakukan.",
+      "status": "live",
+      "last_checked": "2026-08-15T14:04:02.778394Z",
+      "records": 24,
+      "error": null
+    },
+    {
+      "id": "who-wpro",
+      "name": "WHO WPRO • Outbreaks and emergencies",
+      "level": "Regional",
+      "kind": "Portal resmi",
+      "url": "https://www.who.int/westernpacific/emergencies",
+      "note": "Belum ditemukan feed peristiwa publik yang terdokumentasi; tautan portal disediakan.",
+      "status": "portal_only",
+      "last_checked": null,
+      "records": 0,
+      "error": null
+    },
+    {
+      "id": "abvc",
+      "name": "ASEAN BioDiaspora Virtual Center",
+      "level": "Regional",
+      "kind": "Risk assessment",
+      "url": "https://asean.org/our-communities/asean-socio-cultural-community/health/",
+      "note": "Publikasi regional tersedia, tetapi belum ada API peristiwa publik terdokumentasi.",
+      "status": "portal_only",
+      "last_checked": null,
+      "records": 0,
+      "error": null
+    },
+    {
+      "id": "who-don",
+      "name": "WHO • Disease Outbreak News",
+      "level": "Global",
+      "kind": "Kejadian resmi",
+      "url": "https://www.who.int/emergencies/disease-outbreak-news",
+      "note": "Diambil dari API publik WHO dan dipetakan pada centroid negara bila lokasi lebih rinci tidak tersedia.",
+      "status": "live",
+      "last_checked": "2026-08-15T14:04:02.778394Z",
+      "records": 44,
+      "error": null
+    },
+    {
+      "id": "gdelt",
+      "name": "GDELT • Media signals",
+      "level": "Global",
+      "kind": "Sinyal media",
+      "url": "https://www.gdeltproject.org/",
+      "note": "Semua rekaman tetap berstatus rumor/verifikasi; negara hanya dipetakan bila disebut dalam judul.",
+      "status": "error",
+      "last_checked": "2026-08-15T14:04:02.778394Z",
+      "records": 0,
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    {
+      "id": "fao-empres",
+      "name": "FAO • EMPRES-i+",
+      "level": "Global",
+      "kind": "Kesehatan hewan",
+      "url": "https://empres-i.apps.fao.org/",
+      "note": "Endpoint peristiwa memerlukan token; tidak dilakukan scraping aplikasi.",
+      "status": "authentication_required",
+      "last_checked": null,
+      "records": 0,
+      "error": null
+    },
+    {
+      "id": "woah-wahis",
+      "name": "WOAH • WAHIS",
+      "level": "Global",
+      "kind": "Notifikasi kesehatan hewan",
+      "url": "https://wahis.woah.org/",
+      "note": "Data publik tersedia melalui portal; belum ada API publik terdokumentasi untuk otomasi ini.",
+      "status": "portal_only",
+      "last_checked": null,
+      "records": 0,
+      "error": null
+    },
+    {
+      "id": "glews",
+      "name": "GLEWS+ (FAO–WHO–WOAH)",
+      "level": "Global",
+      "kind": "Validasi lintas organisasi",
+      "url": "https://www.fao.org/animal-health/areas-of-work/early-warning-and-disease-intelligence/FAO%27s-EMPRES-Global-Animal-Disease-Information-System-%28EMPRES-i-%29/en",
+      "note": "Mekanisme institusional; tidak tersedia feed peristiwa publik terpisah.",
+      "status": "institutional_access",
+      "last_checked": null,
+      "records": 0,
+      "error": null
+    },
+    {
+      "id": "promed",
+      "name": "ProMED",
+      "level": "Global",
+      "kind": "Expert-moderated signals",
+      "url": "https://www.promedmail.org/subscribe/",
+      "note": "API memerlukan lisensi; syarat layanan melarang scraping tanpa izin.",
+      "status": "license_required",
+      "last_checked": null,
+      "records": 0,
+      "error": null
+    }
+  ]
+}

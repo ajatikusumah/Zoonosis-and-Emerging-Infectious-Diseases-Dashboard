@@ -1,38 +1,57 @@
 # Zoonosis and Emerging Infectious Diseases Dashboard
 
-Prototipe dashboard interaktif untuk memantau kejadian zoonosis dan penyakit infeksi emerging pada tingkat Indonesia, ASEAN, Asia-Pasifik, dan global.
+Dashboard near-real-time untuk memantau kejadian zoonosis dan penyakit infeksi emerging pada tingkat Indonesia, ASEAN, Asia-Pasifik, dan global.
+
+Situs: https://ajatikusumah.github.io/Zoonosis-and-Emerging-Infectious-Diseases-Dashboard/
 
 ## Fitur
 
-- Pemisahan kejadian **terkonfirmasi** dan **rumor/open-source signal**.
-- Dampak pada manusia dan hewan ditampilkan secara terpisah.
-- Peta OpenStreetMap dengan filter wilayah, periode, penyakit, dan status verifikasi.
-- Tooltip marker saat disorot atau difokuskan menampilkan nama kejadian, status bukti, dan sumber informasi.
-- Ringkasan laboratorium, respons dan PIC, sumber informasi, serta dampak ekonomi.
-- Tren berdasarkan tanggal publikasi untuk mendukung event-based surveillance.
+- Peta OpenStreetMap dengan tooltip nama penyakit, lokasi, status bukti, dan sumber.
+- Pemisahan tegas antara rekaman resmi/terkonfirmasi dan rumor atau sinyal media yang masih perlu diverifikasi.
+- Filter wilayah, periode, penyakit, sumber, dan status bukti.
+- Publikasi dan laporan ditampilkan terpisah dari kejadian agar tidak menaikkan KPI kasus.
+- Registri sumber menunjukkan apakah suatu sumber aktif, hanya tersedia melalui portal, memerlukan akun, token, akses institusi, atau lisensi.
+- Angka yang tidak tersedia disimpan sebagai `null` dan ditampilkan sebagai `—`, bukan dianggap nol.
+- Pembaruan otomatis setiap 6 jam melalui GitHub Actions.
 
-## Status data
+## Sumber yang diambil otomatis
 
-> **Penting:** data yang tampil pada versi awal ini adalah data ilustratif untuk demonstrasi desain dan fungsi. Data tersebut tidak boleh digunakan sebagai dasar keputusan operasional.
+| Sumber | Tingkat | Perlakuan |
+|---|---|---|
+| WHO Disease Outbreak News | Global | Kejadian resmi dari API publik WHO; lokasi dipetakan pada centroid negara bila lokasi rinci tidak tersedia |
+| Kemenkes RI Infeksi Emerging | Nasional | Weekly update dan spot report publik sebagai publikasi, bukan angka kasus terstruktur |
+| WHO SEARO Epidemiological Bulletin | Regional | Buletin resmi sebagai publikasi regional |
+| GDELT | Global | Sinyal media; selalu berstatus rumor/verifikasi sampai ada sumber primer |
 
-Basemap menggunakan data © OpenStreetMap contributors dengan atribusi yang ditampilkan pada peta. Untuk penggunaan berskala tinggi, layanan tile perlu dievaluasi sesuai kebijakan penyedia.
+## Sumber yang tercatat tetapi belum diambil otomatis
 
-Versi produksi perlu menghubungkan dan memvalidasi data dari sumber resmi, antara lain SIZE/SKDR/iSIKHNAS, ASEAN BioDiaspora Virtual Center, WOAH WAHIS, FAO EMPRES-i+, WHO Disease Outbreak News, serta GLEWS+.
+- **SIZE Nasional, SKDR, dan iSIKHNAS:** memerlukan akun atau kemitraan data.
+- **FAO EMPRES-i+:** endpoint kejadian memerlukan token.
+- **ProMED:** akses API memerlukan lisensi; dashboard tidak melakukan scraping.
+- **GLEWS+:** mekanisme berbagi informasi institusional FAO–WHO–WOAH, bukan feed publik terpisah.
+- **WOAH WAHIS, WHO WPRO, dan ASEAN BioDiaspora Virtual Center:** tautan portal ditampilkan; integrasi menunggu API/feed publik yang terdokumentasi.
+
+## Arsitektur pembaruan
+
+`scripts/update_events.py` menormalkan semua sumber menjadi satu skema, mempertahankan data terakhir bila satu sumber sementara gagal, dan menghasilkan:
+
+- `data/events.json` untuk audit dan penggunaan ulang;
+- `data/events.js` untuk dashboard statis GitHub Pages;
+- `data/source-status.json` untuk status konektor.
+
+Workflow `.github/workflows/update-data.yml` berjalan setiap 6 jam dan dapat dijalankan manual dari tab **Actions**. Commit data baru otomatis memicu workflow deployment GitHub Pages yang sudah ada.
 
 ## Menjalankan secara lokal
 
-Buka `index.html` melalui server HTTP lokal, misalnya:
-
 ```bash
+python3 scripts/update_events.py
 python3 -m http.server 8000
 ```
 
-Lalu kunjungi `http://localhost:8000`.
+Lalu buka `http://localhost:8000`.
 
-## GitHub Pages
+## Catatan penggunaan
 
-Deployment otomatis dikonfigurasi melalui `.github/workflows/deploy-pages.yml`. Di pengaturan repository, pilih **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+Dashboard ini adalah alat situational awareness. Status “resmi/terkonfirmasi” berarti rekaman berasal dari publikasi resmi; hal itu tidak selalu berarti setiap jumlah kasus telah dikonfirmasi laboratorium. Selalu buka sumber primer sebelum mengambil keputusan operasional.
 
-Setelah deployment berhasil, alamat situs yang diharapkan:
-
-https://ajatikusumah.github.io/Zoonosis-and-Emerging-Infectious-Diseases-Dashboard/
+Basemap menggunakan data © OpenStreetMap contributors dengan atribusi pada peta.

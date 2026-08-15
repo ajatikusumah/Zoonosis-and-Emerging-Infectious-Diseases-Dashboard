@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="id" data-visualize-standalone>
+<html lang="en" data-visualize-standalone>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta name="description" content="Dashboard prototipe untuk pemantauan kejadian zoonosis dan penyakit infeksi emerging dengan pendekatan One Health.">
+<meta name="description" content="Dashboard near-real-time untuk pemantauan zoonosis dan penyakit infeksi emerging dari sumber nasional, regional, global, dan sinyal media terpisah.">
 <title>Zoonosis and Emerging Infectious Diseases Dashboard</title>
 <style>:root {
   color-scheme: light dark;
@@ -819,62 +819,59 @@ svg {
   color: var(--destructive);
 }
 </style>
-</head>
-<body>
-<header class="site-header">
-  <div class="site-title-group">
-    <span class="site-kicker">One Health Event Intelligence</span>
-    <h1>Zoonosis and Emerging Infectious Diseases Dashboard</h1>
-    <p class="text-muted">Pemantauan kejadian pada manusia, hewan, dan antarmuka lingkungan—Indonesia, ASEAN, Asia–Pasifik, dan global.</p>
-  </div>
-  <div class="site-meta text-small">
-    <span class="viz-badge">Prototype</span>
-    <span>Data ilustrasi</span>
-  </div>
-</header>
 <style>
-  .site-header,
-  #zoonosis-dashboard-v2 {
-    margin-inline: auto;
-    max-width: 1280px;
+  html > body {
+    margin: 0 auto;
+    max-width: 1500px;
+    padding: 18px clamp(12px, 3vw, 40px) 40px;
   }
   .site-header {
     align-items: flex-start;
     border-bottom: 1px solid var(--border);
     display: flex;
-    gap: 24px;
+    gap: 18px;
     justify-content: space-between;
-    margin-bottom: 24px;
-    padding: 12px 0 18px;
+    margin-bottom: 22px;
+    padding: 6px 0 18px;
   }
-  .site-title-group {
+  .site-title {
     display: grid;
-    gap: 7px;
-    max-width: 880px;
+    gap: 5px;
   }
   .site-kicker {
-    color: var(--primary);
-    font-weight: 500;
-    letter-spacing: 0.04em;
+    color: var(--muted-foreground);
+    font-size: var(--font-size-small);
+    letter-spacing: .08em;
     text-transform: uppercase;
   }
-  .site-meta {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: flex-end;
+  .site-header p {
+    color: var(--muted-foreground);
+    max-width: 720px;
   }
-  @media (max-width: 640px) {
+  .site-header a {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    flex: 0 0 auto;
+    padding: 8px 11px;
+  }
+  @media (max-width: 680px) {
     .site-header {
       flex-direction: column;
     }
-    .site-meta {
-      justify-content: flex-start;
-    }
   }
 </style>
-<div id="zoonosis-dashboard-v2" aria-label="Mock-up dashboard operasional kejadian zoonosis">
+</head>
+<body>
+<header class="site-header">
+  <div class="site-title">
+    <span class="site-kicker">One Health Surveillance</span>
+    <h1>Zoonosis &amp; Emerging Infectious Diseases</h1>
+    <p>Dashboard near-real-time nasional, regional, dan global dengan pemisahan tegas antara sumber resmi dan sinyal/rumor.</p>
+  </div>
+  <a href="https://github.com/ajatikusumah/Zoonosis-and-Emerging-Infectious-Diseases-Dashboard" target="_blank" rel="noopener noreferrer">Lihat repositori</a>
+</header>
+<main>
+<div id="zoonosis-dashboard-v2" aria-label="Dashboard operasional kejadian zoonosis dan penyakit infeksi emerging">
   <style>
     @import url("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
 
@@ -1074,9 +1071,71 @@ svg {
       justify-content: center;
       position: absolute;
     }
+    #zoonosis-dashboard-v2 .data-note {
+      border-left: 3px solid var(--viz-series-1);
+      display: grid;
+      gap: 4px;
+    }
+    #zoonosis-dashboard-v2 .source-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    #zoonosis-dashboard-v2 .source-card,
+    #zoonosis-dashboard-v2 .feed-card {
+      display: grid;
+      gap: 8px;
+      min-width: 0;
+    }
+    #zoonosis-dashboard-v2 .source-card-head,
+    #zoonosis-dashboard-v2 .feed-item-head {
+      align-items: flex-start;
+      display: flex;
+      gap: 8px;
+      justify-content: space-between;
+    }
+    #zoonosis-dashboard-v2 .source-card a,
+    #zoonosis-dashboard-v2 .feed-card a,
+    #zoonosis-dashboard-v2 .detail-section a {
+      color: var(--foreground);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    #zoonosis-dashboard-v2 .source-status {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      flex: 0 0 auto;
+      padding: 2px 7px;
+    }
+    #zoonosis-dashboard-v2 .source-status-live {
+      border-color: var(--viz-series-1);
+    }
+    #zoonosis-dashboard-v2 .source-status-limited {
+      border-color: var(--viz-series-4);
+    }
+    #zoonosis-dashboard-v2 .feed-list {
+      display: grid;
+      gap: 10px;
+    }
+    #zoonosis-dashboard-v2 .feed-item {
+      border-top: 1px solid var(--border);
+      display: grid;
+      gap: 4px;
+      padding-top: 10px;
+    }
+    #zoonosis-dashboard-v2 .feed-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+    #zoonosis-dashboard-v2 .feed-empty {
+      color: var(--muted-foreground);
+    }
     @media (max-width: 680px) {
       #zoonosis-dashboard-v2 .detail-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      #zoonosis-dashboard-v2 .source-grid {
+        grid-template-columns: 1fr;
       }
     }
     @media (max-width: 480px) {
@@ -1100,8 +1159,13 @@ svg {
   </style>
 
   <div class="meta-row">
-    <span class="viz-badge">Data ilustrasi</span>
-    <span class="text-small text-muted">Pembaruan contoh: 15 Agustus 2026, 19.00 WIB</span>
+    <span class="viz-badge" id="zv2-data-mode">Memuat data…</span>
+    <span class="text-small text-muted" id="zv2-last-updated">Pembaruan terjadwal setiap 6 jam</span>
+  </div>
+
+  <div class="card data-note text-small">
+    <strong>Near-real-time, bukan pelaporan kasus waktu nyata.</strong>
+    <span class="text-muted">Sumber resmi dan sinyal media dipisahkan. Angka yang tidak tersedia tetap ditampilkan sebagai “—”; publikasi laporan tidak otomatis dihitung sebagai kejadian.</span>
   </div>
 
   <div class="viz-controls filters" aria-label="Filter dashboard">
@@ -1110,24 +1174,26 @@ svg {
         <option value="Indonesia">Indonesia</option>
         <option value="ASEAN">Asia Tenggara/ASEAN</option>
         <option value="Asia-Pacific">Asia–Pasifik</option>
-        <option value="Global">Global</option>
+        <option value="Global" selected>Global</option>
       </select>
     </label>
     <label class="form-label" for="zv2-period">Periode
       <select class="form-select" id="zv2-period">
         <option value="1">24 jam</option>
-        <option value="7" selected>7 hari</option>
+        <option value="7">7 hari</option>
         <option value="30">30 hari</option>
+        <option value="90" selected>90 hari</option>
+        <option value="365">12 bulan</option>
       </select>
     </label>
     <label class="form-label" for="zv2-disease">Penyakit
       <select class="form-select" id="zv2-disease">
-        <option value="all">Semua zoonosis</option>
-        <option value="Anthrax">Anthrax</option>
-        <option value="Avian influenza">Avian influenza</option>
-        <option value="Leptospirosis">Leptospirosis</option>
-        <option value="Nipah">Nipah</option>
-        <option value="Rabies">Rabies</option>
+        <option value="all">Semua penyakit</option>
+      </select>
+    </label>
+    <label class="form-label" for="zv2-source-filter">Sumber
+      <select class="form-select" id="zv2-source-filter">
+        <option value="all">Semua sumber aktif</option>
       </select>
     </label>
     <div>
@@ -1262,14 +1328,33 @@ svg {
     </svg>
   </section>
 
+  <section aria-labelledby="zv2-feed-heading">
+    <div class="section-heading">
+      <h3 id="zv2-feed-heading">Publikasi dan sinyal terbaru</h3>
+      <span class="text-small text-muted">Maksimum 8 rekaman sesuai filter</span>
+    </div>
+    <div class="card feed-card">
+      <div class="feed-list" id="zv2-feed-list"></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="zv2-sources-heading">
+    <div class="section-heading">
+      <h3 id="zv2-sources-heading">Registri sumber data</h3>
+      <span class="text-small text-muted">Akses terbuka, portal, akun, dan lisensi dibedakan</span>
+    </div>
+    <div class="source-grid" id="zv2-source-grid"></div>
+  </section>
+
   <script type="module">
     import L from "https://esm.sh/leaflet@1.9.4";
+    import { events as liveEvents, metadata as liveMetadata, sources as liveSources } from "./data/events.js";
 
     const root = document.getElementById("zoonosis-dashboard-v2");
     const mapElement = root.querySelector("#zv2-map");
     const mapWrap = root.querySelector("#zv2-map-wrap");
     const trendSvg = root.querySelector("#zv2-trend");
-    const now = new Date("2026-08-15T19:00:00+07:00");
+    const now = new Date(liveMetadata.generated_at || Date.now());
 
     const scopeBounds = {
       "Indonesia": [[-11.5, 94], [6.5, 142]],
@@ -1285,7 +1370,7 @@ svg {
       "Global": []
     };
 
-    const events = [
+    const illustrativeEvents = [
       {
         id: "IDN-ANT-20260815-01", disease: "Anthrax", location: "Kabupaten Bogor, Jawa Barat", iso3: "IDN", lat: -6.59, lon: 106.80,
         published: "2026-08-15T10:30:00+07:00", onset: "2026-08-13", reported: "2026-08-14T14:10:00+07:00", updated: "2026-08-15T17:45:00+07:00",
@@ -1400,18 +1485,23 @@ svg {
       }
     ];
 
+    const events = Array.isArray(liveEvents) && liveEvents.length ? liveEvents : illustrativeEvents;
+    const sources = Array.isArray(liveSources) ? liveSources : [];
+    const usingLiveData = events === liveEvents;
     const state = { selectedId: null };
 
     function scopeIncludes(event, scope) {
       if (scope === "Global") return true;
+      if (Array.isArray(event.scopes)) return event.scopes.includes(scope);
       if (scope === "Indonesia") return event.iso3 === "IDN";
       return scopeCountries[scope].includes(event.iso3);
     }
 
-    function filteredEvents() {
+    function filteredRecords() {
       const scope = root.querySelector("#zv2-scope").value;
       const days = Number(root.querySelector("#zv2-period").value);
       const disease = root.querySelector("#zv2-disease").value;
+      const source = root.querySelector("#zv2-source-filter").value;
       const showConfirmed = root.querySelector("#zv2-confirmed").checked;
       const showRumor = root.querySelector("#zv2-rumor").checked;
       const threshold = new Date(now.getTime() - days * 86400000);
@@ -1420,8 +1510,23 @@ svg {
         return scopeIncludes(event, scope)
           && new Date(event.published) >= threshold
           && (disease === "all" || event.disease === disease)
+          && (source === "all" || event.source_id === source)
           && visibleStatus;
       });
+    }
+
+    function filteredEvents() {
+      const latestByOutbreak = new Map();
+      filteredRecords()
+        .filter((event) => event.record_type !== "report" && Number.isFinite(event.lat) && Number.isFinite(event.lon))
+        .forEach((event) => {
+          const key = [event.source_id, event.disease, event.iso3 || event.location].join("|");
+          const current = latestByOutbreak.get(key);
+          if (!current || new Date(event.updated || event.published) > new Date(current.updated || current.published)) {
+            latestByOutbreak.set(key, event);
+          }
+        });
+      return [...latestByOutbreak.values()];
     }
 
     function officialEvents(items) {
@@ -1434,11 +1539,15 @@ svg {
       const rumors = items.filter((event) => event.evidence === "rumor");
       const changedOfficial = official.filter((event) => event.changed24h).length;
       const newRumors = rumors.filter((event) => event.changed24h && event.changeType === "Sinyal baru").length;
-      const humanCases = official.reduce((sum, event) => sum + event.human.confirmed, 0);
-      const humanDeaths = official.reduce((sum, event) => sum + event.human.deaths, 0);
-      const animalOutbreaks = official.reduce((sum, event) => sum + event.animal.outbreaks, 0);
-      const animalSick = official.reduce((sum, event) => sum + event.animal.sick, 0);
-      const animalDeaths = official.reduce((sum, event) => sum + event.animal.deaths, 0);
+      const sumAvailable = (path) => {
+        const values = official.map((event) => path(event)).filter(Number.isFinite);
+        return { value: values.reduce((sum, value) => sum + value, 0), available: values.length };
+      };
+      const humanCases = sumAvailable((event) => event.human?.confirmed);
+      const humanDeaths = sumAvailable((event) => event.human?.deaths);
+      const animalOutbreaks = sumAvailable((event) => event.animal?.outbreaks);
+      const animalSick = sumAvailable((event) => event.animal?.sick);
+      const animalDeaths = sumAvailable((event) => event.animal?.deaths);
       const changedTotal = items.filter((event) => event.changed24h).length;
       const newConfirmations = official.filter((event) => event.changed24h && event.changeType === "Konfirmasi baru").length;
 
@@ -1446,10 +1555,14 @@ svg {
       root.querySelector("#zv2-confirmed-change").textContent = changedOfficial + " berubah dalam 24 jam";
       root.querySelector("#zv2-rumor-count").textContent = rumors.length;
       root.querySelector("#zv2-rumor-change").textContent = newRumors + " sinyal baru dalam 24 jam";
-      root.querySelector("#zv2-human-count").textContent = humanCases;
-      root.querySelector("#zv2-human-context").textContent = humanDeaths + " meninggal • hanya sumber resmi";
-      root.querySelector("#zv2-animal-count").textContent = animalOutbreaks;
-      root.querySelector("#zv2-animal-context").textContent = animalSick + " sakit • " + animalDeaths + " mati";
+      root.querySelector("#zv2-human-count").textContent = humanCases.available ? humanCases.value : "—";
+      root.querySelector("#zv2-human-context").textContent = humanDeaths.available
+        ? humanDeaths.value + " meninggal • " + humanDeaths.available + " rekaman berangka"
+        : "Angka tidak tersedia pada feed terstruktur";
+      root.querySelector("#zv2-animal-count").textContent = animalOutbreaks.available ? animalOutbreaks.value : "—";
+      root.querySelector("#zv2-animal-context").textContent = animalSick.available || animalDeaths.available
+        ? (animalSick.available ? animalSick.value : "—") + " sakit • " + (animalDeaths.available ? animalDeaths.value : "—") + " mati"
+        : "Angka tidak tersedia pada feed terstruktur";
       root.querySelector("#zv2-change-summary").textContent = "Perubahan 24 jam: " + changedTotal + " pembaruan • " + newConfirmations + " konfirmasi baru";
     }
 
@@ -1463,7 +1576,11 @@ svg {
     }
 
     function setText(id, value) {
-      root.querySelector(id).textContent = value;
+      root.querySelector(id).textContent = value ?? "—";
+    }
+
+    function metric(value) {
+      return Number.isFinite(value) ? String(value) : "—";
     }
 
     function updateDetail(event) {
@@ -1482,23 +1599,34 @@ svg {
       setText("#zv2-detail-id", "Event ID: " + event.id);
       setText("#zv2-evidence-status", "Status bukti: " + (event.evidence === "confirmed" ? "Terkonfirmasi" : "Rumor/verifikasi"));
       setText("#zv2-response-status", "Penanganan: " + event.response);
-      setText("#zv2-detail-change", "Perubahan terbaru: " + event.change);
+      setText("#zv2-detail-change", "Perubahan terbaru: " + (event.change || event.summary || "—"));
       setText("#zv2-onset", formatDate(event.onset));
       setText("#zv2-reported", formatDate(event.reported, true));
       setText("#zv2-updated", formatDate(event.updated, true));
-      setText("#zv2-human-suspected", String(event.human.suspected));
-      setText("#zv2-human-confirmed", String(event.human.confirmed));
-      setText("#zv2-human-deaths", String(event.human.deaths));
-      setText("#zv2-species", event.animal.species);
-      setText("#zv2-animal-sick", event.animal.outbreaks + " outbreak • " + event.animal.sick + " sakit");
-      setText("#zv2-animal-loss", event.animal.deaths + " mati • " + event.animal.culled + " dimusnahkan");
-      setText("#zv2-lab-result", event.lab.result);
-      setText("#zv2-lab-method", event.lab.method);
-      setText("#zv2-lab-name", event.lab.name);
+      setText("#zv2-human-suspected", metric(event.human?.suspected));
+      setText("#zv2-human-confirmed", metric(event.human?.confirmed));
+      setText("#zv2-human-deaths", metric(event.human?.deaths));
+      setText("#zv2-species", event.animal?.species);
+      setText("#zv2-animal-sick", metric(event.animal?.outbreaks) + " outbreak • " + metric(event.animal?.sick) + " sakit");
+      setText("#zv2-animal-loss", metric(event.animal?.deaths) + " mati • " + metric(event.animal?.culled) + " dimusnahkan");
+      setText("#zv2-lab-result", event.lab?.result);
+      setText("#zv2-lab-method", event.lab?.method);
+      setText("#zv2-lab-name", event.lab?.name);
       setText("#zv2-actions", event.actions);
       setText("#zv2-pic", event.pic);
       setText("#zv2-next-action", event.next);
-      setText("#zv2-source", event.source);
+      const sourceCell = root.querySelector("#zv2-source");
+      sourceCell.replaceChildren();
+      if (event.source_url) {
+        const link = document.createElement("a");
+        link.href = event.source_url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = event.source;
+        sourceCell.appendChild(link);
+      } else {
+        sourceCell.textContent = event.source || "—";
+      }
       setText("#zv2-verification", event.verification);
       setText("#zv2-economic", event.economic);
     }
@@ -1530,6 +1658,108 @@ svg {
         "<span>Sumber: " + escapeHtml(event.source) + "</span>",
         "</div>"
       ].join("");
+    }
+
+    function initializeControls() {
+      const diseases = [...new Set(events.map((event) => event.disease).filter(Boolean))]
+        .sort((a, b) => a.localeCompare(b, "id"));
+      const diseaseSelect = root.querySelector("#zv2-disease");
+      diseases.forEach((disease) => {
+        const option = document.createElement("option");
+        option.value = disease;
+        option.textContent = disease;
+        diseaseSelect.appendChild(option);
+      });
+
+      const sourceSelect = root.querySelector("#zv2-source-filter");
+      sources.filter((source) => source.records > 0).forEach((source) => {
+        const option = document.createElement("option");
+        option.value = source.id;
+        option.textContent = source.name;
+        sourceSelect.appendChild(option);
+      });
+
+      root.querySelector("#zv2-data-mode").textContent = usingLiveData ? "Data near-real-time" : "Fallback ilustratif";
+      root.querySelector("#zv2-last-updated").textContent = usingLiveData
+        ? "Terakhir diperbarui " + formatDate(liveMetadata.generated_at, true) + " • jadwal 6 jam"
+        : "Data langsung gagal dimuat; menampilkan data contoh";
+    }
+
+    const statusLabels = {
+      live: "Aktif",
+      stale: "Data terakhir",
+      error: "Gangguan",
+      restricted: "Akun diperlukan",
+      portal_only: "Portal saja",
+      authentication_required: "Token diperlukan",
+      institutional_access: "Akses institusi",
+      license_required: "Lisensi diperlukan"
+    };
+
+    function renderSources() {
+      const grid = root.querySelector("#zv2-source-grid");
+      grid.replaceChildren();
+      sources.forEach((source) => {
+        const card = document.createElement("article");
+        card.className = "card source-card";
+        const head = document.createElement("div");
+        head.className = "source-card-head";
+        const title = document.createElement("a");
+        title.href = source.url;
+        title.target = "_blank";
+        title.rel = "noopener noreferrer";
+        title.textContent = source.name;
+        const status = document.createElement("span");
+        const isLive = source.status === "live";
+        status.className = "source-status text-small " + (isLive ? "source-status-live" : "source-status-limited");
+        status.textContent = statusLabels[source.status] || source.status;
+        head.append(title, status);
+        const meta = document.createElement("div");
+        meta.className = "text-small text-muted";
+        meta.textContent = source.level + " • " + source.kind + " • " + source.records + " rekaman";
+        const note = document.createElement("div");
+        note.className = "text-small";
+        note.textContent = source.error ? source.note + " Gangguan terakhir: " + source.error : source.note;
+        card.append(head, meta, note);
+        grid.appendChild(card);
+      });
+    }
+
+    function renderFeed(records) {
+      const list = root.querySelector("#zv2-feed-list");
+      list.replaceChildren();
+      const latest = [...records]
+        .sort((a, b) => new Date(b.published) - new Date(a.published))
+        .slice(0, 8);
+      if (!latest.length) {
+        const empty = document.createElement("div");
+        empty.className = "feed-empty text-small";
+        empty.textContent = "Tidak ada publikasi atau sinyal dalam filter ini.";
+        list.appendChild(empty);
+        return;
+      }
+      latest.forEach((record) => {
+        const item = document.createElement("article");
+        item.className = "feed-item";
+        const head = document.createElement("div");
+        head.className = "feed-item-head";
+        const link = document.createElement("a");
+        link.href = record.source_url || "#";
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = record.title || record.disease + " • " + record.location;
+        const badge = document.createElement("span");
+        badge.className = "source-status text-small " + (record.evidence === "confirmed" ? "source-status-live" : "source-status-limited");
+        badge.textContent = record.record_type === "report"
+          ? "Publikasi"
+          : (record.evidence === "confirmed" ? "Resmi" : "Rumor");
+        head.append(link, badge);
+        const meta = document.createElement("div");
+        meta.className = "text-small text-muted";
+        meta.textContent = formatDate(record.published, true) + " • " + record.source + " • " + record.location;
+        item.append(head, meta);
+        list.appendChild(item);
+      });
     }
 
     const eventMap = L.map(mapElement, {
@@ -1663,12 +1893,14 @@ svg {
     }
 
     function render() {
+      const records = filteredRecords();
       const items = filteredEvents();
       if (!items.some((event) => event.id === state.selectedId)) state.selectedId = items.length ? items[0].id : null;
       updateStats(items);
       updateDetail(items.find((event) => event.id === state.selectedId));
       renderMap(items);
       renderTrend(items);
+      renderFeed(records);
     }
 
     root.querySelectorAll("select, input[type='checkbox']").forEach((control) => control.addEventListener("change", render));
@@ -1681,9 +1913,12 @@ svg {
       }, 80);
     });
     resizeObserver.observe(mapWrap);
+    initializeControls();
+    renderSources();
     render();
   </script>
 </div>
+</main>
 
 <script id="codex-visualization-floating-ui-core" src="https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js"></script>
 <script id="codex-visualization-floating-ui-dom" src="https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js"></script>

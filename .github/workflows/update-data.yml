@@ -1,0 +1,40 @@
+name: Update surveillance data
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: surveillance-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Refresh public surveillance feeds
+        run: python scripts/update_events.py
+
+      - name: Commit changed data
+        run: |
+          if git diff --quiet -- data/events.json data/events.js data/source-status.json; then
+            echo "No data changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/events.json data/events.js data/source-status.json
+          git commit -m "Update surveillance data"
+          git push
