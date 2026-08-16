@@ -1,6 +1,2338 @@
 <!doctype html>
 <html lang="en" data-visualize-standalone>
+<head<!doctype html>
+<html lang="en" data-visualize-standalone>
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="description" content="Dashboard near-real-time untuk pemantauan zoonosis dan penyakit infeksi emerging dari sumber nasional, regional, global, dan sinyal media terpisah.">
+<title>Zoonosis and Emerging Infectious Diseases Dashboard</title>
+<style>:root {
+  color-scheme: light dark;
+  background-color: transparent !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --main-surface-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: light-dark(rgb(26 28 31), rgb(255 255 255));
+  --card: color-mix(in oklab, var(--foreground) 5%, transparent);
+  --card-foreground: var(--foreground);
+  --popover: light-dark(rgb(255 255 255), rgb(45 45 45));
+  --popover-foreground: var(--foreground);
+  --primary: light-dark(rgb(51 156 255), rgb(131 195 255));
+  --primary-foreground: light-dark(rgb(255 255 255), rgb(13 13 13));
+  --secondary: light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%));
+  --secondary-foreground: var(--foreground);
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: light-dark(
+    rgb(26 28 31 / 49.4%),
+    rgb(255 255 255 / 49.8%)
+  );
+  --accent: light-dark(rgb(229 242 255), rgb(13 39 63));
+  --accent-foreground: var(--primary);
+  --destructive: light-dark(rgb(226 85 7), rgb(255 133 73));
+  --border: light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%));
+  --input: light-dark(
+    rgb(26 28 31 / 11.8%),
+    color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+  );
+  --ring: light-dark(rgb(51 156 255), rgb(131 195 255 / 76%));
+  --font-size-base: 14px;
+  --red: light-dark(rgb(186 38 35), rgb(250 66 62));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, "Segoe UI", sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono",
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --radius: 10px;
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 17'%3E%3Cpath d='M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z'/%3E%3C/svg%3E");
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+  --color-background-primary: var(--background);
+  --color-text-primary: var(--foreground);
+  --color-border-secondary: var(--border);
+}
+
+:root[data-visualize-standalone] {
+  background-color: var(--background) !important;
+}
+
+/* Generic mobile code-block hosts provide light/dark mode but no series palette.
+   AppBlock hosts set all six variables themselves. */
+:root:not([data-app-block-surface]) {
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(#f3883b, #f59a56);
+  --viz-series-3: light-dark(#5dc977, #74d58b);
+  --viz-series-4: light-dark(#eb77b1, #f08fc0);
+  --viz-series-5: light-dark(#9b79ec, #aa91ef);
+  --viz-series-6: light-dark(#3ab9b1, #5acbc2);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html > body {
+  margin: 0;
+  padding: 5px;
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+:root:not([data-app-block-surface]) > body {
+  padding: 12px;
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive > .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align="right"]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align="center"]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget > :not(.card) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* The bundled tooltip runtime owns [data-tooltip]. AppBlock's CSS-only
+   pseudo-tooltip can widen dense grids even while hidden. */
+main [data-tooltip]::after {
+  content: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls > .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls > .form-label > :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--interactive-label-primary-default, var(--primary-foreground));
+  background: var(--interactive-bg-primary-default, var(--foreground));
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(
+    in srgb,
+    var(--interactive-label-primary-default, var(--primary-foreground)) 50%,
+    transparent
+  );
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type="file"] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type="file"]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type="file"]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type="color"] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type="color"]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type="checkbox"] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type="checkbox"]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type="checkbox"]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: "";
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type="radio"] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type="radio"]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: "";
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+    [aria-pressed="true"],
+    [aria-selected="true"],
+    .is-selected
+  ) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed="true"], [aria-selected="true"], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget > svg {
+  width: 100%;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+</style>
+<style>
+  :root[data-visualize-standalone] {
+    background: linear-gradient(135deg, #fff1f2 0%, #fff7ed 28%, #fefce8 54%, #f0fdf4 78%, #eff6ff 100%) fixed !important;
+    color-scheme: light !important;
+    --background: #f8fafc;
+    --foreground: #172033;
+    --card: rgba(255, 255, 255, .88);
+    --card-foreground: #172033;
+    --popover: #ffffff;
+    --popover-foreground: #172033;
+    --primary: #2563eb;
+    --primary-foreground: #ffffff;
+    --secondary: rgba(255, 255, 255, .94);
+    --secondary-foreground: #172033;
+    --muted: rgba(23, 32, 51, .08);
+    --muted-foreground: #5b6474;
+    --accent: #e8f1ff;
+    --accent-foreground: #1d4ed8;
+    --border: rgba(23, 32, 51, .14);
+    --input: rgba(23, 32, 51, .12);
+    --ring: #2563eb;
+  }
+  html > body {
+    background: transparent !important;
+    margin: 0 auto;
+    max-width: 1500px;
+    padding: 18px clamp(12px, 3vw, 40px) 40px;
+  }
+  .site-header {
+    align-items: flex-start;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 18px;
+    justify-content: space-between;
+    margin-bottom: 22px;
+    padding: 6px 0 18px;
+  }
+  .site-title {
+    display: grid;
+    gap: 5px;
+  }
+  .site-kicker {
+    color: var(--muted-foreground);
+    font-size: var(--font-size-small);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .site-header p {
+    color: var(--muted-foreground);
+    max-width: 720px;
+  }
+  .site-header a {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    flex: 0 0 auto;
+    padding: 8px 11px;
+  }
+  @media (max-width: 680px) {
+    .site-header {
+      flex-direction: column;
+    }
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-title">
+    <span class="site-kicker">One Health Surveillance</span>
+    <h1>Zoonosis &amp; Emerging Infectious Diseases</h1>
+    <p>Dashboard near-real-time nasional, regional, dan global dengan pemisahan tegas antara sumber resmi dan sinyal/rumor.</p>
+  </div>
+  <a href="https://github.com/ajatikusumah/Zoonosis-and-Emerging-Infectious-Diseases-Dashboard" target="_blank" rel="noopener noreferrer">Lihat repositori</a>
+</header>
+<main>
+<div id="zoonosis-dashboard-v2" aria-label="Dashboard operasional kejadian zoonosis dan penyakit infeksi emerging">
+  <style>
+    @import url("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
+
+    #zoonosis-dashboard-v2 {
+      --case-critical: #dc2626;
+      --case-high: #f97316;
+      --case-moderate: #eab308;
+      --case-signal: #22c55e;
+      color: var(--foreground);
+      display: grid;
+      gap: 18px;
+      width: 100%;
+    }
+    #zoonosis-dashboard-v2 .meta-row,
+    #zoonosis-dashboard-v2 .section-heading,
+    #zoonosis-dashboard-v2 .legend-items,
+    #zoonosis-dashboard-v2 .detail-heading,
+    #zoonosis-dashboard-v2 .change-row {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+    }
+    #zoonosis-dashboard-v2 .filters {
+      align-items: end;
+    }
+    #zoonosis-dashboard-v2 .status-controls {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    #zoonosis-dashboard-v2 .map-wrap {
+      min-height: 420px;
+      position: relative;
+      width: 100%;
+    }
+    #zoonosis-dashboard-v2 .leaflet-map {
+      height: 420px;
+      width: 100%;
+    }
+    #zoonosis-dashboard-v2 .trend-svg {
+      display: block;
+      width: 100%;
+    }
+    #zoonosis-dashboard-v2 .leaflet-container {
+      background: var(--muted);
+      color: var(--foreground);
+      font: inherit;
+    }
+    #zoonosis-dashboard-v2 .leaflet-control-zoom a,
+    #zoonosis-dashboard-v2 .leaflet-control-attribution {
+      background: var(--secondary);
+      color: var(--secondary-foreground);
+    }
+    #zoonosis-dashboard-v2 .leaflet-control-zoom a:hover,
+    #zoonosis-dashboard-v2 .leaflet-control-zoom a:focus {
+      background: var(--accent);
+      color: var(--accent-foreground);
+    }
+    #zoonosis-dashboard-v2 .leaflet-control-attribution a {
+      color: var(--foreground);
+    }
+    #zoonosis-dashboard-v2 .zv2-leaflet-icon {
+      background: transparent;
+      border: 0;
+    }
+    #zoonosis-dashboard-v2 .event-marker {
+      border: 2px solid var(--background);
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--foreground) 25%, transparent);
+      cursor: pointer;
+      display: block;
+      height: 14px;
+      width: 14px;
+    }
+    #zoonosis-dashboard-v2 .event-marker-critical {
+      background: var(--case-critical);
+      border-radius: 50%;
+    }
+    #zoonosis-dashboard-v2 .event-marker-high {
+      background: var(--case-high);
+      border-radius: 4px;
+    }
+    #zoonosis-dashboard-v2 .event-marker-moderate {
+      background: var(--case-moderate);
+      transform: rotate(45deg);
+    }
+    #zoonosis-dashboard-v2 .event-marker-signal {
+      background: var(--case-signal);
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--background) 72%, transparent);
+    }
+    #zoonosis-dashboard-v2 .event-marker.is-selected {
+      box-shadow: 0 0 0 3px var(--foreground);
+    }
+    #zoonosis-dashboard-v2 .leaflet-tooltip {
+      background: var(--popover);
+      border-color: var(--border);
+      color: var(--popover-foreground);
+      max-width: 280px;
+      white-space: normal;
+    }
+    #zoonosis-dashboard-v2 .leaflet-tooltip::before {
+      border-top-color: var(--border);
+    }
+    #zoonosis-dashboard-v2 .map-tooltip-content {
+      display: grid;
+      gap: 3px;
+    }
+    #zoonosis-dashboard-v2 .map-tooltip-content span {
+      display: block;
+    }
+    #zoonosis-dashboard-v2 .legend-item {
+      align-items: center;
+      display: inline-flex;
+      gap: 7px;
+    }
+    #zoonosis-dashboard-v2 .case-swatch {
+      display: inline-block;
+      height: 11px;
+      width: 11px;
+    }
+    #zoonosis-dashboard-v2 .case-swatch-critical {
+      background: var(--case-critical);
+      border-radius: 50%;
+    }
+    #zoonosis-dashboard-v2 .case-swatch-high {
+      background: var(--case-high);
+      border-radius: 3px;
+    }
+    #zoonosis-dashboard-v2 .case-swatch-moderate {
+      background: var(--case-moderate);
+      transform: rotate(45deg);
+    }
+    #zoonosis-dashboard-v2 .case-swatch-signal {
+      background: var(--case-signal);
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--background) 72%, transparent);
+    }
+    #zoonosis-dashboard-v2 .case-status {
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      flex: 0 0 auto;
+      padding: 2px 7px;
+    }
+    #zoonosis-dashboard-v2 .case-critical {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+    #zoonosis-dashboard-v2 .case-high {
+      background: #ffedd5;
+      color: #9a3412;
+    }
+    #zoonosis-dashboard-v2 .case-moderate {
+      background: #fef9c3;
+      color: #854d0e;
+    }
+    #zoonosis-dashboard-v2 .case-signal {
+      background: #dcfce7;
+      color: #166534;
+    }
+    #zoonosis-dashboard-v2 .detail-card {
+      display: grid;
+      gap: 14px;
+    }
+    #zoonosis-dashboard-v2 .detail-title-group {
+      display: grid;
+      gap: 5px;
+    }
+    #zoonosis-dashboard-v2 .detail-badges {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    #zoonosis-dashboard-v2 .detail-grid {
+      display: grid;
+      gap: 16px 22px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    #zoonosis-dashboard-v2 .detail-section {
+      display: grid;
+      gap: 6px;
+      min-width: 0;
+    }
+    #zoonosis-dashboard-v2 .detail-section h3 {
+      margin: 0;
+    }
+    #zoonosis-dashboard-v2 .detail-section dl {
+      display: grid;
+      gap: 5px;
+      margin: 0;
+    }
+    #zoonosis-dashboard-v2 .detail-section div {
+      display: grid;
+      gap: 2px;
+      grid-template-columns: minmax(80px, 0.8fr) minmax(0, 1.2fr);
+    }
+    #zoonosis-dashboard-v2 .detail-section dt {
+      color: var(--muted-foreground);
+    }
+    #zoonosis-dashboard-v2 .detail-section dd {
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+    #zoonosis-dashboard-v2 .change-note {
+      color: var(--foreground);
+      font-weight: 500;
+    }
+    #zoonosis-dashboard-v2 .chart-label {
+      fill: var(--muted-foreground);
+    }
+    #zoonosis-dashboard-v2 .chart-value {
+      fill: var(--foreground);
+      font-weight: 500;
+    }
+    #zoonosis-dashboard-v2 .axis-line {
+      stroke: var(--border);
+      stroke-width: 1;
+    }
+    #zoonosis-dashboard-v2 .bar-confirmed {
+      fill: var(--case-high);
+    }
+    #zoonosis-dashboard-v2 .bar-rumor {
+      fill: var(--case-signal);
+    }
+    #zoonosis-dashboard-v2 .map-message {
+      fill: var(--foreground);
+      paint-order: stroke;
+      stroke: var(--background);
+      stroke-linejoin: round;
+      stroke-width: 3px;
+    }
+    #zoonosis-dashboard-v2 .load-state {
+      align-items: center;
+      color: var(--muted-foreground);
+      display: flex;
+      inset: 0;
+      justify-content: center;
+      position: absolute;
+    }
+    #zoonosis-dashboard-v2 .data-note {
+      border-left: 3px solid var(--viz-series-1);
+      display: grid;
+      gap: 4px;
+    }
+    #zoonosis-dashboard-v2 .import-card {
+      display: grid;
+      gap: 12px;
+    }
+    #zoonosis-dashboard-v2 .import-copy,
+    #zoonosis-dashboard-v2 .import-status {
+      display: grid;
+      gap: 5px;
+    }
+    #zoonosis-dashboard-v2 .import-actions {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    #zoonosis-dashboard-v2 .import-button {
+      background: var(--secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      color: var(--secondary-foreground);
+      display: inline-flex;
+      font-size: var(--font-size-small);
+      font-weight: 500;
+      padding: 7px 10px;
+      text-decoration: none;
+    }
+    #zoonosis-dashboard-v2 .import-button:hover,
+    #zoonosis-dashboard-v2 .import-button:focus-visible {
+      background: var(--accent);
+      color: var(--accent-foreground);
+    }
+    #zoonosis-dashboard-v2 .import-button-primary {
+      background: var(--primary);
+      color: var(--primary-foreground);
+    }
+    #zoonosis-dashboard-v2 .source-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    #zoonosis-dashboard-v2 .source-card,
+    #zoonosis-dashboard-v2 .feed-card {
+      display: grid;
+      gap: 8px;
+      min-width: 0;
+    }
+    #zoonosis-dashboard-v2 .source-card-head,
+    #zoonosis-dashboard-v2 .feed-item-head {
+      align-items: flex-start;
+      display: flex;
+      gap: 8px;
+      justify-content: space-between;
+    }
+    #zoonosis-dashboard-v2 .source-card a,
+    #zoonosis-dashboard-v2 .feed-card a,
+    #zoonosis-dashboard-v2 .detail-section a {
+      color: var(--foreground);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    #zoonosis-dashboard-v2 .source-status {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      flex: 0 0 auto;
+      padding: 2px 7px;
+    }
+    #zoonosis-dashboard-v2 .source-status-live {
+      border-color: var(--viz-series-1);
+    }
+    #zoonosis-dashboard-v2 .source-status-limited {
+      border-color: var(--viz-series-4);
+    }
+    #zoonosis-dashboard-v2 .feed-list {
+      display: grid;
+      gap: 10px;
+    }
+    #zoonosis-dashboard-v2 .feed-item {
+      border-top: 1px solid var(--border);
+      display: grid;
+      gap: 4px;
+      padding-top: 10px;
+    }
+    #zoonosis-dashboard-v2 .feed-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+    #zoonosis-dashboard-v2 .feed-empty {
+      color: var(--muted-foreground);
+    }
+    @media (max-width: 680px) {
+      #zoonosis-dashboard-v2 .detail-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      #zoonosis-dashboard-v2 .source-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 480px) {
+      #zoonosis-dashboard-v2 .meta-row,
+      #zoonosis-dashboard-v2 .section-heading,
+      #zoonosis-dashboard-v2 .detail-heading,
+      #zoonosis-dashboard-v2 .change-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      #zoonosis-dashboard-v2 .detail-grid {
+        grid-template-columns: 1fr;
+      }
+      #zoonosis-dashboard-v2 .map-wrap {
+        min-height: 340px;
+      }
+      #zoonosis-dashboard-v2 .leaflet-map {
+        height: 340px;
+      }
+    }
+  </style>
+
+  <div class="meta-row">
+    <span class="viz-badge" id="zv2-data-mode">Memuat data…</span>
+    <span class="text-small text-muted" id="zv2-last-updated">Pembaruan terjadwal setiap 6 jam</span>
+  </div>
+
+  <div class="card data-note text-small">
+    <strong>Near-real-time, bukan pelaporan kasus waktu nyata.</strong>
+    <span class="text-muted">Sumber resmi dan sinyal media dipisahkan. Angka yang tidak tersedia tetap ditampilkan sebagai “—”; publikasi laporan tidak otomatis dihitung sebagai kejadian.</span>
+  </div>
+
+  <div class="viz-controls filters" aria-label="Filter dashboard">
+    <label class="form-label" for="zv2-scope">Wilayah
+      <select class="form-select" id="zv2-scope">
+        <option value="Indonesia">Indonesia</option>
+        <option value="ASEAN">Asia Tenggara/ASEAN</option>
+        <option value="Asia-Pacific">Asia–Pasifik</option>
+        <option value="Global" selected>Global</option>
+      </select>
+    </label>
+    <label class="form-label" for="zv2-period">Periode
+      <select class="form-select" id="zv2-period">
+        <option value="1">24 jam</option>
+        <option value="7">7 hari</option>
+        <option value="30">30 hari</option>
+        <option value="90" selected>90 hari</option>
+        <option value="365">12 bulan</option>
+      </select>
+    </label>
+    <label class="form-label" for="zv2-disease">Penyakit
+      <select class="form-select" id="zv2-disease">
+        <option value="all">Semua penyakit</option>
+      </select>
+    </label>
+    <label class="form-label" for="zv2-source-filter">Sumber
+      <select class="form-select" id="zv2-source-filter">
+        <option value="all">Semua sumber aktif</option>
+      </select>
+    </label>
+    <div>
+      <div class="text-small text-muted">Status bukti</div>
+      <div class="status-controls">
+        <label class="form-check" for="zv2-confirmed">
+          <input class="form-check-input" id="zv2-confirmed" type="checkbox" checked>
+          <span class="form-check-label">Terkonfirmasi</span>
+        </label>
+        <label class="form-check" for="zv2-rumor">
+          <input class="form-check-input" id="zv2-rumor" type="checkbox" checked>
+          <span class="form-check-label">Rumor/verifikasi</span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="viz-grid" aria-label="Ringkasan operasional">
+    <div class="card viz-stat">
+      <div class="text-muted">Kejadian terkonfirmasi aktif</div>
+      <div class="viz-stat-value" id="zv2-confirmed-count">0</div>
+      <div class="text-small" id="zv2-confirmed-change">0 berubah dalam 24 jam</div>
+    </div>
+    <div class="card viz-stat">
+      <div class="text-muted">Rumor/sinyal</div>
+      <div class="viz-stat-value" id="zv2-rumor-count">0</div>
+      <div class="text-small" id="zv2-rumor-change">0 baru dalam 24 jam</div>
+    </div>
+    <div class="card viz-stat">
+      <div class="text-muted">Kasus manusia terkonfirmasi</div>
+      <div class="viz-stat-value" id="zv2-human-count">0</div>
+      <div class="text-small" id="zv2-human-context">0 meninggal • sumber resmi</div>
+    </div>
+    <div class="card viz-stat">
+      <div class="text-muted">Outbreak hewan terkonfirmasi</div>
+      <div class="viz-stat-value" id="zv2-animal-count">0</div>
+      <div class="text-small" id="zv2-animal-context">0 sakit • 0 mati</div>
+    </div>
+  </div>
+
+  <div class="change-row text-small">
+    <span class="change-note" id="zv2-change-summary">Perubahan 24 jam: —</span>
+    <span class="text-muted">Angka manusia dan hewan tidak dijumlahkan</span>
+  </div>
+
+  <section aria-labelledby="zv2-map-heading">
+    <div class="section-heading">
+      <h3 id="zv2-map-heading">Peta kejadian</h3>
+      <div class="legend-items text-small" aria-label="Legenda peta">
+        <span class="legend-item"><span class="case-swatch case-swatch-critical" aria-hidden="true"></span>Kritis: ada kematian</span>
+        <span class="legend-item"><span class="case-swatch case-swatch-high" aria-hidden="true"></span>Tinggi: kasus/outbreak terkonfirmasi</span>
+        <span class="legend-item"><span class="case-swatch case-swatch-moderate" aria-hidden="true"></span>Sedang: monitoring resmi</span>
+        <span class="legend-item"><span class="case-swatch case-swatch-signal" aria-hidden="true"></span>Sinyal awal: belum diverifikasi</span>
+      </div>
+    </div>
+    <div class="text-small text-muted">Warna menunjukkan kategori operasional berdasarkan status verifikasi dan dampak yang tersedia. Hijau berarti sinyal belum diverifikasi, bukan berarti bebas risiko.</div>
+    <div class="map-wrap" id="zv2-map-wrap">
+      <div class="load-state text-small" id="zv2-map-loading">Memuat peta…</div>
+      <div class="leaflet-map" id="zv2-map" role="region" aria-label="Peta OpenStreetMap kejadian zoonosis. Sorot atau fokuskan marker untuk melihat nama kejadian dan sumbernya."></div>
+    </div>
+  </section>
+
+  <article class="card detail-card" id="zv2-detail" aria-live="polite">
+    <div class="detail-heading">
+      <div class="detail-title-group">
+        <strong id="zv2-detail-name">Pilih titik pada peta</strong>
+        <span class="text-small text-muted" id="zv2-detail-id">Event ID: —</span>
+      </div>
+      <div class="detail-badges">
+        <span class="case-status case-moderate text-small" id="zv2-case-category">Kategori: —</span>
+        <span class="viz-badge" id="zv2-evidence-status">Status bukti: —</span>
+        <span class="viz-badge" id="zv2-response-status">Penanganan: —</span>
+      </div>
+    </div>
+    <div class="text-small change-note" id="zv2-detail-change">Perubahan terbaru: —</div>
+    <div class="detail-grid" id="zv2-detail-grid">
+      <section class="detail-section" aria-labelledby="zv2-time-heading">
+        <h3 id="zv2-time-heading">Linimasa</h3>
+        <dl>
+          <div><dt>Onset</dt><dd id="zv2-onset">—</dd></div>
+          <div><dt>Dilaporkan</dt><dd id="zv2-reported">—</dd></div>
+          <div><dt>Diperbarui</dt><dd id="zv2-updated">—</dd></div>
+        </dl>
+      </section>
+      <section class="detail-section" aria-labelledby="zv2-human-heading">
+        <h3 id="zv2-human-heading">Dampak manusia</h3>
+        <dl>
+          <div><dt>Suspek</dt><dd id="zv2-human-suspected">—</dd></div>
+          <div><dt>Terkonfirmasi</dt><dd id="zv2-human-confirmed">—</dd></div>
+          <div><dt>Meninggal</dt><dd id="zv2-human-deaths">—</dd></div>
+        </dl>
+      </section>
+      <section class="detail-section" aria-labelledby="zv2-animal-heading">
+        <h3 id="zv2-animal-heading">Dampak hewan</h3>
+        <dl>
+          <div><dt>Spesies</dt><dd id="zv2-species">—</dd></div>
+          <div><dt>Outbreak/sakit</dt><dd id="zv2-animal-sick">—</dd></div>
+          <div><dt>Mati/dimusnahkan</dt><dd id="zv2-animal-loss">—</dd></div>
+        </dl>
+      </section>
+      <section class="detail-section" aria-labelledby="zv2-lab-heading">
+        <h3 id="zv2-lab-heading">Laboratorium</h3>
+        <dl>
+          <div><dt>Hasil</dt><dd id="zv2-lab-result">—</dd></div>
+          <div><dt>Metode</dt><dd id="zv2-lab-method">—</dd></div>
+          <div><dt>Laboratorium</dt><dd id="zv2-lab-name">—</dd></div>
+        </dl>
+      </section>
+      <section class="detail-section" aria-labelledby="zv2-response-heading">
+        <h3 id="zv2-response-heading">Respons dan PIC</h3>
+        <dl>
+          <div><dt>Tindakan</dt><dd id="zv2-actions">—</dd></div>
+          <div><dt>PIC</dt><dd id="zv2-pic">—</dd></div>
+          <div><dt>Berikutnya</dt><dd id="zv2-next-action">—</dd></div>
+        </dl>
+      </section>
+      <section class="detail-section" aria-labelledby="zv2-source-heading">
+        <h3 id="zv2-source-heading">Sumber dan dampak</h3>
+        <dl>
+          <div><dt>Sumber</dt><dd id="zv2-source">—</dd></div>
+          <div><dt>Verifikasi</dt><dd id="zv2-verification">—</dd></div>
+          <div><dt>Ekonomi</dt><dd id="zv2-economic">—</dd></div>
+        </dl>
+      </section>
+    </div>
+  </article>
+
+  <section aria-labelledby="zv2-trend-heading">
+    <div class="section-heading">
+      <h3 id="zv2-trend-heading">Kejadian menurut tanggal publikasi</h3>
+      <span class="text-small text-muted">Setelah deduplikasi antar-sumber</span>
+    </div>
+    <svg class="trend-svg" id="zv2-trend" role="img" aria-labelledby="zv2-trend-title zv2-trend-desc">
+      <title id="zv2-trend-title">Jumlah kejadian per hari menurut status bukti</title>
+      <desc id="zv2-trend-desc">Batang bertumpuk membandingkan kejadian terkonfirmasi dengan rumor atau kejadian yang sedang diverifikasi.</desc>
+    </svg>
+  </section>
+
+  <section aria-labelledby="zv2-feed-heading">
+    <div class="section-heading">
+      <h3 id="zv2-feed-heading">Publikasi dan sinyal terbaru</h3>
+      <span class="text-small text-muted">Maksimum 8 rekaman sesuai filter</span>
+    </div>
+    <div class="card feed-card">
+      <div class="feed-list" id="zv2-feed-list"></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="zv2-import-heading">
+    <div class="section-heading">
+      <h3 id="zv2-import-heading">Impor data terotorisasi</h3>
+      <span class="text-small text-muted">CSV/Excel • unggahan baru diproses segera • pemeriksaan cadangan setiap 6 jam</span>
+    </div>
+    <article class="card import-card" aria-labelledby="zv2-import-heading">
+      <div class="import-copy">
+        <strong>Hanya data agregat atau sudah dide-identifikasi.</strong>
+        <span class="text-small text-muted">Repository ini publik. Baris baru tidak akan tampil kecuali lolos validasi dan ditandai eksplisit dengan <code>publish=true</code>.</span>
+        <div class="import-status text-small">
+          <span id="zv2-import-summary">Belum ada rekaman impor aktif.</span>
+          <a href="./data/import-validation.json" target="_blank" rel="noopener noreferrer" id="zv2-import-validation">Buka laporan validasi</a>
+        </div>
+      </div>
+      <div class="import-actions" aria-label="Aksi impor data">
+        <a class="import-button" href="./data/import/template.csv" download>Unduh template CSV</a>
+        <a class="import-button" href="./data/import/template.xlsx" download>Unduh template Excel</a>
+        <a class="import-button" href="./data/import/README.md" target="_blank" rel="noopener noreferrer">Panduan impor</a>
+        <a class="import-button import-button-primary" href="https://github.com/ajatikusumah/Zoonosis-and-Emerging-Infectious-Diseases-Dashboard/upload/main/data/import" target="_blank" rel="noopener noreferrer">Unggah ke folder import</a>
+      </div>
+    </article>
+  </section>
+
+  <section aria-labelledby="zv2-sources-heading">
+    <div class="section-heading">
+      <h3 id="zv2-sources-heading">Registri sumber data</h3>
+      <span class="text-small text-muted">Akses terbuka, portal, akun, dan lisensi dibedakan</span>
+    </div>
+    <div class="source-grid" id="zv2-source-grid"></div>
+  </section>
+
+  <script type="module">
+    import L from "https://esm.sh/leaflet@1.9.4";
+    import { events as liveEvents, metadata as liveMetadata, sources as liveSources } from "./data/events.js";
+
+    const root = document.getElementById("zoonosis-dashboard-v2");
+    const mapElement = root.querySelector("#zv2-map");
+    const mapWrap = root.querySelector("#zv2-map-wrap");
+    const trendSvg = root.querySelector("#zv2-trend");
+    const now = new Date(liveMetadata.generated_at || Date.now());
+
+    const scopeBounds = {
+      "Indonesia": [[-11.5, 94], [6.5, 142]],
+      "ASEAN": [[-12, 91], [29, 142]],
+      "Asia-Pacific": [[-49, 60], [56, 180]],
+      "Global": [[-58, -170], [72, 180]]
+    };
+
+    const scopeCountries = {
+      "Indonesia": ["IDN"],
+      "ASEAN": ["BRN", "KHM", "IDN", "LAO", "MYS", "MMR", "PHL", "SGP", "THA", "TLS", "VNM"],
+      "Asia-Pacific": ["AUS", "BGD", "BTN", "BRN", "KHM", "CHN", "FJI", "IND", "IDN", "JPN", "KOR", "LAO", "MYS", "MDV", "MMR", "NPL", "NZL", "PAK", "PNG", "PHL", "SGP", "LKA", "THA", "TLS", "VNM"],
+      "Global": []
+    };
+
+    const illustrativeEvents = [
+      {
+        id: "IDN-ANT-20260815-01", disease: "Anthrax", location: "Kabupaten Bogor, Jawa Barat", iso3: "IDN", lat: -6.59, lon: 106.80,
+        published: "2026-08-15T10:30:00+07:00", onset: "2026-08-13", reported: "2026-08-14T14:10:00+07:00", updated: "2026-08-15T17:45:00+07:00",
+        evidence: "confirmed", response: "Investigasi berlangsung", changed24h: true, changeType: "Konfirmasi baru", change: "Hasil laboratorium positif dan investigasi lintas sektor dimulai.",
+        human: { suspected: 7, confirmed: 3, deaths: 0 }, animal: { outbreaks: 2, sick: 8, deaths: 2, culled: 0, species: "Sapi" },
+        lab: { result: "Positif", method: "PCR", name: "Laboratorium rujukan" },
+        actions: "Investigasi, tracing paparan, pembatasan pergerakan", pic: "Dinas kesehatan dan dinas peternakan", next: "Pemetaan kontak dan vaksinasi berisiko tinggi", source: "Laporan resmi lintas sektor", verification: "Dua sumber resmi", economic: "Estimasi awal Rp320 juta"
+      },
+      {
+        id: "IDN-RAB-20260814-02", disease: "Rabies", location: "Kupang, Nusa Tenggara Timur", iso3: "IDN", lat: -10.16, lon: 123.60,
+        published: "2026-08-14T15:10:00+08:00", onset: "2026-08-10", reported: "2026-08-12T09:00:00+08:00", updated: "2026-08-15T09:30:00+08:00",
+        evidence: "confirmed", response: "Respons awal", changed24h: true, changeType: "Pembaruan", change: "Cakupan vaksinasi respons ditambahkan dan PEP diberikan pada kontak.",
+        human: { suspected: 4, confirmed: 2, deaths: 1 }, animal: { outbreaks: 3, sick: 12, deaths: 9, culled: 0, species: "Anjing" },
+        lab: { result: "Positif", method: "FAT", name: "Laboratorium veteriner" },
+        actions: "PEP, vaksinasi respons, investigasi gigitan", pic: "TIKORDA/TRC daerah", next: "Perluasan vaksinasi dan pencarian kasus aktif", source: "Dinas teknis provinsi", verification: "Konfirmasi resmi daerah", economic: "Belum dihitung"
+      },
+      {
+        id: "IDN-LEP-20260815-03", disease: "Leptospirosis", location: "Bandung, Jawa Barat", iso3: "IDN", lat: -6.91, lon: 107.61,
+        published: "2026-08-15T16:40:00+07:00", onset: "Belum diketahui", reported: "2026-08-15T15:25:00+07:00", updated: "2026-08-15T16:40:00+07:00",
+        evidence: "rumor", response: "Verifikasi awal", changed24h: true, changeType: "Sinyal baru", change: "Laporan media diterima; belum ada konfirmasi dari otoritas.",
+        human: { suspected: 5, confirmed: 0, deaths: 0 }, animal: { outbreaks: 0, sick: 0, deaths: 0, culled: 0, species: "Belum diketahui" },
+        lab: { result: "Belum tersedia", method: "—", name: "—" },
+        actions: "Penelusuran sumber dan permintaan verifikasi", pic: "Focal point surveilans", next: "Konfirmasi kepada dinas kesehatan setempat", source: "Media daring nasional", verification: "Satu sumber nonresmi", economic: "Belum tersedia"
+      },
+      {
+        id: "IDN-AI-20260813-04", disease: "Avian influenza", location: "Sikka, Nusa Tenggara Timur", iso3: "IDN", lat: -8.62, lon: 122.22,
+        published: "2026-08-13T09:20:00+08:00", onset: "2026-08-11", reported: "2026-08-13T08:15:00+08:00", updated: "2026-08-15T12:10:00+08:00",
+        evidence: "rumor", response: "Investigasi lapangan", changed24h: true, changeType: "Pembaruan", change: "Tim lapangan mengambil sampel; hasil laboratorium belum tersedia.",
+        human: { suspected: 0, confirmed: 0, deaths: 0 }, animal: { outbreaks: 1, sick: 35, deaths: 12, culled: 0, species: "Unggas" },
+        lab: { result: "Menunggu hasil", method: "PCR", name: "Laboratorium veteriner" },
+        actions: "Pengambilan sampel dan biosekuriti sementara", pic: "Dinas peternakan kabupaten", next: "Finalisasi hasil laboratorium", source: "Media lokal dan laporan komunitas", verification: "Investigasi berlangsung", economic: "Estimasi peternak belum diverifikasi"
+      },
+      {
+        id: "IDN-RAB-20260811-05", disease: "Rabies", location: "Denpasar, Bali", iso3: "IDN", lat: -8.65, lon: 115.22,
+        published: "2026-08-11T11:00:00+08:00", onset: "2026-08-08", reported: "2026-08-09T10:00:00+08:00", updated: "2026-08-13T14:20:00+08:00",
+        evidence: "confirmed", response: "Terkendali", changed24h: false, changeType: "Tidak berubah", change: "Tidak ada perubahan substansial pada pembaruan terakhir.",
+        human: { suspected: 3, confirmed: 1, deaths: 0 }, animal: { outbreaks: 1, sick: 5, deaths: 3, culled: 0, species: "Anjing" },
+        lab: { result: "Positif", method: "FAT", name: "Laboratorium veteriner" },
+        actions: "PEP, observasi kontak, vaksinasi fokus", pic: "Dinas teknis kota", next: "Monitoring 14 hari", source: "Laporan resmi pemerintah daerah", verification: "Sumber primer", economic: "Tidak material"
+      },
+      {
+        id: "IDN-LEP-20260810-06", disease: "Leptospirosis", location: "Sukabumi, Jawa Barat", iso3: "IDN", lat: -6.92, lon: 106.93,
+        published: "2026-08-10T08:00:00+07:00", onset: "2026-08-06", reported: "2026-08-08T13:00:00+07:00", updated: "2026-08-12T10:00:00+07:00",
+        evidence: "confirmed", response: "Monitoring", changed24h: false, changeType: "Tidak berubah", change: "Kejadian tetap dalam monitoring tanpa kasus baru.",
+        human: { suspected: 9, confirmed: 4, deaths: 1 }, animal: { outbreaks: 0, sick: 0, deaths: 0, culled: 0, species: "Tidak diperiksa" },
+        lab: { result: "Positif", method: "PCR", name: "Laboratorium kesehatan masyarakat" },
+        actions: "Investigasi lingkungan dan tata laksana kasus", pic: "Dinas kesehatan kabupaten", next: "Monitoring lingkungan", source: "SKDR dan laporan resmi daerah", verification: "Dua sumber resmi", economic: "Belum dihitung"
+      },
+      {
+        id: "KHM-AI-20260815-07", disease: "Avian influenza", location: "Siem Reap, Kamboja", iso3: "KHM", lat: 13.36, lon: 103.86,
+        published: "2026-08-15T07:15:00+07:00", onset: "2026-08-09", reported: "2026-08-13T11:00:00+07:00", updated: "2026-08-15T07:15:00+07:00",
+        evidence: "confirmed", response: "Investigasi berlangsung", changed24h: true, changeType: "Konfirmasi baru", change: "Konfirmasi resmi dipublikasikan dan kontak sedang ditelusuri.",
+        human: { suspected: 5, confirmed: 1, deaths: 0 }, animal: { outbreaks: 2, sick: 48, deaths: 31, culled: 120, species: "Unggas" },
+        lab: { result: "Positif", method: "RT-PCR", name: "Laboratorium rujukan nasional" },
+        actions: "Tracing, pemusnahan terbatas, surveilans unggas", pic: "Otoritas nasional", next: "Karakterisasi virus", source: "Otoritas nasional dan WHO", verification: "Konfirmasi resmi", economic: "Estimasi awal tersedia"
+      },
+      {
+        id: "MYS-NIP-20260814-08", disease: "Nipah", location: "Perak, Malaysia", iso3: "MYS", lat: 4.59, lon: 101.09,
+        published: "2026-08-14T18:20:00+08:00", onset: "Belum diketahui", reported: "2026-08-14T17:30:00+08:00", updated: "2026-08-15T11:00:00+08:00",
+        evidence: "rumor", response: "Verifikasi awal", changed24h: true, changeType: "Pembaruan", change: "Otoritas dihubungi; belum ada pernyataan resmi.",
+        human: { suspected: 2, confirmed: 0, deaths: 0 }, animal: { outbreaks: 0, sick: 0, deaths: 0, culled: 0, species: "Belum diketahui" },
+        lab: { result: "Belum tersedia", method: "—", name: "—" },
+        actions: "Verifikasi lintas negara", pic: "Focal point regional", next: "Menunggu konfirmasi resmi", source: "Media regional", verification: "Satu sumber nonresmi", economic: "Belum tersedia"
+      },
+      {
+        id: "PHL-RAB-20260813-09", disease: "Rabies", location: "Luzon, Filipina", iso3: "PHL", lat: 15.50, lon: 121.00,
+        published: "2026-08-13T14:00:00+08:00", onset: "2026-08-08", reported: "2026-08-12T09:00:00+08:00", updated: "2026-08-14T16:00:00+08:00",
+        evidence: "confirmed", response: "Respons awal", changed24h: false, changeType: "Tidak berubah", change: "Tidak ada perubahan substansial.",
+        human: { suspected: 6, confirmed: 2, deaths: 1 }, animal: { outbreaks: 4, sick: 17, deaths: 14, culled: 0, species: "Anjing" },
+        lab: { result: "Positif", method: "FAT", name: "Laboratorium rujukan" },
+        actions: "PEP dan vaksinasi respons", pic: "Otoritas nasional", next: "Surveilans aktif", source: "Otoritas kesehatan nasional", verification: "Konfirmasi resmi", economic: "Belum dihitung"
+      },
+      {
+        id: "VNM-AI-20260812-10", disease: "Avian influenza", location: "Nghệ An, Viet Nam", iso3: "VNM", lat: 19.23, lon: 104.92,
+        published: "2026-08-12T12:30:00+07:00", onset: "2026-08-09", reported: "2026-08-11T08:00:00+07:00", updated: "2026-08-13T09:00:00+07:00",
+        evidence: "confirmed", response: "Terkendali", changed24h: false, changeType: "Tidak berubah", change: "Tidak ada outbreak tambahan yang dilaporkan.",
+        human: { suspected: 0, confirmed: 0, deaths: 0 }, animal: { outbreaks: 3, sick: 110, deaths: 70, culled: 260, species: "Unggas" },
+        lab: { result: "Positif", method: "RT-PCR", name: "Laboratorium veteriner nasional" },
+        actions: "Pemusnahan, disinfeksi, pembatasan lalu lintas", pic: "Otoritas veteriner nasional", next: "Monitoring 21 hari", source: "Notifikasi resmi kesehatan hewan", verification: "Sumber primer", economic: "Dampak perdagangan sedang dinilai"
+      },
+      {
+        id: "AUS-AI-20260813-11", disease: "Avian influenza", location: "New South Wales, Australia", iso3: "AUS", lat: -32.50, lon: 147.00,
+        published: "2026-08-13T08:00:00+10:00", onset: "2026-08-10", reported: "2026-08-12T13:00:00+10:00", updated: "2026-08-14T10:00:00+10:00",
+        evidence: "confirmed", response: "Investigasi berlangsung", changed24h: false, changeType: "Tidak berubah", change: "Zona pengendalian dipertahankan.",
+        human: { suspected: 0, confirmed: 0, deaths: 0 }, animal: { outbreaks: 1, sick: 65, deaths: 42, culled: 800, species: "Unggas" },
+        lab: { result: "Positif", method: "RT-PCR", name: "Laboratorium rujukan" },
+        actions: "Zona pengendalian dan surveilans", pic: "Otoritas veteriner", next: "Follow-up epidemiologi", source: "Notifikasi resmi", verification: "Sumber primer", economic: "Estimasi kerugian tersedia"
+      },
+      {
+        id: "IND-NIP-20260815-12", disease: "Nipah", location: "Kerala, India", iso3: "IND", lat: 10.85, lon: 76.27,
+        published: "2026-08-15T12:00:00+05:30", onset: "Belum diketahui", reported: "2026-08-15T10:30:00+05:30", updated: "2026-08-15T12:00:00+05:30",
+        evidence: "rumor", response: "Verifikasi awal", changed24h: true, changeType: "Sinyal baru", change: "Laporan media dipantau dan menunggu pernyataan resmi.",
+        human: { suspected: 3, confirmed: 0, deaths: 0 }, animal: { outbreaks: 0, sick: 0, deaths: 0, culled: 0, species: "Belum diketahui" },
+        lab: { result: "Belum tersedia", method: "—", name: "—" },
+        actions: "Triase sinyal dan verifikasi", pic: "Focal point regional", next: "Konfirmasi sumber primer", source: "Media nasional", verification: "Satu sumber nonresmi", economic: "Belum tersedia"
+      },
+      {
+        id: "USA-AI-20260814-13", disease: "Avian influenza", location: "Washington, Amerika Serikat", iso3: "USA", lat: 47.40, lon: -120.70,
+        published: "2026-08-14T09:00:00-07:00", onset: "2026-08-09", reported: "2026-08-12T15:00:00-07:00", updated: "2026-08-15T08:30:00-07:00",
+        evidence: "confirmed", response: "Investigasi berlangsung", changed24h: true, changeType: "Pembaruan", change: "Hasil sequencing ditambahkan pada pembaruan resmi.",
+        human: { suspected: 2, confirmed: 1, deaths: 0 }, animal: { outbreaks: 2, sick: 85, deaths: 60, culled: 420, species: "Unggas" },
+        lab: { result: "Positif", method: "RT-PCR dan sequencing", name: "Laboratorium rujukan nasional" },
+        actions: "Tracing paparan dan surveilans pekerja", pic: "Otoritas kesehatan dan veteriner", next: "Analisis genomik lanjutan", source: "Laporan resmi nasional", verification: "Sumber primer", economic: "Sedang dihitung"
+      },
+      {
+        id: "BRA-ANT-20260812-14", disease: "Anthrax", location: "Minas Gerais, Brasil", iso3: "BRA", lat: -18.50, lon: -44.00,
+        published: "2026-08-12T10:00:00-03:00", onset: "Belum diketahui", reported: "2026-08-12T09:00:00-03:00", updated: "2026-08-13T13:00:00-03:00",
+        evidence: "rumor", response: "Verifikasi awal", changed24h: false, changeType: "Tidak berubah", change: "Belum ada informasi tambahan.",
+        human: { suspected: 0, confirmed: 0, deaths: 0 }, animal: { outbreaks: 1, sick: 9, deaths: 4, culled: 0, species: "Sapi" },
+        lab: { result: "Belum tersedia", method: "—", name: "—" },
+        actions: "Permintaan klarifikasi", pic: "Focal point regional", next: "Verifikasi otoritas veteriner", source: "Media lokal", verification: "Satu sumber nonresmi", economic: "Belum tersedia"
+      }
+    ];
+
+    const events = Array.isArray(liveEvents) && liveEvents.length ? liveEvents : illustrativeEvents;
+    const sources = Array.isArray(liveSources) ? liveSources : [];
+    const usingLiveData = events === liveEvents;
+    const state = { selectedId: null };
+
+    function scopeIncludes(event, scope) {
+      if (scope === "Global") return true;
+      if (Array.isArray(event.scopes)) return event.scopes.includes(scope);
+      if (scope === "Indonesia") return event.iso3 === "IDN";
+      return scopeCountries[scope].includes(event.iso3);
+    }
+
+    function filteredRecords() {
+      const scope = root.querySelector("#zv2-scope").value;
+      const days = Number(root.querySelector("#zv2-period").value);
+      const disease = root.querySelector("#zv2-disease").value;
+      const source = root.querySelector("#zv2-source-filter").value;
+      const showConfirmed = root.querySelector("#zv2-confirmed").checked;
+      const showRumor = root.querySelector("#zv2-rumor").checked;
+      const threshold = new Date(now.getTime() - days * 86400000);
+      return events.filter((event) => {
+        const visibleStatus = event.evidence === "confirmed" ? showConfirmed : showRumor;
+        return scopeIncludes(event, scope)
+          && new Date(event.published) >= threshold
+          && (disease === "all" || event.disease === disease)
+          && (source === "all" || event.source_id === source)
+          && visibleStatus;
+      });
+    }
+
+    function filteredEvents() {
+      const latestByOutbreak = new Map();
+      filteredRecords()
+        .filter((event) => event.record_type !== "report" && Number.isFinite(event.lat) && Number.isFinite(event.lon))
+        .forEach((event) => {
+          const key = [event.source_id, event.disease, event.iso3 || event.location].join("|");
+          const current = latestByOutbreak.get(key);
+          if (!current || new Date(event.updated || event.published) > new Date(current.updated || current.published)) {
+            latestByOutbreak.set(key, event);
+          }
+        });
+      return [...latestByOutbreak.values()];
+    }
+
+    function officialEvents(items) {
+      return items.filter((event) => event.evidence === "confirmed");
+    }
+
+    function updateStats(items) {
+      const official = officialEvents(items);
+      const confirmedActive = official.filter((event) => event.response !== "Terkendali" && event.response !== "Ditutup");
+      const rumors = items.filter((event) => event.evidence === "rumor");
+      const changedOfficial = official.filter((event) => event.changed24h).length;
+      const newRumors = rumors.filter((event) => event.changed24h && event.changeType === "Sinyal baru").length;
+      const sumAvailable = (path) => {
+        const values = official.map((event) => path(event)).filter(Number.isFinite);
+        return { value: values.reduce((sum, value) => sum + value, 0), available: values.length };
+      };
+      const humanCases = sumAvailable((event) => event.human?.confirmed);
+      const humanDeaths = sumAvailable((event) => event.human?.deaths);
+      const animalOutbreaks = sumAvailable((event) => event.animal?.outbreaks);
+      const animalSick = sumAvailable((event) => event.animal?.sick);
+      const animalDeaths = sumAvailable((event) => event.animal?.deaths);
+      const changedTotal = items.filter((event) => event.changed24h).length;
+      const newConfirmations = official.filter((event) => event.changed24h && event.changeType === "Konfirmasi baru").length;
+
+      root.querySelector("#zv2-confirmed-count").textContent = confirmedActive.length;
+      root.querySelector("#zv2-confirmed-change").textContent = changedOfficial + " berubah dalam 24 jam";
+      root.querySelector("#zv2-rumor-count").textContent = rumors.length;
+      root.querySelector("#zv2-rumor-change").textContent = newRumors + " sinyal baru dalam 24 jam";
+      root.querySelector("#zv2-human-count").textContent = humanCases.available ? humanCases.value : "—";
+      root.querySelector("#zv2-human-context").textContent = humanDeaths.available
+        ? humanDeaths.value + " meninggal • " + humanDeaths.available + " rekaman berangka"
+        : "Angka tidak tersedia pada feed terstruktur";
+      root.querySelector("#zv2-animal-count").textContent = animalOutbreaks.available ? animalOutbreaks.value : "—";
+      root.querySelector("#zv2-animal-context").textContent = animalSick.available || animalDeaths.available
+        ? (animalSick.available ? animalSick.value : "—") + " sakit • " + (animalDeaths.available ? animalDeaths.value : "—") + " mati"
+        : "Angka tidak tersedia pada feed terstruktur";
+      root.querySelector("#zv2-change-summary").textContent = "Perubahan 24 jam: " + changedTotal + " pembaruan • " + newConfirmations + " konfirmasi baru";
+    }
+
+    function formatDate(value, includeTime = false) {
+      if (!value || value === "Belum diketahui") return value || "—";
+      const date = new Date(value.length === 10 ? value + "T12:00:00+07:00" : value);
+      const options = includeTime
+        ? { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Jakarta" }
+        : { dateStyle: "medium", timeZone: "Asia/Jakarta" };
+      return new Intl.DateTimeFormat("id-ID", options).format(date) + (includeTime ? " WIB" : "");
+    }
+
+    function setText(id, value) {
+      root.querySelector(id).textContent = value ?? "—";
+    }
+
+    function metric(value) {
+      return Number.isFinite(value) ? String(value) : "—";
+    }
+
+    function updateDetail(event) {
+      const grid = root.querySelector("#zv2-detail-grid");
+      if (!event) {
+        setText("#zv2-detail-name", "Tidak ada kejadian dalam filter");
+        setText("#zv2-detail-id", "Event ID: —");
+        setText("#zv2-evidence-status", "Status bukti: —");
+        setText("#zv2-response-status", "Penanganan: —");
+        const emptyCategory = root.querySelector("#zv2-case-category");
+        emptyCategory.className = "case-status case-moderate text-small";
+        emptyCategory.textContent = "Kategori: —";
+        setText("#zv2-detail-change", "Ubah filter untuk melihat kejadian lain.");
+        grid.hidden = true;
+        return;
+      }
+      grid.hidden = false;
+      setText("#zv2-detail-name", event.disease + " • " + event.location);
+      setText("#zv2-detail-id", "Event ID: " + event.id);
+      const category = caseCategory(event);
+      const categoryBadge = root.querySelector("#zv2-case-category");
+      categoryBadge.className = "case-status case-" + category.key + " text-small";
+      categoryBadge.textContent = "Kategori: " + category.label;
+      setText("#zv2-evidence-status", "Status bukti: " + (event.evidence === "confirmed" ? "Terkonfirmasi" : "Rumor/verifikasi"));
+      setText("#zv2-response-status", "Penanganan: " + event.response);
+      setText("#zv2-detail-change", "Perubahan terbaru: " + (event.change || event.summary || "—"));
+      setText("#zv2-onset", formatDate(event.onset));
+      setText("#zv2-reported", formatDate(event.reported, true));
+      setText("#zv2-updated", formatDate(event.updated, true));
+      setText("#zv2-human-suspected", metric(event.human?.suspected));
+      setText("#zv2-human-confirmed", metric(event.human?.confirmed));
+      setText("#zv2-human-deaths", metric(event.human?.deaths));
+      setText("#zv2-species", event.animal?.species);
+      setText("#zv2-animal-sick", metric(event.animal?.outbreaks) + " outbreak • " + metric(event.animal?.sick) + " sakit");
+      setText("#zv2-animal-loss", metric(event.animal?.deaths) + " mati • " + metric(event.animal?.culled) + " dimusnahkan");
+      setText("#zv2-lab-result", event.lab?.result);
+      setText("#zv2-lab-method", event.lab?.method);
+      setText("#zv2-lab-name", event.lab?.name);
+      setText("#zv2-actions", event.actions);
+      setText("#zv2-pic", event.pic);
+      setText("#zv2-next-action", event.next);
+      const sourceCell = root.querySelector("#zv2-source");
+      sourceCell.replaceChildren();
+      if (event.source_url) {
+        const link = document.createElement("a");
+        link.href = event.source_url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = event.source;
+        sourceCell.appendChild(link);
+      } else {
+        sourceCell.textContent = event.source || "—";
+      }
+      setText("#zv2-verification", event.verification);
+      setText("#zv2-economic", event.economic);
+    }
+
+    function makeSvgElement(name, attributes = {}) {
+      const element = document.createElementNS("http://www.w3.org/2000/svg", name);
+      Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, String(value)));
+      return element;
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function caseCategory(event) {
+      const humanDeaths = Number.isFinite(event.human?.deaths) ? event.human.deaths : 0;
+      const animalDeaths = Number.isFinite(event.animal?.deaths) ? event.animal.deaths : 0;
+      const humanConfirmed = Number.isFinite(event.human?.confirmed) ? event.human.confirmed : 0;
+      const animalOutbreaks = Number.isFinite(event.animal?.outbreaks) ? event.animal.outbreaks : 0;
+      const animalSick = Number.isFinite(event.animal?.sick) ? event.animal.sick : 0;
+      if (event.evidence === "confirmed" && humanDeaths + animalDeaths > 0) {
+        return { key: "critical", label: "Kritis" };
+      }
+      if (event.evidence === "confirmed" && humanConfirmed + animalOutbreaks + animalSick > 0) {
+        return { key: "high", label: "Tinggi" };
+      }
+      if (event.evidence === "confirmed") {
+        return { key: "moderate", label: "Sedang/monitoring" };
+      }
+      return { key: "signal", label: "Sinyal awal" };
+    }
+
+    function evidenceLabel(event) {
+      return event.evidence === "confirmed" ? "Terkonfirmasi" : "Rumor/sedang diverifikasi";
+    }
+
+    function markerTooltip(event) {
+      return [
+        '<div class="map-tooltip-content">',
+        "<strong>" + escapeHtml(event.disease + " • " + event.location) + "</strong>",
+        "<span>Kategori: " + escapeHtml(caseCategory(event).label) + "</span>",
+        "<span>Status: " + escapeHtml(evidenceLabel(event)) + "</span>",
+        "<span>Sumber: " + escapeHtml(event.source) + "</span>",
+        "</div>"
+      ].join("");
+    }
+
+    function initializeControls() {
+      const diseases = [...new Set(events.map((event) => event.disease).filter(Boolean))]
+        .sort((a, b) => a.localeCompare(b, "id"));
+      const diseaseSelect = root.querySelector("#zv2-disease");
+      diseases.forEach((disease) => {
+        const option = document.createElement("option");
+        option.value = disease;
+        option.textContent = disease;
+        diseaseSelect.appendChild(option);
+      });
+
+      const sourceSelect = root.querySelector("#zv2-source-filter");
+      sources.filter((source) => source.records > 0).forEach((source) => {
+        const option = document.createElement("option");
+        option.value = source.id;
+        option.textContent = source.name;
+        sourceSelect.appendChild(option);
+      });
+
+      root.querySelector("#zv2-data-mode").textContent = usingLiveData ? "Data near-real-time" : "Fallback ilustratif";
+      root.querySelector("#zv2-last-updated").textContent = usingLiveData
+        ? "Terakhir diperbarui " + formatDate(liveMetadata.generated_at, true) + " • jadwal 6 jam"
+        : "Data langsung gagal dimuat; menampilkan data contoh";
+      const importCount = Number(liveMetadata.imported_records || 0);
+      const importFiles = Number(liveMetadata.import_files_scanned || 0);
+      const importErrors = Number(liveMetadata.import_validation_errors || 0);
+      const importWarnings = Number(liveMetadata.import_validation_warnings || 0);
+      root.querySelector("#zv2-import-summary").textContent = importCount + " rekaman impor aktif • " + importFiles + " file diproses";
+      root.querySelector("#zv2-import-validation").textContent = importErrors + " kesalahan • " + importWarnings + " peringatan • buka laporan validasi";
+    }
+
+    const statusLabels = {
+      live: "Aktif",
+      stale: "Data terakhir",
+      error: "Gangguan",
+      restricted: "Akun diperlukan",
+      portal_only: "Portal saja",
+      authentication_required: "Token diperlukan",
+      institutional_access: "Akses institusi",
+      license_required: "Lisensi diperlukan",
+      imported: "Impor terotorisasi"
+    };
+
+    const accessLabels = {
+      public: "Publik",
+      restricted: "Terbatas",
+      licensed: "Berlisensi",
+      institutional: "Institusional",
+      internal: "Internal"
+    };
+
+    function renderSources() {
+      const grid = root.querySelector("#zv2-source-grid");
+      grid.replaceChildren();
+      sources.forEach((source) => {
+        const card = document.createElement("article");
+        card.className = "card source-card";
+        const head = document.createElement("div");
+        head.className = "source-card-head";
+        const title = document.createElement(source.url ? "a" : "strong");
+        if (source.url) {
+          title.href = source.url;
+          title.target = "_blank";
+          title.rel = "noopener noreferrer";
+        }
+        title.textContent = source.name;
+        const status = document.createElement("span");
+        const isLive = source.status === "live" || source.status === "imported";
+        status.className = "source-status text-small " + (isLive ? "source-status-live" : "source-status-limited");
+        status.textContent = statusLabels[source.status] || source.status;
+        head.append(title, status);
+        const meta = document.createElement("div");
+        meta.className = "text-small text-muted";
+        meta.textContent = source.level + " • " + source.kind + " • Akses: " + (accessLabels[source.access_level] || source.access_level || "—") + " • " + source.records + " rekaman";
+        const note = document.createElement("div");
+        note.className = "text-small";
+        note.textContent = source.error ? source.note + " Gangguan terakhir: " + source.error : source.note;
+        card.append(head, meta, note);
+        grid.appendChild(card);
+      });
+    }
+
+    function renderFeed(records) {
+      const list = root.querySelector("#zv2-feed-list");
+      list.replaceChildren();
+      const latest = [...records]
+        .sort((a, b) => new Date(b.published) - new Date(a.published))
+        .slice(0, 8);
+      if (!latest.length) {
+        const empty = document.createElement("div");
+        empty.className = "feed-empty text-small";
+        empty.textContent = "Tidak ada publikasi atau sinyal dalam filter ini.";
+        list.appendChild(empty);
+        return;
+      }
+      latest.forEach((record) => {
+        const item = document.createElement("article");
+        item.className = "feed-item";
+        const head = document.createElement("div");
+        head.className = "feed-item-head";
+        const link = document.createElement("a");
+        link.href = record.source_url || "#";
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = record.title || record.disease + " • " + record.location;
+        const badge = document.createElement("span");
+        const category = caseCategory(record);
+        badge.className = "case-status case-" + category.key + " text-small";
+        badge.textContent = category.label;
+        head.append(link, badge);
+        const meta = document.createElement("div");
+        meta.className = "text-small text-muted";
+        meta.textContent = formatDate(record.published, true) + " • " + record.source + " • " + record.location;
+        item.append(head, meta);
+        list.appendChild(item);
+      });
+    }
+
+    const eventMap = L.map(mapElement, {
+      attributionControl: true,
+      minZoom: 2,
+      maxZoom: 19,
+      scrollWheelZoom: false,
+      worldCopyJump: true
+    });
+
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      noWrap: true,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(eventMap);
+
+    const markerLayer = L.layerGroup().addTo(eventMap);
+
+    function renderMap(items) {
+      const scope = root.querySelector("#zv2-scope").value;
+      markerLayer.clearLayers();
+
+      items.forEach((event) => {
+        const selectedClass = event.id === state.selectedId ? " is-selected" : "";
+        const category = caseCategory(event);
+        const statusClass = "event-marker-" + category.key;
+        const label = event.disease + " di " + event.location + ", kategori " + category.label + ", " + evidenceLabel(event) + ", sumber " + event.source;
+        const icon = L.divIcon({
+          className: "zv2-leaflet-icon",
+          html: '<span class="event-marker ' + statusClass + selectedClass + '" aria-hidden="true"></span>',
+          iconSize: [18, 18],
+          iconAnchor: [9, 9],
+          tooltipAnchor: [0, -11]
+        });
+        const marker = L.marker([event.lat, event.lon], {
+          alt: label,
+          icon,
+          keyboard: true,
+          riseOnHover: true,
+          title: event.disease + " • " + event.location
+        });
+        marker.bindTooltip(markerTooltip(event), {
+          direction: "top",
+          opacity: 1,
+          sticky: false
+        });
+        marker.on("click", () => {
+          state.selectedId = event.id;
+          updateDetail(event);
+          renderMap(items);
+        });
+        marker.on("add", () => {
+          const element = marker.getElement();
+          if (!element) return;
+          element.setAttribute("aria-label", label);
+          element.setAttribute("role", "button");
+          element.addEventListener("focus", () => marker.openTooltip());
+          element.addEventListener("blur", () => marker.closeTooltip());
+        });
+        marker.addTo(markerLayer);
+      });
+
+      if (items.length === 0) {
+        root.querySelector("#zv2-map-loading").textContent = "Tidak ada kejadian dalam filter";
+        root.querySelector("#zv2-map-loading").hidden = false;
+      } else {
+        root.querySelector("#zv2-map-loading").hidden = true;
+      }
+
+      eventMap.invalidateSize({ animate: false });
+      eventMap.fitBounds(scopeBounds[scope], {
+        animate: false,
+        padding: [12, 12]
+      });
+    }
+
+    function dateKey(date) {
+      return new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Jakarta", year: "numeric", month: "2-digit", day: "2-digit" }).format(date);
+    }
+
+    function renderTrend(items) {
+      const width = Math.max(300, Math.floor(trendSvg.getBoundingClientRect().width || mapWrap.getBoundingClientRect().width));
+      const height = width < 520 ? 230 : 210;
+      const margin = { top: 20, right: 16, bottom: 42, left: 28 };
+      const days = Math.min(7, Number(root.querySelector("#zv2-period").value));
+      const series = [];
+      for (let offset = days - 1; offset >= 0; offset -= 1) {
+        const day = new Date(now.getTime() - offset * 86400000);
+        const key = dateKey(day);
+        const dayItems = items.filter((event) => dateKey(new Date(event.published)) === key);
+        series.push({
+          label: new Intl.DateTimeFormat("id-ID", { day: "numeric", month: "short", timeZone: "Asia/Jakarta" }).format(day),
+          confirmed: dayItems.filter((event) => event.evidence === "confirmed").length,
+          rumor: dayItems.filter((event) => event.evidence === "rumor").length
+        });
+      }
+
+      trendSvg.setAttribute("viewBox", "0 0 " + width + " " + height);
+      trendSvg.setAttribute("height", String(height));
+      trendSvg.replaceChildren();
+      const title = makeSvgElement("title", { id: "zv2-trend-title" });
+      title.textContent = "Jumlah kejadian per hari menurut status bukti";
+      const desc = makeSvgElement("desc", { id: "zv2-trend-desc" });
+      desc.textContent = "Batang bertumpuk membandingkan kejadian terkonfirmasi dengan rumor atau kejadian yang sedang diverifikasi untuk " + days + " hari terakhir.";
+      trendSvg.append(title, desc);
+
+      const plotWidth = width - margin.left - margin.right;
+      const plotHeight = height - margin.top - margin.bottom;
+      const maxTotal = Math.max(1, ...series.map((day) => day.confirmed + day.rumor));
+      const slot = plotWidth / series.length;
+      const barWidth = Math.min(46, slot * 0.58);
+      trendSvg.appendChild(makeSvgElement("line", {
+        x1: margin.left, y1: margin.top + plotHeight,
+        x2: width - margin.right, y2: margin.top + plotHeight,
+        class: "axis-line"
+      }));
+
+      series.forEach((day, index) => {
+        const x = margin.left + index * slot + (slot - barWidth) / 2;
+        const confirmedHeight = (day.confirmed / maxTotal) * plotHeight;
+        const rumorHeight = (day.rumor / maxTotal) * plotHeight;
+        const baseY = margin.top + plotHeight;
+        trendSvg.appendChild(makeSvgElement("rect", { x, y: baseY - confirmedHeight, width: barWidth, height: confirmedHeight, class: "bar-confirmed" }));
+        trendSvg.appendChild(makeSvgElement("rect", { x, y: baseY - confirmedHeight - rumorHeight, width: barWidth, height: rumorHeight, class: "bar-rumor" }));
+        const label = makeSvgElement("text", { x: x + barWidth / 2, y: height - 16, class: "chart-label text-small", "text-anchor": "middle" });
+        label.textContent = day.label;
+        const total = day.confirmed + day.rumor;
+        const value = makeSvgElement("text", { x: x + barWidth / 2, y: total > 0 ? baseY - confirmedHeight - rumorHeight - 6 : baseY - 6, class: "chart-value text-small", "text-anchor": "middle" });
+        value.textContent = String(total);
+        trendSvg.append(label, value);
+      });
+    }
+
+    function render() {
+      const records = filteredRecords();
+      const items = filteredEvents();
+      if (!items.some((event) => event.id === state.selectedId)) state.selectedId = items.length ? items[0].id : null;
+      updateStats(items);
+      updateDetail(items.find((event) => event.id === state.selectedId));
+      renderMap(items);
+      renderTrend(items);
+      renderFeed(records);
+    }
+
+    root.querySelectorAll("select, input[type='checkbox']").forEach((control) => control.addEventListener("change", render));
+    let resizeTimer;
+    const resizeObserver = new ResizeObserver(() => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        eventMap.invalidateSize({ animate: false });
+        renderTrend(filteredEvents());
+      }, 80);
+    });
+    resizeObserver.observe(mapWrap);
+    initializeControls();
+    renderSources();
+    render();
+  </script>
+</div>
+</main>
+
+<script id="codex-visualization-floating-ui-core" src="https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js"></script>
+<script id="codex-visualization-floating-ui-dom" src="https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js"></script>
+<script id="codex-visualization-lucide" async src="https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js"></script>
+<script id="codex-visualization-tooltip">/* oxlint-disable typescript/no-unsafe-argument, typescript/no-unsafe-call, typescript/no-unsafe-return */
+// Runs inside the visualization sandbox, not the host webview.
+(() => {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set(["top", "right", "bottom", "left"]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+
+  const getTrigger = (target) =>
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest("[data-tooltip]")
+      : null;
+  const containsTarget = (trigger, target) =>
+    target?.nodeType != null && trigger.contains(target);
+  const getContent = (trigger) =>
+    trigger.getAttribute("data-tooltip")?.trim() ?? "";
+  const getPlacement = (trigger) => {
+    const placement = trigger.getAttribute("data-tooltip-placement");
+    return tooltipPlacements.has(placement) ? placement : "top";
+  };
+  const getTooltip = () => {
+    if (tooltip == null) {
+      tooltip = document.createElement("div");
+      tooltip.id = tooltipId;
+      tooltip.className = "tooltip";
+      tooltip.setAttribute("role", "tooltip");
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) => {
+    const ids = new Set(
+      (trigger.getAttribute("aria-describedby") ?? "")
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute("aria-describedby");
+    } else {
+      trigger.setAttribute("aria-describedby", [...ids].join(" "));
+    }
+  };
+  const clearOpenTimeout = () => {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) => {
+    clearOpenTimeout();
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) => {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              "--tooltip-available-width",
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              "--tooltip-available-height",
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: "fixed",
+    })
+      .then(({ x, y }) => {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = "visible";
+      })
+      .catch(() => {
+        if (activeTrigger === trigger && request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) => {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = "hidden";
+    floating.style.transform = "translate(0, 0)";
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () => {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) => {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() < skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() => {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) => {
+    if (event.pointerType === "touch") {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handleLeave = (event) => {
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) => {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(":focus-visible")) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === "Escape") {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) => {
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () => {
+    closeTooltip(false);
+    document.removeEventListener("pointerover", handlePointerOpen);
+    document.removeEventListener("pointerout", handleLeave);
+    document.removeEventListener("focusin", handleFocusIn);
+    document.removeEventListener("focusout", handleLeave);
+    document.removeEventListener("keydown", handleKeyDown);
+    document.removeEventListener("contextmenu", handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener("pointerover", handlePointerOpen);
+  document.addEventListener("pointerout", handleLeave);
+  document.addEventListener("focusin", handleFocusIn);
+  document.addEventListener("focusout", handleLeave);
+  document.addEventListener("keydown", handleKeyDown);
+  document.addEventListener("contextmenu", handleContextMenu);
+  window.addEventListener("pagehide", destroy, { once: true });
+})();
+</script>
+<script id="codex-visualization-lucide-initialization">(() => {
+  const initialize = () => {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById("codex-visualization-lucide")
+    ?.addEventListener("load", initialize, { once: true });
+})();
+</script>
+</body>
+</html>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="strict-origin-when-cross-origin">
