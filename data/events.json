@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-08-16T13:47:47.218055Z",
+    "generated_at": "2026-08-16T19:10:34.738996Z",
     "update_interval_hours": 6,
     "mode": "near-real-time",
     "records": 136,
@@ -22,7 +22,7 @@
       "url": "https://infeksiemerging.kemkes.go.id/",
       "note": "Weekly update dan spot report publik; diperlakukan sebagai publikasi, bukan angka kasus terstruktur.",
       "status": "live",
-      "last_checked": "2026-08-16T13:47:47.218055Z",
+      "last_checked": "2026-08-16T19:10:34.738996Z",
       "records": 33,
       "error": null
     },
@@ -74,7 +74,7 @@
       "url": "https://www.who.int/southeastasia/outbreaks-and-emergencies/surveillance-and-alert/sear-epi-bulletins",
       "note": "Buletin regional ditampilkan sebagai publikasi; ekstraksi angka tabel belum dilakukan.",
       "status": "live",
-      "last_checked": "2026-08-16T13:47:47.218055Z",
+      "last_checked": "2026-08-16T19:10:34.738996Z",
       "records": 24,
       "error": null
     },
@@ -113,7 +113,7 @@
       "url": "https://www.who.int/emergencies/disease-outbreak-news",
       "note": "Diambil dari API publik WHO dan dipetakan pada centroid negara bila lokasi lebih rinci tidak tersedia.",
       "status": "live",
-      "last_checked": "2026-08-16T13:47:47.218055Z",
+      "last_checked": "2026-08-16T19:10:34.738996Z",
       "records": 44,
       "error": null
     },
@@ -126,7 +126,7 @@
       "url": "https://www.gdeltproject.org/",
       "note": "Judul disaring untuk nama penyakit dan indikator kejadian; semua rekaman tetap berstatus rumor/verifikasi, dan negara hanya dipetakan bila disebut dalam judul.",
       "status": "stale",
-      "last_checked": "2026-08-16T13:47:47.218055Z",
+      "last_checked": "2026-08-16T19:10:34.738996Z",
       "records": 35,
       "error": "HTTPError: HTTP Error 429: Too Many Requests"
     },
@@ -200,10 +200,10 @@
         "Asia-Pacific",
         "Global"
       ],
-      "published": "2026-08-16T05:00:00Z",
+      "published": "2026-08-17T05:00:00Z",
       "onset": null,
-      "reported": "2026-08-16T05:00:00Z",
-      "updated": "2026-08-16T05:00:00Z",
+      "reported": "2026-08-17T05:00:00Z",
+      "updated": "2026-08-17T05:00:00Z",
       "evidence": "confirmed",
       "response": "Publikasi berkala",
       "changed24h": true,
@@ -252,10 +252,10 @@
         "Asia-Pacific",
         "Global"
       ],
-      "published": "2026-08-16T05:00:00Z",
+      "published": "2026-08-17T05:00:00Z",
       "onset": null,
-      "reported": "2026-08-16T05:00:00Z",
-      "updated": "2026-08-16T05:00:00Z",
+      "reported": "2026-08-17T05:00:00Z",
+      "updated": "2026-08-17T05:00:00Z",
       "evidence": "confirmed",
       "response": "Publikasi berkala",
       "changed24h": true,
