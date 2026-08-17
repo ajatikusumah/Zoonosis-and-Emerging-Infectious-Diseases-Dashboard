@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "generated_at": "2026-08-17T08:26:08.796098Z",
+    "generated_at": "2026-08-17T14:02:33.162655Z",
     "update_interval_hours": 6,
     "mode": "near-real-time",
-    "records": 136,
+    "records": 137,
     "events": 70,
-    "reports": 66,
+    "reports": 67,
     "imported_records": 0,
     "import_files_scanned": 0,
     "import_validation_errors": 0,
@@ -22,7 +22,7 @@
       "url": "https://infeksiemerging.kemkes.go.id/",
       "note": "Weekly update dan spot report publik; diperlakukan sebagai publikasi, bukan angka kasus terstruktur.",
       "status": "live",
-      "last_checked": "2026-08-17T08:26:08.796098Z",
+      "last_checked": "2026-08-17T14:02:33.162655Z",
       "records": 33,
       "error": null
     },
@@ -74,8 +74,8 @@
       "url": "https://www.who.int/southeastasia/outbreaks-and-emergencies/surveillance-and-alert/sear-epi-bulletins",
       "note": "Buletin regional ditampilkan sebagai publikasi; ekstraksi angka tabel belum dilakukan.",
       "status": "live",
-      "last_checked": "2026-08-17T08:26:08.796098Z",
-      "records": 24,
+      "last_checked": "2026-08-17T14:02:33.162655Z",
+      "records": 25,
       "error": null
     },
     {
@@ -113,7 +113,7 @@
       "url": "https://www.who.int/emergencies/disease-outbreak-news",
       "note": "Diambil dari API publik WHO dan dipetakan pada centroid negara bila lokasi lebih rinci tidak tersedia.",
       "status": "live",
-      "last_checked": "2026-08-17T08:26:08.796098Z",
+      "last_checked": "2026-08-17T14:02:33.162655Z",
       "records": 44,
       "error": null
     },
@@ -126,7 +126,7 @@
       "url": "https://www.gdeltproject.org/",
       "note": "Judul disaring untuk nama penyakit dan indikator kejadian; semua rekaman tetap berstatus rumor/verifikasi, dan negara hanya dipetakan bila disebut dalam judul.",
       "status": "stale",
-      "last_checked": "2026-08-17T08:26:08.796098Z",
+      "last_checked": "2026-08-17T14:02:33.162655Z",
       "records": 35,
       "error": "HTTPError: HTTP Error 429: Too Many Requests"
     },
@@ -1881,6 +1881,57 @@
       "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
       "economic": null,
       "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "who-sear-2bd495770579",
+      "record_type": "report",
+      "disease": "Epidemiological bulletin",
+      "title": "16th edition, Epidemiological Bulletin WHO Health Emergencies Programme WHO Regional Office for South-East...",
+      "location": "WHO South-East Asia Region",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-12T05:00:00Z",
+      "onset": null,
+      "reported": "2026-08-12T05:00:00Z",
+      "updated": "2026-08-12T05:00:00Z",
+      "evidence": "confirmed",
+      "response": "Buletin regional",
+      "changed24h": false,
+      "changeType": "Buletin baru",
+      "change": "Buletin epidemiologi regional WHO diterbitkan.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "WHO SEARO • Epidemiological Bulletin",
+      "source_id": "who-sear",
+      "source_url": "https://iris.who.int/server/api/core/bitstreams/51fc2db6-e5aa-452a-a40e-3e0a303e3adf/content",
+      "verification": "Publikasi resmi WHO Regional Office for South-East Asia.",
+      "economic": null,
+      "summary": null
     },
     {
       "id": "gdelt-50f1d6c4390e",
