@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "generated_at": "2026-08-18T03:13:19.327910Z",
+    "generated_at": "2026-08-18T08:04:48.716855Z",
     "update_interval_hours": 6,
     "mode": "near-real-time",
-    "records": 137,
+    "records": 138,
     "events": 70,
-    "reports": 67,
+    "reports": 68,
     "imported_records": 0,
     "import_files_scanned": 0,
     "import_validation_errors": 0,
@@ -22,7 +22,7 @@
       "url": "https://infeksiemerging.kemkes.go.id/",
       "note": "Weekly update dan spot report publik; diperlakukan sebagai publikasi, bukan angka kasus terstruktur.",
       "status": "live",
-      "last_checked": "2026-08-18T03:13:19.327910Z",
+      "last_checked": "2026-08-18T08:04:48.716855Z",
       "records": 33,
       "error": null
     },
@@ -74,7 +74,7 @@
       "url": "https://www.who.int/southeastasia/outbreaks-and-emergencies/surveillance-and-alert/sear-epi-bulletins",
       "note": "Buletin regional ditampilkan sebagai publikasi; ekstraksi angka tabel belum dilakukan.",
       "status": "live",
-      "last_checked": "2026-08-18T03:13:19.327910Z",
+      "last_checked": "2026-08-18T08:04:48.716855Z",
       "records": 25,
       "error": null
     },
@@ -113,7 +113,7 @@
       "url": "https://www.who.int/emergencies/disease-outbreak-news",
       "note": "Diambil dari API publik WHO dan dipetakan pada centroid negara bila lokasi lebih rinci tidak tersedia.",
       "status": "live",
-      "last_checked": "2026-08-18T03:13:19.327910Z",
+      "last_checked": "2026-08-18T08:04:48.716855Z",
       "records": 44,
       "error": null
     },
@@ -125,10 +125,10 @@
       "access_level": "public",
       "url": "https://www.gdeltproject.org/",
       "note": "Judul disaring untuk nama penyakit dan indikator kejadian; semua rekaman tetap berstatus rumor/verifikasi, dan negara hanya dipetakan bila disebut dalam judul.",
-      "status": "stale",
-      "last_checked": "2026-08-18T03:13:19.327910Z",
-      "records": 35,
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "status": "live",
+      "last_checked": "2026-08-18T08:04:48.716855Z",
+      "records": 36,
+      "error": null
     },
     {
       "id": "fao-empres",
@@ -289,6 +289,153 @@
       "summary": null
     },
     {
+      "id": "gdelt-21e660dee6d6",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "Bird flu ruled out after hundreds of dead pelicans found at Menindee Lakes",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-17T03:00:00Z",
+      "onset": null,
+      "reported": "2026-08-17T03:00:00Z",
+      "updated": "2026-08-17T03:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • abc.net.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.abc.net.au/news/2026-08-17/dead-pelicans-menindee-lakes-h5n1-bird-flu-negative-test/107027670",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-281dadade4bf",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "Bird Flu Human Infection : Detection Methods Explored",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-16T23:45:00Z",
+      "onset": null,
+      "reported": "2026-08-16T23:45:00Z",
+      "updated": "2026-08-16T23:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • miragenews.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.miragenews.com/bird-flu-human-infection-detection-methods-1727852/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United States."
+    },
+    {
+      "id": "gdelt-cf69c497449a",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "Little penguin dies from bird flu as case numbers grow",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-15T11:45:00Z",
+      "onset": null,
+      "reported": "2026-08-15T11:45:00Z",
+      "updated": "2026-08-15T11:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • standard.net.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.standard.net.au/story/9330891/little-penguin-dies-from-bird-flu-as-case-numbers-grow/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
       "id": "gdelt-9b1f4f826b18",
       "record_type": "report",
       "disease": "Avian influenza",
@@ -307,7 +454,7 @@
       "updated": "2026-08-15T10:30:00Z",
       "evidence": "rumor",
       "response": "Perlu verifikasi",
-      "changed24h": true,
+      "changed24h": false,
       "changeType": "Sinyal baru",
       "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
       "human": {
@@ -357,7 +504,7 @@
       "updated": "2026-08-15T09:45:00Z",
       "evidence": "rumor",
       "response": "Perlu verifikasi",
-      "changed24h": true,
+      "changed24h": false,
       "changeType": "Sinyal baru",
       "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
       "human": {
@@ -406,7 +553,7 @@
       "updated": "2026-08-15T09:15:00Z",
       "evidence": "rumor",
       "response": "Perlu verifikasi",
-      "changed24h": true,
+      "changed24h": false,
       "changeType": "Sinyal baru",
       "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
       "human": {
@@ -437,6 +584,55 @@
       "summary": "Bahasa: English; negara media: Australia."
     },
     {
+      "id": "gdelt-8cce476d2642",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "Penguin found dead from bird flu",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-15T09:15:00Z",
+      "onset": null,
+      "reported": "2026-08-15T09:15:00Z",
+      "updated": "2026-08-15T09:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • theage.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.theage.com.au/national/penguin-found-dead-from-bird-flu-20260815-p60onc.html",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
       "id": "gdelt-ae18dc0eed0b",
       "record_type": "report",
       "disease": "Avian influenza",
@@ -455,7 +651,7 @@
       "updated": "2026-08-15T07:45:00Z",
       "evidence": "rumor",
       "response": "Perlu verifikasi",
-      "changed24h": true,
+      "changed24h": false,
       "changeType": "Sinyal baru",
       "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
       "human": {
@@ -533,6 +729,55 @@
       "verification": "Sumber resmi WHO; koordinat menggunakan centroid negara.",
       "economic": null,
       "summary": "The Bundibugyo virus disease (BVD) outbreak in the Democratic Republic of the Congo is in a phase of intense transmission. It is the largest Ebola outbreak ever reported in the country and expanding faster than any previous Ebola outbreak. The epidemic is increasingly characterized by sustained transmission within interconnected geographic clusters. Initially confined to the Mongbwalu health zone in Ituri Province, the outbreak has now expanded to 54 health zones across six provinces (Ituri, North Kivu, South Kivu, Haut-Uélé, Tshopo, and Bas-Uélé). The most recently affected Bas-Uélé province "
+    },
+    {
+      "id": "gdelt-9688a943c07e",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "Victoria bird flu : Cases hit 69 , could spread to new species | The Standard",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-14T02:30:00Z",
+      "onset": null,
+      "reported": "2026-08-14T02:30:00Z",
+      "updated": "2026-08-14T02:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • standard.net.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.standard.net.au/story/9330256/victoria-bird-flu-cases-hit-69-could-spread-to-new-species/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
     },
     {
       "id": "gdelt-4c89e5700902",
@@ -1932,202 +2177,6 @@
       "verification": "Publikasi resmi WHO Regional Office for South-East Asia.",
       "economic": null,
       "summary": null
-    },
-    {
-      "id": "gdelt-50f1d6c4390e",
-      "record_type": "report",
-      "disease": "Avian influenza",
-      "title": "H5N1 infections remain rare among workers exposed to infected birds",
-      "location": "Lokasi belum teridentifikasi",
-      "iso3": null,
-      "lat": null,
-      "lon": null,
-      "location_precision": "unknown",
-      "scopes": [
-        "Global"
-      ],
-      "published": "2026-08-11T03:30:00Z",
-      "onset": null,
-      "reported": "2026-08-11T03:30:00Z",
-      "updated": "2026-08-11T03:30:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • news-medical.net",
-      "source_id": "gdelt",
-      "source_url": "https://www.news-medical.net/news/20260810/H5N1-infections-remain-rare-among-workers-exposed-to-infected-birds.aspx",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: United States."
-    },
-    {
-      "id": "gdelt-52118fc6c2a8",
-      "record_type": "report",
-      "disease": "Mpox",
-      "title": "Clade I mpox case diagnosed in San Diego County after travel abroad",
-      "location": "Lokasi belum teridentifikasi",
-      "iso3": null,
-      "lat": null,
-      "lon": null,
-      "location_precision": "unknown",
-      "scopes": [
-        "Global"
-      ],
-      "published": "2026-08-11T01:45:00Z",
-      "onset": null,
-      "reported": "2026-08-11T01:45:00Z",
-      "updated": "2026-08-11T01:45:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • nbcsandiego.com",
-      "source_id": "gdelt",
-      "source_url": "https://www.nbcsandiego.com/news/local/first-clade-i-mpox-case-diagnosed-in-san-diego-county/4059372/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: United States."
-    },
-    {
-      "id": "gdelt-aee078d9d522",
-      "record_type": "report",
-      "disease": "Mpox",
-      "title": "Clade I Mpox case diagnosed in San Diego County after tavel abroad",
-      "location": "Lokasi belum teridentifikasi",
-      "iso3": null,
-      "lat": null,
-      "lon": null,
-      "location_precision": "unknown",
-      "scopes": [
-        "Global"
-      ],
-      "published": "2026-08-10T23:00:00Z",
-      "onset": null,
-      "reported": "2026-08-10T23:00:00Z",
-      "updated": "2026-08-10T23:00:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • 10news.com",
-      "source_id": "gdelt",
-      "source_url": "https://www.10news.com/news/local-news/clade-i-mpox-case-diagnosed-in-san-diego-county-after-tavel-abroad",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: United States."
-    },
-    {
-      "id": "gdelt-743d8e8406dd",
-      "record_type": "report",
-      "disease": "Avian influenza",
-      "title": "São Paulo bird flu case | The Rio Times",
-      "location": "Lokasi belum teridentifikasi",
-      "iso3": null,
-      "lat": null,
-      "lon": null,
-      "location_precision": "unknown",
-      "scopes": [
-        "Global"
-      ],
-      "published": "2026-08-10T00:00:00Z",
-      "onset": null,
-      "reported": "2026-08-10T00:00:00Z",
-      "updated": "2026-08-10T00:00:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • riotimesonline.com",
-      "source_id": "gdelt",
-      "source_url": "https://www.riotimesonline.com/sao-paulo-second-bird-flu-wild-bird-2026/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Brazil."
     },
     {
       "id": "who-don-c54e162c456b",
