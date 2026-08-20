@@ -1170,12 +1170,16 @@ def load_previous() -> dict:
 def deduplicate(records: list[dict]) -> list[dict]:
     unique: dict[tuple, dict] = {}
     for record in records:
-        key = (
-            record.get("source_id"),
-            record.get("source_url") or record.get("id"),
-            record.get("iso3"),
-            record.get("record_type"),
-        )
+        # IDs include source-specific event/location identity. A publication URL
+        # alone is not a safe key because one official report may contain
+        # several distinct outbreaks in the same country.
+        key = (record.get("id") or stable_id(
+            "fallback",
+            str(record.get("source_id") or ""),
+            str(record.get("source_url") or ""),
+            str(record.get("location") or ""),
+            str(record.get("record_type") or ""),
+        ),)
         current = unique.get(key)
         if not current or (record.get("updated") or "") > (current.get("updated") or ""):
             unique[key] = record
