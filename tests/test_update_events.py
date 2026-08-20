@@ -132,7 +132,7 @@ class DashboardIntegrationTests(unittest.TestCase):
         index = (root / "index.html").read_text(encoding="utf-8")
         script = (root / "assets" / "dashboard.js").read_text(encoding="utf-8")
         self.assertIn('src="./assets/dashboard.js"', index)
-        self.assertIn('import("../data/events.js")', script)
+        self.assertIn('import(`../data/events.js?ts=${Date.now()}`)', script)
         self.assertNotIn("var EVENTS =", index)
 
     def test_new_records_expose_tad_clusters_before_generation(self):
