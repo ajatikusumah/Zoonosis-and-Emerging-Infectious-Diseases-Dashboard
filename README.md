@@ -1,6 +1,6 @@
 # Zoonosis and Emerging Infectious Diseases Dashboard
 
-Dashboard near-real-time untuk memantau kejadian zoonosis dan penyakit infeksi emerging pada tingkat Indonesia, ASEAN, Asia-Pasifik, dan global.
+Dashboard near-real-time untuk memantau kejadian zoonosis, penyakit infeksi emerging, dan transboundary animal diseases (TADs) pada tingkat Indonesia, ASEAN, Asia-Pasifik, dan global.
 
 Situs: https://ajatikusumah.github.io/Zoonosis-and-Emerging-Infectious-Diseases-Dashboard/
 
@@ -9,7 +9,8 @@ Situs: https://ajatikusumah.github.io/Zoonosis-and-Emerging-Infectious-Diseases-
 - Peta OpenStreetMap dengan tooltip nama penyakit, lokasi, kategori kasus, status bukti, dan sumber.
 - Skala warna operasional: merah untuk kejadian terkonfirmasi dengan kematian, jingga untuk kasus/outbreak terkonfirmasi, kuning untuk monitoring resmi tanpa angka dampak terstruktur, dan hijau untuk sinyal awal yang belum diverifikasi.
 - Pemisahan tegas antara rekaman resmi/terkonfirmasi dan rumor atau sinyal media yang masih perlu diverifikasi.
-- Filter wilayah, periode, penyakit, sumber, dan status bukti.
+- Filter wilayah, periode, kelompok penyakit (Zoonosis/EID atau TADs), penyakit, sumber, dan status bukti.
+- TADs dapat beririsan dengan kelompok Zoonosis/EID—misalnya avian influenza dan Rift Valley fever—sehingga klasifikasi kelompok bersifat non-eksklusif.
 - Publikasi dan laporan ditampilkan terpisah dari kejadian agar tidak menaikkan KPI kasus.
 - Registri sumber menunjukkan apakah suatu sumber aktif, hanya tersedia melalui portal, memerlukan akun, token, akses institusi, atau lisensi.
 - Impor CSV/Excel terotorisasi dengan validasi skema, persetujuan eksplisit `publish=true`, dan tampilan tingkat akses sumber.
@@ -25,6 +26,8 @@ Situs: https://ajatikusumah.github.io/Zoonosis-and-Emerging-Infectious-Diseases-
 | WHO SEARO Epidemiological Bulletin | Regional | Buletin resmi sebagai publikasi regional |
 | GDELT | Global | Sinyal media tersaring; wajib memuat penyakit yang dikenali dan indikator kejadian, serta selalu berstatus rumor/verifikasi sampai ada sumber primer |
 
+Pencarian GDELT mencakup TADs prioritas, termasuk PMK/FMD, ASF, LSD, CSF, PPR, Newcastle disease, African horse sickness, serta sheep/goat pox. Judul media TADs tetap ditempatkan dalam cluster **rumor/verifikasi** sampai dikonfirmasi oleh otoritas veteriner atau sumber resmi lain.
+
 ## Sumber yang tercatat tetapi belum diambil otomatis
 
 - **SIZE Nasional, SKDR, dan iSIKHNAS:** memerlukan akun atau kemitraan data.
@@ -32,6 +35,7 @@ Situs: https://ajatikusumah.github.io/Zoonosis-and-Emerging-Infectious-Diseases-
 - **ProMED:** akses API memerlukan lisensi; dashboard tidak melakukan scraping.
 - **GLEWS+:** mekanisme berbagi informasi institusional FAO–WHO–WOAH, bukan feed publik terpisah.
 - **WOAH WAHIS, WHO WPRO, dan ASEAN BioDiaspora Virtual Center:** tautan portal ditampilkan; integrasi menunggu API/feed publik yang terdokumentasi.
+- **FAO Animal Disease Situation Updates, GF-TADs, dan WOAH–FAO FMD Reference Laboratory Network:** digunakan sebagai rujukan resmi TADs; rekaman terstruktur dimasukkan melalui impor terotorisasi ketika tidak tersedia feed publik yang terdokumentasi.
 
 ## Arsitektur pembaruan
 
@@ -51,7 +55,7 @@ Workflow `.github/workflows/update-data.yml` mempunyai empat pemicu:
 
 Sumber publik seperti WHO, Kemenkes, WHO SEARO, dan GDELT tidak semuanya menyediakan webhook. Karena itu, kasus baru pada sumber tersebut akan terdeteksi pada pemeriksaan berikutnya, paling lambat sesuai jadwal 6 jam. Sistem/gateway yang memiliki notifikasi kasus baru dapat memanggil `repository_dispatch` agar pemeriksaan dilakukan tanpa menunggu jadwal.
 
-Sinyal GDELT disaring secara konservatif sebelum dipublikasikan. Judul harus memuat nama penyakit yang dikenali dan indikator kejadian epidemiologis, atau berupa judul langsung nama penyakit dengan lokasi yang dapat dikenali. Artikel perdagangan, akses pasar, laporan keuangan, riset, vaksinasi, kebijakan, dan materi non-kejadian ditolak kecuali judul juga memuat bukti kejadian yang kuat. Judul media tidak pernah digunakan sebagai nama penyakit.
+Sinyal GDELT disaring secara konservatif sebelum dipublikasikan. Judul harus memuat nama penyakit yang dikenali dan indikator kejadian epidemiologis, atau berupa judul langsung nama penyakit dengan lokasi yang dapat dikenali. Artikel perdagangan, akses pasar, laporan keuangan, riset, vaksinasi, kebijakan, hasil negatif/kejadian yang telah disingkirkan, dan materi non-kejadian ditolak kecuali judul juga memuat bukti kejadian yang kuat. Judul media tidak pernah digunakan sebagai nama penyakit.
 
 Contoh pemicu dari gateway terotorisasi:
 
