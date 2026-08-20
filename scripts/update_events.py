@@ -132,6 +132,18 @@ DISEASES = [
         "avian influenza", "avian flu", "bird flu", "h5n1", "h5n5", "h5n6", "h9n2",
         "flu burung", "gripe aviar", "influenza aviar", "grippe aviaire", "influenza aviária",
     ]),
+    ("Foot-and-Mouth Disease (FMD/PMK)", [
+        "foot-and-mouth disease", "foot and mouth disease", "penyakit mulut dan kuku",
+    ]),
+    ("African Swine Fever (ASF)", ["african swine fever", "demam babi afrika"]),
+    ("Lumpy Skin Disease (LSD)", ["lumpy skin disease", "penyakit kulit berbenjol"]),
+    ("Classical Swine Fever (CSF)", ["classical swine fever", "hog cholera"]),
+    ("Peste des Petits Ruminants (PPR)", ["peste des petits ruminants"]),
+    ("Contagious Bovine Pleuropneumonia (CBPP)", ["contagious bovine pleuropneumonia"]),
+    ("African Horse Sickness (AHS)", ["african horse sickness"]),
+    ("Sheep Pox and Goat Pox", ["sheep pox", "sheeppox", "goat pox", "goatpox"]),
+    ("Newcastle Disease", ["newcastle disease"]),
+    ("Rinderpest", ["rinderpest"]),
     ("Anthrax", ["anthrax", "antraks"]),
     ("Rabies", ["rabies", "rabia", "raiva"]),
     ("Leptospirosis", ["leptospirosis"]),
@@ -151,6 +163,40 @@ DISEASES = [
     ("Cholera", ["cholera", "kolera"]),
     ("Meningococcal disease", ["meningococcal", "meningokokus"]),
 ]
+
+
+# TADs can overlap with zoonotic/EID surveillance (for example avian influenza,
+# Rift Valley fever, anthrax, rabies, and brucellosis). Purely animal TADs are
+# kept out of human-case totals but remain available through the TADs filter.
+TAD_DISEASES = {
+    "Foot-and-Mouth Disease (FMD/PMK)",
+    "African Swine Fever (ASF)",
+    "Lumpy Skin Disease (LSD)",
+    "Classical Swine Fever (CSF)",
+    "Peste des Petits Ruminants (PPR)",
+    "Contagious Bovine Pleuropneumonia (CBPP)",
+    "African Horse Sickness (AHS)",
+    "Sheep Pox and Goat Pox",
+    "Newcastle Disease",
+    "Rinderpest",
+    "Avian influenza",
+    "Rift Valley fever",
+    "Anthrax",
+    "Rabies",
+    "Brucellosis",
+}
+PURE_ANIMAL_TADS = {
+    "Foot-and-Mouth Disease (FMD/PMK)",
+    "African Swine Fever (ASF)",
+    "Lumpy Skin Disease (LSD)",
+    "Classical Swine Fever (CSF)",
+    "Peste des Petits Ruminants (PPR)",
+    "Contagious Bovine Pleuropneumonia (CBPP)",
+    "African Horse Sickness (AHS)",
+    "Sheep Pox and Goat Pox",
+    "Newcastle Disease",
+    "Rinderpest",
+}
 
 
 # GDELT searches full article text, so a query hit does not prove that the headline
@@ -185,7 +231,7 @@ GDELT_NON_EVENT_TERMS = (
     "market access", "market", "export", "exports", "import", "imports", "trade", "tariff",
     "earnings", "stock", "shares", "investor", "sales", "price", "economic impact",
     "vaccine", "vaccination", "vaccinate", "immunization", "immunisation",
-    "research", "researchers", "study", "review", "book", "conference", "seminar", "training",
+    "research", "researchers", "study", "review", "method", "methods", "book", "conference", "seminar", "training",
     "guideline", "guidance", "policy", "preparedness", "readiness", "simulation", "exercise",
     "awareness", "campaign", "prevention", "prevent", "anniversary", "history", "evolving",
     "akses pasar", "ekspor", "impor", "perdagangan", "harga", "penelitian", "kajian",
@@ -196,6 +242,8 @@ GDELT_NON_EVENT_TERMS = (
 # or a product/research announcement even when it mentions an existing outbreak.
 GDELT_ALWAYS_NON_EVENT_TERMS = (
     "potential outbreak", "possible outbreak", "free status", "declared free", "at risk",
+    "ruled out", "rule out", "tested negative", "tests negative", "negative for", "no evidence of",
+    "detection method", "detection methods", "diagnostic method", "diagnostic methods",
     "clinical trial", "regulatory approval", "phase i trial", "phase ii trial", "phase iii trial",
     "everything you need to know", "what you need to know", "explainer",
     "potensi wabah", "kemungkinan wabah", "uji klinis", "persetujuan regulatori",
@@ -304,6 +352,36 @@ SOURCE_REGISTRY = [
         "note": "Endpoint peristiwa memerlukan token; tidak dilakukan scraping aplikasi.",
     },
     {
+        "id": "fao-tad-situation",
+        "name": "FAO • Animal disease situation updates",
+        "level": "Global",
+        "kind": "Situasi resmi TADs",
+        "access_level": "public",
+        "url": "https://www.fao.org/animal-health/situation-updates/",
+        "default_status": "portal_only",
+        "note": "Pembaruan resmi ASF/FMD dan penyakit hewan lain; rekaman terstruktur dimasukkan melalui impor terotorisasi sampai feed publik terdokumentasi tersedia.",
+    },
+    {
+        "id": "gf-tads",
+        "name": "GF-TADs • FAO–WOAH",
+        "level": "Global",
+        "kind": "Kerangka resmi TADs",
+        "access_level": "public",
+        "url": "https://www.gf-tads.org/",
+        "default_status": "portal_only",
+        "note": "Sumber kebijakan dan situasi regional; bukan feed kejadian publik terpisah.",
+    },
+    {
+        "id": "wrlfmd",
+        "name": "WOAH–FAO FMD Reference Laboratory Network",
+        "level": "Global",
+        "kind": "Laporan laboratorium rujukan",
+        "access_level": "public",
+        "url": "https://www.wrlfmd.org/",
+        "default_status": "manual_import",
+        "note": "Laporan triwulanan digunakan sebagai sumber resmi PMK/FMD melalui impor terotorisasi dan verifikasi manual.",
+    },
+    {
         "id": "woah-wahis",
         "name": "WOAH • WAHIS",
         "level": "Global",
@@ -373,6 +451,16 @@ def recognized_disease_from_text(text: str) -> str | None:
     return None
 
 
+def disease_groups_for(disease: str) -> list[str]:
+    """Return non-exclusive surveillance groups for a normalized disease."""
+    groups: list[str] = []
+    if disease in TAD_DISEASES:
+        groups.append("TADs")
+    if disease not in PURE_ANIMAL_TADS:
+        groups.append("Zoonosis/EID")
+    return groups or ["Zoonosis/EID"]
+
+
 def disease_from_title(title: str) -> str:
     recognized = recognized_disease_from_text(title)
     if recognized:
@@ -414,6 +502,7 @@ def sanitize_retained_gdelt(records: list[dict]) -> list[dict]:
             continue
         cleaned = dict(record)
         cleaned["disease"] = disease
+        cleaned["disease_groups"] = disease_groups_for(disease)
         cleaned["record_type"] = "event" if cleaned.get("iso3") else "report"
         screened.append(cleaned)
     return screened
@@ -443,6 +532,7 @@ def base_record(**values) -> dict:
         "id": "",
         "record_type": "event",
         "disease": "Penyakit infeksi emerging",
+        "disease_groups": ["Zoonosis/EID"],
         "title": "",
         "location": "Lokasi belum dipetakan",
         "iso3": None,
@@ -473,6 +563,8 @@ def base_record(**values) -> dict:
         "summary": None,
     }
     record.update(values)
+    if "disease_groups" not in values:
+        record["disease_groups"] = disease_groups_for(record["disease"])
     return record
 
 
@@ -1003,16 +1095,24 @@ def who_sear_records() -> list[dict]:
 
 
 def gdelt_records() -> list[dict]:
-    query = '("avian influenza" OR "bird flu" OR rabies OR anthrax OR leptospirosis OR Nipah OR hantavirus OR Ebola OR Marburg OR mpox)'
-    params = urlencode({"query": query, "mode": "ArtList", "maxrecords": 75, "format": "json", "timespan": "7d"})
-    url = "https://api.gdeltproject.org/api/v2/doc/doc?" + params
-    payload = json.loads(fetch_text(url, timeout=60))
+    queries = [
+        '("avian influenza" OR "bird flu" OR rabies OR anthrax OR leptospirosis OR Nipah OR hantavirus OR Ebola OR Marburg OR mpox)',
+        '("foot-and-mouth disease" OR "african swine fever" OR "lumpy skin disease" OR "classical swine fever" OR "peste des petits ruminants" OR "newcastle disease" OR "african horse sickness" OR "sheep pox" OR "goat pox")',
+    ]
     records: list[dict] = []
-    for article in payload.get("articles", []):
+    articles: list[dict] = []
+    for query in queries:
+        params = urlencode({"query": query, "mode": "ArtList", "maxrecords": 75, "format": "json", "timespan": "7d"})
+        url = "https://api.gdeltproject.org/api/v2/doc/doc?" + params
+        payload = json.loads(fetch_text(url, timeout=60))
+        articles.extend(payload.get("articles", []))
+    seen_links: set[str] = set()
+    for article in articles:
         title = strip_markup(article.get("title") or "")
         link = article.get("url") or ""
-        if not title or not link:
+        if not title or not link or link in seen_links:
             continue
+        seen_links.add(link)
         disease = gdelt_signal_disease(title)
         if not disease:
             continue
@@ -1152,6 +1252,15 @@ def main() -> int:
             "import_validation_errors": len(import_validation["errors"]),
             "import_validation_warnings": len(import_validation["warnings"]),
             "method_note": "Official records and open media signals are stored separately; unknown counts remain null.",
+            "tads_records": sum("TADs" in record.get("disease_groups", []) for record in all_records),
+            "tads_confirmed": sum(
+                "TADs" in record.get("disease_groups", []) and record.get("evidence") == "confirmed"
+                for record in all_records
+            ),
+            "tads_rumor": sum(
+                "TADs" in record.get("disease_groups", []) and record.get("evidence") == "rumor"
+                for record in all_records
+            ),
         },
         "sources": sources,
         "records": all_records,
