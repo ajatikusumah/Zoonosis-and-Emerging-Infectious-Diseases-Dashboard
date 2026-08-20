@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "generated_at": "2026-08-20T03:23:15.853005Z",
+    "generated_at": "2026-08-20T03:25:57.329452Z",
     "update_interval_hours": 6,
     "mode": "near-real-time",
-    "records": 146,
-    "events": 74,
-    "reports": 72,
+    "records": 133,
+    "events": 59,
+    "reports": 74,
     "imported_records": 9,
     "import_files_scanned": 1,
     "import_validation_errors": 0,
@@ -22,7 +22,7 @@
       "url": "https://infeksiemerging.kemkes.go.id/",
       "note": "Weekly update dan spot report publik; diperlakukan sebagai publikasi, bukan angka kasus terstruktur.",
       "status": "live",
-      "last_checked": "2026-08-20T03:23:15.853005Z",
+      "last_checked": "2026-08-20T03:25:57.329452Z",
       "records": 33,
       "error": null
     },
@@ -74,7 +74,7 @@
       "url": "https://www.who.int/southeastasia/outbreaks-and-emergencies/surveillance-and-alert/sear-epi-bulletins",
       "note": "Buletin regional ditampilkan sebagai publikasi; ekstraksi angka tabel belum dilakukan.",
       "status": "live",
-      "last_checked": "2026-08-20T03:23:15.853005Z",
+      "last_checked": "2026-08-20T03:25:57.329452Z",
       "records": 25,
       "error": null
     },
@@ -113,7 +113,7 @@
       "url": "https://www.who.int/emergencies/disease-outbreak-news",
       "note": "Diambil dari API publik WHO dan dipetakan pada centroid negara bila lokasi lebih rinci tidak tersedia.",
       "status": "live",
-      "last_checked": "2026-08-20T03:23:15.853005Z",
+      "last_checked": "2026-08-20T03:25:57.329452Z",
       "records": 44,
       "error": null
     },
@@ -125,10 +125,10 @@
       "access_level": "public",
       "url": "https://www.gdeltproject.org/",
       "note": "Judul disaring untuk nama penyakit dan indikator kejadian; semua rekaman tetap berstatus rumor/verifikasi, dan negara hanya dipetakan bila disebut dalam judul.",
-      "status": "stale",
-      "last_checked": "2026-08-20T03:23:15.853005Z",
-      "records": 36,
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "status": "live",
+      "last_checked": "2026-08-20T03:25:57.329452Z",
+      "records": 23,
+      "error": null
     },
     {
       "id": "fao-empres",
@@ -190,7 +190,7 @@
       "access_level": "public",
       "url": "https://www.abc.net.au/news/rural/2026-01-22/cattle-industry-cautious-lumpy-skin-disease-reaches-bali/106256000",
       "status": "imported",
-      "last_checked": "2026-08-20T03:23:15.853005Z",
+      "last_checked": "2026-08-20T03:25:57.329452Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -203,7 +203,7 @@
       "access_level": "public",
       "url": "https://en.antaranews.com/news/375693/indonesia-seeks-woah-recognition-on-fmd-free-zones-without-vaccination",
       "status": "imported",
-      "last_checked": "2026-08-20T03:23:15.853005Z",
+      "last_checked": "2026-08-20T03:25:57.329452Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -216,7 +216,7 @@
       "access_level": "public",
       "url": "https://www.balipost.com/news/2024/04/01/394276/ASF-Masuk-Bali,Satu-Sampel...html",
       "status": "imported",
-      "last_checked": "2026-08-20T03:23:15.853005Z",
+      "last_checked": "2026-08-20T03:25:57.329452Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -229,7 +229,7 @@
       "access_level": "public",
       "url": "https://fao.org/animal-health/situation-updates/asf-in-asia-pacific/en",
       "status": "imported",
-      "last_checked": "2026-08-20T03:23:15.853005Z",
+      "last_checked": "2026-08-20T03:25:57.329452Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -242,7 +242,7 @@
       "access_level": "public",
       "url": "https://fao.org/animal-health/situation-updates/asf-in-asia-pacific/en",
       "status": "imported",
-      "last_checked": "2026-08-20T03:23:15.853005Z",
+      "last_checked": "2026-08-20T03:25:57.329452Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -255,7 +255,7 @@
       "access_level": "public",
       "url": "https://link.springer.com/article/10.1007/s11250-024-04067-y",
       "status": "imported",
-      "last_checked": "2026-08-20T03:23:15.853005Z",
+      "last_checked": "2026-08-20T03:25:57.329452Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -268,7 +268,7 @@
       "access_level": "public",
       "url": "https://bali.tribunnews.com/bali/598286/distan-bali-tanggapi-puluhan-ekor-babi-mati-mendadak-sebut-asf-telah-jadi-penyakit-endemis-di-bali",
       "status": "imported",
-      "last_checked": "2026-08-20T03:23:15.853005Z",
+      "last_checked": "2026-08-20T03:25:57.329452Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -281,7 +281,7 @@
       "access_level": "public",
       "url": "https://www.wrlfmd.org/sites/world/files/quick_media/WOAH-FAO%20FMD%20Ref%20Lab%20Report%20Jan-Mar%202026%20%20v3.pdf",
       "status": "imported",
-      "last_checked": "2026-08-20T03:23:15.853005Z",
+      "last_checked": "2026-08-20T03:25:57.329452Z",
       "records": 2,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -737,6 +737,104 @@
       "summary": "Bahasa: English; negara media: Australia."
     },
     {
+      "id": "gdelt-e04a4fb80c25",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "Little penguin dies from bird flu as case numbers grow",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-15T08:30:00Z",
+      "onset": null,
+      "reported": "2026-08-15T08:30:00Z",
+      "updated": "2026-08-15T08:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • bendigoadvertiser.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.bendigoadvertiser.com.au/story/9330891/little-penguin-dies-from-bird-flu-as-case-numbers-grow/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-a452d1471f2e",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "title": "Little penguin dies from bird flu as case numbers grow",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-15T08:30:00Z",
+      "onset": null,
+      "reported": "2026-08-15T08:30:00Z",
+      "updated": "2026-08-15T08:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • theadvocate.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.theadvocate.com.au/story/9330891/little-penguin-dies-from-bird-flu-as-case-numbers-grow/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
       "id": "gdelt-ae18dc0eed0b",
       "record_type": "report",
       "disease": "Avian influenza",
@@ -833,6 +931,106 @@
       "verification": "Sumber resmi WHO; koordinat menggunakan centroid negara.",
       "economic": null,
       "summary": "The Bundibugyo virus disease (BVD) outbreak in the Democratic Republic of the Congo is in a phase of intense transmission. It is the largest Ebola outbreak ever reported in the country and expanding faster than any previous Ebola outbreak. The epidemic is increasingly characterized by sustained transmission within interconnected geographic clusters. Initially confined to the Mongbwalu health zone in Ituri Province, the outbreak has now expanded to 54 health zones across six provinces (Ituri, North Kivu, South Kivu, Haut-Uélé, Tshopo, and Bas-Uélé). The most recently affected Bas-Uélé province "
+    },
+    {
+      "id": "gdelt-4a26c975e033",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Tasmania confirms second H5 bird flu case on King Island | The Examiner",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-14T05:45:00Z",
+      "onset": null,
+      "reported": "2026-08-14T05:45:00Z",
+      "updated": "2026-08-14T05:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • examiner.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.examiner.com.au/story/9330366/tasmania-confirms-second-h5-bird-flu-case-on-king-island/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-febd59c878cd",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Second case of H5 bird flu detected in Tasmania as crested tern on King Island tests positive",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-14T03:30:00Z",
+      "onset": null,
+      "reported": "2026-08-14T03:30:00Z",
+      "updated": "2026-08-14T03:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • abc.net.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.abc.net.au/news/2026-08-14/tas-second-case-of-bird-flu-in-tasmania/107037894",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
     },
     {
       "id": "gdelt-9688a943c07e",
@@ -1133,6 +1331,56 @@
       "summary": "Bahasa: English; negara media: Australia."
     },
     {
+      "id": "gdelt-8b9041f6c2fa",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "title": "Bird flu threat to Tasmania endangered native wildlife spurs contingency plans",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-13T09:15:00Z",
+      "onset": null,
+      "reported": "2026-08-13T09:15:00Z",
+      "updated": "2026-08-13T09:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • abc.net.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.abc.net.au/news/2026-08-13/threat-to-tasmanias-endangered-and-native-wildlife-from-bird-flu/107031902",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
       "id": "gdelt-3f3108548d82",
       "record_type": "report",
       "disease": "Ebola virus disease",
@@ -1330,906 +1578,6 @@
       "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
       "economic": null,
       "summary": "Bahasa: English; negara media: New Zealand."
-    },
-    {
-      "id": "gdelt-cd98fa45ba0b",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Australia Tasmania reports 1st H5N1 bird flu case",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T03:00:00Z",
-      "onset": null,
-      "reported": "2026-08-13T03:00:00Z",
-      "updated": "2026-08-13T03:00:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • bignewsnetwork.com",
-      "source_id": "gdelt",
-      "source_url": "http://www.bignewsnetwork.com/news/279237896/australia-tasmania-reports-1st-h5n1-bird-flu-case",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: United States."
-    },
-    {
-      "id": "gdelt-e5723857a6b3",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Tasmania records first case of deadly bird flu strain",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T02:00:00Z",
-      "onset": null,
-      "reported": "2026-08-13T02:00:00Z",
-      "updated": "2026-08-13T02:00:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • naroomanewsonline.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.naroomanewsonline.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia."
-    },
-    {
-      "id": "gdelt-444beda1d3bd",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Tasmania records first case of deadly bird flu strain",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T02:00:00Z",
-      "onset": null,
-      "reported": "2026-08-13T02:00:00Z",
-      "updated": "2026-08-13T02:00:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • bunburymail.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.bunburymail.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia."
-    },
-    {
-      "id": "gdelt-28ef555b4d1b",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Tasmania records first case of deadly bird flu strain",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T01:45:00Z",
-      "onset": null,
-      "reported": "2026-08-13T01:45:00Z",
-      "updated": "2026-08-13T01:45:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • macleayargus.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.macleayargus.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia."
-    },
-    {
-      "id": "gdelt-f24f3766cb89",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Tasmania records first case of deadly bird flu strain",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T01:45:00Z",
-      "onset": null,
-      "reported": "2026-08-13T01:45:00Z",
-      "updated": "2026-08-13T01:45:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • edenmagnet.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.edenmagnet.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia."
-    },
-    {
-      "id": "gdelt-3ee7ac719357",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Tasmania records first case of deadly bird flu strain",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T01:45:00Z",
-      "onset": null,
-      "reported": "2026-08-13T01:45:00Z",
-      "updated": "2026-08-13T01:45:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • bluemountainsgazette.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.bluemountainsgazette.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia."
-    },
-    {
-      "id": "gdelt-84329f340200",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Tasmania records first case of deadly bird flu strain",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T01:45:00Z",
-      "onset": null,
-      "reported": "2026-08-13T01:45:00Z",
-      "updated": "2026-08-13T01:45:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • theleader.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.theleader.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia."
-    },
-    {
-      "id": "gdelt-91cd4b87138c",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Tasmania records first case of deadly bird flu strain",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T01:15:00Z",
-      "onset": null,
-      "reported": "2026-08-13T01:15:00Z",
-      "updated": "2026-08-13T01:15:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • tenterfieldstar.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.tenterfieldstar.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia."
-    },
-    {
-      "id": "gdelt-6b9a4183cb19",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Tasmania records first case of deadly bird flu strain",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T01:15:00Z",
-      "onset": null,
-      "reported": "2026-08-13T01:15:00Z",
-      "updated": "2026-08-13T01:15:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • portnews.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.portnews.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia."
-    },
-    {
-      "id": "gdelt-8629feaccba0",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Tasmania records first case of deadly bird flu strain",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T01:00:00Z",
-      "onset": null,
-      "reported": "2026-08-13T01:00:00Z",
-      "updated": "2026-08-13T01:00:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • illawarramercury.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.illawarramercury.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia."
-    },
-    {
-      "id": "gdelt-3a6d730e4218",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Tasmania records first case of deadly bird flu strain",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T01:00:00Z",
-      "onset": null,
-      "reported": "2026-08-13T01:00:00Z",
-      "updated": "2026-08-13T01:00:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • canberratimes.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.canberratimes.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia."
-    },
-    {
-      "id": "gdelt-391f11fbf20b",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Tasmania records first case of deadly bird flu strain",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T01:00:00Z",
-      "onset": null,
-      "reported": "2026-08-13T01:00:00Z",
-      "updated": "2026-08-13T01:00:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • southernhighlandnews.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.southernhighlandnews.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia."
-    },
-    {
-      "id": "gdelt-e34b74ae9abb",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Tasmania records first case of deadly bird flu strain",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T00:45:00Z",
-      "onset": null,
-      "reported": "2026-08-13T00:45:00Z",
-      "updated": "2026-08-13T00:45:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • oberonreview.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.oberonreview.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia."
-    },
-    {
-      "id": "gdelt-e203da86dc8b",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Tasmania records first case of deadly bird flu strain",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T00:45:00Z",
-      "onset": null,
-      "reported": "2026-08-13T00:45:00Z",
-      "updated": "2026-08-13T00:45:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • portstephensexaminer.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.portstephensexaminer.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia."
-    },
-    {
-      "id": "gdelt-34db72697eb5",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Tasmania records first case of deadly bird flu strain",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T00:45:00Z",
-      "onset": null,
-      "reported": "2026-08-13T00:45:00Z",
-      "updated": "2026-08-13T00:45:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • armidaleexpress.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.armidaleexpress.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia."
-    },
-    {
-      "id": "gdelt-cd0dca72c1c8",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Tasmania records first case of deadly bird flu strain",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T00:45:00Z",
-      "onset": null,
-      "reported": "2026-08-13T00:45:00Z",
-      "updated": "2026-08-13T00:45:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • merimbulanewsweekly.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.merimbulanewsweekly.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia."
-    },
-    {
-      "id": "gdelt-f37dbb9c99db",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Tasmania records first case of deadly bird flu strain",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T00:45:00Z",
-      "onset": null,
-      "reported": "2026-08-13T00:45:00Z",
-      "updated": "2026-08-13T00:45:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • begadistrictnews.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.begadistrictnews.com.au/story/9329491/tasmania-records-first-case-of-deadly-bird-flu-strain/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia."
-    },
-    {
-      "id": "gdelt-dea700ac81f3",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Tasmania confirms first case of deadly bird flu strain H5N1",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T00:15:00Z",
-      "onset": null,
-      "reported": "2026-08-13T00:15:00Z",
-      "updated": "2026-08-13T00:15:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • abc.net.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.abc.net.au/news/2026-08-13/tasmania-confirms-first-case-of-deadly-bird-flu-strain-h5n1/106831126",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia."
     },
     {
       "id": "who-sear-2bd495770579",
