@@ -1,18 +1,18 @@
 {
   "metadata": {
-    "generated_at": "2026-08-20T08:25:46.276934Z",
+    "generated_at": "2026-08-20T08:30:12.018142Z",
     "update_interval_hours": 6,
     "mode": "near-real-time",
-    "records": 131,
-    "events": 59,
+    "records": 132,
+    "events": 60,
     "reports": 72,
     "imported_records": 9,
     "import_files_scanned": 1,
     "import_validation_errors": 0,
     "import_validation_warnings": 0,
     "method_note": "Official records and open media signals are stored separately; unknown counts remain null.",
-    "tads_records": 38,
-    "tads_confirmed": 17,
+    "tads_records": 39,
+    "tads_confirmed": 18,
     "tads_rumor": 21
   },
   "sources": [
@@ -25,7 +25,7 @@
       "url": "https://infeksiemerging.kemkes.go.id/",
       "note": "Weekly update dan spot report publik; diperlakukan sebagai publikasi, bukan angka kasus terstruktur.",
       "status": "live",
-      "last_checked": "2026-08-20T08:25:46.276934Z",
+      "last_checked": "2026-08-20T08:30:12.018142Z",
       "records": 33,
       "error": null
     },
@@ -77,7 +77,7 @@
       "url": "https://www.who.int/southeastasia/outbreaks-and-emergencies/surveillance-and-alert/sear-epi-bulletins",
       "note": "Buletin regional ditampilkan sebagai publikasi; ekstraksi angka tabel belum dilakukan.",
       "status": "live",
-      "last_checked": "2026-08-20T08:25:46.276934Z",
+      "last_checked": "2026-08-20T08:30:12.018142Z",
       "records": 25,
       "error": null
     },
@@ -116,7 +116,7 @@
       "url": "https://www.who.int/emergencies/disease-outbreak-news",
       "note": "Diambil dari API publik WHO dan dipetakan pada centroid negara bila lokasi lebih rinci tidak tersedia.",
       "status": "live",
-      "last_checked": "2026-08-20T08:25:46.276934Z",
+      "last_checked": "2026-08-20T08:30:12.018142Z",
       "records": 44,
       "error": null
     },
@@ -129,7 +129,7 @@
       "url": "https://www.gdeltproject.org/",
       "note": "Judul disaring untuk nama penyakit dan indikator kejadian; semua rekaman tetap berstatus rumor/verifikasi, dan negara hanya dipetakan bila disebut dalam judul.",
       "status": "stale",
-      "last_checked": "2026-08-20T08:25:46.276934Z",
+      "last_checked": "2026-08-20T08:30:12.018142Z",
       "records": 21,
       "error": "HTTPError: HTTP Error 429: Too Many Requests"
     },
@@ -232,7 +232,7 @@
       "access_level": "public",
       "url": "https://www.abc.net.au/news/rural/2026-01-22/cattle-industry-cautious-lumpy-skin-disease-reaches-bali/106256000",
       "status": "imported",
-      "last_checked": "2026-08-20T08:25:46.276934Z",
+      "last_checked": "2026-08-20T08:30:12.018142Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -245,7 +245,7 @@
       "access_level": "public",
       "url": "https://en.antaranews.com/news/375693/indonesia-seeks-woah-recognition-on-fmd-free-zones-without-vaccination",
       "status": "imported",
-      "last_checked": "2026-08-20T08:25:46.276934Z",
+      "last_checked": "2026-08-20T08:30:12.018142Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -258,7 +258,7 @@
       "access_level": "public",
       "url": "https://www.balipost.com/news/2024/04/01/394276/ASF-Masuk-Bali,Satu-Sampel...html",
       "status": "imported",
-      "last_checked": "2026-08-20T08:25:46.276934Z",
+      "last_checked": "2026-08-20T08:30:12.018142Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -271,7 +271,7 @@
       "access_level": "public",
       "url": "https://fao.org/animal-health/situation-updates/asf-in-asia-pacific/en",
       "status": "imported",
-      "last_checked": "2026-08-20T08:25:46.276934Z",
+      "last_checked": "2026-08-20T08:30:12.018142Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -284,7 +284,7 @@
       "access_level": "public",
       "url": "https://fao.org/animal-health/situation-updates/asf-in-asia-pacific/en",
       "status": "imported",
-      "last_checked": "2026-08-20T08:25:46.276934Z",
+      "last_checked": "2026-08-20T08:30:12.018142Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -297,7 +297,7 @@
       "access_level": "public",
       "url": "https://link.springer.com/article/10.1007/s11250-024-04067-y",
       "status": "imported",
-      "last_checked": "2026-08-20T08:25:46.276934Z",
+      "last_checked": "2026-08-20T08:30:12.018142Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -310,7 +310,7 @@
       "access_level": "public",
       "url": "https://bali.tribunnews.com/bali/598286/distan-bali-tanggapi-puluhan-ekor-babi-mati-mendadak-sebut-asf-telah-jadi-penyakit-endemis-di-bali",
       "status": "imported",
-      "last_checked": "2026-08-20T08:25:46.276934Z",
+      "last_checked": "2026-08-20T08:30:12.018142Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -323,7 +323,7 @@
       "access_level": "public",
       "url": "https://www.wrlfmd.org/sites/world/files/quick_media/WOAH-FAO%20FMD%20Ref%20Lab%20Report%20Jan-Mar%202026%20%20v3.pdf",
       "status": "imported",
-      "last_checked": "2026-08-20T08:25:46.276934Z",
+      "last_checked": "2026-08-20T08:30:12.018142Z",
       "records": 2,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -4480,6 +4480,64 @@
       "verification": "Serotype O, lineage O/ME-SA/Ind-2001e; part of 641 outbreaks reported nationally Jan-Mar 2026",
       "economic": null,
       "summary": "305 of 641 FMD outbreaks reported nationally (Jan-Mar 2026) occurred in Jawa Tengah; non-zoonotic TAD, not a human health event.",
+      "source_level": "Global",
+      "source_kind": "reference_laboratory_report",
+      "access_level": "public"
+    },
+    {
+      "id": "fmd-idn-2026-jatim-q1",
+      "record_type": "event",
+      "disease": "Foot-and-Mouth Disease (FMD/PMK)",
+      "disease_groups": [
+        "TADs"
+      ],
+      "title": "FMD outbreak resurgence, Jawa Timur Q1 2026",
+      "location": "Jawa Timur, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.54,
+      "lon": 112.24,
+      "location_precision": "admin1",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-03-31T00:00:00Z",
+      "onset": null,
+      "reported": "2026-03-31T00:00:00Z",
+      "updated": "2026-08-20T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Vaccination campaign; movement restrictions; quarantine",
+      "changed24h": true,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": 220,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": "Cattle, buffalo, goat, sheep, swine"
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "WOAH-FAO FMD Reference Laboratory Network (WRLFMD)",
+      "source_id": "wrlfmd.q1.2026",
+      "source_url": "https://www.wrlfmd.org/sites/world/files/quick_media/WOAH-FAO%20FMD%20Ref%20Lab%20Report%20Jan-Mar%202026%20%20v3.pdf",
+      "verification": "Serotype O, lineage O/ME-SA/Ind-2001e; site of original 2022 re-emergence (Gresik)",
+      "economic": null,
+      "summary": "220 of 641 FMD outbreaks reported nationally (Jan-Mar 2026) occurred in Jawa Timur; non-zoonotic TAD.",
       "source_level": "Global",
       "source_kind": "reference_laboratory_report",
       "access_level": "public"
