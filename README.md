@@ -16,7 +16,7 @@ Situs: https://ajatikusumah.github.io/Zoonosis-and-Emerging-Infectious-Diseases-
 - Registri sumber menunjukkan apakah suatu sumber aktif, hanya tersedia melalui portal, memerlukan akun, token, akses institusi, atau lisensi.
 - Impor CSV/Excel terotorisasi dengan validasi skema, persetujuan eksplisit `publish=true`, dan tampilan tingkat akses sumber.
 - Angka yang tidak tersedia disimpan sebagai `null` dan ditampilkan sebagai `—`, bukan dianggap nol.
-- Pembaruan segera saat file laporan baru masuk atau saat gateway mengirim sinyal `new-surveillance-report`, dengan pemeriksaan cadangan setiap 6 jam.
+- Pembaruan segera saat file laporan baru masuk atau saat gateway mengirim sinyal `new-surveillance-report`, dengan pemeriksaan cadangan setiap 2 hari (48 jam).
 
 ## Sumber yang diambil otomatis
 
@@ -56,10 +56,10 @@ Workflow `.github/workflows/update-data.yml` mempunyai empat pemicu:
 
 1. file baru atau perubahan pada `data/import/**` — diproses segera;
 2. sinyal eksternal `repository_dispatch` dengan tipe `new-surveillance-report` — diproses segera;
-3. jadwal cadangan setiap 6 jam untuk memeriksa sumber publik;
+3. jadwal cadangan setiap 2 hari (48 jam) untuk memeriksa sumber publik;
 4. pemicu manual dari tab **Actions**.
 
-Sumber publik seperti WHO, Kemenkes, WHO SEARO, dan GDELT tidak semuanya menyediakan webhook. Karena itu, kasus baru pada sumber tersebut akan terdeteksi pada pemeriksaan berikutnya, paling lambat sesuai jadwal 6 jam. Sistem/gateway yang memiliki notifikasi kasus baru dapat memanggil `repository_dispatch` agar pemeriksaan dilakukan tanpa menunggu jadwal.
+Sumber publik seperti WHO, Kemenkes, WHO SEARO, GDELT, dan AWR tidak semuanya menyediakan webhook. Karena itu, kasus baru pada sumber tersebut akan terdeteksi pada pemeriksaan berikutnya, paling lambat sesuai jadwal 2 hari. Sistem/gateway yang memiliki notifikasi kasus baru dapat memanggil `repository_dispatch` agar pemeriksaan dilakukan tanpa menunggu jadwal.
 
 Sinyal GDELT disaring secara konservatif sebelum dipublikasikan. Judul harus memuat nama penyakit yang dikenali dan indikator kejadian epidemiologis, atau berupa judul langsung nama penyakit dengan lokasi yang dapat dikenali. Artikel perdagangan, akses pasar, laporan keuangan, riset, vaksinasi, kebijakan, hasil negatif/kejadian yang telah disingkirkan, dan materi non-kejadian ditolak kecuali judul juga memuat bukti kejadian yang kuat. Judul media tidak pernah digunakan sebagai nama penyakit.
 

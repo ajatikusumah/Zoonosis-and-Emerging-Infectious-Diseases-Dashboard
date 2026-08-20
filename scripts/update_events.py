@@ -1662,7 +1662,7 @@ def main() -> int:
     payload = {
         "metadata": {
             "generated_at": generated_at,
-            "update_interval_hours": 6,
+            "update_interval_hours": 48,
             "mode": "near-real-time",
             "records": len(all_records),
             "events": sum(record.get("record_type") == "event" for record in all_records),

@@ -139,6 +139,14 @@ class DashboardIntegrationTests(unittest.TestCase):
         self.assertIn('import(`../data/events.js?ts=${Date.now()}`)', script)
         self.assertNotIn("var EVENTS =", index)
 
+    def test_automatic_refresh_is_scheduled_every_two_days(self):
+        root = pathlib.Path(__file__).parents[1]
+        workflow = (root / ".github" / "workflows" / "update-data.yml").read_text(encoding="utf-8")
+        index = (root / "index.html").read_text(encoding="utf-8")
+        self.assertIn('cron: "17 0 */2 * *"', workflow)
+        self.assertIn("Pemeriksaan setiap 2 hari", index)
+        self.assertNotIn("*/6", workflow)
+
     def test_new_records_expose_tad_clusters_before_generation(self):
         confirmed = UPDATE_EVENTS.base_record(
             disease="African Swine Fever (ASF)",

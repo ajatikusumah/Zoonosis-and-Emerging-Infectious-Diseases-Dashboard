@@ -9,7 +9,7 @@ Folder ini menerima data kejadian/laporan agregat dan sudah dide-identifikasi da
 3. Isi satu rekaman per baris pada sheet `Import` atau pada CSV.
 4. Biarkan `publish=false` selama penyiapan dan penelaahan.
 5. Setelah data dipastikan agregat, de-identifikasi, berizin, dan layak publik, ubah baris yang disetujui menjadi `publish=true`.
-6. Unggah file ke folder `data/import/`. Workflow otomatis memprosesnya segera dan setiap 6 jam.
+6. Unggah file ke folder `data/import/`. Workflow otomatis memproses unggahan baru segera; pemeriksaan cadangan berjalan setiap 2 hari.
 7. Periksa `data/import-validation.json` bila ada baris yang dilewati.
 
 Baris hanya dipublikasikan bila `publish` bernilai `true`, `1`, `yes`, atau `ya`. Nilai lain dilewati. File yang memiliki kolom di luar skema ditolak seluruhnya agar kolom sensitif tidak ikut masuk tanpa sengaja.

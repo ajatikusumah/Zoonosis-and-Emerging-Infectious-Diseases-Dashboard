@@ -11,7 +11,7 @@ on:
     types:
       - new-surveillance-report
   schedule:
-    - cron: "17 */6 * * *"
+    - cron: "17 0 */2 * *"
   workflow_dispatch:
 
 permissions:

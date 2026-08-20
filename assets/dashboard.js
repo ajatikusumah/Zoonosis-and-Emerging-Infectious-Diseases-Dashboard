@@ -352,7 +352,7 @@ function renderMetadata() {
   const generated = formatDate(metadata.generated_at, true);
   $("data-status").textContent = `${formatNumber(metadata.records)} rekaman termuat`;
   $("data-status").classList.add("ready");
-  $("data-updated").textContent = `Diperbarui ${generated} · setiap ${metadata.update_interval_hours || 6} jam`;
+  $("data-updated").textContent = `Diperbarui ${generated} · setiap ${metadata.update_interval_hours || 48} jam`;
   const imported = metadata.imported_records || 0;
   const files = metadata.import_files_scanned || 0;
   const errors = metadata.import_validation_errors || 0;
@@ -403,7 +403,7 @@ function bindFilters() {
 
 async function start() {
   try {
-    // The dataset is regenerated every six hours. A timestamp query avoids a
+    // The dataset is regenerated every 48 hours. A timestamp query avoids a
     // stale module response from the GitHub Pages/CDN cache after deployment.
     const payload = await import(`../data/events.js?ts=${Date.now()}`);
     metadata = payload.metadata || {};
