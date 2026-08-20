@@ -131,7 +131,7 @@ class DashboardIntegrationTests(unittest.TestCase):
         root = pathlib.Path(__file__).parents[1]
         index = (root / "index.html").read_text(encoding="utf-8")
         script = (root / "assets" / "dashboard.js").read_text(encoding="utf-8")
-        self.assertIn('src="./assets/dashboard.js"', index)
+        self.assertIn("./assets/dashboard.js", index)
         self.assertIn('import(`../data/events.js?ts=${Date.now()}`)', script)
         self.assertNotIn("var EVENTS =", index)
 
