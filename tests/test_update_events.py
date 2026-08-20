@@ -37,6 +37,9 @@ class GdeltSignalClassificationTests(unittest.TestCase):
             "Penguin found dead from bird flu": "Avian influenza",
             "Little penguin dies from bird flu as case numbers grow": "Avian influenza",
             "NSW confirms fifth H5 bird flu case, expands vaccine plans": "Avian influenza",
+            "Foot-and-mouth disease outbreak confirmed in Indonesia": "Foot-and-Mouth Disease (FMD/PMK)",
+            "African swine fever detected in pigs in Viet Nam": "African Swine Fever (ASF)",
+            "Lumpy skin disease cases reported in cattle in Thailand": "Lumpy Skin Disease (LSD)",
         }
         for title, disease in expected.items():
             with self.subTest(title=title):
@@ -50,6 +53,32 @@ class GdeltSignalClassificationTests(unittest.TestCase):
 
     def test_does_not_match_mers_inside_farmers(self):
         self.assertIsNone(UPDATE_EVENTS.recognized_disease_from_text("Farmers receive support in Australia"))
+
+    def test_rejects_tad_non_event_headlines(self):
+        titles = [
+            "Foot-and-mouth disease vaccine research advances in Indonesia",
+            "African swine fever market impact study released",
+            "Lumpy skin disease preparedness workshop held in Thailand",
+            "Bird flu ruled out after hundreds of dead pelicans found in Australia",
+            "Bird flu human infection detection methods explored",
+        ]
+        for title in titles:
+            with self.subTest(title=title):
+                self.assertIsNone(UPDATE_EVENTS.gdelt_signal_disease(title))
+
+    def test_assigns_nonexclusive_disease_groups(self):
+        self.assertEqual(
+            UPDATE_EVENTS.disease_groups_for("African Swine Fever (ASF)"),
+            ["TADs"],
+        )
+        self.assertEqual(
+            UPDATE_EVENTS.disease_groups_for("Avian influenza"),
+            ["TADs", "Zoonosis/EID"],
+        )
+        self.assertEqual(
+            UPDATE_EVENTS.disease_groups_for("Nipah"),
+            ["Zoonosis/EID"],
+        )
 
     def test_rescreens_retained_gdelt_records(self):
         records = [
@@ -95,6 +124,24 @@ class GdeltSignalClassificationTests(unittest.TestCase):
         self.assertEqual(len(records), 1)
         self.assertEqual(records[0]["disease"], "Rabies")
         self.assertEqual(records[0]["record_type"], "event")
+
+
+class DashboardIntegrationTests(unittest.TestCase):
+    def test_dashboard_loads_generated_dataset(self):
+        root = pathlib.Path(__file__).parents[1]
+        index = (root / "index.html").read_text(encoding="utf-8")
+        script = (root / "assets" / "dashboard.js").read_text(encoding="utf-8")
+        self.assertIn('src="./assets/dashboard.js"', index)
+        self.assertIn('import("../data/events.js")', script)
+        self.assertNotIn("var EVENTS =", index)
+
+    def test_generated_data_exposes_tad_clusters(self):
+        root = pathlib.Path(__file__).parents[1]
+        payload = json.loads((root / "data" / "events.json").read_text(encoding="utf-8"))
+        tads = [record for record in payload["records"] if "TADs" in record.get("disease_groups", [])]
+        self.assertTrue(any(record["evidence"] == "confirmed" for record in tads))
+        self.assertTrue(any(record["evidence"] == "rumor" for record in tads))
+        self.assertEqual(payload["metadata"]["tads_records"], len(tads))
 
 
 if __name__ == "__main__":
