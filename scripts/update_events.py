@@ -15,10 +15,12 @@ import json
 import re
 import sys
 import csv
+import calendar
 import posixpath
 import zipfile
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
+from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlencode, urljoin
 from urllib.request import Request, urlopen
@@ -32,6 +34,7 @@ STATUS_PATH = DATA_DIR / "source-status.json"
 JS_PATH = DATA_DIR / "events.js"
 IMPORT_DIR = DATA_DIR / "import"
 IMPORT_VALIDATION_PATH = DATA_DIR / "import-validation.json"
+SEED_DIR = DATA_DIR / "seed"
 USER_AGENT = (
     "ZoonosisDashboard/1.0 "
     "(+https://github.com/ajatikusumah/"
@@ -158,6 +161,9 @@ DISEASES = [
     ("Crimean-Congo haemorrhagic fever", ["crimean-congo", "cchf"]),
     ("Rift Valley fever", ["rift valley fever"]),
     ("Brucellosis", ["brucellosis", "brucelosis"]),
+    ("Septicaemia Epizootica (SE)", ["septicaemia epizootica", "septicemia epizootica"]),
+    ("Jembrana Disease", ["jembrana disease", "penyakit jembrana"]),
+    ("Surra (Trypanosomiasis)", ["surra", "trypanosomiasis"]),
     ("Lassa fever", ["lassa fever"]),
     ("Yellow fever", ["yellow fever", "demam kuning"]),
     ("Dengue", ["dengue"]),
@@ -197,6 +203,26 @@ PURE_ANIMAL_TADS = {
     "Sheep Pox and Goat Pox",
     "Newcastle Disease",
     "Rinderpest",
+}
+
+ANIMAL_PRIORITY_DISEASES = {
+    "Foot-and-Mouth Disease (FMD/PMK)",
+    "Lumpy Skin Disease (LSD)",
+    "Rabies",
+    "Avian influenza",
+    "Anthrax",
+    "Septicaemia Epizootica (SE)",
+    "Jembrana Disease",
+    "African Swine Fever (ASF)",
+    "Classical Swine Fever (CSF)",
+    "Brucellosis",
+    "Surra (Trypanosomiasis)",
+}
+
+PURE_ANIMAL_DISEASES = PURE_ANIMAL_TADS | {
+    "Septicaemia Epizootica (SE)",
+    "Jembrana Disease",
+    "Surra (Trypanosomiasis)",
 }
 
 
@@ -261,6 +287,36 @@ SOURCE_REGISTRY = [
         "url": "https://infeksiemerging.kemkes.go.id/",
         "default_status": "scheduled",
         "note": "Weekly update dan spot report publik; diperlakukan sebagai publikasi, bukan angka kasus terstruktur.",
+    },
+    {
+        "id": "kemkes-profile",
+        "name": "Kemenkes RI • Profil Kesehatan Indonesia",
+        "level": "Nasional",
+        "kind": "Statistik kesehatan manusia",
+        "access_level": "public",
+        "url": "https://www.kemkes.go.id/id/category/profil-kesehatan",
+        "default_status": "scheduled",
+        "note": "Publikasi tahunan resmi; ditampilkan sebagai referensi dan tidak menaikkan KPI kejadian/kasus.",
+    },
+    {
+        "id": "awr-sitreps",
+        "name": "Ditjen PKH • AWR SITREPS/iSIKHNAS",
+        "level": "Nasional",
+        "kind": "Kejadian penyakit hewan terkonfirmasi",
+        "access_level": "public",
+        "url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/",
+        "default_status": "scheduled",
+        "note": "SITREPS bulanan 11 penyakit prioritas; kejadian telah dikonfirmasi sebagai diagnosis definitif (DX). Snapshot resmi terakhir dipertahankan bila proteksi situs menolak klien otomatis.",
+    },
+    {
+        "id": "bps-health-profile",
+        "name": "BPS • Profil Statistik Kesehatan 2025",
+        "level": "Nasional",
+        "kind": "Statistik kesehatan manusia",
+        "access_level": "public",
+        "url": "https://www.bps.go.id/id/publication/2025/12/12/7d17daec8d62c852fc354945/profil-statistik-kesehatan-2025.html",
+        "default_status": "scheduled",
+        "note": "Publikasi tahunan berbasis Susenas Maret 2025; referensi statistik, bukan feed kejadian wabah.",
     },
     {
         "id": "size-nasional",
@@ -421,6 +477,14 @@ def fetch_text(url: str, timeout: int = 45) -> str:
         return response.read().decode("utf-8", errors="replace")
 
 
+class SourceFetchError(RuntimeError):
+    """A source failed, but a vetted public snapshot may still be retained."""
+
+    def __init__(self, message: str, fallback_records: list[dict] | None = None):
+        super().__init__(message)
+        self.fallback_records = fallback_records or []
+
+
 def parse_iso(value: str | None) -> datetime | None:
     if not value:
         return None
@@ -455,9 +519,11 @@ def recognized_disease_from_text(text: str) -> str | None:
 def disease_groups_for(disease: str) -> list[str]:
     """Return non-exclusive surveillance groups for a normalized disease."""
     groups: list[str] = []
+    if disease in ANIMAL_PRIORITY_DISEASES:
+        groups.append("Penyakit hewan prioritas")
     if disease in TAD_DISEASES:
         groups.append("TADs")
-    if disease not in PURE_ANIMAL_TADS:
+    if disease not in PURE_ANIMAL_DISEASES:
         groups.append("Zoonosis/EID")
     return groups or ["Zoonosis/EID"]
 
@@ -1044,6 +1110,350 @@ def kemkes_records() -> list[dict]:
     return records
 
 
+class HtmlTableCollector(HTMLParser):
+    """Collect text cells from ordinary HTML tables without external packages."""
+
+    def __init__(self):
+        super().__init__()
+        self.tables: list[list[list[str]]] = []
+        self._table_depth = 0
+        self._table: list[list[str]] | None = None
+        self._row: list[str] | None = None
+        self._cell: list[str] | None = None
+
+    def handle_starttag(self, tag: str, _attrs) -> None:
+        tag = tag.casefold()
+        if tag == "table":
+            self._table_depth += 1
+            if self._table_depth == 1:
+                self._table = []
+        elif self._table_depth == 1 and tag == "tr":
+            self._row = []
+        elif self._table_depth == 1 and tag in {"th", "td"} and self._row is not None:
+            self._cell = []
+        elif self._cell is not None and tag == "br":
+            self._cell.append(" ")
+
+    def handle_data(self, data: str) -> None:
+        if self._cell is not None:
+            self._cell.append(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        tag = tag.casefold()
+        if self._table_depth == 1 and tag in {"th", "td"} and self._cell is not None:
+            self._row.append(strip_markup(" ".join(self._cell)))
+            self._cell = None
+        elif self._table_depth == 1 and tag == "tr" and self._row is not None:
+            if any(cell for cell in self._row):
+                self._table.append(self._row)
+            self._row = None
+        elif tag == "table" and self._table_depth:
+            if self._table_depth == 1 and self._table:
+                self.tables.append(self._table)
+                self._table = None
+            self._table_depth -= 1
+
+
+AWR_DISEASES = {
+    "PMK": "Foot-and-Mouth Disease (FMD/PMK)",
+    "LSD": "Lumpy Skin Disease (LSD)",
+    "Rabies": "Rabies",
+    "HPAI": "Avian influenza",
+    "Anthraks": "Anthrax",
+    "SE": "Septicaemia Epizootica (SE)",
+    "Jembrana": "Jembrana Disease",
+    "ASF": "African Swine Fever (ASF)",
+    "CSF": "Classical Swine Fever (CSF)",
+    "Brucellosis": "Brucellosis",
+    "Surra": "Surra (Trypanosomiasis)",
+}
+
+# Approximate province centroids are used only for map placement. The original
+# province and district names remain visible in the event detail and source link.
+INDONESIA_PROVINCE_CENTROIDS = {
+    "aceh": (4.70, 96.75),
+    "sumatera utara": (2.12, 99.55),
+    "sumatera barat": (-0.74, 100.80),
+    "riau": (0.29, 101.71),
+    "kepulauan riau": (3.95, 108.14),
+    "jambi": (-1.49, 102.44),
+    "sumatera selatan": (-3.32, 103.91),
+    "bangka belitung": (-2.74, 106.44),
+    "kepulauan bangka belitung": (-2.74, 106.44),
+    "bengkulu": (-3.58, 102.35),
+    "lampung": (-4.56, 105.41),
+    "banten": (-6.41, 106.06),
+    "dki jakarta": (-6.21, 106.85),
+    "jawa barat": (-7.09, 107.67),
+    "jawa tengah": (-7.15, 110.14),
+    "di yogyakarta": (-7.88, 110.43),
+    "d.i. yogyakarta": (-7.88, 110.43),
+    "jawa timur": (-7.54, 112.24),
+    "bali": (-8.34, 115.09),
+    "nusa tenggara barat": (-8.65, 117.36),
+    "nusa tenggara timur": (-8.66, 121.08),
+    "kalimantan barat": (-0.28, 111.48),
+    "kalimantan tengah": (-1.68, 113.38),
+    "kalimantan selatan": (-3.09, 115.28),
+    "kalimantan timur": (0.54, 116.42),
+    "kalimantan utara": (3.07, 116.04),
+    "sulawesi utara": (0.62, 123.98),
+    "gorontalo": (0.70, 122.45),
+    "sulawesi tengah": (-1.43, 121.45),
+    "sulawesi barat": (-2.84, 119.23),
+    "sulawesi selatan": (-3.67, 119.97),
+    "sulawesi tenggara": (-4.14, 122.17),
+    "maluku": (-3.24, 130.15),
+    "maluku utara": (1.57, 127.81),
+    "papua barat": (-1.34, 133.17),
+    "papua barat daya": (-0.86, 131.25),
+    "papua": (-4.27, 138.08),
+    "papua selatan": (-6.71, 139.69),
+    "papua tengah": (-3.74, 136.50),
+    "papua pegunungan": (-4.00, 138.90),
+}
+
+
+def normalized_header(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", strip_markup(value).casefold()).strip()
+
+
+def table_with_columns(tables: list[list[list[str]]], required: set[str]) -> tuple[dict[str, int], list[list[str]]] | None:
+    for table in tables:
+        for row_index, row in enumerate(table):
+            columns = {normalized_header(cell): index for index, cell in enumerate(row) if normalized_header(cell)}
+            if required.issubset(columns):
+                return columns, table[row_index + 1:]
+    return None
+
+
+def awr_integer(value: str) -> int | None:
+    cleaned = re.sub(r"[^0-9-]", "", value or "")
+    if not cleaned or cleaned == "-":
+        return None
+    number = int(cleaned)
+    return number if number >= 0 else None
+
+
+def parse_awr_page(page: str) -> tuple[list[dict], str | None]:
+    parser = HtmlTableCollector()
+    parser.feed(page)
+    spatial = table_with_columns(parser.tables, {"prop", "kab", "desa", "kejadian", "kasus"})
+    species_table = table_with_columns(parser.tables, {"spec", "kejadian", "kasus"})
+    species: list[str] = []
+    if species_table:
+        columns, rows = species_table
+        for row in rows:
+            if len(row) > columns["spec"]:
+                name = strip_markup(row[columns["spec"]])
+                if name and name.casefold() not in {"total", "jumlah"}:
+                    species.append(name.title())
+
+    output: list[dict] = []
+    if not spatial:
+        return output, ", ".join(dict.fromkeys(species)) or None
+    columns, rows = spatial
+    for row in rows:
+        if len(row) <= max(columns.values()):
+            continue
+        province = strip_markup(row[columns["prop"]])
+        if not province or province.casefold() in {"total", "jumlah"}:
+            continue
+        outbreaks = awr_integer(row[columns["kejadian"]])
+        cases = awr_integer(row[columns["kasus"]])
+        if outbreaks is None and cases is None:
+            continue
+        output.append({
+            "province": province,
+            "districts": strip_markup(row[columns["kab"]]),
+            "villages": awr_integer(row[columns["desa"]]),
+            "outbreaks": outbreaks,
+            "cases": cases,
+        })
+    return output, ", ".join(dict.fromkeys(species)) or None
+
+
+def month_keys_before(reference: datetime, count: int = 3) -> list[str]:
+    year, month = reference.year, reference.month
+    keys = []
+    for _ in range(count):
+        month -= 1
+        if month == 0:
+            year -= 1
+            month = 12
+        keys.append(f"{year:04d}{month:02d}")
+    return keys
+
+
+def slug(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", value.casefold()).strip("-")
+
+
+def awr_record(disease_code: str, period: str, row: dict, species: str | None = None) -> dict:
+    disease = AWR_DISEASES[disease_code]
+    year, month = int(period[:4]), int(period[4:])
+    final_day = calendar.monthrange(year, month)[1]
+    period_end = datetime(year, month, final_day, 23, 59, 59, tzinfo=timezone.utc)
+    province = row["province"]
+    coords = INDONESIA_PROVINCE_CENTROIDS.get(normalized_header(province))
+    lat, lon = coords if coords else COUNTRIES["IDN"][1:3]
+    districts = row.get("districts") or "—"
+    villages = row.get("villages")
+    source_url = f"https://awr.ditjenpkh.pertanian.go.id/sitreps/{disease_code}/{period}.html"
+    month_label = period_end.strftime("%B %Y")
+    return base_record(
+        id=f"awr-{disease_code.casefold()}-{period}-{slug(province)}",
+        record_type="event",
+        disease=disease,
+        title=f"{disease} — SITREPS {month_label} · {province}",
+        location=f"{province}, Indonesia",
+        iso3="IDN",
+        lat=lat,
+        lon=lon,
+        location_precision="province" if coords else "country",
+        scopes=scope_list("IDN"),
+        published=period_end.isoformat().replace("+00:00", "Z"),
+        reported=period_end.isoformat().replace("+00:00", "Z"),
+        updated=period_end.isoformat().replace("+00:00", "Z"),
+        evidence="confirmed",
+        response="Monitoring resmi",
+        changed24h=False,
+        changeType="Agregat bulanan resmi",
+        change="AWR SITREPS memuat agregat kejadian dengan diagnosis definitif (DX).",
+        animal={
+            "outbreaks": row.get("outbreaks"),
+            "sick": row.get("cases"),
+            "deaths": None,
+            "culled": None,
+            "species": species,
+        },
+        lab={"result": "Diagnosis definitif (DX)", "method": None, "name": "iSIKHNAS"},
+        source="Ditjen PKH • AWR SITREPS/iSIKHNAS",
+        source_id="awr-sitreps",
+        source_url=source_url,
+        source_level="Nasional",
+        source_kind="Kejadian penyakit hewan terkonfirmasi",
+        access_level="public",
+        verification="Sumber resmi Ditjen PKH; angka merupakan agregat provinsi/bulan dari laporan iSIKHNAS dengan diagnosis definitif (DX), bukan satu individu kasus.",
+        summary=f"Kabupaten/kota: {districts}. Desa pelapor: {villages if villages is not None else '—'}.",
+    )
+
+
+def awr_seed_records() -> list[dict]:
+    path = SEED_DIR / "awr-sitreps-202607.json"
+    try:
+        rows = json.loads(path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+    return [awr_record(item["disease_code"], item["period"], item, item.get("species")) for item in rows]
+
+
+def awr_records() -> list[dict]:
+    records: list[dict] = []
+    valid_pages = 0
+    for period in month_keys_before(NOW, count=3):
+        for disease_code in AWR_DISEASES:
+            url = f"https://awr.ditjenpkh.pertanian.go.id/sitreps/{disease_code}/{period}.html"
+            try:
+                page = fetch_text(url, timeout=18)
+            except Exception:
+                continue
+            folded = page.casefold()
+            if "attention required" in folded or "just a moment" in folded or "cf-mitigated" in folded:
+                continue
+            if "laporan perkembangan" not in folded and "provinsi dan kabupaten" not in folded:
+                continue
+            valid_pages += 1
+            rows, species = parse_awr_page(page)
+            records.extend(awr_record(disease_code, period, row, species) for row in rows)
+
+    seed = awr_seed_records()
+    if valid_pages == 0:
+        raise SourceFetchError(
+            "Halaman AWR tidak dapat dibaca otomatis (kemungkinan proteksi Cloudflare); snapshot resmi terakhir dipertahankan.",
+            fallback_records=seed,
+        )
+    by_id = {record["id"]: record for record in seed}
+    by_id.update({record["id"]: record for record in records})
+    return list(by_id.values())
+
+
+def kemkes_profile_records() -> list[dict]:
+    source_url = "https://www.kemkes.go.id/id/category/profil-kesehatan"
+    page = fetch_text(source_url)
+    pattern = re.compile(
+        r'<a\s+href="(?P<url>/id/profil-kesehatan-indonesia-[^"]+)"[^>]*>.*?'
+        r'<h4[^>]*>(?P<title>.*?)</h4>.*?'
+        r'<time\s+datetime="(?P<date>\d{4}-\d{2}-\d{2})"',
+        re.I | re.S,
+    )
+    publications = []
+    for match in pattern.finditer(page):
+        published_dt = parse_iso(match.group("date"))
+        if published_dt:
+            publications.append((published_dt, strip_markup(match.group("title")), urljoin(source_url, match.group("url"))))
+    if not publications:
+        raise ValueError("Daftar Profil Kesehatan Kemenkes tidak ditemukan pada halaman sumber.")
+    published_dt, title, link = max(publications, key=lambda item: item[0])
+    published = published_dt.isoformat().replace("+00:00", "Z")
+    return [base_record(
+        id=stable_id("kemkes-profile", link),
+        record_type="report",
+        disease="Profil kesehatan manusia",
+        disease_groups=["Referensi kesehatan manusia"],
+        title=title,
+        location="Indonesia",
+        iso3="IDN",
+        scopes=scope_list("IDN"),
+        published=published,
+        reported=published,
+        updated=published,
+        evidence="confirmed",
+        response="Referensi statistik tahunan",
+        changed24h=published_dt >= NOW - timedelta(hours=24),
+        changeType="Publikasi resmi",
+        change="Profil Kesehatan Indonesia terbaru tersedia pada portal Kemenkes.",
+        source="Kemenkes RI • Profil Kesehatan Indonesia",
+        source_id="kemkes-profile",
+        source_url=link,
+        source_level="Nasional",
+        source_kind="Statistik kesehatan manusia",
+        access_level="public",
+        verification="Publikasi tahunan resmi Kemenkes; tidak dihitung sebagai kejadian wabah atau kasus real-time.",
+    )]
+
+
+def bps_health_profile_records() -> list[dict]:
+    link = "https://www.bps.go.id/id/publication/2025/12/12/7d17daec8d62c852fc354945/profil-statistik-kesehatan-2025.html"
+    published = "2025-12-12T00:00:00Z"
+    return [base_record(
+        id="bps-health-profile-2025",
+        record_type="report",
+        disease="Profil statistik kesehatan",
+        disease_groups=["Referensi kesehatan manusia"],
+        title="Profil Statistik Kesehatan 2025",
+        location="Indonesia",
+        iso3="IDN",
+        scopes=scope_list("IDN"),
+        published=published,
+        reported=published,
+        updated=published,
+        evidence="confirmed",
+        response="Referensi statistik tahunan",
+        changed24h=False,
+        changeType="Publikasi resmi",
+        change="BPS menerbitkan Profil Statistik Kesehatan 2025.",
+        source="BPS • Profil Statistik Kesehatan 2025",
+        source_id="bps-health-profile",
+        source_url=link,
+        source_level="Nasional",
+        source_kind="Statistik kesehatan manusia",
+        access_level="public",
+        verification="Publikasi resmi BPS berbasis Susenas Maret 2025; tidak dihitung sebagai kejadian wabah atau kasus real-time.",
+        summary="Indikator kesehatan penduduk tersedia pada tingkat nasional dan provinsi, termasuk kesehatan balita, wanita usia subur, dan pengeluaran kesehatan rumah tangga.",
+    )]
+
+
 def who_sear_records() -> list[dict]:
     source_url = "https://www.who.int/southeastasia/outbreaks-and-emergencies/surveillance-and-alert/sear-epi-bulletins"
     page = fetch_text(source_url)
@@ -1153,8 +1563,11 @@ def gdelt_records() -> list[dict]:
 
 
 IMPORTERS = {
+    "awr-sitreps": awr_records,
     "who-don": who_don_records,
     "kemkes-infem": kemkes_records,
+    "kemkes-profile": kemkes_profile_records,
+    "bps-health-profile": bps_health_profile_records,
     "who-sear": who_sear_records,
     "gdelt": gdelt_records,
 }
@@ -1206,6 +1619,8 @@ def main() -> int:
             print(f"{source_id}: {len(records)} records", file=sys.stderr)
         except Exception as exc:  # Keep last known good data per source.
             retained = [record for record in previous_records if record.get("source_id") == source_id]
+            if not retained and isinstance(exc, SourceFetchError):
+                retained = exc.fallback_records
             if source_id == "gdelt":
                 retained = sanitize_retained_gdelt(retained)
             all_records.extend(retained)
