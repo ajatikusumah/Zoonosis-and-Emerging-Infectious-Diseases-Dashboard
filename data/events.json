@@ -1,18 +1,18 @@
 {
   "metadata": {
-    "generated_at": "2026-08-20T08:35:42.269011Z",
+    "generated_at": "2026-08-20T08:57:50.041762Z",
     "update_interval_hours": 6,
     "mode": "near-real-time",
-    "records": 132,
-    "events": 60,
-    "reports": 72,
+    "records": 148,
+    "events": 74,
+    "reports": 74,
     "imported_records": 9,
     "import_files_scanned": 1,
     "import_validation_errors": 0,
     "import_validation_warnings": 0,
     "method_note": "Official records and open media signals are stored separately; unknown counts remain null.",
-    "tads_records": 39,
-    "tads_confirmed": 18,
+    "tads_records": 53,
+    "tads_confirmed": 32,
     "tads_rumor": 21
   },
   "sources": [
@@ -25,8 +25,47 @@
       "url": "https://infeksiemerging.kemkes.go.id/",
       "note": "Weekly update dan spot report publik; diperlakukan sebagai publikasi, bukan angka kasus terstruktur.",
       "status": "live",
-      "last_checked": "2026-08-20T08:35:42.269011Z",
+      "last_checked": "2026-08-20T08:57:50.041762Z",
       "records": 33,
+      "error": null
+    },
+    {
+      "id": "kemkes-profile",
+      "name": "Kemenkes RI • Profil Kesehatan Indonesia",
+      "level": "Nasional",
+      "kind": "Statistik kesehatan manusia",
+      "access_level": "public",
+      "url": "https://www.kemkes.go.id/id/category/profil-kesehatan",
+      "note": "Publikasi tahunan resmi; ditampilkan sebagai referensi dan tidak menaikkan KPI kejadian/kasus.",
+      "status": "live",
+      "last_checked": "2026-08-20T08:57:50.041762Z",
+      "records": 1,
+      "error": null
+    },
+    {
+      "id": "awr-sitreps",
+      "name": "Ditjen PKH • AWR SITREPS/iSIKHNAS",
+      "level": "Nasional",
+      "kind": "Kejadian penyakit hewan terkonfirmasi",
+      "access_level": "public",
+      "url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/",
+      "note": "SITREPS bulanan 11 penyakit prioritas; kejadian telah dikonfirmasi sebagai diagnosis definitif (DX). Snapshot resmi terakhir dipertahankan bila proteksi situs menolak klien otomatis.",
+      "status": "stale",
+      "last_checked": "2026-08-20T08:57:50.041762Z",
+      "records": 14,
+      "error": "SourceFetchError: Halaman AWR tidak dapat dibaca otomatis (kemungkinan proteksi Cloudflare); snapshot resmi terakhir dipertahankan."
+    },
+    {
+      "id": "bps-health-profile",
+      "name": "BPS • Profil Statistik Kesehatan 2025",
+      "level": "Nasional",
+      "kind": "Statistik kesehatan manusia",
+      "access_level": "public",
+      "url": "https://www.bps.go.id/id/publication/2025/12/12/7d17daec8d62c852fc354945/profil-statistik-kesehatan-2025.html",
+      "note": "Publikasi tahunan berbasis Susenas Maret 2025; referensi statistik, bukan feed kejadian wabah.",
+      "status": "live",
+      "last_checked": "2026-08-20T08:57:50.041762Z",
+      "records": 1,
       "error": null
     },
     {
@@ -77,7 +116,7 @@
       "url": "https://www.who.int/southeastasia/outbreaks-and-emergencies/surveillance-and-alert/sear-epi-bulletins",
       "note": "Buletin regional ditampilkan sebagai publikasi; ekstraksi angka tabel belum dilakukan.",
       "status": "live",
-      "last_checked": "2026-08-20T08:35:42.269011Z",
+      "last_checked": "2026-08-20T08:57:50.041762Z",
       "records": 25,
       "error": null
     },
@@ -116,7 +155,7 @@
       "url": "https://www.who.int/emergencies/disease-outbreak-news",
       "note": "Diambil dari API publik WHO dan dipetakan pada centroid negara bila lokasi lebih rinci tidak tersedia.",
       "status": "live",
-      "last_checked": "2026-08-20T08:35:42.269011Z",
+      "last_checked": "2026-08-20T08:57:50.041762Z",
       "records": 44,
       "error": null
     },
@@ -129,7 +168,7 @@
       "url": "https://www.gdeltproject.org/",
       "note": "Judul disaring untuk nama penyakit dan indikator kejadian; semua rekaman tetap berstatus rumor/verifikasi, dan negara hanya dipetakan bila disebut dalam judul.",
       "status": "stale",
-      "last_checked": "2026-08-20T08:35:42.269011Z",
+      "last_checked": "2026-08-20T08:57:50.041762Z",
       "records": 21,
       "error": "HTTPError: HTTP Error 429: Too Many Requests"
     },
@@ -232,7 +271,7 @@
       "access_level": "public",
       "url": "https://www.abc.net.au/news/rural/2026-01-22/cattle-industry-cautious-lumpy-skin-disease-reaches-bali/106256000",
       "status": "imported",
-      "last_checked": "2026-08-20T08:35:42.269011Z",
+      "last_checked": "2026-08-20T08:57:50.041762Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -245,7 +284,7 @@
       "access_level": "public",
       "url": "https://en.antaranews.com/news/375693/indonesia-seeks-woah-recognition-on-fmd-free-zones-without-vaccination",
       "status": "imported",
-      "last_checked": "2026-08-20T08:35:42.269011Z",
+      "last_checked": "2026-08-20T08:57:50.041762Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -258,7 +297,7 @@
       "access_level": "public",
       "url": "https://www.balipost.com/news/2024/04/01/394276/ASF-Masuk-Bali,Satu-Sampel...html",
       "status": "imported",
-      "last_checked": "2026-08-20T08:35:42.269011Z",
+      "last_checked": "2026-08-20T08:57:50.041762Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -271,7 +310,7 @@
       "access_level": "public",
       "url": "https://fao.org/animal-health/situation-updates/asf-in-asia-pacific/en",
       "status": "imported",
-      "last_checked": "2026-08-20T08:35:42.269011Z",
+      "last_checked": "2026-08-20T08:57:50.041762Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -284,7 +323,7 @@
       "access_level": "public",
       "url": "https://fao.org/animal-health/situation-updates/asf-in-asia-pacific/en",
       "status": "imported",
-      "last_checked": "2026-08-20T08:35:42.269011Z",
+      "last_checked": "2026-08-20T08:57:50.041762Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -297,7 +336,7 @@
       "access_level": "public",
       "url": "https://link.springer.com/article/10.1007/s11250-024-04067-y",
       "status": "imported",
-      "last_checked": "2026-08-20T08:35:42.269011Z",
+      "last_checked": "2026-08-20T08:57:50.041762Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -310,7 +349,7 @@
       "access_level": "public",
       "url": "https://bali.tribunnews.com/bali/598286/distan-bali-tanggapi-puluhan-ekor-babi-mati-mendadak-sebut-asf-telah-jadi-penyakit-endemis-di-bali",
       "status": "imported",
-      "last_checked": "2026-08-20T08:35:42.269011Z",
+      "last_checked": "2026-08-20T08:57:50.041762Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -323,7 +362,7 @@
       "access_level": "public",
       "url": "https://www.wrlfmd.org/sites/world/files/quick_media/WOAH-FAO%20FMD%20Ref%20Lab%20Report%20Jan-Mar%202026%20%20v3.pdf",
       "status": "imported",
-      "last_checked": "2026-08-20T08:35:42.269011Z",
+      "last_checked": "2026-08-20T08:57:50.041762Z",
       "records": 2,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -489,6 +528,7 @@
       "economic": null,
       "summary": "Bahasa: English; negara media: Australia.",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ]
@@ -542,6 +582,7 @@
       "economic": null,
       "summary": "Bahasa: English; negara media: Australia.",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ]
@@ -596,6 +637,7 @@
       "economic": null,
       "summary": "Bahasa: English; negara media: Australia.",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ]
@@ -649,6 +691,7 @@
       "economic": null,
       "summary": "Bahasa: English; negara media: Australia.",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ]
@@ -702,6 +745,7 @@
       "economic": null,
       "summary": "Bahasa: English; negara media: Australia.",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ]
@@ -755,6 +799,7 @@
       "economic": null,
       "summary": "Bahasa: English; negara media: Australia.",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ]
@@ -808,6 +853,7 @@
       "economic": null,
       "summary": "Bahasa: English; negara media: Australia.",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ]
@@ -861,6 +907,7 @@
       "economic": null,
       "summary": "Bahasa: English; negara media: Australia.",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ]
@@ -967,6 +1014,7 @@
       "economic": null,
       "summary": "Bahasa: English; negara media: Australia.",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ]
@@ -1021,6 +1069,7 @@
       "economic": null,
       "summary": "Bahasa: English; negara media: Australia.",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ]
@@ -1074,6 +1123,7 @@
       "economic": null,
       "summary": "Bahasa: English; negara media: Australia.",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ]
@@ -1128,6 +1178,7 @@
       "economic": null,
       "summary": "Bahasa: English; negara media: Australia.",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ]
@@ -1181,6 +1232,7 @@
       "economic": null,
       "summary": "Bahasa: English; negara media: Australia.",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ]
@@ -1235,6 +1287,7 @@
       "economic": null,
       "summary": "Bahasa: English; negara media: Australia.",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ]
@@ -1289,6 +1342,7 @@
       "economic": null,
       "summary": "Bahasa: English; negara media: Australia.",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ]
@@ -1343,6 +1397,7 @@
       "economic": null,
       "summary": "Bahasa: English; negara media: Australia.",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ]
@@ -1397,6 +1452,7 @@
       "economic": null,
       "summary": "Bahasa: English; negara media: Australia.",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ]
@@ -1503,6 +1559,7 @@
       "economic": null,
       "summary": "Bahasa: English; negara media: India.",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ]
@@ -1557,6 +1614,7 @@
       "economic": null,
       "summary": "Bahasa: English; negara media: —.",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ]
@@ -1611,6 +1669,7 @@
       "economic": null,
       "summary": "Bahasa: English; negara media: New Zealand.",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ]
@@ -1720,6 +1779,832 @@
       "verification": "Sumber resmi WHO; koordinat menggunakan centroid negara.",
       "economic": null,
       "summary": "The Bundibugyo virus disease (BVD) outbreak in the Democratic Republic of the Congo is intensifying, with sustained transmission and continued increases in reported cases and deaths. Initially confined to the Mongbwalu health zone in Ituri Province, over the last two months, the outbreak has expanded to five provinces (Ituri, North Kivu, South Kivu, Haut-Uélé and Tshopo), now affecting 49 health zones. The outbreak is now the largest Ebola outbreak ever reported in the Democratic Republic of the Congo. As of 30 July 2026, a total of 3605 confirmed cases, including 1587 deaths, have been report"
+    },
+    {
+      "id": "awr-pmk-202607-bangka-belitung",
+      "record_type": "event",
+      "disease": "Foot-and-Mouth Disease (FMD/PMK)",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs"
+      ],
+      "title": "Foot-and-Mouth Disease (FMD/PMK) — SITREPS July 2026 · Bangka Belitung",
+      "location": "Bangka Belitung, Indonesia",
+      "iso3": "IDN",
+      "lat": -2.74,
+      "lon": 106.44,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-07-31T23:59:59Z",
+      "onset": null,
+      "reported": "2026-07-31T23:59:59Z",
+      "updated": "2026-07-31T23:59:59Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": false,
+      "changeType": "Agregat bulanan resmi",
+      "change": "AWR SITREPS memuat agregat kejadian dengan diagnosis definitif (DX).",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": 2,
+        "sick": 32,
+        "deaths": null,
+        "culled": null,
+        "species": "Domba, Kambing, Sapi"
+      },
+      "lab": {
+        "result": "Diagnosis definitif (DX)",
+        "method": null,
+        "name": "iSIKHNAS"
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Ditjen PKH • AWR SITREPS/iSIKHNAS",
+      "source_id": "awr-sitreps",
+      "source_url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/PMK/202607.html",
+      "verification": "Sumber resmi Ditjen PKH; angka merupakan agregat provinsi/bulan dari laporan iSIKHNAS dengan diagnosis definitif (DX), bukan satu individu kasus.",
+      "economic": null,
+      "summary": "Kabupaten/kota: Bangka Tengah. Desa pelapor: 1.",
+      "source_level": "Nasional",
+      "source_kind": "Kejadian penyakit hewan terkonfirmasi",
+      "access_level": "public"
+    },
+    {
+      "id": "awr-pmk-202607-bengkulu",
+      "record_type": "event",
+      "disease": "Foot-and-Mouth Disease (FMD/PMK)",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs"
+      ],
+      "title": "Foot-and-Mouth Disease (FMD/PMK) — SITREPS July 2026 · Bengkulu",
+      "location": "Bengkulu, Indonesia",
+      "iso3": "IDN",
+      "lat": -3.58,
+      "lon": 102.35,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-07-31T23:59:59Z",
+      "onset": null,
+      "reported": "2026-07-31T23:59:59Z",
+      "updated": "2026-07-31T23:59:59Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": false,
+      "changeType": "Agregat bulanan resmi",
+      "change": "AWR SITREPS memuat agregat kejadian dengan diagnosis definitif (DX).",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": 4,
+        "sick": 22,
+        "deaths": null,
+        "culled": null,
+        "species": "Domba, Kambing, Sapi"
+      },
+      "lab": {
+        "result": "Diagnosis definitif (DX)",
+        "method": null,
+        "name": "iSIKHNAS"
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Ditjen PKH • AWR SITREPS/iSIKHNAS",
+      "source_id": "awr-sitreps",
+      "source_url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/PMK/202607.html",
+      "verification": "Sumber resmi Ditjen PKH; angka merupakan agregat provinsi/bulan dari laporan iSIKHNAS dengan diagnosis definitif (DX), bukan satu individu kasus.",
+      "economic": null,
+      "summary": "Kabupaten/kota: Bengkulu Selatan. Desa pelapor: 4.",
+      "source_level": "Nasional",
+      "source_kind": "Kejadian penyakit hewan terkonfirmasi",
+      "access_level": "public"
+    },
+    {
+      "id": "awr-pmk-202607-di-yogyakarta",
+      "record_type": "event",
+      "disease": "Foot-and-Mouth Disease (FMD/PMK)",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs"
+      ],
+      "title": "Foot-and-Mouth Disease (FMD/PMK) — SITREPS July 2026 · Di Yogyakarta",
+      "location": "Di Yogyakarta, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.88,
+      "lon": 110.43,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-07-31T23:59:59Z",
+      "onset": null,
+      "reported": "2026-07-31T23:59:59Z",
+      "updated": "2026-07-31T23:59:59Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": false,
+      "changeType": "Agregat bulanan resmi",
+      "change": "AWR SITREPS memuat agregat kejadian dengan diagnosis definitif (DX).",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": 2,
+        "sick": 3,
+        "deaths": null,
+        "culled": null,
+        "species": "Domba, Kambing, Sapi"
+      },
+      "lab": {
+        "result": "Diagnosis definitif (DX)",
+        "method": null,
+        "name": "iSIKHNAS"
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Ditjen PKH • AWR SITREPS/iSIKHNAS",
+      "source_id": "awr-sitreps",
+      "source_url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/PMK/202607.html",
+      "verification": "Sumber resmi Ditjen PKH; angka merupakan agregat provinsi/bulan dari laporan iSIKHNAS dengan diagnosis definitif (DX), bukan satu individu kasus.",
+      "economic": null,
+      "summary": "Kabupaten/kota: Bantul, Sleman. Desa pelapor: 2.",
+      "source_level": "Nasional",
+      "source_kind": "Kejadian penyakit hewan terkonfirmasi",
+      "access_level": "public"
+    },
+    {
+      "id": "awr-pmk-202607-jawa-barat",
+      "record_type": "event",
+      "disease": "Foot-and-Mouth Disease (FMD/PMK)",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs"
+      ],
+      "title": "Foot-and-Mouth Disease (FMD/PMK) — SITREPS July 2026 · Jawa Barat",
+      "location": "Jawa Barat, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.09,
+      "lon": 107.67,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-07-31T23:59:59Z",
+      "onset": null,
+      "reported": "2026-07-31T23:59:59Z",
+      "updated": "2026-07-31T23:59:59Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": false,
+      "changeType": "Agregat bulanan resmi",
+      "change": "AWR SITREPS memuat agregat kejadian dengan diagnosis definitif (DX).",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": 6,
+        "sick": 39,
+        "deaths": null,
+        "culled": null,
+        "species": "Domba, Kambing, Sapi"
+      },
+      "lab": {
+        "result": "Diagnosis definitif (DX)",
+        "method": null,
+        "name": "iSIKHNAS"
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Ditjen PKH • AWR SITREPS/iSIKHNAS",
+      "source_id": "awr-sitreps",
+      "source_url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/PMK/202607.html",
+      "verification": "Sumber resmi Ditjen PKH; angka merupakan agregat provinsi/bulan dari laporan iSIKHNAS dengan diagnosis definitif (DX), bukan satu individu kasus.",
+      "economic": null,
+      "summary": "Kabupaten/kota: Sukabumi, Majalengka, Indramayu, Bekasi. Desa pelapor: 6.",
+      "source_level": "Nasional",
+      "source_kind": "Kejadian penyakit hewan terkonfirmasi",
+      "access_level": "public"
+    },
+    {
+      "id": "awr-pmk-202607-jawa-tengah",
+      "record_type": "event",
+      "disease": "Foot-and-Mouth Disease (FMD/PMK)",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs"
+      ],
+      "title": "Foot-and-Mouth Disease (FMD/PMK) — SITREPS July 2026 · Jawa Tengah",
+      "location": "Jawa Tengah, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.15,
+      "lon": 110.14,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-07-31T23:59:59Z",
+      "onset": null,
+      "reported": "2026-07-31T23:59:59Z",
+      "updated": "2026-07-31T23:59:59Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": false,
+      "changeType": "Agregat bulanan resmi",
+      "change": "AWR SITREPS memuat agregat kejadian dengan diagnosis definitif (DX).",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": 12,
+        "sick": 27,
+        "deaths": null,
+        "culled": null,
+        "species": "Domba, Kambing, Sapi"
+      },
+      "lab": {
+        "result": "Diagnosis definitif (DX)",
+        "method": null,
+        "name": "iSIKHNAS"
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Ditjen PKH • AWR SITREPS/iSIKHNAS",
+      "source_id": "awr-sitreps",
+      "source_url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/PMK/202607.html",
+      "verification": "Sumber resmi Ditjen PKH; angka merupakan agregat provinsi/bulan dari laporan iSIKHNAS dengan diagnosis definitif (DX), bukan satu individu kasus.",
+      "economic": null,
+      "summary": "Kabupaten/kota: Wonosobo, Klaten, Grobogan, Semarang. Desa pelapor: 9.",
+      "source_level": "Nasional",
+      "source_kind": "Kejadian penyakit hewan terkonfirmasi",
+      "access_level": "public"
+    },
+    {
+      "id": "awr-pmk-202607-jawa-timur",
+      "record_type": "event",
+      "disease": "Foot-and-Mouth Disease (FMD/PMK)",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs"
+      ],
+      "title": "Foot-and-Mouth Disease (FMD/PMK) — SITREPS July 2026 · Jawa Timur",
+      "location": "Jawa Timur, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.54,
+      "lon": 112.24,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-07-31T23:59:59Z",
+      "onset": null,
+      "reported": "2026-07-31T23:59:59Z",
+      "updated": "2026-07-31T23:59:59Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": false,
+      "changeType": "Agregat bulanan resmi",
+      "change": "AWR SITREPS memuat agregat kejadian dengan diagnosis definitif (DX).",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": 11,
+        "sick": 28,
+        "deaths": null,
+        "culled": null,
+        "species": "Domba, Kambing, Sapi"
+      },
+      "lab": {
+        "result": "Diagnosis definitif (DX)",
+        "method": null,
+        "name": "iSIKHNAS"
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Ditjen PKH • AWR SITREPS/iSIKHNAS",
+      "source_id": "awr-sitreps",
+      "source_url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/PMK/202607.html",
+      "verification": "Sumber resmi Ditjen PKH; angka merupakan agregat provinsi/bulan dari laporan iSIKHNAS dengan diagnosis definitif (DX), bukan satu individu kasus.",
+      "economic": null,
+      "summary": "Kabupaten/kota: Blitar, Malang, Lumajang, Bondowoso, Kota Probolinggo. Desa pelapor: 11.",
+      "source_level": "Nasional",
+      "source_kind": "Kejadian penyakit hewan terkonfirmasi",
+      "access_level": "public"
+    },
+    {
+      "id": "awr-pmk-202607-riau",
+      "record_type": "event",
+      "disease": "Foot-and-Mouth Disease (FMD/PMK)",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs"
+      ],
+      "title": "Foot-and-Mouth Disease (FMD/PMK) — SITREPS July 2026 · Riau",
+      "location": "Riau, Indonesia",
+      "iso3": "IDN",
+      "lat": 0.29,
+      "lon": 101.71,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-07-31T23:59:59Z",
+      "onset": null,
+      "reported": "2026-07-31T23:59:59Z",
+      "updated": "2026-07-31T23:59:59Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": false,
+      "changeType": "Agregat bulanan resmi",
+      "change": "AWR SITREPS memuat agregat kejadian dengan diagnosis definitif (DX).",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": 1,
+        "sick": 12,
+        "deaths": null,
+        "culled": null,
+        "species": "Domba, Kambing, Sapi"
+      },
+      "lab": {
+        "result": "Diagnosis definitif (DX)",
+        "method": null,
+        "name": "iSIKHNAS"
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Ditjen PKH • AWR SITREPS/iSIKHNAS",
+      "source_id": "awr-sitreps",
+      "source_url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/PMK/202607.html",
+      "verification": "Sumber resmi Ditjen PKH; angka merupakan agregat provinsi/bulan dari laporan iSIKHNAS dengan diagnosis definitif (DX), bukan satu individu kasus.",
+      "economic": null,
+      "summary": "Kabupaten/kota: Indragiri Hulu. Desa pelapor: 1.",
+      "source_level": "Nasional",
+      "source_kind": "Kejadian penyakit hewan terkonfirmasi",
+      "access_level": "public"
+    },
+    {
+      "id": "awr-pmk-202607-sulawesi-barat",
+      "record_type": "event",
+      "disease": "Foot-and-Mouth Disease (FMD/PMK)",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs"
+      ],
+      "title": "Foot-and-Mouth Disease (FMD/PMK) — SITREPS July 2026 · Sulawesi Barat",
+      "location": "Sulawesi Barat, Indonesia",
+      "iso3": "IDN",
+      "lat": -2.84,
+      "lon": 119.23,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-07-31T23:59:59Z",
+      "onset": null,
+      "reported": "2026-07-31T23:59:59Z",
+      "updated": "2026-07-31T23:59:59Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": false,
+      "changeType": "Agregat bulanan resmi",
+      "change": "AWR SITREPS memuat agregat kejadian dengan diagnosis definitif (DX).",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": 2,
+        "sick": 8,
+        "deaths": null,
+        "culled": null,
+        "species": "Domba, Kambing, Sapi"
+      },
+      "lab": {
+        "result": "Diagnosis definitif (DX)",
+        "method": null,
+        "name": "iSIKHNAS"
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Ditjen PKH • AWR SITREPS/iSIKHNAS",
+      "source_id": "awr-sitreps",
+      "source_url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/PMK/202607.html",
+      "verification": "Sumber resmi Ditjen PKH; angka merupakan agregat provinsi/bulan dari laporan iSIKHNAS dengan diagnosis definitif (DX), bukan satu individu kasus.",
+      "economic": null,
+      "summary": "Kabupaten/kota: Polewali Mandar. Desa pelapor: 2.",
+      "source_level": "Nasional",
+      "source_kind": "Kejadian penyakit hewan terkonfirmasi",
+      "access_level": "public"
+    },
+    {
+      "id": "awr-pmk-202607-sulawesi-tengah",
+      "record_type": "event",
+      "disease": "Foot-and-Mouth Disease (FMD/PMK)",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs"
+      ],
+      "title": "Foot-and-Mouth Disease (FMD/PMK) — SITREPS July 2026 · Sulawesi Tengah",
+      "location": "Sulawesi Tengah, Indonesia",
+      "iso3": "IDN",
+      "lat": -1.43,
+      "lon": 121.45,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-07-31T23:59:59Z",
+      "onset": null,
+      "reported": "2026-07-31T23:59:59Z",
+      "updated": "2026-07-31T23:59:59Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": false,
+      "changeType": "Agregat bulanan resmi",
+      "change": "AWR SITREPS memuat agregat kejadian dengan diagnosis definitif (DX).",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": 7,
+        "sick": 54,
+        "deaths": null,
+        "culled": null,
+        "species": "Domba, Kambing, Sapi"
+      },
+      "lab": {
+        "result": "Diagnosis definitif (DX)",
+        "method": null,
+        "name": "iSIKHNAS"
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Ditjen PKH • AWR SITREPS/iSIKHNAS",
+      "source_id": "awr-sitreps",
+      "source_url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/PMK/202607.html",
+      "verification": "Sumber resmi Ditjen PKH; angka merupakan agregat provinsi/bulan dari laporan iSIKHNAS dengan diagnosis definitif (DX), bukan satu individu kasus.",
+      "economic": null,
+      "summary": "Kabupaten/kota: Parigi Moutong. Desa pelapor: 6.",
+      "source_level": "Nasional",
+      "source_kind": "Kejadian penyakit hewan terkonfirmasi",
+      "access_level": "public"
+    },
+    {
+      "id": "awr-pmk-202607-sumatera-barat",
+      "record_type": "event",
+      "disease": "Foot-and-Mouth Disease (FMD/PMK)",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs"
+      ],
+      "title": "Foot-and-Mouth Disease (FMD/PMK) — SITREPS July 2026 · Sumatera Barat",
+      "location": "Sumatera Barat, Indonesia",
+      "iso3": "IDN",
+      "lat": -0.74,
+      "lon": 100.8,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-07-31T23:59:59Z",
+      "onset": null,
+      "reported": "2026-07-31T23:59:59Z",
+      "updated": "2026-07-31T23:59:59Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": false,
+      "changeType": "Agregat bulanan resmi",
+      "change": "AWR SITREPS memuat agregat kejadian dengan diagnosis definitif (DX).",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": 1,
+        "sick": 1,
+        "deaths": null,
+        "culled": null,
+        "species": "Domba, Kambing, Sapi"
+      },
+      "lab": {
+        "result": "Diagnosis definitif (DX)",
+        "method": null,
+        "name": "iSIKHNAS"
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Ditjen PKH • AWR SITREPS/iSIKHNAS",
+      "source_id": "awr-sitreps",
+      "source_url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/PMK/202607.html",
+      "verification": "Sumber resmi Ditjen PKH; angka merupakan agregat provinsi/bulan dari laporan iSIKHNAS dengan diagnosis definitif (DX), bukan satu individu kasus.",
+      "economic": null,
+      "summary": "Kabupaten/kota: Lima Puluh Kota. Desa pelapor: 1.",
+      "source_level": "Nasional",
+      "source_kind": "Kejadian penyakit hewan terkonfirmasi",
+      "access_level": "public"
+    },
+    {
+      "id": "awr-asf-202607-nusa-tenggara-timur",
+      "record_type": "event",
+      "disease": "African Swine Fever (ASF)",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs"
+      ],
+      "title": "African Swine Fever (ASF) — SITREPS July 2026 · Nusa Tenggara Timur",
+      "location": "Nusa Tenggara Timur, Indonesia",
+      "iso3": "IDN",
+      "lat": -8.66,
+      "lon": 121.08,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-07-31T23:59:59Z",
+      "onset": null,
+      "reported": "2026-07-31T23:59:59Z",
+      "updated": "2026-07-31T23:59:59Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": false,
+      "changeType": "Agregat bulanan resmi",
+      "change": "AWR SITREPS memuat agregat kejadian dengan diagnosis definitif (DX).",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": 2,
+        "sick": 12,
+        "deaths": null,
+        "culled": null,
+        "species": "Babi"
+      },
+      "lab": {
+        "result": "Diagnosis definitif (DX)",
+        "method": null,
+        "name": "iSIKHNAS"
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Ditjen PKH • AWR SITREPS/iSIKHNAS",
+      "source_id": "awr-sitreps",
+      "source_url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/ASF/202607.html",
+      "verification": "Sumber resmi Ditjen PKH; angka merupakan agregat provinsi/bulan dari laporan iSIKHNAS dengan diagnosis definitif (DX), bukan satu individu kasus.",
+      "economic": null,
+      "summary": "Kabupaten/kota: Manggarai Timur. Desa pelapor: 2.",
+      "source_level": "Nasional",
+      "source_kind": "Kejadian penyakit hewan terkonfirmasi",
+      "access_level": "public"
+    },
+    {
+      "id": "awr-asf-202607-papua-selatan",
+      "record_type": "event",
+      "disease": "African Swine Fever (ASF)",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs"
+      ],
+      "title": "African Swine Fever (ASF) — SITREPS July 2026 · Papua Selatan",
+      "location": "Papua Selatan, Indonesia",
+      "iso3": "IDN",
+      "lat": -6.71,
+      "lon": 139.69,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-07-31T23:59:59Z",
+      "onset": null,
+      "reported": "2026-07-31T23:59:59Z",
+      "updated": "2026-07-31T23:59:59Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": false,
+      "changeType": "Agregat bulanan resmi",
+      "change": "AWR SITREPS memuat agregat kejadian dengan diagnosis definitif (DX).",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": 1,
+        "sick": 50,
+        "deaths": null,
+        "culled": null,
+        "species": "Babi"
+      },
+      "lab": {
+        "result": "Diagnosis definitif (DX)",
+        "method": null,
+        "name": "iSIKHNAS"
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Ditjen PKH • AWR SITREPS/iSIKHNAS",
+      "source_id": "awr-sitreps",
+      "source_url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/ASF/202607.html",
+      "verification": "Sumber resmi Ditjen PKH; angka merupakan agregat provinsi/bulan dari laporan iSIKHNAS dengan diagnosis definitif (DX), bukan satu individu kasus.",
+      "economic": null,
+      "summary": "Kabupaten/kota: Boven Digoel. Desa pelapor: 1.",
+      "source_level": "Nasional",
+      "source_kind": "Kejadian penyakit hewan terkonfirmasi",
+      "access_level": "public"
+    },
+    {
+      "id": "awr-asf-202607-sulawesi-barat",
+      "record_type": "event",
+      "disease": "African Swine Fever (ASF)",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs"
+      ],
+      "title": "African Swine Fever (ASF) — SITREPS July 2026 · Sulawesi Barat",
+      "location": "Sulawesi Barat, Indonesia",
+      "iso3": "IDN",
+      "lat": -2.84,
+      "lon": 119.23,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-07-31T23:59:59Z",
+      "onset": null,
+      "reported": "2026-07-31T23:59:59Z",
+      "updated": "2026-07-31T23:59:59Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": false,
+      "changeType": "Agregat bulanan resmi",
+      "change": "AWR SITREPS memuat agregat kejadian dengan diagnosis definitif (DX).",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": 1,
+        "sick": 64,
+        "deaths": null,
+        "culled": null,
+        "species": "Babi"
+      },
+      "lab": {
+        "result": "Diagnosis definitif (DX)",
+        "method": null,
+        "name": "iSIKHNAS"
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Ditjen PKH • AWR SITREPS/iSIKHNAS",
+      "source_id": "awr-sitreps",
+      "source_url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/ASF/202607.html",
+      "verification": "Sumber resmi Ditjen PKH; angka merupakan agregat provinsi/bulan dari laporan iSIKHNAS dengan diagnosis definitif (DX), bukan satu individu kasus.",
+      "economic": null,
+      "summary": "Kabupaten/kota: Polewali Mandar. Desa pelapor: 1.",
+      "source_level": "Nasional",
+      "source_kind": "Kejadian penyakit hewan terkonfirmasi",
+      "access_level": "public"
+    },
+    {
+      "id": "awr-asf-202607-sulawesi-tengah",
+      "record_type": "event",
+      "disease": "African Swine Fever (ASF)",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs"
+      ],
+      "title": "African Swine Fever (ASF) — SITREPS July 2026 · Sulawesi Tengah",
+      "location": "Sulawesi Tengah, Indonesia",
+      "iso3": "IDN",
+      "lat": -1.43,
+      "lon": 121.45,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-07-31T23:59:59Z",
+      "onset": null,
+      "reported": "2026-07-31T23:59:59Z",
+      "updated": "2026-07-31T23:59:59Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": false,
+      "changeType": "Agregat bulanan resmi",
+      "change": "AWR SITREPS memuat agregat kejadian dengan diagnosis definitif (DX).",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": 2,
+        "sick": 18,
+        "deaths": null,
+        "culled": null,
+        "species": "Babi"
+      },
+      "lab": {
+        "result": "Diagnosis definitif (DX)",
+        "method": null,
+        "name": "iSIKHNAS"
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Ditjen PKH • AWR SITREPS/iSIKHNAS",
+      "source_id": "awr-sitreps",
+      "source_url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/ASF/202607.html",
+      "verification": "Sumber resmi Ditjen PKH; angka merupakan agregat provinsi/bulan dari laporan iSIKHNAS dengan diagnosis definitif (DX), bukan satu individu kasus.",
+      "economic": null,
+      "summary": "Kabupaten/kota: Morowali Utara. Desa pelapor: 1.",
+      "source_level": "Nasional",
+      "source_kind": "Kejadian penyakit hewan terkonfirmasi",
+      "access_level": "public"
     },
     {
       "id": "who-sear-a680350f0845",
@@ -2048,6 +2933,7 @@
       "record_type": "report",
       "disease": "Avian influenza",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ],
@@ -2525,6 +3411,7 @@
       "record_type": "event",
       "disease": "African Swine Fever (ASF)",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs"
       ],
       "title": "ASF outbreak, Polewali Mandar, Sulawesi Barat",
@@ -3265,6 +4152,7 @@
       "record_type": "report",
       "disease": "African Swine Fever (ASF)",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs"
       ],
       "title": "ASF declared endemic in Bali by provincial authority",
@@ -4163,6 +5051,7 @@
       "record_type": "report",
       "disease": "Avian influenza",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ],
@@ -4324,6 +5213,7 @@
       "record_type": "event",
       "disease": "Avian influenza",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ],
@@ -4431,6 +5321,7 @@
       "record_type": "event",
       "disease": "Foot-and-Mouth Disease (FMD/PMK)",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs"
       ],
       "title": "FMD outbreak resurgence, Jawa Tengah Q1 2026",
@@ -4489,6 +5380,7 @@
       "record_type": "event",
       "disease": "Foot-and-Mouth Disease (FMD/PMK)",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs"
       ],
       "title": "FMD outbreak resurgence, Jawa Timur Q1 2026",
@@ -4547,6 +5439,7 @@
       "record_type": "report",
       "disease": "Avian influenza",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ],
@@ -4706,6 +5599,7 @@
       "record_type": "report",
       "disease": "Avian influenza",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ],
@@ -4973,6 +5867,7 @@
       "record_type": "report",
       "disease": "Avian influenza",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ],
@@ -5452,6 +6347,7 @@
       "record_type": "event",
       "disease": "Lumpy Skin Disease (LSD)",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs"
       ],
       "title": "LSD reportedly reaches Bali (media report, unconfirmed by Kementan)",
@@ -5666,6 +6562,64 @@
       "summary": null
     },
     {
+      "id": "bps-health-profile-2025",
+      "record_type": "report",
+      "disease": "Profil statistik kesehatan",
+      "disease_groups": [
+        "Referensi kesehatan manusia"
+      ],
+      "title": "Profil Statistik Kesehatan 2025",
+      "location": "Indonesia",
+      "iso3": "IDN",
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2025-12-12T00:00:00Z",
+      "onset": null,
+      "reported": "2025-12-12T00:00:00Z",
+      "updated": "2025-12-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Referensi statistik tahunan",
+      "changed24h": false,
+      "changeType": "Publikasi resmi",
+      "change": "BPS menerbitkan Profil Statistik Kesehatan 2025.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "BPS • Profil Statistik Kesehatan 2025",
+      "source_id": "bps-health-profile",
+      "source_url": "https://www.bps.go.id/id/publication/2025/12/12/7d17daec8d62c852fc354945/profil-statistik-kesehatan-2025.html",
+      "verification": "Publikasi resmi BPS berbasis Susenas Maret 2025; tidak dihitung sebagai kejadian wabah atau kasus real-time.",
+      "economic": null,
+      "summary": "Indikator kesehatan penduduk tersedia pada tingkat nasional dan provinsi, termasuk kesehatan balita, wanita usia subur, dan pengeluaran kesehatan rumah tangga.",
+      "source_level": "Nasional",
+      "source_kind": "Statistik kesehatan manusia",
+      "access_level": "public"
+    },
+    {
       "id": "kemkes-spot-9f09bad702fa",
       "record_type": "report",
       "disease": "West Nile fever",
@@ -5826,6 +6780,7 @@
       "record_type": "event",
       "disease": "Avian influenza",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ],
@@ -6299,6 +7254,7 @@
       "record_type": "report",
       "disease": "Avian influenza",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ],
@@ -6406,6 +7362,7 @@
       "record_type": "report",
       "disease": "Avian influenza",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs",
         "Zoonosis/EID"
       ],
@@ -6881,6 +7838,64 @@
       "summary": "Between 1 January and 29 August 2025, the International Health Regulations National Focal Point (IHR NFP) for Bangladesh notified WHO of four confirmed fatal Nipah virus (NiV) infection cases, temporally unrelated, reported from four different districts across three separated geographical divisions (Barisal, Dhaka, and Rajshahi) in Bangladesh. NiV infection is a zoonotic disease transmitted to humans through infected animals (such as bats or pigs), or food contaminated with saliva, urine, and excreta of infected animals. It can also be transmitted directly from person to person through close c"
     },
     {
+      "id": "kemkes-profile-10af65075e16",
+      "record_type": "report",
+      "disease": "Profil kesehatan manusia",
+      "disease_groups": [
+        "Referensi kesehatan manusia"
+      ],
+      "title": "Profil Kesehatan Indonesia 2024",
+      "location": "Indonesia",
+      "iso3": "IDN",
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2025-09-12T00:00:00Z",
+      "onset": null,
+      "reported": "2025-09-12T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Referensi statistik tahunan",
+      "changed24h": false,
+      "changeType": "Publikasi resmi",
+      "change": "Profil Kesehatan Indonesia terbaru tersedia pada portal Kemenkes.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia",
+      "source_id": "kemkes-profile",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Publikasi tahunan resmi Kemenkes; tidak dihitung sebagai kejadian wabah atau kasus real-time.",
+      "economic": null,
+      "summary": null,
+      "source_level": "Nasional",
+      "source_kind": "Statistik kesehatan manusia",
+      "access_level": "public"
+    },
+    {
       "id": "who-sear-48674db39f4f",
       "record_type": "report",
       "disease": "Epidemiological bulletin",
@@ -7149,6 +8164,7 @@
       "record_type": "report",
       "disease": "Foot-and-Mouth Disease (FMD/PMK)",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs"
       ],
       "title": "Official FMD risk zoning declared (red/yellow/green)",
@@ -7207,6 +8223,7 @@
       "record_type": "report",
       "disease": "African Swine Fever (ASF)",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs"
       ],
       "title": "ASF officially reported in 32 of 34 provinces",
@@ -7265,6 +8282,7 @@
       "record_type": "event",
       "disease": "African Swine Fever (ASF)",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs"
       ],
       "title": "ASF lab-confirmed, Karangasem, Bali",
@@ -7323,6 +8341,7 @@
       "record_type": "report",
       "disease": "Lumpy Skin Disease (LSD)",
       "disease_groups": [
+        "Penyakit hewan prioritas",
         "TADs"
       ],
       "title": "LSD confirmed across 15 provinces since 2022 emergence",
