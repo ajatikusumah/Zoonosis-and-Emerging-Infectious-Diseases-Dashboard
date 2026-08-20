@@ -98,9 +98,24 @@ function groupsOf(record) {
   const tadTerms = [
     "foot-and-mouth", "fmd/pmk", "african swine fever", "lumpy skin", "classical swine",
     "peste des petits", "pleuropneumonia", "african horse", "sheep pox", "goat pox",
-    "newcastle", "rinderpest",
+    "newcastle", "rinderpest", "avian influenza", "rift valley fever", "anthrax", "rabies", "brucellosis",
   ];
-  return tadTerms.some((term) => disease.includes(term)) ? ["TADs"] : ["Zoonosis/EID"];
+  const animalPriorityTerms = [
+    ...tadTerms, "avian influenza", "rabies", "anthrax", "brucellosis",
+    "septicaemia epizootica", "jembrana", "surra", "trypanosomiasis",
+  ];
+  const pureAnimalTerms = [
+    "foot-and-mouth", "fmd/pmk", "african swine fever", "lumpy skin", "classical swine",
+    "peste des petits", "pleuropneumonia", "african horse", "sheep pox", "goat pox",
+    "newcastle", "rinderpest", "septicaemia epizootica", "jembrana", "surra", "trypanosomiasis",
+  ];
+  const groups = [];
+  if (animalPriorityTerms.some((term) => disease.includes(term))) groups.push("Penyakit hewan prioritas");
+  if (tadTerms.some((term) => disease.includes(term))) groups.push("TADs");
+  if (!pureAnimalTerms.some((term) => disease.includes(term))) {
+    groups.push("Zoonosis/EID");
+  }
+  return groups.length ? groups : ["Zoonosis/EID"];
 }
 
 function categoryOf(record) {
