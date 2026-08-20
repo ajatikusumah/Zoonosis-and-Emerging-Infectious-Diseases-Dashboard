@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-19T19:40:56.834681Z",
-  "files_scanned": 0,
-  "rows_scanned": 0,
-  "rows_published": 0,
+  "generated_at": "2026-08-20T03:23:15.853005Z",
+  "files_scanned": 1,
+  "rows_scanned": 9,
+  "rows_published": 9,
   "rows_skipped": 0,
   "errors": [],
   "warnings": []
