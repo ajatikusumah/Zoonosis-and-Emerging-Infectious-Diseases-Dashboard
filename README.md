@@ -10,6 +10,7 @@ Situs: https://ajatikusumah.github.io/Zoonosis-and-Emerging-Infectious-Diseases-
 - Skala warna operasional: merah untuk kejadian terkonfirmasi dengan kematian, jingga untuk kasus/outbreak terkonfirmasi, kuning untuk monitoring resmi tanpa angka dampak terstruktur, dan hijau untuk sinyal awal yang belum diverifikasi.
 - Pemisahan tegas antara rekaman resmi/terkonfirmasi dan rumor atau sinyal media yang masih perlu diverifikasi.
 - Filter wilayah, periode, kelompok penyakit (Zoonosis/EID atau TADs), penyakit, sumber, dan status bukti.
+- Kelompok tambahan memisahkan 11 penyakit hewan prioritas AWR dan publikasi referensi kesehatan manusia dari kejadian zoonosis/EID.
 - TADs dapat beririsan dengan kelompok Zoonosis/EID—misalnya avian influenza dan Rift Valley fever—sehingga klasifikasi kelompok bersifat non-eksklusif.
 - Publikasi dan laporan ditampilkan terpisah dari kejadian agar tidak menaikkan KPI kasus.
 - Registri sumber menunjukkan apakah suatu sumber aktif, hanya tersedia melalui portal, memerlukan akun, token, akses institusi, atau lisensi.
@@ -21,12 +22,17 @@ Situs: https://ajatikusumah.github.io/Zoonosis-and-Emerging-Infectious-Diseases-
 
 | Sumber | Tingkat | Perlakuan |
 |---|---|---|
+| Ditjen PKH AWR SITREPS/iSIKHNAS | Nasional | Agregat kejadian penyakit hewan per provinsi/bulan dari diagnosis definitif (DX); `kejadian` menjadi outbreak dan `kasus` menjadi hewan sakit. Snapshot resmi terakhir dipertahankan bila proteksi situs menolak klien otomatis |
+| Kemenkes RI Profil Kesehatan Indonesia | Nasional | Publikasi tahunan resmi sebagai referensi kesehatan manusia; tidak menaikkan KPI kejadian atau kasus real-time |
+| BPS Profil Statistik Kesehatan 2025 | Nasional | Publikasi statistik resmi berbasis Susenas Maret 2025; referensi nasional/provinsi dan bukan feed kejadian wabah |
 | WHO Disease Outbreak News | Global | Kejadian resmi dari API publik WHO; lokasi dipetakan pada centroid negara bila lokasi rinci tidak tersedia |
 | Kemenkes RI Infeksi Emerging | Nasional | Weekly update dan spot report publik sebagai publikasi, bukan angka kasus terstruktur |
 | WHO SEARO Epidemiological Bulletin | Regional | Buletin resmi sebagai publikasi regional |
 | GDELT | Global | Sinyal media tersaring; wajib memuat penyakit yang dikenali dan indikator kejadian, serta selalu berstatus rumor/verifikasi sampai ada sumber primer |
 
 Pencarian GDELT mencakup TADs prioritas, termasuk PMK/FMD, ASF, LSD, CSF, PPR, Newcastle disease, African horse sickness, serta sheep/goat pox. Judul media TADs tetap ditempatkan dalam cluster **rumor/verifikasi** sampai dikonfirmasi oleh otoritas veteriner atau sumber resmi lain.
+
+Ketiga sumber nasional di atas berstatus **terkonfirmasi** karena merupakan sumber resmi. Namun hanya AWR menghasilkan rekaman bertipe `event`. Profil Kesehatan Kemenkes dan Profil Statistik Kesehatan BPS bertipe `report`, sehingga tidak dipetakan sebagai wabah dan tidak masuk penjumlahan KPI kasus. Untuk AWR, kematian atau pemusnahan yang tidak tersedia tetap disimpan sebagai `null`, bukan nol.
 
 ## Sumber yang tercatat tetapi belum diambil otomatis
 
