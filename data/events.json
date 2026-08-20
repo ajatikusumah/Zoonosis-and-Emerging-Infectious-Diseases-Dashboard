@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-08-20T03:25:57.329452Z",
+    "generated_at": "2026-08-20T08:08:04.012779Z",
     "update_interval_hours": 6,
     "mode": "near-real-time",
     "records": 133,
@@ -22,7 +22,7 @@
       "url": "https://infeksiemerging.kemkes.go.id/",
       "note": "Weekly update dan spot report publik; diperlakukan sebagai publikasi, bukan angka kasus terstruktur.",
       "status": "live",
-      "last_checked": "2026-08-20T03:25:57.329452Z",
+      "last_checked": "2026-08-20T08:08:04.012779Z",
       "records": 33,
       "error": null
     },
@@ -74,7 +74,7 @@
       "url": "https://www.who.int/southeastasia/outbreaks-and-emergencies/surveillance-and-alert/sear-epi-bulletins",
       "note": "Buletin regional ditampilkan sebagai publikasi; ekstraksi angka tabel belum dilakukan.",
       "status": "live",
-      "last_checked": "2026-08-20T03:25:57.329452Z",
+      "last_checked": "2026-08-20T08:08:04.012779Z",
       "records": 25,
       "error": null
     },
@@ -113,7 +113,7 @@
       "url": "https://www.who.int/emergencies/disease-outbreak-news",
       "note": "Diambil dari API publik WHO dan dipetakan pada centroid negara bila lokasi lebih rinci tidak tersedia.",
       "status": "live",
-      "last_checked": "2026-08-20T03:25:57.329452Z",
+      "last_checked": "2026-08-20T08:08:04.012779Z",
       "records": 44,
       "error": null
     },
@@ -125,10 +125,10 @@
       "access_level": "public",
       "url": "https://www.gdeltproject.org/",
       "note": "Judul disaring untuk nama penyakit dan indikator kejadian; semua rekaman tetap berstatus rumor/verifikasi, dan negara hanya dipetakan bila disebut dalam judul.",
-      "status": "live",
-      "last_checked": "2026-08-20T03:25:57.329452Z",
+      "status": "stale",
+      "last_checked": "2026-08-20T08:08:04.012779Z",
       "records": 23,
-      "error": null
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
     },
     {
       "id": "fao-empres",
@@ -190,7 +190,7 @@
       "access_level": "public",
       "url": "https://www.abc.net.au/news/rural/2026-01-22/cattle-industry-cautious-lumpy-skin-disease-reaches-bali/106256000",
       "status": "imported",
-      "last_checked": "2026-08-20T03:25:57.329452Z",
+      "last_checked": "2026-08-20T08:08:04.012779Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -203,7 +203,7 @@
       "access_level": "public",
       "url": "https://en.antaranews.com/news/375693/indonesia-seeks-woah-recognition-on-fmd-free-zones-without-vaccination",
       "status": "imported",
-      "last_checked": "2026-08-20T03:25:57.329452Z",
+      "last_checked": "2026-08-20T08:08:04.012779Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -216,7 +216,7 @@
       "access_level": "public",
       "url": "https://www.balipost.com/news/2024/04/01/394276/ASF-Masuk-Bali,Satu-Sampel...html",
       "status": "imported",
-      "last_checked": "2026-08-20T03:25:57.329452Z",
+      "last_checked": "2026-08-20T08:08:04.012779Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -229,7 +229,7 @@
       "access_level": "public",
       "url": "https://fao.org/animal-health/situation-updates/asf-in-asia-pacific/en",
       "status": "imported",
-      "last_checked": "2026-08-20T03:25:57.329452Z",
+      "last_checked": "2026-08-20T08:08:04.012779Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -242,7 +242,7 @@
       "access_level": "public",
       "url": "https://fao.org/animal-health/situation-updates/asf-in-asia-pacific/en",
       "status": "imported",
-      "last_checked": "2026-08-20T03:25:57.329452Z",
+      "last_checked": "2026-08-20T08:08:04.012779Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -255,7 +255,7 @@
       "access_level": "public",
       "url": "https://link.springer.com/article/10.1007/s11250-024-04067-y",
       "status": "imported",
-      "last_checked": "2026-08-20T03:25:57.329452Z",
+      "last_checked": "2026-08-20T08:08:04.012779Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -268,7 +268,7 @@
       "access_level": "public",
       "url": "https://bali.tribunnews.com/bali/598286/distan-bali-tanggapi-puluhan-ekor-babi-mati-mendadak-sebut-asf-telah-jadi-penyakit-endemis-di-bali",
       "status": "imported",
-      "last_checked": "2026-08-20T03:25:57.329452Z",
+      "last_checked": "2026-08-20T08:08:04.012779Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -281,7 +281,7 @@
       "access_level": "public",
       "url": "https://www.wrlfmd.org/sites/world/files/quick_media/WOAH-FAO%20FMD%20Ref%20Lab%20Report%20Jan-Mar%202026%20%20v3.pdf",
       "status": "imported",
-      "last_checked": "2026-08-20T03:25:57.329452Z",
+      "last_checked": "2026-08-20T08:08:04.012779Z",
       "records": 2,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
