@@ -14,7 +14,7 @@
     --color-brand: #ec3013; --color-brand-hover: #b81f0a; --color-brand-100: #fbe2dd;
     --color-kritis: #d93a2b; --color-kritis-100: #fcebe8;
     --color-tinggi: #db8a29; --color-tinggi-100: #fbf1e1;
-    --color-sedang: #838a94; --color-sedang-100: #eff0f2;
+    --color-sedang: #b58c00; --color-sedang-100: #fff7cc;
     --color-sinyal: #4c7a5b; --color-sinyal-100: #e9f1eb;
     --font-heading: "Archivo", system-ui, sans-serif; --font-body: "Inter", system-ui, sans-serif; --font-mono: "Archivo Mono", monospace;
     --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 20px; --space-6: 24px; --space-8: 32px;
@@ -23,7 +23,7 @@
     --shadow-md: 0 4px 16px rgba(26,29,28,.07), 0 1px 3px rgba(26,29,28,.05);
   }
   * { box-sizing: border-box; }
-  body { margin: 0; font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  body { margin: 0; font-family: var(--font-body); background: linear-gradient(135deg,#fff5f2 0%,#fff9e7 38%,#f1faee 70%,#eef8fb 100%); background-attachment: fixed; color: var(--color-text); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
   h6 { font-family: var(--font-body); font-weight: 700; font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; margin: 0; color: var(--color-text-muted); }
   h2 { font-family: var(--font-heading); font-weight: 800; font-size: 21px; margin: 0; letter-spacing: -.01em; }
   .text-muted { color: var(--color-text-muted); }
@@ -56,7 +56,7 @@
   .filter-field select { font-family: var(--font-body); font-weight: 600; font-size: 13.5px; color: var(--color-text); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 9px 32px 9px 12px; min-width: 150px; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236e7570'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; cursor: pointer; box-shadow: var(--shadow-sm); }
   .filter-field select:focus { outline: 2px solid var(--color-brand); outline-offset: 1px; }
   .evidence-toggle { display: flex; gap: 6px; }
-  .evidence-chip { font-size: 12.5px; font-weight: 600; padding: 9px 14px; border: 1px solid var(--color-border); border-radius: var(--radius-pill); cursor: pointer; user-select: none; background: var(--color-surface); color: var(--color-text-muted); transition: all .15s; }
+  .evidence-chip { font-family:var(--font-body); font-size: 12.5px; font-weight: 600; padding: 9px 14px; border: 1px solid var(--color-border); border-radius: var(--radius-pill); cursor: pointer; user-select: none; background: var(--color-surface); color: var(--color-text-muted); transition: all .15s; }
   .evidence-chip.on { background: var(--color-brand); color: #fff; border-color: var(--color-brand); }
 
   .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); margin: var(--space-6) 0 var(--space-8); }
@@ -98,6 +98,15 @@
   .pub-item .pub-date { font-family: var(--font-mono); font-size: 11px; color: var(--color-text-muted); width: 100px; flex: none; }
   .pub-item .pub-title { font-size: 13.5px; font-weight: 500; flex: 1; }
   .pub-item .pub-source { font-size: 11.5px; color: var(--color-text-muted); flex: none; }
+  .pub-badges { display:flex; gap:6px; flex-wrap:wrap; margin-top:5px; }
+  .mini-badge { display:inline-flex; align-items:center; padding:2px 7px; border-radius:999px; background:var(--color-border-soft); color:var(--color-text-muted); font-size:10.5px; font-weight:600; }
+  .pub-title a, .source-link { color:inherit; text-decoration:none; }
+  .pub-title a:hover, .source-link:hover { color:var(--color-brand-hover); text-decoration:underline; }
+  .empty-state { padding:28px; text-align:center; color:var(--color-text-muted); font-size:13px; }
+  .data-health { display:inline-flex; align-items:center; gap:6px; }
+  .data-health::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--color-tinggi); }
+  .data-health.ready::before { background:var(--color-sinyal); }
+  .data-health.error::before { background:var(--color-kritis); }
 
   .import-box { background: var(--color-surface); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); border: 1px solid var(--color-border-soft); padding: var(--space-6); margin-bottom: var(--space-8); }
   .import-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); margin-top: var(--space-4); }
@@ -119,6 +128,9 @@
     .detail-panel { max-height: 420px; }
     .stats { grid-template-columns: 1fr 1fr; }
     .import-grid { grid-template-columns: 1fr; }
+    .pub-item { align-items:flex-start; flex-wrap:wrap; }
+    .pub-item .pub-date { width:100%; }
+    .pub-item .pub-source { width:100%; }
   }
 </style>
 </head>
@@ -139,7 +151,7 @@
       </div>
       <div class="top-actions">
         <a class="btn" href="https://github.com/ajatikusumah/Zoonosis-and-Emerging-Infectious-Diseases-Dashboard" target="_blank" rel="noopener">Lihat repositori</a>
-        <div class="refresh-note">Memuat data terjadwal<br>setiap 6 jam</div>
+        <div class="refresh-note"><span class="data-health" id="data-status">Memuat data</span><br><span id="data-updated">Pemeriksaan setiap 6 jam</span></div>
       </div>
     </div>
   </div>
@@ -164,13 +176,22 @@
       </select>
     </div>
     <div class="filter-field">
+      <label>Kelompok penyakit</label>
+      <select id="f-group">
+        <option value="all">Semua kelompok</option>
+        <option value="Zoonosis/EID">Zoonosis &amp; EID</option>
+        <option value="TADs">TADs</option>
+      </select>
+    </div>
+    <div class="filter-field">
       <label>Periode</label>
       <select id="f-period">
-        <option>90 hari</option>
-        <option>24 jam</option>
-        <option>7 hari</option>
-        <option>30 hari</option>
-        <option>12 bulan</option>
+        <option value="90">90 hari</option>
+        <option value="1">24 jam</option>
+        <option value="7">7 hari</option>
+        <option value="30">30 hari</option>
+        <option value="365">12 bulan</option>
+        <option value="all">Semua periode</option>
       </select>
     </div>
     <div class="filter-field">
@@ -188,8 +209,9 @@
     <div class="filter-field">
       <label>Status bukti</label>
       <div class="evidence-toggle">
-        <span class="evidence-chip on" data-ev="confirmed">Terkonfirmasi</span>
-        <span class="evidence-chip" data-ev="rumor">Rumor/verifikasi</span>
+        <button type="button" class="evidence-chip on" data-ev="all">Semua</button>
+        <button type="button" class="evidence-chip" data-ev="confirmed">Terkonfirmasi</button>
+        <button type="button" class="evidence-chip" data-ev="rumor">Rumor/verifikasi</button>
       </div>
     </div>
   </div>
@@ -221,10 +243,10 @@
     <div class="map-col">
       <div id="map"></div>
       <div class="map-legend">
-        <div class="item"><span class="legend-dot" style="background:#ff563c;"></span>Kritis — ada kematian</div>
-        <div class="item"><span class="legend-dot" style="background:#ae1800;"></span>Tinggi — kasus/outbreak terkonfirmasi</div>
-        <div class="item"><span class="legend-dot" style="background:#bab6b6;"></span>Sedang — monitoring resmi</div>
-        <div class="item"><span class="legend-dot" style="background:#4a6b4d;"></span>Sinyal awal — belum diverifikasi</div>
+        <div class="item"><span class="legend-dot" style="background:#d93a2b;"></span>Merah — terkonfirmasi dengan kematian</div>
+        <div class="item"><span class="legend-dot" style="background:#e58a20;"></span>Jingga — kasus/outbreak terkonfirmasi</div>
+        <div class="item"><span class="legend-dot" style="background:#d6b019;"></span>Kuning — monitoring resmi</div>
+        <div class="item"><span class="legend-dot" style="background:#3f8654;"></span>Hijau — rumor/sinyal belum diverifikasi</div>
       </div>
     </div>
     <div class="detail-panel" id="detail-panel"></div>
@@ -232,7 +254,7 @@
 
   <div class="section-title">
     <h2>Kejadian menurut lokasi</h2>
-    <span class="text-muted" style="font-size:12px;">Diurutkan berdasarkan jumlah kasus/kematian manusia terkonfirmasi</span>
+    <span class="text-muted" style="font-size:12px;">Kejadian manusia dan hewan; laporan publikasi tidak menaikkan KPI</span>
   </div>
   <div class="chart-wrap" id="chart-wrap"></div>
 
@@ -257,7 +279,7 @@
       </div>
       <div>
         <h6 style="margin-bottom:8px;">STATUS SAAT INI</h6>
-        <div class="text-muted" style="font-size:13.5px;">Belum ada rekaman impor aktif.</div>
+        <div class="text-muted" id="import-status" style="font-size:13.5px;">Memuat status validasi…</div>
         <a href="https://ajatikusumah.github.io/Zoonosis-and-Emerging-Infectious-Diseases-Dashboard/data/import-validation.json" target="_blank" rel="noopener" style="font-size:13px;display:inline-block;margin-top:8px;">→ Buka laporan validasi</a>
       </div>
     </div>
@@ -271,233 +293,10 @@
   </table>
 
   <footer class="foot text-muted">
-    Figur kasus/kematian pada dasbor ini dihimpun dari pelaporan publik WHO, Kemenkes RI, WOAH, FAO, dan CDC (Agu 2026); sejumlah angka regional/global bersifat estimasi order-of-magnitude. Selalu verifikasi ke sumber primer sebelum keputusan operasional — lihat <a href="https://github.com/ajatikusumah/Zoonosis-and-Emerging-Infectious-Diseases-Dashboard" style="color:inherit;" target="_blank" rel="noopener">repositori</a> untuk arsitektur pipeline data lengkap.
+    Rekaman dihimpun dari publikasi WHO, Kemenkes RI, FAO/WOAH, laboratorium rujukan, impor terotorisasi, dan media terbuka tersaring. Status “terkonfirmasi” merujuk pada sumber resmi, bukan jaminan bahwa seluruh angka telah dikonfirmasi laboratorium. Selalu buka sumber primer sebelum keputusan operasional — lihat <a href="https://github.com/ajatikusumah/Zoonosis-and-Emerging-Infectious-Diseases-Dashboard" style="color:inherit;" target="_blank" rel="noopener">repositori</a> untuk metodologi lengkap.
   </footer>
 </div>
 
-<script>
-(function () {
-  function ev(o) {
-    var d = {
-      humanSuspected: '—', humanConfirmed: '—', humanDied: '—',
-      animalSpecies: '—', animalOutbreak: '—', animalDied: '—',
-      labResult: '—', labMethod: '—', labName: '—',
-      responseAction: '—', responsePIC: '—', responseNext: '—',
-      verification: 'Sumber resmi', economic: '—', estimate: false,
-      onset: '—', reported: '—', updated: '—'
-    };
-    for (var k in o) d[k] = o[k];
-    return d;
-  }
-
-  var EVENTS = {
-    id: [
-      ev({ id:'ntt', name:'Nusa Tenggara Timur', lat:-9.6, lon:122.0, disease:'Rabies', category:'kritis', humanConfirmed:18, humanDied:18, responseAction:'KLB dideklarasikan', responsePIC:'Dinkes Prov. NTT', updated:'Kemenkes RI, 2025', source:'Kemenkes RI', economic:'—', reported:'Kab. Sikka & TTS' }),
-      ev({ id:'bali', name:'Bali', lat:-8.4, lon:115.2, disease:'Rabies', category:'kritis', humanConfirmed:15, humanDied:15, responseAction:'Vaksinasi massal HPR', source:'Kemenkes RI / laporan regional', updated:'Kemenkes RI', reported:'Historis tertinggi nasional' }),
-      ev({ id:'sulut', name:'Sulawesi Utara', lat:1.2, lon:124.8, disease:'Rabies', category:'kritis', humanConfirmed:11, humanDied:11, source:'Kemenkes RI, 2023', updated:'2023', reported:'4 provinsi beban tertinggi' }),
-      ev({ id:'kalbar', name:'Kalimantan Barat', lat:-0.3, lon:109.3, disease:'Rabies', category:'kritis', humanConfirmed:9, humanDied:9, source:'Kemenkes RI, 2023', updated:'2023', reported:'4 provinsi beban tertinggi' }),
-      ev({ id:'maluku', name:'Maluku (Ambon)', lat:-3.7, lon:128.2, disease:'Rabies', category:'kritis', humanConfirmed:6, humanDied:6, source:'Dinkes Kota Ambon', updated:'Apr 2025', reported:'6 kematian dalam 1 bulan' }),
-      ev({ id:'jabar', name:'Jawa Barat', lat:-6.9, lon:107.6, disease:'Avian Influenza (H5N1)', category:'sedang', animalSpecies:'Unggas', responseAction:'Surveilans pasar unggas (WHO/FAO pilot)', source:'WHO / FAO ECTAD', updated:'2025–26', reported:'Situs surveilans prioritas' }),
-      ev({ id:'jkt', name:'DKI Jakarta', lat:-6.2, lon:106.8, disease:'Leptospirosis', category:'sedang', responseAction:'Surveilans terintegrasi musim banjir', source:'WHO Indonesia', updated:'2026', reported:'Area rawan banjir' }),
-      ev({ id:'diy', name:'D.I. Yogyakarta', lat:-7.8, lon:110.4, disease:'Anthrax', category:'sedang', animalSpecies:'Ternak', responseAction:'Pelatihan tenaga kesehatan lini depan', source:'WHO Indonesia', updated:'2026', reported:'Outbreak berulang terkait ternak' })
-    ],
-    asean: [
-      ev({ id:'phl', name:'Filipina', lat:12.9, lon:121.8, disease:'Rabies', category:'kritis', humanConfirmed:425, humanDied:425, source:'WHO WPRO', updated:'2024', reported:'Naik sejak 2022 (284 kasus)' }),
-      ev({ id:'vnm', name:'Vietnam', lat:14.1, lon:108.3, disease:'Rabies', category:'kritis', humanConfirmed:89, humanDied:89, source:'Kemenkes Vietnam / WHO', updated:'2024', reported:'Titik panas baru di luar wilayah lama' }),
-      ev({ id:'mys', name:'Malaysia', lat:4.2, lon:101.9, disease:'Rabies', category:'tinggi', humanConfirmed:86, humanDied:72, source:'WHO WPRO (kumulatif sejak 2017)', updated:'2017–26', reported:'Kehilangan status bebas rabies (dulu bebas sejak 2013)' })
-    ],
-    apac: [
-      ev({ id:'ind', name:'India', lat:20.6, lon:78.9, disease:'Rabies', category:'kritis', humanConfirmed:17000, humanDied:17000, estimate:true, source:'WHO / estimasi model', updated:'Estimasi terkini', reported:'~30% kematian rabies global' }),
-      ev({ id:'chn', name:'China', lat:35.8, lon:104.1, disease:'Rabies', category:'tinggi', humanConfirmed:122, humanDied:122, source:'WHO WPRO', updated:'2023', reported:'Turun dari 1.128 kasus (2013)' }),
-      ev({ id:'bgd', name:'Bangladesh', lat:23.7, lon:90.4, disease:'Nipah Virus', category:'kritis', humanConfirmed:12, humanDied:'Sebagian besar', source:'icddr,b / WHO SEARO', updated:'Pola musiman', reported:'Terkait nira kurma mentah', responseAction:'Edukasi musiman, larangan konsumsi nira mentah' })
-    ],
-    global: [
-      ev({ id:'drc', name:'RD Kongo (Ituri dkk.)', lat:-4.0, lon:21.8, disease:'Ebola (virus Bundibugyo)', category:'kritis', humanConfirmed:4665, humanDied:2184, source:'WHO / ECDC', updated:'13 Agu 2026', reported:'PHEIC sejak 16 Mei 2026 — outbreak terbesar dalam sejarah DRC', responseAction:'Respons WHO/CDC/Africa CDC skala penuh', responsePIC:'Kemenkes RD Kongo + WHO', labMethod:'PCR', verification:'Terkonfirmasi laboratorium' }),
-      ev({ id:'nga', name:'Nigeria', lat:9.1, lon:8.7, disease:'Rabies', category:'kritis', humanConfirmed:10000, estimate:true, source:'Nigeria CDC', updated:'Sejak 2017', reported:'Populasi berisiko tertinggi di Afrika; kasus per tahun bersifat suspek, belum semua terkonfirmasi lab' }),
-      ev({ id:'tza', name:'Tanzania', lat:-6.4, lon:34.9, disease:'Rabies', category:'sedang', humanConfirmed:1500, estimate:true, source:'WHO AFRO', updated:'Program sejak 2010', reported:'Program WHO/Gates Foundation menurunkan kasus' }),
-      ev({ id:'usa', name:'Amerika Serikat', lat:39.8, lon:-98.5, disease:'Rabies', category:'sedang', humanConfirmed:8, humanDied:8, estimate:true, source:'CDC', updated:'Tahunan', reported:'Rata-rata di bawah 10 kematian/tahun; ~70% terkait paparan kelelawar' })
-    ]
-  };
-
-  var CAT_COLOR = { kritis: '#ff563c', tinggi: '#ae1800', sedang: '#bab6b6', sinyal: '#4a6b4d' };
-  var CAT_LABEL = { kritis: ['Kritis', 'tag-kritis'], tinggi: ['Tinggi', 'tag-tinggi'], sedang: ['Sedang', 'tag-sedang'], sinyal: ['Sinyal awal', 'tag-sinyal'] };
-  var REGION_CENTER = { id: [-2.5, 118, 5], asean: [8, 112, 4], apac: [15, 100, 3], global: [10, 20, 2] };
-
-  var state = { region: 'id', selectedId: null };
-
-  // ---- map (defensive: dashboard must still work if Leaflet/tiles fail to load) ----
-  var map = null, markersLayer = null, leafletReady = false;
-  try {
-    if (typeof L !== 'undefined') {
-      map = L.map('map', { scrollWheelZoom: false, attributionControl: true });
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        maxZoom: 18
-      }).addTo(map);
-      markersLayer = L.layerGroup().addTo(map);
-      leafletReady = true;
-    }
-  } catch (err) { leafletReady = false; }
-  if (!leafletReady) {
-    var mapEl = document.getElementById('map');
-    if (mapEl) mapEl.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;padding:24px;text-align:center;" class="text-muted">Peta tidak dapat dimuat (koneksi ke tile server terblokir). Data lain di halaman ini tetap berfungsi normal.</div>';
-  }
-
-  function fmtNum(v) { return typeof v === 'number' ? v.toLocaleString('id-ID') : v; }
-  function fmtEst(v, isEstimate) { return (isEstimate && typeof v === 'number' ? '~' : '') + fmtNum(v); }
-
-  function renderMap() {
-    if (!leafletReady) return;
-    markersLayer.clearLayers();
-    var list = EVENTS[state.region];
-    list.forEach(function (r) {
-      var marker = L.circleMarker([r.lat, r.lon], {
-        radius: r.category === 'kritis' ? 11 : r.category === 'tinggi' ? 9 : 7,
-        fillColor: CAT_COLOR[r.category], color: '#fff', weight: 2,
-        fillOpacity: 0.9
-      }).addTo(markersLayer);
-      marker.bindTooltip('<strong>' + r.name + '</strong><br>' + r.disease + '<br>' + fmtEst(r.humanConfirmed, r.estimate) + ' kasus', { direction: 'top' });
-      marker.on('click', function () { state.selectedId = r.id; render(); });
-    });
-    var c = REGION_CENTER[state.region];
-    map.setView([c[0], c[1]], c[2]);
-  }
-
-  // ---- detail panel ----
-  var detailEl = document.getElementById('detail-panel');
-  function block(title, rows) {
-    var h = '<div class="detail-block"><h6>' + title + '</h6>';
-    rows.forEach(function (r) { h += '<div class="kv-row"><span class="k">' + r[0] + '</span><span class="v">' + r[1] + '</span></div>'; });
-    return h + '</div>';
-  }
-  function renderDetail() {
-    var list = EVENTS[state.region];
-    var sel = list.find(function (r) { return r.id === state.selectedId; });
-    if (!sel) {
-      detailEl.innerHTML = '<div class="detail-empty text-muted">Pilih titik pada peta atau grafik untuk melihat detail kejadian.<br><br><span class="mono" style="font-size:11px;">Event ID: —</span></div>';
-      return;
-    }
-    var lbl = CAT_LABEL[sel.category];
-    var h = '<div class="detail-head">';
-    h += '<span class="mono text-muted" style="font-size:11px;">Event ID: ' + sel.id.toUpperCase() + '-' + state.region.toUpperCase() + '</span>';
-    h += '<div style="font-family:var(--font-heading);font-weight:800;font-size:18px;margin-top:4px;">' + sel.name + '</div>';
-    h += '<div class="text-muted" style="font-size:13px;margin:2px 0 8px;">' + sel.disease + '</div>';
-    h += '<span class="tag ' + lbl[1] + '">' + lbl[0] + '</span>';
-    h += '</div>';
-    h += block('LINIMASA', [['Dilaporkan', sel.reported], ['Diperbarui', sel.updated]]);
-    h += block('DAMPAK MANUSIA', [['Suspek', fmtNum(sel.humanSuspected)], ['Terkonfirmasi', fmtEst(sel.humanConfirmed, sel.estimate)], ['Meninggal', fmtEst(sel.humanDied, sel.estimate)]]);
-    h += block('DAMPAK HEWAN', [['Spesies', sel.animalSpecies], ['Outbreak/sakit', fmtNum(sel.animalOutbreak)], ['Mati/dimusnahkan', fmtNum(sel.animalDied)]]);
-    h += block('LABORATORIUM', [['Hasil', sel.labResult], ['Metode', sel.labMethod], ['Laboratorium', sel.labName]]);
-    h += block('RESPONS DAN PIC', [['Tindakan', sel.responseAction], ['PIC', sel.responsePIC], ['Berikutnya', sel.responseNext]]);
-    h += block('SUMBER DAN DAMPAK', [['Sumber', sel.source], ['Verifikasi', sel.verification], ['Ekonomi', sel.economic]]);
-    detailEl.innerHTML = h;
-  }
-
-  // ---- stats ----
-  function renderStats() {
-    var list = EVENTS[state.region];
-    document.getElementById('stat-active').textContent = list.length;
-    document.getElementById('stat-active-sub').textContent = list.filter(function(r){return r.category==='kritis';}).length + ' berstatus kritis';
-    var humanTotal = 0, humanKnown = false;
-    list.forEach(function (r) { if (typeof r.humanConfirmed === 'number') { humanTotal += r.humanConfirmed; humanKnown = true; } });
-    document.getElementById('stat-human').textContent = humanKnown ? humanTotal.toLocaleString('id-ID') + '+' : '—';
-    var died = list.reduce(function(s,r){ return s + (typeof r.humanDied === 'number' ? r.humanDied : 0); }, 0);
-    document.getElementById('stat-human-sub').textContent = died.toLocaleString('id-ID') + '+ meninggal • sumber resmi';
-    document.getElementById('stat-animal').textContent = '—';
-  }
-
-  // ---- chart (horizontal bars by location) ----
-  function renderChart() {
-    var list = EVENTS[state.region].slice().sort(function (a, b) {
-      var av = typeof a.humanConfirmed === 'number' ? a.humanConfirmed : 0;
-      var bv = typeof b.humanConfirmed === 'number' ? b.humanConfirmed : 0;
-      return bv - av;
-    });
-    var max = Math.max.apply(null, list.map(function (r) { return typeof r.humanConfirmed === 'number' ? r.humanConfirmed : 0; }).concat([1]));
-    var logMax = Math.log(max + 1);
-    var h = '';
-    list.forEach(function (r) {
-      var v = typeof r.humanConfirmed === 'number' ? r.humanConfirmed : 0;
-      var pct = v > 0 ? Math.max((Math.log(v + 1) / logMax) * 100, 4) : 0;
-      h += '<div class="chart-row">';
-      h += '<div class="name">' + r.name + '<div class="text-muted" style="font-size:10.5px;font-weight:400;">' + r.disease + '</div></div>';
-      h += '<div class="chart-track"><div class="chart-fill" style="width:' + pct + '%;background:' + CAT_COLOR[r.category] + ';"></div></div>';
-      h += '<div class="num">' + fmtEst(r.humanConfirmed, r.estimate) + '</div>';
-      h += '</div>';
-    });
-    document.getElementById('chart-wrap').innerHTML = h;
-  }
-
-  // ---- disease filter options ----
-  function renderDiseaseFilter() {
-    var sel = document.getElementById('f-disease');
-    var diseases = {};
-    EVENTS[state.region].forEach(function (r) { diseases[r.disease] = true; });
-    sel.innerHTML = '<option value="all">Semua penyakit</option>' + Object.keys(diseases).map(function (d) { return '<option>' + d + '</option>'; }).join('');
-  }
-
-  // ---- publications (real, dated items from research) ----
-  var PUBLICATIONS = [
-    { date: '13 Agu 2026', title: 'WHO/ECDC: 4.665 kasus, 2.184 kematian Ebola Bundibugyo di RD Kongo', source: 'WHO / ECDC' },
-    { date: '07 Apr 2026', title: 'WHO memuji pendekatan One Health Indonesia untuk avian influenza, leptospirosis, antraks, dan rabies', source: 'WHO Indonesia' },
-    { date: 'Ags 2025 (data 2024)', title: 'PH records ~400 annual rabies deaths, 4M animal bite cases', source: 'Philippine News Agency' },
-    { date: 'Mar 2025', title: 'Surat Edaran Kemenkes HK.02.02/C/508/2025 — Kewaspadaan Kasus Rabies', source: 'Kemenkes RI' },
-    { date: 'Apr 2025', title: 'Enam kematian akibat rabies di Ambon dalam sebulan terakhir', source: 'Kemenkes RI' },
-    { date: 'Okt 2025', title: 'Rabies is spreading in Southeast Asia, fuelled by inequality and neglect', source: 'Eco-Business' },
-    { date: '2024', title: 'Human rabies cases in Western Pacific Region 2013–2024 — tren naik di Filipina, Vietnam, Malaysia', source: 'WHO WPRO' },
-    { date: '2024', title: 'Vietnam reports ~89 human rabies deaths for the year', source: 'Kemenkes Vietnam / WHO' }
-  ];
-  function renderPubs() {
-    document.getElementById('pub-list').innerHTML = PUBLICATIONS.map(function (p) {
-      return '<div class="pub-item"><span class="pub-date mono">' + p.date + '</span><span class="pub-title">' + p.title + '</span><span class="pub-source">' + p.source + '</span></div>';
-    }).join('');
-  }
-
-  // ---- source registry (from project README) ----
-  var REGISTRY = [
-    ['WHO Disease Outbreak News', 'Global', 'API publik', 'Kejadian resmi; lokasi pada centroid negara bila rinci tak tersedia'],
-    ['Kemenkes RI Infeksi Emerging', 'Nasional', 'Publik', 'Update mingguan &amp; spot report sebagai publikasi'],
-    ['WHO SEARO Epidemiological Bulletin', 'Regional', 'Publik', 'Buletin resmi sebagai publikasi regional'],
-    ['GDELT', 'Global', 'Publik (tersaring)', 'Sinyal media; selalu berstatus rumor sampai ada sumber primer'],
-    ['SIZE Nasional, SKDR, iSIKHNAS', 'Nasional', 'Perlu akun/kemitraan', 'Belum diambil otomatis'],
-    ['FAO EMPRES-i+', 'Global', 'Perlu token', 'Endpoint kejadian belum diambil otomatis'],
-    ['ProMED', 'Global', 'Perlu lisensi', 'Tidak di-scrape'],
-    ['GLEWS+', 'Global', 'Mekanisme institusional', 'Berbagi info FAO–WHO–WOAH, bukan feed publik terpisah'],
-    ['WOAH WAHIS / WHO WPRO / ASEAN BioDiaspora', 'Regional/Global', 'Portal', 'Tautan ditampilkan; integrasi menunggu API/feed publik']
-  ];
-  function renderRegistry() {
-    var tb = document.querySelector('#registry-table tbody');
-    tb.innerHTML = REGISTRY.map(function (r) {
-      return '<tr><td class="registry-name">' + r[0] + '</td><td>' + r[1] + '</td><td>' + r[2] + '</td><td class="text-muted">' + r[3] + '</td></tr>';
-    }).join('');
-  }
-
-  function render() {
-    renderMap();
-    renderDetail();
-    renderStats();
-    renderChart();
-    renderDiseaseFilter();
-  }
-
-  document.getElementById('f-region').addEventListener('change', function (e) {
-    state.region = e.target.value; state.selectedId = null; render();
-  });
-  var evidenceChips = document.querySelectorAll('.evidence-chip');
-  for (var ci = 0; ci < evidenceChips.length; ci++) {
-    (function (chip) {
-      chip.addEventListener('click', function () {
-        for (var cj = 0; cj < evidenceChips.length; cj++) evidenceChips[cj].classList.remove('on');
-        chip.classList.add('on');
-      });
-    })(evidenceChips[ci]);
-  }
-
-  renderPubs();
-  renderRegistry();
-  render();
-  setTimeout(function () { if (leafletReady) map.invalidateSize(); }, 100);
-})();
-</script>
+<script type="module" src="./assets/dashboard.js"></script>
 </body>
 </html>
