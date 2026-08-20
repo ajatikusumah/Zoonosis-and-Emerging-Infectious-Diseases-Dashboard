@@ -147,6 +147,27 @@ class DashboardIntegrationTests(unittest.TestCase):
         self.assertIn("TADs", confirmed["disease_groups"])
         self.assertIn("TADs", rumor["disease_groups"])
 
+    def test_deduplication_keeps_distinct_locations_from_one_report(self):
+        records = [
+            UPDATE_EVENTS.base_record(
+                id="fmd-jateng",
+                disease="Foot-and-Mouth Disease (FMD/PMK)",
+                location="Jawa Tengah, Indonesia",
+                iso3="IDN",
+                source_id="wrlfmd.q1.2026",
+                source_url="https://example.test/fmd-q1.pdf",
+            ),
+            UPDATE_EVENTS.base_record(
+                id="fmd-jatim",
+                disease="Foot-and-Mouth Disease (FMD/PMK)",
+                location="Jawa Timur, Indonesia",
+                iso3="IDN",
+                source_id="wrlfmd.q1.2026",
+                source_url="https://example.test/fmd-q1.pdf",
+            ),
+        ]
+        self.assertEqual(len(UPDATE_EVENTS.deduplicate(records)), 2)
+
 
 if __name__ == "__main__":
     unittest.main()
