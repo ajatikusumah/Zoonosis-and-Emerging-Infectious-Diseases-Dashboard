@@ -388,7 +388,9 @@ function bindFilters() {
 
 async function start() {
   try {
-    const payload = await import("../data/events.js");
+    // The dataset is regenerated every six hours. A timestamp query avoids a
+    // stale module response from the GitHub Pages/CDN cache after deployment.
+    const payload = await import(`../data/events.js?ts=${Date.now()}`);
     metadata = payload.metadata || {};
     sources = Array.isArray(payload.sources) ? payload.sources : [];
     records = Array.isArray(payload.events) ? payload.events : [];
