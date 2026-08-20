@@ -69,15 +69,19 @@ class GdeltSignalClassificationTests(unittest.TestCase):
     def test_assigns_nonexclusive_disease_groups(self):
         self.assertEqual(
             UPDATE_EVENTS.disease_groups_for("African Swine Fever (ASF)"),
-            ["TADs"],
+            ["Penyakit hewan prioritas", "TADs"],
         )
         self.assertEqual(
             UPDATE_EVENTS.disease_groups_for("Avian influenza"),
-            ["TADs", "Zoonosis/EID"],
+            ["Penyakit hewan prioritas", "TADs", "Zoonosis/EID"],
         )
         self.assertEqual(
             UPDATE_EVENTS.disease_groups_for("Nipah"),
             ["Zoonosis/EID"],
+        )
+        self.assertEqual(
+            UPDATE_EVENTS.disease_groups_for("Jembrana Disease"),
+            ["Penyakit hewan prioritas"],
         )
 
     def test_rescreens_retained_gdelt_records(self):
@@ -167,6 +171,77 @@ class DashboardIntegrationTests(unittest.TestCase):
             ),
         ]
         self.assertEqual(len(UPDATE_EVENTS.deduplicate(records)), 2)
+
+
+class OfficialNationalSourceTests(unittest.TestCase):
+    AWR_PAGE = """
+    <html><body>
+      <h1>Laporan Perkembangan PMK Bulanan</h1>
+      <table>
+        <thead><tr><th></th><th>prop</th><th>kab</th><th>desa</th><th>kejadian</th><th>kasus</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Jawa Tengah</td><td>Klaten, Grobogan</td><td>3</td><td>4</td><td>17</td></tr>
+          <tr><td>2</td><td>Jawa Timur</td><td>Blitar</td><td>1</td><td>2</td><td>9</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead><tr><th></th><th>spec</th><th>kejadian</th><th>kasus</th></tr></thead>
+        <tbody><tr><td>1</td><td>SAPI</td><td>6</td><td>26</td></tr></tbody>
+      </table>
+    </body></html>
+    """
+
+    def test_awr_table_is_normalized_as_confirmed_province_events(self):
+        rows, species = UPDATE_EVENTS.parse_awr_page(self.AWR_PAGE)
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(rows[0]["outbreaks"], 4)
+        self.assertEqual(rows[0]["cases"], 17)
+        self.assertEqual(species, "Sapi")
+
+        record = UPDATE_EVENTS.awr_record("PMK", "202607", rows[0], species)
+        self.assertEqual(record["record_type"], "event")
+        self.assertEqual(record["evidence"], "confirmed")
+        self.assertEqual(record["location_precision"], "province")
+        self.assertEqual(record["animal"]["outbreaks"], 4)
+        self.assertEqual(record["lab"]["result"], "Diagnosis definitif (DX)")
+        self.assertIn("Penyakit hewan prioritas", record["disease_groups"])
+        self.assertIn("TADs", record["disease_groups"])
+
+    def test_awr_cloudflare_failure_keeps_vetted_snapshot(self):
+        original_fetch = UPDATE_EVENTS.fetch_text
+        UPDATE_EVENTS.fetch_text = lambda *_args, **_kwargs: (_ for _ in ()).throw(OSError("blocked"))
+        try:
+            with self.assertRaises(UPDATE_EVENTS.SourceFetchError) as raised:
+                UPDATE_EVENTS.awr_records()
+        finally:
+            UPDATE_EVENTS.fetch_text = original_fetch
+        self.assertEqual(len(raised.exception.fallback_records), 14)
+        self.assertTrue(all(record["evidence"] == "confirmed" for record in raised.exception.fallback_records))
+
+    def test_kemkes_profile_is_a_confirmed_report_not_an_event(self):
+        page = """
+        <a href="/id/profil-kesehatan-indonesia-2024" class="link">
+          <h4 class="text-20">Profil Kesehatan Indonesia 2024</h4>
+          <time datetime="2025-09-12"><em>12 Sep 2025</em></time>
+        </a>
+        """
+        original_fetch = UPDATE_EVENTS.fetch_text
+        UPDATE_EVENTS.fetch_text = lambda *_args, **_kwargs: page
+        try:
+            records = UPDATE_EVENTS.kemkes_profile_records()
+        finally:
+            UPDATE_EVENTS.fetch_text = original_fetch
+        self.assertEqual(len(records), 1)
+        self.assertEqual(records[0]["record_type"], "report")
+        self.assertEqual(records[0]["evidence"], "confirmed")
+        self.assertEqual(records[0]["disease_groups"], ["Referensi kesehatan manusia"])
+
+    def test_bps_profile_is_a_confirmed_report_not_an_event(self):
+        record = UPDATE_EVENTS.bps_health_profile_records()[0]
+        self.assertEqual(record["record_type"], "report")
+        self.assertEqual(record["evidence"], "confirmed")
+        self.assertIsNone(record["human"]["confirmed"])
+        self.assertEqual(record["disease_groups"], ["Referensi kesehatan manusia"])
 
 
 if __name__ == "__main__":
