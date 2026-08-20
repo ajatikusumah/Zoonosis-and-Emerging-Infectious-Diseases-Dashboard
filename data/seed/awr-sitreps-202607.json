@@ -1,0 +1,142 @@
+[
+  {
+    "disease_code": "PMK",
+    "period": "202607",
+    "province": "Bangka Belitung",
+    "districts": "Bangka Tengah",
+    "villages": 1,
+    "outbreaks": 2,
+    "cases": 32,
+    "species": "Domba, Kambing, Sapi"
+  },
+  {
+    "disease_code": "PMK",
+    "period": "202607",
+    "province": "Bengkulu",
+    "districts": "Bengkulu Selatan",
+    "villages": 4,
+    "outbreaks": 4,
+    "cases": 22,
+    "species": "Domba, Kambing, Sapi"
+  },
+  {
+    "disease_code": "PMK",
+    "period": "202607",
+    "province": "Di Yogyakarta",
+    "districts": "Bantul, Sleman",
+    "villages": 2,
+    "outbreaks": 2,
+    "cases": 3,
+    "species": "Domba, Kambing, Sapi"
+  },
+  {
+    "disease_code": "PMK",
+    "period": "202607",
+    "province": "Jawa Barat",
+    "districts": "Sukabumi, Majalengka, Indramayu, Bekasi",
+    "villages": 6,
+    "outbreaks": 6,
+    "cases": 39,
+    "species": "Domba, Kambing, Sapi"
+  },
+  {
+    "disease_code": "PMK",
+    "period": "202607",
+    "province": "Jawa Tengah",
+    "districts": "Wonosobo, Klaten, Grobogan, Semarang",
+    "villages": 9,
+    "outbreaks": 12,
+    "cases": 27,
+    "species": "Domba, Kambing, Sapi"
+  },
+  {
+    "disease_code": "PMK",
+    "period": "202607",
+    "province": "Jawa Timur",
+    "districts": "Blitar, Malang, Lumajang, Bondowoso, Kota Probolinggo",
+    "villages": 11,
+    "outbreaks": 11,
+    "cases": 28,
+    "species": "Domba, Kambing, Sapi"
+  },
+  {
+    "disease_code": "PMK",
+    "period": "202607",
+    "province": "Riau",
+    "districts": "Indragiri Hulu",
+    "villages": 1,
+    "outbreaks": 1,
+    "cases": 12,
+    "species": "Domba, Kambing, Sapi"
+  },
+  {
+    "disease_code": "PMK",
+    "period": "202607",
+    "province": "Sulawesi Barat",
+    "districts": "Polewali Mandar",
+    "villages": 2,
+    "outbreaks": 2,
+    "cases": 8,
+    "species": "Domba, Kambing, Sapi"
+  },
+  {
+    "disease_code": "PMK",
+    "period": "202607",
+    "province": "Sulawesi Tengah",
+    "districts": "Parigi Moutong",
+    "villages": 6,
+    "outbreaks": 7,
+    "cases": 54,
+    "species": "Domba, Kambing, Sapi"
+  },
+  {
+    "disease_code": "PMK",
+    "period": "202607",
+    "province": "Sumatera Barat",
+    "districts": "Lima Puluh Kota",
+    "villages": 1,
+    "outbreaks": 1,
+    "cases": 1,
+    "species": "Domba, Kambing, Sapi"
+  },
+  {
+    "disease_code": "ASF",
+    "period": "202607",
+    "province": "Nusa Tenggara Timur",
+    "districts": "Manggarai Timur",
+    "villages": 2,
+    "outbreaks": 2,
+    "cases": 12,
+    "species": "Babi"
+  },
+  {
+    "disease_code": "ASF",
+    "period": "202607",
+    "province": "Papua Selatan",
+    "districts": "Boven Digoel",
+    "villages": 1,
+    "outbreaks": 1,
+    "cases": 50,
+    "species": "Babi"
+  },
+  {
+    "disease_code": "ASF",
+    "period": "202607",
+    "province": "Sulawesi Barat",
+    "districts": "Polewali Mandar",
+    "villages": 1,
+    "outbreaks": 1,
+    "cases": 64,
+    "species": "Babi"
+  },
+  {
+    "disease_code": "ASF",
+    "period": "202607",
+    "province": "Sulawesi Tengah",
+    "districts": "Morowali Utara",
+    "villages": 1,
+    "outbreaks": 2,
+    "cases": 18,
+    "species": "Babi"
+  }
+]
