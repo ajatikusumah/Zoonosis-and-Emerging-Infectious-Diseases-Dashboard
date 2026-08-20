@@ -3,7 +3,8 @@
 
 Only public machine-readable or public report pages are ingested. Sources that
 require credentials or a licence are listed in the source registry but are not
-scraped.
+scraped. Disease groups are non-exclusive so a zoonosis may also appear under
+TADs when epidemiologically appropriate.
 """
 
 from __future__ import annotations
