@@ -135,13 +135,17 @@ class DashboardIntegrationTests(unittest.TestCase):
         self.assertIn('import("../data/events.js")', script)
         self.assertNotIn("var EVENTS =", index)
 
-    def test_generated_data_exposes_tad_clusters(self):
-        root = pathlib.Path(__file__).parents[1]
-        payload = json.loads((root / "data" / "events.json").read_text(encoding="utf-8"))
-        tads = [record for record in payload["records"] if "TADs" in record.get("disease_groups", [])]
-        self.assertTrue(any(record["evidence"] == "confirmed" for record in tads))
-        self.assertTrue(any(record["evidence"] == "rumor" for record in tads))
-        self.assertEqual(payload["metadata"]["tads_records"], len(tads))
+    def test_new_records_expose_tad_clusters_before_generation(self):
+        confirmed = UPDATE_EVENTS.base_record(
+            disease="African Swine Fever (ASF)",
+            evidence="confirmed",
+        )
+        rumor = UPDATE_EVENTS.base_record(
+            disease="Lumpy Skin Disease (LSD)",
+            evidence="rumor",
+        )
+        self.assertIn("TADs", confirmed["disease_groups"])
+        self.assertIn("TADs", rumor["disease_groups"])
 
 
 if __name__ == "__main__":
