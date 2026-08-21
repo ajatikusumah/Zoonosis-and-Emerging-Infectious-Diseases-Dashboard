@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated_at": "2026-08-20T09:07:28.300587Z",
+    "generated_at": "2026-08-21T03:33:47.153454Z",
     "update_interval_hours": 48,
     "mode": "near-real-time",
-    "records": 148,
-    "events": 74,
+    "records": 147,
+    "events": 73,
     "reports": 74,
     "imported_records": 9,
     "import_files_scanned": 1,
@@ -25,7 +25,7 @@
       "url": "https://infeksiemerging.kemkes.go.id/",
       "note": "Weekly update dan spot report publik; diperlakukan sebagai publikasi, bukan angka kasus terstruktur.",
       "status": "live",
-      "last_checked": "2026-08-20T09:07:28.300587Z",
+      "last_checked": "2026-08-21T03:33:47.153454Z",
       "records": 33,
       "error": null
     },
@@ -38,7 +38,7 @@
       "url": "https://www.kemkes.go.id/id/category/profil-kesehatan",
       "note": "Publikasi tahunan resmi; ditampilkan sebagai referensi dan tidak menaikkan KPI kejadian/kasus.",
       "status": "live",
-      "last_checked": "2026-08-20T09:07:28.300587Z",
+      "last_checked": "2026-08-21T03:33:47.153454Z",
       "records": 1,
       "error": null
     },
@@ -51,7 +51,7 @@
       "url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/",
       "note": "SITREPS bulanan 11 penyakit prioritas; kejadian telah dikonfirmasi sebagai diagnosis definitif (DX). Snapshot resmi terakhir dipertahankan bila proteksi situs menolak klien otomatis.",
       "status": "stale",
-      "last_checked": "2026-08-20T09:07:28.300587Z",
+      "last_checked": "2026-08-21T03:33:47.153454Z",
       "records": 14,
       "error": "SourceFetchError: Halaman AWR tidak dapat dibaca otomatis (kemungkinan proteksi Cloudflare); snapshot resmi terakhir dipertahankan."
     },
@@ -64,7 +64,7 @@
       "url": "https://www.bps.go.id/id/publication/2025/12/12/7d17daec8d62c852fc354945/profil-statistik-kesehatan-2025.html",
       "note": "Publikasi tahunan berbasis Susenas Maret 2025; referensi statistik, bukan feed kejadian wabah.",
       "status": "live",
-      "last_checked": "2026-08-20T09:07:28.300587Z",
+      "last_checked": "2026-08-21T03:33:47.153454Z",
       "records": 1,
       "error": null
     },
@@ -116,7 +116,7 @@
       "url": "https://www.who.int/southeastasia/outbreaks-and-emergencies/surveillance-and-alert/sear-epi-bulletins",
       "note": "Buletin regional ditampilkan sebagai publikasi; ekstraksi angka tabel belum dilakukan.",
       "status": "live",
-      "last_checked": "2026-08-20T09:07:28.300587Z",
+      "last_checked": "2026-08-21T03:33:47.153454Z",
       "records": 25,
       "error": null
     },
@@ -155,8 +155,8 @@
       "url": "https://www.who.int/emergencies/disease-outbreak-news",
       "note": "Diambil dari API publik WHO dan dipetakan pada centroid negara bila lokasi lebih rinci tidak tersedia.",
       "status": "live",
-      "last_checked": "2026-08-20T09:07:28.300587Z",
-      "records": 44,
+      "last_checked": "2026-08-21T03:33:47.153454Z",
+      "records": 43,
       "error": null
     },
     {
@@ -168,7 +168,7 @@
       "url": "https://www.gdeltproject.org/",
       "note": "Judul disaring untuk nama penyakit dan indikator kejadian; semua rekaman tetap berstatus rumor/verifikasi, dan negara hanya dipetakan bila disebut dalam judul.",
       "status": "stale",
-      "last_checked": "2026-08-20T09:07:28.300587Z",
+      "last_checked": "2026-08-21T03:33:47.153454Z",
       "records": 21,
       "error": "HTTPError: HTTP Error 429: Too Many Requests"
     },
@@ -271,7 +271,7 @@
       "access_level": "public",
       "url": "https://www.abc.net.au/news/rural/2026-01-22/cattle-industry-cautious-lumpy-skin-disease-reaches-bali/106256000",
       "status": "imported",
-      "last_checked": "2026-08-20T09:07:28.300587Z",
+      "last_checked": "2026-08-21T03:33:47.153454Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -284,7 +284,7 @@
       "access_level": "public",
       "url": "https://en.antaranews.com/news/375693/indonesia-seeks-woah-recognition-on-fmd-free-zones-without-vaccination",
       "status": "imported",
-      "last_checked": "2026-08-20T09:07:28.300587Z",
+      "last_checked": "2026-08-21T03:33:47.153454Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -297,7 +297,7 @@
       "access_level": "public",
       "url": "https://www.balipost.com/news/2024/04/01/394276/ASF-Masuk-Bali,Satu-Sampel...html",
       "status": "imported",
-      "last_checked": "2026-08-20T09:07:28.300587Z",
+      "last_checked": "2026-08-21T03:33:47.153454Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -310,7 +310,7 @@
       "access_level": "public",
       "url": "https://fao.org/animal-health/situation-updates/asf-in-asia-pacific/en",
       "status": "imported",
-      "last_checked": "2026-08-20T09:07:28.300587Z",
+      "last_checked": "2026-08-21T03:33:47.153454Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -323,7 +323,7 @@
       "access_level": "public",
       "url": "https://fao.org/animal-health/situation-updates/asf-in-asia-pacific/en",
       "status": "imported",
-      "last_checked": "2026-08-20T09:07:28.300587Z",
+      "last_checked": "2026-08-21T03:33:47.153454Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -336,7 +336,7 @@
       "access_level": "public",
       "url": "https://link.springer.com/article/10.1007/s11250-024-04067-y",
       "status": "imported",
-      "last_checked": "2026-08-20T09:07:28.300587Z",
+      "last_checked": "2026-08-21T03:33:47.153454Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -349,7 +349,7 @@
       "access_level": "public",
       "url": "https://bali.tribunnews.com/bali/598286/distan-bali-tanggapi-puluhan-ekor-babi-mati-mendadak-sebut-asf-telah-jadi-penyakit-endemis-di-bali",
       "status": "imported",
-      "last_checked": "2026-08-20T09:07:28.300587Z",
+      "last_checked": "2026-08-21T03:33:47.153454Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -362,7 +362,7 @@
       "access_level": "public",
       "url": "https://www.wrlfmd.org/sites/world/files/quick_media/WOAH-FAO%20FMD%20Ref%20Lab%20Report%20Jan-Mar%202026%20%20v3.pdf",
       "status": "imported",
-      "last_checked": "2026-08-20T09:07:28.300587Z",
+      "last_checked": "2026-08-21T03:33:47.153454Z",
       "records": 2,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -388,10 +388,10 @@
         "Asia-Pacific",
         "Global"
       ],
-      "published": "2026-08-20T05:00:00Z",
+      "published": "2026-08-21T05:00:00Z",
       "onset": null,
-      "reported": "2026-08-20T05:00:00Z",
-      "updated": "2026-08-20T05:00:00Z",
+      "reported": "2026-08-21T05:00:00Z",
+      "updated": "2026-08-21T05:00:00Z",
       "evidence": "confirmed",
       "response": "Publikasi berkala",
       "changed24h": true,
@@ -443,10 +443,10 @@
         "Asia-Pacific",
         "Global"
       ],
-      "published": "2026-08-20T05:00:00Z",
+      "published": "2026-08-21T05:00:00Z",
       "onset": null,
-      "reported": "2026-08-20T05:00:00Z",
-      "updated": "2026-08-20T05:00:00Z",
+      "reported": "2026-08-21T05:00:00Z",
+      "updated": "2026-08-21T05:00:00Z",
       "evidence": "confirmed",
       "response": "Publikasi berkala",
       "changed24h": true,
@@ -3432,7 +3432,7 @@
       "updated": "2026-08-20T00:00:00Z",
       "evidence": "confirmed",
       "response": "Samples sent to Balai Veteriner Maros; movement restriction of affected livestock",
-      "changed24h": true,
+      "changed24h": false,
       "changeType": "Impor terotorisasi",
       "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
       "human": {
@@ -4173,7 +4173,7 @@
       "updated": "2026-08-20T00:00:00Z",
       "evidence": "confirmed",
       "response": "Biosecurity advisory to farmers; no vaccine yet available locally per this source",
-      "changed24h": true,
+      "changed24h": false,
       "changeType": "Impor terotorisasi",
       "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
       "human": {
@@ -5342,7 +5342,7 @@
       "updated": "2026-08-20T00:00:00Z",
       "evidence": "confirmed",
       "response": "Vaccination campaign; movement restrictions; quarantine",
-      "changed24h": true,
+      "changed24h": false,
       "changeType": "Impor terotorisasi",
       "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
       "human": {
@@ -5401,7 +5401,7 @@
       "updated": "2026-08-20T00:00:00Z",
       "evidence": "confirmed",
       "response": "Vaccination campaign; movement restrictions; quarantine",
-      "changed24h": true,
+      "changed24h": false,
       "changeType": "Impor terotorisasi",
       "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
       "human": {
@@ -6368,7 +6368,7 @@
       "updated": "2026-08-20T00:00:00Z",
       "evidence": "rumor",
       "response": "Monitored by Australian biosecurity authorities per this source",
-      "changed24h": true,
+      "changed24h": false,
       "changeType": "Impor terotorisasi",
       "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
       "human": {
@@ -8108,58 +8108,6 @@
       "summary": null
     },
     {
-      "id": "who-don-9f1bc97cd3d9",
-      "record_type": "event",
-      "disease": "Circulating vaccine-derived poliovirus type 1- Israel",
-      "disease_groups": [
-        "Zoonosis/EID"
-      ],
-      "title": "Circulating vaccine-derived poliovirus type 1- Israel",
-      "location": "Lokasi belum dipetakan",
-      "iso3": null,
-      "lat": null,
-      "lon": null,
-      "location_precision": "unknown",
-      "scopes": [
-        "Global"
-      ],
-      "published": "2025-08-20T16:36:57Z",
-      "onset": null,
-      "reported": "2025-08-20T16:36:57Z",
-      "updated": "2025-08-20T16:37:18Z",
-      "evidence": "confirmed",
-      "response": "Monitoring resmi",
-      "changed24h": false,
-      "changeType": "Konfirmasi/pembaruan resmi",
-      "change": "WHO Disease Outbreak News diterbitkan atau diperbarui.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "WHO Disease Outbreak News",
-      "source_id": "who-don",
-      "source_url": "https://www.who.int/2025-DON578",
-      "verification": "Sumber resmi WHO; koordinat menggunakan centroid negara.",
-      "economic": null,
-      "summary": "On 4 August 2025, Israel notified WHO of a circulating vaccine-derived poliovirus type 1 (cVDPV1) outbreak. Between February and July 2025, nine genetically linked virus isolates were found in environmental samples from seven sites, mainly in Jerusalem and the Central Region. No human cases of paralytic polio have been reported. Israel discontinued routine use of the bivalent oral polio vaccine in March 2025 but continues using inactivated polio vaccine (IPV) as part of the country’s routine immunization schedule. WHO and partners of the Global Polio Eradication Initiative are supporting natio"
-    },
-    {
       "id": "fmd-idn-2025-zoning",
       "record_type": "report",
       "disease": "Foot-and-Mouth Disease (FMD/PMK)",
@@ -8185,7 +8133,7 @@
       "updated": "2026-08-20T00:00:00Z",
       "evidence": "confirmed",
       "response": "WOAH recognition application for FMD-free zones without vaccination submitted Aug 2025",
-      "changed24h": true,
+      "changed24h": false,
       "changeType": "Impor terotorisasi",
       "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
       "human": {
@@ -8244,7 +8192,7 @@
       "updated": "2026-08-20T00:00:00Z",
       "evidence": "confirmed",
       "response": "iSIKHNAS surveillance; 8 Disease Investigation Centers; DIC Medan reference lab",
-      "changed24h": true,
+      "changed24h": false,
       "changeType": "Impor terotorisasi",
       "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
       "human": {
@@ -8303,7 +8251,7 @@
       "updated": "2026-08-20T00:00:00Z",
       "evidence": "confirmed",
       "response": "Containment measures to prevent spread to other regencies",
-      "changed24h": true,
+      "changed24h": false,
       "changeType": "Impor terotorisasi",
       "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
       "human": {
@@ -8362,7 +8310,7 @@
       "updated": "2026-08-20T00:00:00Z",
       "evidence": "confirmed",
       "response": "~935,000 vaccine doses distributed since 2022 with Australian government support (DAFF)",
-      "changed24h": true,
+      "changed24h": false,
       "changeType": "Impor terotorisasi",
       "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
       "human": {
