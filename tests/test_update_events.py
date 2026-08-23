@@ -181,6 +181,57 @@ class DashboardIntegrationTests(unittest.TestCase):
         self.assertEqual(len(UPDATE_EVENTS.deduplicate(records)), 2)
 
 
+class HealthProfileCaseImportTests(unittest.TestCase):
+    def setUp(self):
+        records, _sources, report = UPDATE_EVENTS.imported_records()
+        self.assertEqual(report["errors"], [])
+        self.records = [
+            record for record in records
+            if record["source_id"] == "kemkes-profile-2024-cases"
+        ]
+
+    def records_for(self, disease, year=None):
+        records = [record for record in self.records if record["disease"] == disease]
+        if year is not None:
+            records = [record for record in records if record["published"].startswith(str(year))]
+        return records
+
+    def test_profile_import_contains_only_vetted_case_series(self):
+        self.assertEqual(len(self.records), 95)
+        self.assertTrue(all(record["evidence"] == "confirmed" for record in self.records))
+        self.assertTrue(all(record["record_type"] == "event" for record in self.records))
+        self.assertEqual(
+            {record["disease"] for record in self.records},
+            {"Rabies", "Leptospirosis", "COVID-19", "Mpox", "Legionellosis", "Polio cVDPV2"},
+        )
+
+    def test_rabies_lyssa_totals_match_appendix(self):
+        expected = {2022: 102, 2023: 146, 2024: 122}
+        for year, total in expected.items():
+            records = self.records_for("Rabies", year)
+            self.assertEqual(sum(record["human"]["deaths"] or 0 for record in records), total)
+            self.assertTrue(all(record["human"]["confirmed"] is None for record in records))
+
+    def test_leptospirosis_totals_match_appendix(self):
+        expected = {2022: (1624, 148), 2023: (2545, 205), 2024: (1506, 121)}
+        for year, (cases, deaths) in expected.items():
+            records = self.records_for("Leptospirosis", year)
+            self.assertEqual(sum(record["human"]["confirmed"] or 0 for record in records), cases)
+            self.assertEqual(sum(record["human"]["deaths"] or 0 for record in records), deaths)
+
+    def test_2024_emerging_disease_totals_match_narrative(self):
+        expected = {
+            "COVID-19": (8624, 93),
+            "Mpox": (14, 0),
+            "Legionellosis": (16, 0),
+            "Polio cVDPV2": (7, 0),
+        }
+        for disease, (cases, deaths) in expected.items():
+            records = self.records_for(disease, 2024)
+            self.assertEqual(sum(record["human"]["confirmed"] or 0 for record in records), cases)
+            self.assertEqual(sum(record["human"]["deaths"] or 0 for record in records), deaths)
+
+
 class OfficialNationalSourceTests(unittest.TestCase):
     AWR_PAGE = """
     <html><body>

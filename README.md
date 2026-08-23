@@ -23,7 +23,7 @@ Situs: https://ajatikusumah.github.io/Zoonosis-and-Emerging-Infectious-Diseases-
 | Sumber | Tingkat | Perlakuan |
 |---|---|---|
 | Ditjen PKH AWR SITREPS/iSIKHNAS | Nasional | Agregat kejadian penyakit hewan per provinsi/bulan dari diagnosis definitif (DX); `kejadian` menjadi outbreak dan `kasus` menjadi hewan sakit. Snapshot resmi terakhir dipertahankan bila proteksi situs menolak klien otomatis |
-| Kemenkes RI Profil Kesehatan Indonesia | Nasional | Publikasi tahunan resmi sebagai referensi kesehatan manusia; tidak menaikkan KPI kejadian atau kasus real-time |
+| Kemenkes RI Profil Kesehatan Indonesia | Nasional | Publikasi tahunan resmi sebagai referensi; agregat kasus zoonosis/PIE yang memiliki angka, periode, dan lokasi eksplisit dimuat sebagai kejadian historis terkonfirmasi, bukan kasus real-time |
 | BPS Profil Statistik Kesehatan 2025 | Nasional | Publikasi statistik resmi berbasis Susenas Maret 2025; referensi nasional/provinsi dan bukan feed kejadian wabah |
 | WHO Disease Outbreak News | Global | Kejadian resmi dari API publik WHO; lokasi dipetakan pada centroid negara bila lokasi rinci tidak tersedia |
 | Kemenkes RI Infeksi Emerging | Nasional | Weekly update dan spot report publik sebagai publikasi, bukan angka kasus terstruktur |
@@ -32,7 +32,22 @@ Situs: https://ajatikusumah.github.io/Zoonosis-and-Emerging-Infectious-Diseases-
 
 Pencarian GDELT mencakup TADs prioritas, termasuk PMK/FMD, ASF, LSD, CSF, PPR, Newcastle disease, African horse sickness, serta sheep/goat pox. Judul media TADs tetap ditempatkan dalam cluster **rumor/verifikasi** sampai dikonfirmasi oleh otoritas veteriner atau sumber resmi lain.
 
-Ketiga sumber nasional di atas berstatus **terkonfirmasi** karena merupakan sumber resmi. Namun hanya AWR menghasilkan rekaman bertipe `event`. Profil Kesehatan Kemenkes dan Profil Statistik Kesehatan BPS bertipe `report`, sehingga tidak dipetakan sebagai wabah dan tidak masuk penjumlahan KPI kasus. Untuk AWR, kematian atau pemusnahan yang tidak tersedia tetap disimpan sebagai `null`, bukan nol.
+Ketiga sumber nasional di atas berstatus **terkonfirmasi** karena merupakan sumber resmi. AWR menghasilkan rekaman `event` penyakit hewan. Halaman publikasi Profil Kesehatan Kemenkes dan Profil Statistik Kesehatan BPS tetap bertipe `report`; khusus angka kasus zoonosis/PIE yang diekstrak dan divalidasi dari Profil Kesehatan Indonesia 2024, rekamannya bertipe `event` historis dengan tanggal akhir periode. Untuk AWR, kematian atau pemusnahan yang tidak tersedia tetap disimpan sebagai `null`, bukan nol.
+
+## Dataset historis Profil Kesehatan Indonesia 2024
+
+File `data/import/kemkes-profile-2024-cases.csv` memuat 95 rekaman agregat dan de-identifikasi dari publikasi resmi Kemenkes. Data dapat ditampilkan dari filter periode **Semua periode (termasuk 2022–2024)** dan seluruhnya berada pada cluster **terkonfirmasi**.
+
+| Kelompok data | Periode | Unit | Aturan ekstraksi |
+|---|---|---|---|
+| Rabies | 2022–2024 | Provinsi | Hanya kematian Lyssa pada Lampiran 74.c (halaman PDF 499); GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies |
+| Leptospirosis | 2022–2024 | Provinsi | Kasus dan kematian pada Lampiran 74.d (halaman PDF 500) |
+| COVID-19 | 2024 | Nasional | 8.624 kasus konfirmasi dan 93 kematian pada Bab VI halaman buku 228 / PDF 260; angka kumulatif tidak digandakan |
+| Mpox | 2024 | Provinsi | 14 kasus pada lima provinsi pada Bab VI halaman buku 228 / PDF 260 |
+| Legionellosis | 2024 | Provinsi | Hanya 16 kasus konfirmasi pada Bab VI halaman buku 229 / PDF 261; 126 suspek tidak dimasukkan ke cluster terkonfirmasi |
+| Polio cVDPV2 | 2024 | Provinsi | Tujuh kasus pada lima provinsi pada Bab VI halaman buku 229 / PDF 261 |
+
+Dua berkas Profil Kesehatan Indonesia 2022 yang diterima identik byte-per-byte. Keduanya digunakan sebagai pemeriksaan silang, bukan diimpor dua kali. Tabel rabies dan leptospirosis 2022 memakai angka pada edisi 2024 karena merupakan seri terbaru 2022–2024. Peta risiko MERS, indikator kesiapsiagaan, serta angka pajanan tanpa definisi kasus tidak dimasukkan sebagai kejadian.
 
 ## Sumber yang tercatat tetapi belum diambil otomatis
 
