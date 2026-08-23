@@ -1,18 +1,18 @@
 {
   "metadata": {
-    "generated_at": "2026-08-23T03:32:54.775499Z",
+    "generated_at": "2026-08-23T12:21:17.981435Z",
     "update_interval_hours": 48,
     "mode": "near-real-time",
-    "records": 147,
-    "events": 73,
+    "records": 242,
+    "events": 168,
     "reports": 74,
-    "imported_records": 9,
-    "import_files_scanned": 1,
+    "imported_records": 104,
+    "import_files_scanned": 2,
     "import_validation_errors": 0,
     "import_validation_warnings": 0,
     "method_note": "Official records and open media signals are stored separately; unknown counts remain null.",
-    "tads_records": 53,
-    "tads_confirmed": 32,
+    "tads_records": 99,
+    "tads_confirmed": 78,
     "tads_rumor": 21
   },
   "sources": [
@@ -25,7 +25,7 @@
       "url": "https://infeksiemerging.kemkes.go.id/",
       "note": "Weekly update dan spot report publik; diperlakukan sebagai publikasi, bukan angka kasus terstruktur.",
       "status": "live",
-      "last_checked": "2026-08-23T03:32:54.775499Z",
+      "last_checked": "2026-08-23T12:21:17.981435Z",
       "records": 33,
       "error": null
     },
@@ -38,7 +38,7 @@
       "url": "https://www.kemkes.go.id/id/category/profil-kesehatan",
       "note": "Publikasi tahunan resmi; ditampilkan sebagai referensi dan tidak menaikkan KPI kejadian/kasus.",
       "status": "live",
-      "last_checked": "2026-08-23T03:32:54.775499Z",
+      "last_checked": "2026-08-23T12:21:17.981435Z",
       "records": 1,
       "error": null
     },
@@ -51,7 +51,7 @@
       "url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/",
       "note": "SITREPS bulanan 11 penyakit prioritas; kejadian telah dikonfirmasi sebagai diagnosis definitif (DX). Snapshot resmi terakhir dipertahankan bila proteksi situs menolak klien otomatis.",
       "status": "stale",
-      "last_checked": "2026-08-23T03:32:54.775499Z",
+      "last_checked": "2026-08-23T12:21:17.981435Z",
       "records": 14,
       "error": "SourceFetchError: Halaman AWR tidak dapat dibaca otomatis (kemungkinan proteksi Cloudflare); snapshot resmi terakhir dipertahankan."
     },
@@ -64,7 +64,7 @@
       "url": "https://www.bps.go.id/id/publication/2025/12/12/7d17daec8d62c852fc354945/profil-statistik-kesehatan-2025.html",
       "note": "Publikasi tahunan berbasis Susenas Maret 2025; referensi statistik, bukan feed kejadian wabah.",
       "status": "live",
-      "last_checked": "2026-08-23T03:32:54.775499Z",
+      "last_checked": "2026-08-23T12:21:17.981435Z",
       "records": 1,
       "error": null
     },
@@ -116,7 +116,7 @@
       "url": "https://www.who.int/southeastasia/outbreaks-and-emergencies/surveillance-and-alert/sear-epi-bulletins",
       "note": "Buletin regional ditampilkan sebagai publikasi; ekstraksi angka tabel belum dilakukan.",
       "status": "live",
-      "last_checked": "2026-08-23T03:32:54.775499Z",
+      "last_checked": "2026-08-23T12:21:17.981435Z",
       "records": 25,
       "error": null
     },
@@ -155,7 +155,7 @@
       "url": "https://www.who.int/emergencies/disease-outbreak-news",
       "note": "Diambil dari API publik WHO dan dipetakan pada centroid negara bila lokasi lebih rinci tidak tersedia.",
       "status": "live",
-      "last_checked": "2026-08-23T03:32:54.775499Z",
+      "last_checked": "2026-08-23T12:21:17.981435Z",
       "records": 43,
       "error": null
     },
@@ -168,7 +168,7 @@
       "url": "https://www.gdeltproject.org/",
       "note": "Judul disaring untuk nama penyakit dan indikator kejadian; semua rekaman tetap berstatus rumor/verifikasi, dan negara hanya dipetakan bila disebut dalam judul.",
       "status": "stale",
-      "last_checked": "2026-08-23T03:32:54.775499Z",
+      "last_checked": "2026-08-23T12:21:17.981435Z",
       "records": 21,
       "error": "HTTPError: HTTP Error 429: Too Many Requests"
     },
@@ -271,7 +271,7 @@
       "access_level": "public",
       "url": "https://www.abc.net.au/news/rural/2026-01-22/cattle-industry-cautious-lumpy-skin-disease-reaches-bali/106256000",
       "status": "imported",
-      "last_checked": "2026-08-23T03:32:54.775499Z",
+      "last_checked": "2026-08-23T12:21:17.981435Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -284,7 +284,7 @@
       "access_level": "public",
       "url": "https://en.antaranews.com/news/375693/indonesia-seeks-woah-recognition-on-fmd-free-zones-without-vaccination",
       "status": "imported",
-      "last_checked": "2026-08-23T03:32:54.775499Z",
+      "last_checked": "2026-08-23T12:21:17.981435Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -297,7 +297,7 @@
       "access_level": "public",
       "url": "https://www.balipost.com/news/2024/04/01/394276/ASF-Masuk-Bali,Satu-Sampel...html",
       "status": "imported",
-      "last_checked": "2026-08-23T03:32:54.775499Z",
+      "last_checked": "2026-08-23T12:21:17.981435Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -310,7 +310,7 @@
       "access_level": "public",
       "url": "https://fao.org/animal-health/situation-updates/asf-in-asia-pacific/en",
       "status": "imported",
-      "last_checked": "2026-08-23T03:32:54.775499Z",
+      "last_checked": "2026-08-23T12:21:17.981435Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -323,8 +323,21 @@
       "access_level": "public",
       "url": "https://fao.org/animal-health/situation-updates/asf-in-asia-pacific/en",
       "status": "imported",
-      "last_checked": "2026-08-23T03:32:54.775499Z",
+      "last_checked": "2026-08-23T12:21:17.981435Z",
       "records": 1,
+      "error": null,
+      "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
+    },
+    {
+      "id": "kemkes-profile-2024-cases",
+      "name": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "level": "Nasional",
+      "kind": "Laporan resmi",
+      "access_level": "public",
+      "url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "status": "imported",
+      "last_checked": "2026-08-23T12:21:17.981435Z",
+      "records": 95,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
     },
@@ -336,7 +349,7 @@
       "access_level": "public",
       "url": "https://link.springer.com/article/10.1007/s11250-024-04067-y",
       "status": "imported",
-      "last_checked": "2026-08-23T03:32:54.775499Z",
+      "last_checked": "2026-08-23T12:21:17.981435Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -349,7 +362,7 @@
       "access_level": "public",
       "url": "https://bali.tribunnews.com/bali/598286/distan-bali-tanggapi-puluhan-ekor-babi-mati-mendadak-sebut-asf-telah-jadi-penyakit-endemis-di-bali",
       "status": "imported",
-      "last_checked": "2026-08-23T03:32:54.775499Z",
+      "last_checked": "2026-08-23T12:21:17.981435Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -362,7 +375,7 @@
       "access_level": "public",
       "url": "https://www.wrlfmd.org/sites/world/files/quick_media/WOAH-FAO%20FMD%20Ref%20Lab%20Report%20Jan-Mar%202026%20%20v3.pdf",
       "status": "imported",
-      "last_checked": "2026-08-23T03:32:54.775499Z",
+      "last_checked": "2026-08-23T12:21:17.981435Z",
       "records": 2,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -504,7 +517,7 @@
       "updated": "2026-08-22T05:00:00Z",
       "evidence": "confirmed",
       "response": "Publikasi berkala",
-      "changed24h": true,
+      "changed24h": false,
       "changeType": "Buletin baru",
       "change": "Weekly update Kemenkes dipublikasikan.",
       "human": {
@@ -8167,6 +8180,2470 @@
       "access_level": "public"
     },
     {
+      "id": "kemkes-profile-rabies-lyssa-2024-sumatera-utara",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2024 · Sumatera Utara",
+      "location": "Sumatera Utara, Indonesia",
+      "iso3": "IDN",
+      "lat": 2.12,
+      "lon": 99.55,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 14
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2024-sumatera-barat",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2024 · Sumatera Barat",
+      "location": "Sumatera Barat, Indonesia",
+      "iso3": "IDN",
+      "lat": -0.74,
+      "lon": 100.8,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 3
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2024-riau",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2024 · Riau",
+      "location": "Riau, Indonesia",
+      "iso3": "IDN",
+      "lat": 0.29,
+      "lon": 101.71,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 5
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2024-sumatera-selatan",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2024 · Sumatera Selatan",
+      "location": "Sumatera Selatan, Indonesia",
+      "iso3": "IDN",
+      "lat": -3.32,
+      "lon": 103.91,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 5
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2024-bengkulu",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2024 · Bengkulu",
+      "location": "Bengkulu, Indonesia",
+      "iso3": "IDN",
+      "lat": -3.58,
+      "lon": 102.35,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 1
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2024-bali",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2024 · Bali",
+      "location": "Bali, Indonesia",
+      "iso3": "IDN",
+      "lat": -8.34,
+      "lon": 115.09,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 7
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2024-nusa-tenggara-barat",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2024 · Nusa Tenggara Barat",
+      "location": "Nusa Tenggara Barat, Indonesia",
+      "iso3": "IDN",
+      "lat": -8.65,
+      "lon": 117.36,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 10
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2024-nusa-tenggara-timur",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2024 · Nusa Tenggara Timur",
+      "location": "Nusa Tenggara Timur, Indonesia",
+      "iso3": "IDN",
+      "lat": -8.66,
+      "lon": 121.08,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 46
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2024-kalimantan-barat",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2024 · Kalimantan Barat",
+      "location": "Kalimantan Barat, Indonesia",
+      "iso3": "IDN",
+      "lat": -0.28,
+      "lon": 111.48,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 9
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2024-sulawesi-utara",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2024 · Sulawesi Utara",
+      "location": "Sulawesi Utara, Indonesia",
+      "iso3": "IDN",
+      "lat": 0.62,
+      "lon": 123.98,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 11
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2024-sulawesi-tengah",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2024 · Sulawesi Tengah",
+      "location": "Sulawesi Tengah, Indonesia",
+      "iso3": "IDN",
+      "lat": -1.43,
+      "lon": 121.45,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 1
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2024-sulawesi-selatan",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2024 · Sulawesi Selatan",
+      "location": "Sulawesi Selatan, Indonesia",
+      "iso3": "IDN",
+      "lat": -3.67,
+      "lon": 119.97,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 4
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2024-gorontalo",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2024 · Gorontalo",
+      "location": "Gorontalo, Indonesia",
+      "iso3": "IDN",
+      "lat": 0.7,
+      "lon": 122.45,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 2
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2024-maluku",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2024 · Maluku",
+      "location": "Maluku, Indonesia",
+      "iso3": "IDN",
+      "lat": -3.24,
+      "lon": 130.15,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 4
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2024-dki-jakarta",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2024 · DKI Jakarta",
+      "location": "DKI Jakarta, Indonesia",
+      "iso3": "IDN",
+      "lat": -6.21,
+      "lon": 106.85,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 22,
+        "deaths": 5
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2024-jawa-barat",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2024 · Jawa Barat",
+      "location": "Jawa Barat, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.09,
+      "lon": 107.67,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 62,
+        "deaths": 8
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2024-jawa-tengah",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2024 · Jawa Tengah",
+      "location": "Jawa Tengah, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.15,
+      "lon": 110.14,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 545,
+        "deaths": 66
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2024-di-yogyakarta",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2024 · DI Yogyakarta",
+      "location": "DI Yogyakarta, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.88,
+      "lon": 110.43,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 168,
+        "deaths": 13
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2024-jawa-timur",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2024 · Jawa Timur",
+      "location": "Jawa Timur, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.54,
+      "lon": 112.24,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 487,
+        "deaths": 6
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2024-banten",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2024 · Banten",
+      "location": "Banten, Indonesia",
+      "iso3": "IDN",
+      "lat": -6.41,
+      "lon": 106.06,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 67,
+        "deaths": 9
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2024-kalimantan-utara",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2024 · Kalimantan Utara",
+      "location": "Kalimantan Utara, Indonesia",
+      "iso3": "IDN",
+      "lat": 3.07,
+      "lon": 116.04,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 15,
+        "deaths": 2
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2024-sulawesi-selatan",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2024 · Sulawesi Selatan",
+      "location": "Sulawesi Selatan, Indonesia",
+      "iso3": "IDN",
+      "lat": -3.67,
+      "lon": 119.97,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 21,
+        "deaths": 5
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2024-sumatera-selatan",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2024 · Sumatera Selatan",
+      "location": "Sumatera Selatan, Indonesia",
+      "iso3": "IDN",
+      "lat": -3.32,
+      "lon": 103.91,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 2,
+        "deaths": 0
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2024-kalimantan-timur",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2024 · Kalimantan Timur",
+      "location": "Kalimantan Timur, Indonesia",
+      "iso3": "IDN",
+      "lat": 0.54,
+      "lon": 116.42,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 41,
+        "deaths": 2
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2024-kalimantan-selatan",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2024 · Kalimantan Selatan",
+      "location": "Kalimantan Selatan, Indonesia",
+      "iso3": "IDN",
+      "lat": -3.09,
+      "lon": 115.28,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 15,
+        "deaths": 1
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2024-bali",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2024 · Bali",
+      "location": "Bali, Indonesia",
+      "iso3": "IDN",
+      "lat": -8.34,
+      "lon": 115.09,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 3,
+        "deaths": 0
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2024-gorontalo",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2024 · Gorontalo",
+      "location": "Gorontalo, Indonesia",
+      "iso3": "IDN",
+      "lat": 0.7,
+      "lon": 122.45,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 57,
+        "deaths": 4
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2024-kalimantan-barat",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2024 · Kalimantan Barat",
+      "location": "Kalimantan Barat, Indonesia",
+      "iso3": "IDN",
+      "lat": -0.28,
+      "lon": 111.48,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 1,
+        "deaths": 0
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-2024-covid-19",
+      "record_type": "event",
+      "disease": "COVID-19",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Kasus konfirmasi COVID-19 — tahun 2024",
+      "location": "Indonesia",
+      "iso3": "IDN",
+      "lat": -2.55,
+      "lon": 118.01,
+      "location_precision": "country",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans penyakit infeksi emerging",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 8624,
+        "deaths": 93
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Bab VI halaman buku 228 / PDF 260; angka 2024 bukan total kumulatif.",
+      "economic": null,
+      "summary": "Agregat kasus tahunan resmi dan de-identifikasi dari Profil Kesehatan Indonesia 2024.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-2024-mpox-dki-jakarta",
+      "record_type": "event",
+      "disease": "Mpox",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Mpox — tahun 2024 · DKI Jakarta",
+      "location": "DKI Jakarta, Indonesia",
+      "iso3": "IDN",
+      "lat": -6.21,
+      "lon": 106.85,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans penyakit infeksi emerging",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 8,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Bab VI halaman buku 228 / PDF 260; jumlah provinsi menjumlah menjadi 14 kasus.",
+      "economic": null,
+      "summary": "Agregat kasus tahunan resmi dan de-identifikasi dari Profil Kesehatan Indonesia 2024.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-2024-mpox-banten",
+      "record_type": "event",
+      "disease": "Mpox",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Mpox — tahun 2024 · Banten",
+      "location": "Banten, Indonesia",
+      "iso3": "IDN",
+      "lat": -6.41,
+      "lon": 106.06,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans penyakit infeksi emerging",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 2,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Bab VI halaman buku 228 / PDF 260; jumlah provinsi menjumlah menjadi 14 kasus.",
+      "economic": null,
+      "summary": "Agregat kasus tahunan resmi dan de-identifikasi dari Profil Kesehatan Indonesia 2024.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-2024-mpox-di-yogyakarta",
+      "record_type": "event",
+      "disease": "Mpox",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Mpox — tahun 2024 · DI Yogyakarta",
+      "location": "DI Yogyakarta, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.88,
+      "lon": 110.43,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans penyakit infeksi emerging",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 2,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Bab VI halaman buku 228 / PDF 260; jumlah provinsi menjumlah menjadi 14 kasus.",
+      "economic": null,
+      "summary": "Agregat kasus tahunan resmi dan de-identifikasi dari Profil Kesehatan Indonesia 2024.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-2024-mpox-jawa-barat",
+      "record_type": "event",
+      "disease": "Mpox",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Mpox — tahun 2024 · Jawa Barat",
+      "location": "Jawa Barat, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.09,
+      "lon": 107.67,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans penyakit infeksi emerging",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 1,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Bab VI halaman buku 228 / PDF 260; jumlah provinsi menjumlah menjadi 14 kasus.",
+      "economic": null,
+      "summary": "Agregat kasus tahunan resmi dan de-identifikasi dari Profil Kesehatan Indonesia 2024.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-2024-mpox-jawa-timur",
+      "record_type": "event",
+      "disease": "Mpox",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Mpox — tahun 2024 · Jawa Timur",
+      "location": "Jawa Timur, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.54,
+      "lon": 112.24,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans penyakit infeksi emerging",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 1,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Bab VI halaman buku 228 / PDF 260; jumlah provinsi menjumlah menjadi 14 kasus.",
+      "economic": null,
+      "summary": "Agregat kasus tahunan resmi dan de-identifikasi dari Profil Kesehatan Indonesia 2024.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-2024-legionellosis-jawa-barat",
+      "record_type": "event",
+      "disease": "Legionellosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Legionellosis terkonfirmasi — tahun 2024 · Jawa Barat",
+      "location": "Jawa Barat, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.09,
+      "lon": 107.67,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans penyakit infeksi emerging",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 10,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Bab VI halaman buku 229 / PDF 261; hanya 16 kasus konfirmasi yang dimuat dan 126 suspek tidak dihitung.",
+      "economic": null,
+      "summary": "Agregat kasus tahunan resmi dan de-identifikasi dari Profil Kesehatan Indonesia 2024.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-2024-legionellosis-kepulauan-riau",
+      "record_type": "event",
+      "disease": "Legionellosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Legionellosis terkonfirmasi — tahun 2024 · Kepulauan Riau",
+      "location": "Kepulauan Riau, Indonesia",
+      "iso3": "IDN",
+      "lat": 3.95,
+      "lon": 108.14,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans penyakit infeksi emerging",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 4,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Bab VI halaman buku 229 / PDF 261; hanya 16 kasus konfirmasi yang dimuat dan 126 suspek tidak dihitung.",
+      "economic": null,
+      "summary": "Agregat kasus tahunan resmi dan de-identifikasi dari Profil Kesehatan Indonesia 2024.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-2024-legionellosis-bali",
+      "record_type": "event",
+      "disease": "Legionellosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Legionellosis terkonfirmasi — tahun 2024 · Bali",
+      "location": "Bali, Indonesia",
+      "iso3": "IDN",
+      "lat": -8.34,
+      "lon": 115.09,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans penyakit infeksi emerging",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 2,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Bab VI halaman buku 229 / PDF 261; hanya 16 kasus konfirmasi yang dimuat dan 126 suspek tidak dihitung.",
+      "economic": null,
+      "summary": "Agregat kasus tahunan resmi dan de-identifikasi dari Profil Kesehatan Indonesia 2024.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-2024-polio-papua-pegunungan",
+      "record_type": "event",
+      "disease": "Polio cVDPV2",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Polio cVDPV2 — tahun 2024 · Papua Pegunungan",
+      "location": "Papua Pegunungan, Indonesia",
+      "iso3": "IDN",
+      "lat": -4.0,
+      "lon": 138.9,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans penyakit infeksi emerging",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 1,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Bab VI halaman buku 229 / PDF 261; jumlah provinsi menjumlah menjadi 7 kasus cVDPV2.",
+      "economic": null,
+      "summary": "Agregat kasus tahunan resmi dan de-identifikasi dari Profil Kesehatan Indonesia 2024.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-2024-polio-papua-selatan",
+      "record_type": "event",
+      "disease": "Polio cVDPV2",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Polio cVDPV2 — tahun 2024 · Papua Selatan",
+      "location": "Papua Selatan, Indonesia",
+      "iso3": "IDN",
+      "lat": -6.71,
+      "lon": 139.69,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans penyakit infeksi emerging",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 3,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Bab VI halaman buku 229 / PDF 261; jumlah provinsi menjumlah menjadi 7 kasus cVDPV2.",
+      "economic": null,
+      "summary": "Agregat kasus tahunan resmi dan de-identifikasi dari Profil Kesehatan Indonesia 2024.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-2024-polio-papua-tengah",
+      "record_type": "event",
+      "disease": "Polio cVDPV2",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Polio cVDPV2 — tahun 2024 · Papua Tengah",
+      "location": "Papua Tengah, Indonesia",
+      "iso3": "IDN",
+      "lat": -3.74,
+      "lon": 136.5,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans penyakit infeksi emerging",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 1,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Bab VI halaman buku 229 / PDF 261; jumlah provinsi menjumlah menjadi 7 kasus cVDPV2.",
+      "economic": null,
+      "summary": "Agregat kasus tahunan resmi dan de-identifikasi dari Profil Kesehatan Indonesia 2024.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-2024-polio-banten",
+      "record_type": "event",
+      "disease": "Polio cVDPV2",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Polio cVDPV2 — tahun 2024 · Banten",
+      "location": "Banten, Indonesia",
+      "iso3": "IDN",
+      "lat": -6.41,
+      "lon": 106.06,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans penyakit infeksi emerging",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 1,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Bab VI halaman buku 229 / PDF 261; jumlah provinsi menjumlah menjadi 7 kasus cVDPV2.",
+      "economic": null,
+      "summary": "Agregat kasus tahunan resmi dan de-identifikasi dari Profil Kesehatan Indonesia 2024.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-2024-polio-maluku-utara",
+      "record_type": "event",
+      "disease": "Polio cVDPV2",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Polio cVDPV2 — tahun 2024 · Maluku Utara",
+      "location": "Maluku Utara, Indonesia",
+      "iso3": "IDN",
+      "lat": 1.57,
+      "lon": 127.81,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2024-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2024-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans penyakit infeksi emerging",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 1,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Bab VI halaman buku 229 / PDF 261; jumlah provinsi menjumlah menjadi 7 kasus cVDPV2.",
+      "economic": null,
+      "summary": "Agregat kasus tahunan resmi dan de-identifikasi dari Profil Kesehatan Indonesia 2024.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
       "id": "asf-idn-2026-national",
       "record_type": "report",
       "disease": "African Swine Fever (ASF)",
@@ -8285,6 +10762,1664 @@
       "access_level": "public"
     },
     {
+      "id": "kemkes-profile-rabies-lyssa-2023-sumatera-utara",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2023 · Sumatera Utara",
+      "location": "Sumatera Utara, Indonesia",
+      "iso3": "IDN",
+      "lat": 2.12,
+      "lon": 99.55,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 20
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2023-sumatera-barat",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2023 · Sumatera Barat",
+      "location": "Sumatera Barat, Indonesia",
+      "iso3": "IDN",
+      "lat": -0.74,
+      "lon": 100.8,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 7
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2023-riau",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2023 · Riau",
+      "location": "Riau, Indonesia",
+      "iso3": "IDN",
+      "lat": 0.29,
+      "lon": 101.71,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 2
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2023-jambi",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2023 · Jambi",
+      "location": "Jambi, Indonesia",
+      "iso3": "IDN",
+      "lat": -1.49,
+      "lon": 102.44,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 1
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2023-sumatera-selatan",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2023 · Sumatera Selatan",
+      "location": "Sumatera Selatan, Indonesia",
+      "iso3": "IDN",
+      "lat": -3.32,
+      "lon": 103.91,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 4
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2023-bengkulu",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2023 · Bengkulu",
+      "location": "Bengkulu, Indonesia",
+      "iso3": "IDN",
+      "lat": -3.58,
+      "lon": 102.35,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 1
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2023-jawa-barat",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2023 · Jawa Barat",
+      "location": "Jawa Barat, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.09,
+      "lon": 107.67,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 1
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2023-bali",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2023 · Bali",
+      "location": "Bali, Indonesia",
+      "iso3": "IDN",
+      "lat": -8.34,
+      "lon": 115.09,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 9
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2023-nusa-tenggara-barat",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2023 · Nusa Tenggara Barat",
+      "location": "Nusa Tenggara Barat, Indonesia",
+      "iso3": "IDN",
+      "lat": -8.65,
+      "lon": 117.36,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 4
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2023-nusa-tenggara-timur",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2023 · Nusa Tenggara Timur",
+      "location": "Nusa Tenggara Timur, Indonesia",
+      "iso3": "IDN",
+      "lat": -8.66,
+      "lon": 121.08,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 35
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2023-kalimantan-barat",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2023 · Kalimantan Barat",
+      "location": "Kalimantan Barat, Indonesia",
+      "iso3": "IDN",
+      "lat": -0.28,
+      "lon": 111.48,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 16
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2023-kalimantan-tengah",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2023 · Kalimantan Tengah",
+      "location": "Kalimantan Tengah, Indonesia",
+      "iso3": "IDN",
+      "lat": -1.68,
+      "lon": 113.38,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 2
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2023-sulawesi-utara",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2023 · Sulawesi Utara",
+      "location": "Sulawesi Utara, Indonesia",
+      "iso3": "IDN",
+      "lat": 0.62,
+      "lon": 123.98,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 18
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2023-sulawesi-tengah",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2023 · Sulawesi Tengah",
+      "location": "Sulawesi Tengah, Indonesia",
+      "iso3": "IDN",
+      "lat": -1.43,
+      "lon": 121.45,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 3
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2023-sulawesi-selatan",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2023 · Sulawesi Selatan",
+      "location": "Sulawesi Selatan, Indonesia",
+      "iso3": "IDN",
+      "lat": -3.67,
+      "lon": 119.97,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 11
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2023-gorontalo",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2023 · Gorontalo",
+      "location": "Gorontalo, Indonesia",
+      "iso3": "IDN",
+      "lat": 0.7,
+      "lon": 122.45,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 1
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2023-maluku",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2023 · Maluku",
+      "location": "Maluku, Indonesia",
+      "iso3": "IDN",
+      "lat": -3.24,
+      "lon": 130.15,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 11
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2023-dki-jakarta",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2023 · DKI Jakarta",
+      "location": "DKI Jakarta, Indonesia",
+      "iso3": "IDN",
+      "lat": -6.21,
+      "lon": 106.85,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 15,
+        "deaths": 0
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2023-jawa-barat",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2023 · Jawa Barat",
+      "location": "Jawa Barat, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.09,
+      "lon": 107.67,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 54,
+        "deaths": 6
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2023-jawa-tengah",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2023 · Jawa Tengah",
+      "location": "Jawa Tengah, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.15,
+      "lon": 110.14,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 884,
+        "deaths": 139
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2023-di-yogyakarta",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2023 · DI Yogyakarta",
+      "location": "DI Yogyakarta, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.88,
+      "lon": 110.43,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 377,
+        "deaths": 32
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2023-jawa-timur",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2023 · Jawa Timur",
+      "location": "Jawa Timur, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.54,
+      "lon": 112.24,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 1090,
+        "deaths": 17
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2023-banten",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2023 · Banten",
+      "location": "Banten, Indonesia",
+      "iso3": "IDN",
+      "lat": -6.41,
+      "lon": 106.06,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 30,
+        "deaths": 7
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2023-maluku",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2023 · Maluku",
+      "location": "Maluku, Indonesia",
+      "iso3": "IDN",
+      "lat": -3.24,
+      "lon": 130.15,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 5,
+        "deaths": 0
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2023-kalimantan-utara",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2023 · Kalimantan Utara",
+      "location": "Kalimantan Utara, Indonesia",
+      "iso3": "IDN",
+      "lat": 3.07,
+      "lon": 116.04,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 35,
+        "deaths": 1
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2023-sulawesi-selatan",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2023 · Sulawesi Selatan",
+      "location": "Sulawesi Selatan, Indonesia",
+      "iso3": "IDN",
+      "lat": -3.67,
+      "lon": 119.97,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 26,
+        "deaths": 3
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2023-sulawesi-tenggara",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2023 · Sulawesi Tenggara",
+      "location": "Sulawesi Tenggara, Indonesia",
+      "iso3": "IDN",
+      "lat": -4.14,
+      "lon": 122.17,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 1,
+        "deaths": 0
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2023-kalimantan-timur",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2023 · Kalimantan Timur",
+      "location": "Kalimantan Timur, Indonesia",
+      "iso3": "IDN",
+      "lat": 0.54,
+      "lon": 116.42,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2023-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2023-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 28,
+        "deaths": 0
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
       "id": "lsd-idn-2023-national",
       "record_type": "report",
       "disease": "Lumpy Skin Disease (LSD)",
@@ -8341,6 +12476,1486 @@
       "summary": "LSD confirmed across at least 15 provinces (Aceh, N/W/S Sumatra, Riau, Jambi, Bengkulu, Lampung, Banten, W/C/E Java, DIY, Kalimantan Tengah) since first detection in 2022.",
       "source_level": "Global",
       "source_kind": "peer_reviewed_journal",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2022-sumatera-utara",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2022 · Sumatera Utara",
+      "location": "Sumatera Utara, Indonesia",
+      "iso3": "IDN",
+      "lat": 2.12,
+      "lon": 99.55,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 6
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2022-sumatera-barat",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2022 · Sumatera Barat",
+      "location": "Sumatera Barat, Indonesia",
+      "iso3": "IDN",
+      "lat": -0.74,
+      "lon": 100.8,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 8
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2022-sumatera-selatan",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2022 · Sumatera Selatan",
+      "location": "Sumatera Selatan, Indonesia",
+      "iso3": "IDN",
+      "lat": -3.32,
+      "lon": 103.91,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 1
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2022-bengkulu",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2022 · Bengkulu",
+      "location": "Bengkulu, Indonesia",
+      "iso3": "IDN",
+      "lat": -3.58,
+      "lon": 102.35,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 1
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2022-bali",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2022 · Bali",
+      "location": "Bali, Indonesia",
+      "iso3": "IDN",
+      "lat": -8.34,
+      "lon": 115.09,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 22
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2022-nusa-tenggara-barat",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2022 · Nusa Tenggara Barat",
+      "location": "Nusa Tenggara Barat, Indonesia",
+      "iso3": "IDN",
+      "lat": -8.65,
+      "lon": 117.36,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 3
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2022-nusa-tenggara-timur",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2022 · Nusa Tenggara Timur",
+      "location": "Nusa Tenggara Timur, Indonesia",
+      "iso3": "IDN",
+      "lat": -8.66,
+      "lon": 121.08,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 9
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2022-kalimantan-barat",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2022 · Kalimantan Barat",
+      "location": "Kalimantan Barat, Indonesia",
+      "iso3": "IDN",
+      "lat": -0.28,
+      "lon": 111.48,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 15
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2022-kalimantan-tengah",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2022 · Kalimantan Tengah",
+      "location": "Kalimantan Tengah, Indonesia",
+      "iso3": "IDN",
+      "lat": -1.68,
+      "lon": 113.38,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 1
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2022-sulawesi-utara",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2022 · Sulawesi Utara",
+      "location": "Sulawesi Utara, Indonesia",
+      "iso3": "IDN",
+      "lat": 0.62,
+      "lon": 123.98,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 13
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2022-sulawesi-tengah",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2022 · Sulawesi Tengah",
+      "location": "Sulawesi Tengah, Indonesia",
+      "iso3": "IDN",
+      "lat": -1.43,
+      "lon": 121.45,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 3
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2022-sulawesi-selatan",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2022 · Sulawesi Selatan",
+      "location": "Sulawesi Selatan, Indonesia",
+      "iso3": "IDN",
+      "lat": -3.67,
+      "lon": 119.97,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 14
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2022-sulawesi-tenggara",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2022 · Sulawesi Tenggara",
+      "location": "Sulawesi Tenggara, Indonesia",
+      "iso3": "IDN",
+      "lat": -4.14,
+      "lon": 122.17,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 2
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2022-gorontalo",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2022 · Gorontalo",
+      "location": "Gorontalo, Indonesia",
+      "iso3": "IDN",
+      "lat": 0.7,
+      "lon": 122.45,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 2
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-rabies-lyssa-2022-maluku",
+      "record_type": "event",
+      "disease": "Rabies",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Kematian rabies (Lyssa) — agregat tahunan 2022 · Maluku",
+      "location": "Maluku, Indonesia",
+      "iso3": "IDN",
+      "lat": -3.24,
+      "lon": 130.15,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Program pengendalian rabies",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": 2
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.c pada halaman PDF 499.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi. Angka adalah kematian Lyssa; GHPR dan pemberian VAR tidak dihitung sebagai kasus rabies.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2022-dki-jakarta",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2022 · DKI Jakarta",
+      "location": "DKI Jakarta, Indonesia",
+      "iso3": "IDN",
+      "lat": -6.21,
+      "lon": 106.85,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 18,
+        "deaths": 0
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2022-jawa-barat",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2022 · Jawa Barat",
+      "location": "Jawa Barat, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.09,
+      "lon": 107.67,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 187,
+        "deaths": 30
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2022-jawa-tengah",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2022 · Jawa Tengah",
+      "location": "Jawa Tengah, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.15,
+      "lon": 110.14,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 502,
+        "deaths": 70
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2022-di-yogyakarta",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2022 · DI Yogyakarta",
+      "location": "DI Yogyakarta, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.88,
+      "lon": 110.43,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 235,
+        "deaths": 13
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2022-jawa-timur",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2022 · Jawa Timur",
+      "location": "Jawa Timur, Indonesia",
+      "iso3": "IDN",
+      "lat": -7.54,
+      "lon": 112.24,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 606,
+        "deaths": 23
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2022-banten",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2022 · Banten",
+      "location": "Banten, Indonesia",
+      "iso3": "IDN",
+      "lat": -6.41,
+      "lon": 106.06,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 64,
+        "deaths": 12
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2022-kalimantan-utara",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2022 · Kalimantan Utara",
+      "location": "Kalimantan Utara, Indonesia",
+      "iso3": "IDN",
+      "lat": 3.07,
+      "lon": 116.04,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 3,
+        "deaths": 0
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2022-sulawesi-selatan",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2022 · Sulawesi Selatan",
+      "location": "Sulawesi Selatan, Indonesia",
+      "iso3": "IDN",
+      "lat": -3.67,
+      "lon": 119.97,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 1,
+        "deaths": 0
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2022-sulawesi-tenggara",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2022 · Sulawesi Tenggara",
+      "location": "Sulawesi Tenggara, Indonesia",
+      "iso3": "IDN",
+      "lat": -4.14,
+      "lon": 122.17,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 4,
+        "deaths": 0
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
+      "access_level": "public"
+    },
+    {
+      "id": "kemkes-profile-leptospirosis-2022-kalimantan-timur",
+      "record_type": "event",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis — agregat tahunan 2022 · Kalimantan Timur",
+      "location": "Kalimantan Timur, Indonesia",
+      "iso3": "IDN",
+      "lat": 0.54,
+      "lon": 116.42,
+      "location_precision": "province",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2022-12-31T00:00:00Z",
+      "onset": null,
+      "reported": "2022-12-31T00:00:00Z",
+      "updated": "2025-09-12T00:00:00Z",
+      "evidence": "confirmed",
+      "response": "Surveilans dan pengendalian leptospirosis",
+      "changed24h": false,
+      "changeType": "Impor terotorisasi",
+      "change": "Rekaman lolos validasi skema dan ditandai eksplisit untuk publikasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": 4,
+        "deaths": 0
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Profil Kesehatan Indonesia 2024",
+      "source_id": "kemkes-profile-2024-cases",
+      "source_url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
+      "verification": "Terkonfirmasi dari sumber resmi Kemenkes RI; Lampiran 74.d pada halaman PDF 500.",
+      "economic": null,
+      "summary": "Agregat tahunan resmi kasus dan kematian leptospirosis menurut provinsi.",
+      "source_level": "Nasional",
+      "source_kind": "Laporan resmi",
       "access_level": "public"
     }
   ]
