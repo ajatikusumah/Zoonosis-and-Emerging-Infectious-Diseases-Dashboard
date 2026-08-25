@@ -46,6 +46,9 @@ const state = {
 let metadata = {};
 let sources = [];
 let records = [];
+let denominatorMetadata = {};
+let humanPopulation = {};
+let livestockPopulation = {};
 let map = null;
 let markersLayer = null;
 let leafletReady = false;
@@ -254,6 +257,148 @@ function sumKnown(list, getter) {
   return { known: values.length > 0, total: values.reduce((sum, value) => sum + value, 0) };
 }
 
+function provinceName(location) {
+  const raw = String(location || "").replace(/,\s*Indonesia$/i, "").trim();
+  const aliases = {
+    "Di Yogyakarta": "DI Yogyakarta",
+    "Bangka Belitung": "Kepulauan Bangka Belitung",
+  };
+  return aliases[raw] || raw;
+}
+
+function recordYear(record) {
+  const date = recordDate(record);
+  return date ? date.getUTCFullYear() : null;
+}
+
+function percent(value, total) {
+  return total > 0 ? (value / total) * 100 : null;
+}
+
+function formatRate(value) {
+  return numeric(value) === null ? "—" : value.toLocaleString("id-ID", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function analyticRecords(disease) {
+  return records.filter((record) => record.record_type === "event"
+    && record.evidence === "confirmed"
+    && record.source_id === "kemkes-profile-2024-cases"
+    && record.disease === disease);
+}
+
+function renderEpiAnalytics() {
+  const disease = $("epi-disease").value;
+  const selected = analyticRecords(disease);
+  if (!selected.length) {
+    $("epi-metrics").innerHTML = '<div class="empty-state">Belum ada rekaman historis resmi untuk indikator ini.</div>';
+    $("epi-trend").innerHTML = "";
+    $("epi-ranking").innerHTML = "";
+    return;
+  }
+
+  const years = [...new Set(selected.map(recordYear).filter(Boolean))].sort((a, b) => a - b);
+  const latestYear = years.at(-1);
+  const latest = selected.filter((record) => recordYear(record) === latestYear);
+  const latestCases = sumKnown(latest, (record) => record.human?.confirmed);
+  const latestDeaths = sumKnown(latest, (record) => record.human?.deaths);
+  const caseRows = latest.filter((record) => numeric(record.human?.confirmed) !== null);
+  const completeDeathsForCases = caseRows.length > 0 && caseRows.every((record) => numeric(record.human?.deaths) !== null);
+  const cfr = latestCases.known && latestCases.total > 0 && completeDeathsForCases
+    ? (latestDeaths.total / latestCases.total) * 100 : null;
+
+  const usesCases = latestCases.known;
+  const metricLabel = usesCases ? "kasus" : "kematian";
+  const rateLabel = usesCases ? "insidensi dilaporkan" : "mortalitas dilaporkan";
+  const rateRows = latest.map((record) => {
+    const province = provinceName(record.location);
+    const population = humanPopulation[province]?.[latestYear];
+    const numerator = usesCases ? numeric(record.human?.confirmed) : numeric(record.human?.deaths);
+    const rate = numerator !== null && numeric(population) !== null && population > 0 ? (numerator / population) * 100000 : null;
+    return { record, province, population, numerator, rate };
+  }).filter((row) => row.numerator !== null);
+  const rateKnown = rateRows.filter((row) => row.rate !== null).sort((a, b) => b.rate - a.rate);
+  const highest = rateKnown[0] || null;
+
+  const totalMetric = usesCases ? latestCases.total : latestDeaths.total;
+  $("epi-metrics").innerHTML = `
+    <div class="epi-metric"><div class="metric-label">${escapeHtml(metricLabel)} · ${latestYear}</div><div class="metric-value">${escapeHtml(formatNumber(totalMetric))}</div><div class="metric-note">Agregat rekaman resmi yang tersedia</div></div>
+    <div class="epi-metric"><div class="metric-label">Kematian · ${latestYear}</div><div class="metric-value">${latestDeaths.known ? escapeHtml(formatNumber(latestDeaths.total)) : "—"}</div><div class="metric-note">Tidak tersedia tidak dianggap nol</div></div>
+    <div class="epi-metric"><div class="metric-label">CFR · ${latestYear}</div><div class="metric-value">${cfr === null ? "—" : `${formatRate(cfr)}%`}</div><div class="metric-note">${cfr === null ? "Kasus dan kematian sepadan belum lengkap" : "Kematian ÷ kasus pada rekaman sepadan"}</div></div>
+    <div class="epi-metric"><div class="metric-label">${escapeHtml(rateLabel)} tertinggi</div><div class="metric-value">${highest ? formatRate(highest.rate) : "—"}</div><div class="metric-note">${highest ? `${escapeHtml(highest.province)} · per 100.000 penduduk` : "Denominator wilayah/tahun belum cocok"}</div></div>`;
+
+  const trend = years.map((year) => {
+    const rows = selected.filter((record) => recordYear(record) === year);
+    const values = sumKnown(rows, (record) => usesCases ? record.human?.confirmed : record.human?.deaths);
+    const deaths = sumKnown(rows, (record) => record.human?.deaths);
+    return { year, value: values.known ? values.total : null, deaths: deaths.known ? deaths.total : null };
+  });
+  const trendMax = Math.max(...trend.map((row) => row.value || 0), 1);
+  $("epi-trend-note").textContent = `${usesCases ? "Kasus" : "Kematian"} dilaporkan menurut tahun publikasi; bukan tanggal onset.`;
+  $("epi-trend").innerHTML = trend.map((row) => `
+    <div class="trend-item">
+      <div class="trend-year">${row.year}</div>
+      <div class="trend-track" title="${escapeHtml(formatNumber(row.value))} ${escapeHtml(metricLabel)}"><div class="trend-cases" style="width:${row.value === null ? 0 : Math.max((row.value / trendMax) * 100, 1)}%;"></div></div>
+      <div class="trend-value">${escapeHtml(formatNumber(row.value))}<div class="text-muted" style="font-size:9px;font-weight:400;">${row.deaths === null ? "kematian —" : `${formatNumber(row.deaths)} meninggal`}</div></div>
+    </div>`).join("");
+
+  const ranking = [...rateRows].sort((a, b) => b.numerator - a.numerator);
+  const rankingMax = Math.max(...ranking.map((row) => row.numerator), 1);
+  const numeratorTotal = ranking.reduce((sum, row) => sum + row.numerator, 0);
+  $("epi-rank-note").textContent = `${latestYear} · proporsi dari total ${metricLabel} yang terekam; laju memakai proyeksi BPS tahun yang sama.`;
+  $("epi-ranking").innerHTML = ranking.slice(0, 10).map((row) => {
+    const share = percent(row.numerator, numeratorTotal);
+    return `<div class="rank-row" title="${escapeHtml(row.province)}: ${formatNumber(row.numerator)} ${escapeHtml(metricLabel)}">
+      <div class="rank-name">${escapeHtml(row.province)}</div>
+      <div class="rank-track"><div class="rank-fill" style="width:${Math.max((row.numerator / rankingMax) * 100, 1)}%;"></div></div>
+      <div class="rank-value">${formatNumber(row.numerator)}<div class="text-muted" style="font-size:9px;font-weight:400;">${share === null ? "—" : `${formatRate(share)}%`} · ${row.rate === null ? "rate —" : formatRate(row.rate)}</div></div>
+    </div>`;
+  }).join("");
+
+  const checks = [
+    ["Sumber primer", (record) => Boolean(safeUrl(record.source_url))],
+    ["Koordinat", (record) => numeric(record.lat) !== null && numeric(record.lon) !== null],
+    ["Tanggal onset", (record) => Boolean(record.onset)],
+    ["Kasus manusia", (record) => numeric(record.human?.confirmed) !== null],
+    ["Kematian", (record) => numeric(record.human?.deaths) !== null],
+    ["Denominator cocok", (record) => numeric(humanPopulation[provinceName(record.location)]?.[recordYear(record)]) !== null],
+  ];
+  $("epi-quality").innerHTML = checks.map(([label, check]) => {
+    const score = selected.filter(check).length;
+    const pct = (score / selected.length) * 100;
+    return `<div class="quality-item"><div class="quality-score">${Math.round(pct)}%</div><div class="quality-label">${escapeHtml(label)}<br>${score}/${selected.length} rekaman</div></div>`;
+  }).join("");
+
+  const humanSource = denominatorMetadata.human_population_source || {};
+  const animalSource = denominatorMetadata.livestock_population_source || {};
+  $("human-denominator-note").innerHTML = `<strong>Denominator manusia aktif.</strong> ${rateKnown.length}/${rateRows.length} wilayah ${latestYear} cocok dengan proyeksi BPS. <a href="${escapeHtml(safeUrl(humanSource.url))}" target="_blank" rel="noopener">Buka sumber BPS</a>.`;
+  $("animal-denominator-note").innerHTML = `<strong>Denominator ternak tersedia, rate belum dipaksakan.</strong> ${escapeHtml(livestockPopulation.species || "Sapi potong")} ${livestockPopulation.year || "—"}: ${formatNumber(livestockPopulation.values?.Indonesia)} ekor. Numerator AWR PMK bersifat bulanan dan multispecies, sehingga belum memenuhi pasangan numerator–denominator. <a href="${escapeHtml(safeUrl(animalSource.url))}" target="_blank" rel="noopener">Buka sumber Kementan</a>.`;
+}
+
+function populateEpiFilters() {
+  const diseases = [...new Set(records
+    .filter((record) => record.source_id === "kemkes-profile-2024-cases" && record.record_type === "event")
+    .map((record) => record.disease).filter(Boolean))].sort((a, b) => a.localeCompare(b, "id"));
+  $("epi-disease").innerHTML = diseases.map((disease) => `<option value="${escapeHtml(disease)}"${disease === "Leptospirosis" ? " selected" : ""}>${escapeHtml(disease)}</option>`).join("");
+  $("epi-disease").addEventListener("change", renderEpiAnalytics);
+  $("epi-apply-map").addEventListener("click", () => {
+    state.region = "id";
+    state.period = "all";
+    state.group = "all";
+    state.disease = $("epi-disease").value;
+    state.source = "kemkes-profile-2024-cases";
+    state.evidence = "confirmed";
+    $("f-region").value = state.region;
+    $("f-period").value = state.period;
+    $("f-group").value = state.group;
+    $("f-disease").value = state.disease;
+    $("f-source").value = state.source;
+    document.querySelectorAll(".evidence-chip").forEach((chip) => chip.classList.toggle("on", chip.dataset.ev === "confirmed"));
+    state.selectedId = null;
+    render();
+    $("map").scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+}
+
 function renderStats(list) {
   const eventsOnly = list.filter((record) => record.record_type === "event");
   const confirmed = eventsOnly.filter((record) => record.evidence === "confirmed");
@@ -405,16 +550,24 @@ async function start() {
   try {
     // The dataset is regenerated every 48 hours. A timestamp query avoids a
     // stale module response from the GitHub Pages/CDN cache after deployment.
-    const payload = await import(`../data/events.js?ts=${Date.now()}`);
+    const [payload, denominators] = await Promise.all([
+      import(`../data/events.js?ts=${Date.now()}`),
+      import(`../data/denominators.js?ts=${Date.now()}`),
+    ]);
     metadata = payload.metadata || {};
     sources = Array.isArray(payload.sources) ? payload.sources : [];
     records = Array.isArray(payload.events) ? payload.events : [];
+    denominatorMetadata = denominators.denominatorMetadata || {};
+    humanPopulation = denominators.humanPopulation || {};
+    livestockPopulation = denominators.livestockPopulation || {};
     initMap();
     populateFilters();
+    populateEpiFilters();
     bindFilters();
     renderMetadata();
     renderRegistry();
     render();
+    renderEpiAnalytics();
     window.setTimeout(() => { if (leafletReady) map.invalidateSize(); }, 100);
   } catch (error) {
     $("data-status").textContent = "Data gagal dimuat";

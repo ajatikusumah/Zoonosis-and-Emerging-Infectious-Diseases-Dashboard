@@ -16,6 +16,7 @@ Situs: https://ajatikusumah.github.io/Zoonosis-and-Emerging-Infectious-Diseases-
 - Registri sumber menunjukkan apakah suatu sumber aktif, hanya tersedia melalui portal, memerlukan akun, token, akses institusi, atau lisensi.
 - Impor CSV/Excel terotorisasi dengan validasi skema, persetujuan eksplisit `publish=true`, dan tampilan tingkat akses sumber.
 - Angka yang tidak tersedia disimpan sebagai `null` dan ditampilkan sebagai `—`, bukan dianggap nol.
+- Panel epidemiologi fase 1 menampilkan tren tahunan, CFR yang hanya dihitung dari kasus dan kematian yang sepadan, distribusi/proporsi provinsi, laju per 100.000 penduduk, dan skor kelengkapan elemen data.
 - Pembaruan segera saat file laporan baru masuk atau saat gateway mengirim sinyal `new-surveillance-report`, dengan pemeriksaan cadangan setiap 2 hari (48 jam).
 
 ## Sumber yang diambil otomatis
@@ -48,6 +49,18 @@ File `data/import/kemkes-profile-2024-cases.csv` memuat 95 rekaman agregat dan d
 | Polio cVDPV2 | 2024 | Provinsi | Tujuh kasus pada lima provinsi pada Bab VI halaman buku 229 / PDF 261 |
 
 Dua berkas Profil Kesehatan Indonesia 2022 yang diterima identik byte-per-byte. Keduanya digunakan sebagai pemeriksaan silang, bukan diimpor dua kali. Tabel rabies dan leptospirosis 2022 memakai angka pada edisi 2024 karena merupakan seri terbaru 2022–2024. Peta risiko MERS, indikator kesiapsiagaan, serta angka pajanan tanpa definisi kasus tidak dimasukkan sebagai kejadian.
+
+## Denominator dan definisi indikator
+
+`data/denominators.js` memuat proyeksi penduduk BPS 2022–2024 menurut 34 provinsi pada batas wilayah proyeksi SP2020, serta total Indonesia. Nilai berasal dari skenario tren publikasi **Proyeksi Penduduk Indonesia 2020–2050 Hasil SP2020** dan dikonversi dari ribu orang menjadi orang. Provinsi baru hasil pemekaran Papua tidak dipaksakan bergabung dengan provinsi induk; laju ditampilkan `—` bila denominator wilayah yang sepadan tidak tersedia.
+
+Aturan indikator:
+
+- **CFR** hanya dihitung bila jumlah kasus dan kematian tersedia pada penyakit, wilayah, dan tahun yang sepadan.
+- **Insidensi dilaporkan** dihitung sebagai kasus baru tahunan yang dilaporkan dibagi proyeksi penduduk pada provinsi dan tahun yang sama, dikalikan 100.000. Indikator ini tidak mengoreksi under-ascertainment atau perbedaan sensitivitas surveilans.
+- Untuk rabies, numerator historis yang tersedia adalah kematian Lyssa; dashboard menampilkan **mortalitas dilaporkan**, bukan insidensi rabies.
+- Tanggal pada tren adalah tahun publikasi/periode tabel karena tanggal onset tidak tersedia; dashboard menyatakannya secara eksplisit.
+- Populasi sapi potong 2024 dari publikasi resmi Kementan dicatat sebagai denominator referensi. Rate penyakit hewan AWR belum dihitung ketika numerator menggabungkan sapi, kambing, dan domba atau periodenya bulanan, karena pasangan spesies dan periode tidak sepadan.
 
 ## Sumber yang tercatat tetapi belum diambil otomatis
 

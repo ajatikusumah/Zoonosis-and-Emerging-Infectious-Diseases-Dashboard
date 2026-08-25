@@ -92,6 +92,41 @@
   .chart-fill { height: 100%; border-radius: var(--radius-pill); }
   .chart-row .num { width: 72px; flex: none; text-align: right; font-family: var(--font-heading); font-weight: 700; font-size: 13.5px; }
 
+  .epi-shell { background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(255,250,240,.96) 48%,rgba(239,249,242,.96)); border:1px solid rgba(233,231,226,.9); border-radius:24px; box-shadow:var(--shadow-md); padding:var(--space-6); margin:0 0 var(--space-8); }
+  .epi-head { display:flex; align-items:flex-end; justify-content:space-between; gap:var(--space-4); flex-wrap:wrap; margin-bottom:var(--space-5); }
+  .epi-kicker { color:var(--color-brand-hover); font-size:10.5px; letter-spacing:.08em; font-weight:800; text-transform:uppercase; margin-bottom:5px; }
+  .epi-controls { display:flex; align-items:flex-end; gap:var(--space-3); flex-wrap:wrap; }
+  .btn-secondary { color:var(--color-brand-hover); background:var(--color-brand-100); border:1px solid #f4c9c0; }
+  .btn-secondary:hover { color:#fff; background:var(--color-brand-hover); }
+  .epi-metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--space-3); margin-bottom:var(--space-4); }
+  .epi-metric { background:rgba(255,255,255,.86); border:1px solid var(--color-border-soft); border-radius:var(--radius-md); padding:var(--space-4); min-height:116px; }
+  .epi-metric .metric-label { font-size:10.5px; letter-spacing:.055em; text-transform:uppercase; color:var(--color-text-muted); font-weight:700; }
+  .epi-metric .metric-value { font-family:var(--font-heading); font-size:27px; line-height:1.15; font-weight:800; margin:8px 0 4px; }
+  .epi-metric .metric-note { color:var(--color-text-muted); font-size:11.5px; }
+  .epi-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:var(--space-4); }
+  .epi-card { background:rgba(255,255,255,.9); border:1px solid var(--color-border-soft); border-radius:var(--radius-lg); padding:var(--space-5); min-width:0; }
+  .epi-card h3 { font-family:var(--font-heading); font-size:16px; margin:0 0 4px; }
+  .epi-card-sub { color:var(--color-text-muted); font-size:11.5px; margin-bottom:var(--space-4); }
+  .trend-item { display:grid; grid-template-columns:46px 1fr 100px; gap:10px; align-items:center; margin:12px 0; }
+  .trend-year { font-family:var(--font-mono); font-size:11px; color:var(--color-text-muted); }
+  .trend-track { height:22px; border-radius:999px; background:var(--color-border-soft); overflow:hidden; position:relative; }
+  .trend-cases { height:100%; border-radius:999px; background:linear-gradient(90deg,#ec3013,#e78a22,#e1b820); min-width:2px; }
+  .trend-value { text-align:right; font-size:12px; font-weight:700; }
+  .epi-ranking { display:flex; flex-direction:column; gap:10px; }
+  .rank-row { display:grid; grid-template-columns:minmax(110px,150px) 1fr 72px; gap:10px; align-items:center; }
+  .rank-name { font-size:12px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .rank-track { height:9px; background:var(--color-border-soft); border-radius:999px; overflow:hidden; }
+  .rank-fill { height:100%; background:linear-gradient(90deg,#e43c22,#e59625,#e6c335,#57a268); border-radius:999px; }
+  .rank-value { text-align:right; font-size:11px; font-weight:700; }
+  .quality-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; margin-top:var(--space-4); }
+  .quality-item { padding:12px; border-radius:var(--radius-md); background:var(--color-border-soft); }
+  .quality-score { font-family:var(--font-heading); font-weight:800; font-size:19px; }
+  .quality-label { color:var(--color-text-muted); font-size:10px; line-height:1.25; margin-top:3px; }
+  .denominator-note { display:grid; grid-template-columns:1fr 1fr; gap:var(--space-3); margin-top:var(--space-4); }
+  .method-note { border-radius:var(--radius-md); padding:13px 15px; font-size:11.5px; background:#fff8df; color:#725b0f; }
+  .method-note.safe { background:#edf6ef; color:#386a48; }
+  .method-note a { color:inherit; font-weight:700; }
+
   .pub-list { background: var(--color-surface); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); border: 1px solid var(--color-border-soft); margin-bottom: var(--space-8); overflow: hidden; }
   .pub-item { display: flex; gap: var(--space-4); padding: 14px var(--space-5); border-bottom: 1px solid var(--color-border-soft); align-items: baseline; }
   .pub-item:last-child { border-bottom: none; }
@@ -127,6 +162,9 @@
     .map-section { grid-template-columns: 1fr; }
     .detail-panel { max-height: 420px; }
     .stats { grid-template-columns: 1fr 1fr; }
+    .epi-metrics { grid-template-columns:1fr 1fr; }
+    .epi-grid, .denominator-note { grid-template-columns:1fr; }
+    .quality-grid { grid-template-columns:repeat(3,1fr); }
     .import-grid { grid-template-columns: 1fr; }
     .pub-item { align-items:flex-start; flex-wrap:wrap; }
     .pub-item .pub-date { width:100%; }
@@ -254,6 +292,45 @@
     <div class="detail-panel" id="detail-panel"></div>
   </div>
 
+  <section class="epi-shell" aria-labelledby="epi-title">
+    <div class="epi-head">
+      <div>
+        <div class="epi-kicker">Analisis epidemiologi · fase 1</div>
+        <h2 id="epi-title">Tren, fatalitas, distribusi &amp; kelengkapan data</h2>
+        <div class="text-muted" style="font-size:12px;margin-top:4px;">Analisis terpisah dari feed near-real-time; hanya rekaman resmi terkonfirmasi yang memenuhi definisi indikator.</div>
+      </div>
+      <div class="epi-controls">
+        <div class="filter-field">
+          <label for="epi-disease">Penyakit historis</label>
+          <select id="epi-disease"><option>Leptospirosis</option></select>
+        </div>
+        <button class="btn btn-secondary" type="button" id="epi-apply-map">Tampilkan di peta</button>
+      </div>
+    </div>
+    <div class="epi-metrics" id="epi-metrics"></div>
+    <div class="epi-grid">
+      <div class="epi-card">
+        <h3>Tren temporal tahunan</h3>
+        <div class="epi-card-sub" id="epi-trend-note">Kasus dilaporkan; tahun publikasi profil kesehatan.</div>
+        <div id="epi-trend"></div>
+      </div>
+      <div class="epi-card">
+        <h3>Proporsi dan laju provinsi</h3>
+        <div class="epi-card-sub" id="epi-rank-note">Tahun terbaru dengan data tersedia.</div>
+        <div class="epi-ranking" id="epi-ranking"></div>
+      </div>
+    </div>
+    <div class="epi-card" style="margin-top:var(--space-4);">
+      <h3>Kualitas data untuk indikator terpilih</h3>
+      <div class="epi-card-sub">Persentase rekaman resmi yang memiliki setiap elemen; “tidak tersedia” tidak diubah menjadi nol.</div>
+      <div class="quality-grid" id="epi-quality"></div>
+    </div>
+    <div class="denominator-note">
+      <div class="method-note safe" id="human-denominator-note"></div>
+      <div class="method-note" id="animal-denominator-note"></div>
+    </div>
+  </section>
+
   <div class="section-title">
     <h2>Kejadian menurut lokasi</h2>
     <span class="text-muted" style="font-size:12px;">Kejadian manusia dan hewan; laporan publikasi tidak menaikkan KPI</span>
@@ -299,6 +376,6 @@
   </footer>
 </div>
 
-<script type="module" src="./assets/dashboard.js?v=20260820-4"></script>
+<script type="module" src="./assets/dashboard.js?v=20260825-1"></script>
 </body>
 </html>
