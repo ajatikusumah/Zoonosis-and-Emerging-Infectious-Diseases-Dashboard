@@ -1,19 +1,19 @@
 {
   "metadata": {
-    "generated_at": "2026-08-29T00:24:02.945160Z",
+    "generated_at": "2026-08-31T00:23:55.806858Z",
     "update_interval_hours": 48,
     "mode": "near-real-time",
-    "records": 243,
-    "events": 169,
-    "reports": 74,
+    "records": 245,
+    "events": 163,
+    "reports": 82,
     "imported_records": 104,
     "import_files_scanned": 2,
     "import_validation_errors": 0,
     "import_validation_warnings": 0,
     "method_note": "Official records and open media signals are stored separately; unknown counts remain null.",
-    "tads_records": 99,
+    "tads_records": 95,
     "tads_confirmed": 78,
-    "tads_rumor": 21
+    "tads_rumor": 17
   },
   "sources": [
     {
@@ -25,7 +25,7 @@
       "url": "https://infeksiemerging.kemkes.go.id/",
       "note": "Weekly update dan spot report publik; diperlakukan sebagai publikasi, bukan angka kasus terstruktur.",
       "status": "live",
-      "last_checked": "2026-08-29T00:24:02.945160Z",
+      "last_checked": "2026-08-31T00:23:55.806858Z",
       "records": 33,
       "error": null
     },
@@ -38,7 +38,7 @@
       "url": "https://www.kemkes.go.id/id/category/profil-kesehatan",
       "note": "Publikasi tahunan resmi; ditampilkan sebagai referensi dan tidak menaikkan KPI kejadian/kasus.",
       "status": "live",
-      "last_checked": "2026-08-29T00:24:02.945160Z",
+      "last_checked": "2026-08-31T00:23:55.806858Z",
       "records": 1,
       "error": null
     },
@@ -51,7 +51,7 @@
       "url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/",
       "note": "SITREPS bulanan 11 penyakit prioritas; kejadian telah dikonfirmasi sebagai diagnosis definitif (DX). Snapshot resmi terakhir dipertahankan bila proteksi situs menolak klien otomatis.",
       "status": "stale",
-      "last_checked": "2026-08-29T00:24:02.945160Z",
+      "last_checked": "2026-08-31T00:23:55.806858Z",
       "records": 14,
       "error": "SourceFetchError: Halaman AWR tidak dapat dibaca otomatis (kemungkinan proteksi Cloudflare); snapshot resmi terakhir dipertahankan."
     },
@@ -64,7 +64,7 @@
       "url": "https://www.bps.go.id/id/publication/2025/12/12/7d17daec8d62c852fc354945/profil-statistik-kesehatan-2025.html",
       "note": "Publikasi tahunan berbasis Susenas Maret 2025; referensi statistik, bukan feed kejadian wabah.",
       "status": "live",
-      "last_checked": "2026-08-29T00:24:02.945160Z",
+      "last_checked": "2026-08-31T00:23:55.806858Z",
       "records": 1,
       "error": null
     },
@@ -116,7 +116,7 @@
       "url": "https://www.who.int/southeastasia/outbreaks-and-emergencies/surveillance-and-alert/sear-epi-bulletins",
       "note": "Buletin regional ditampilkan sebagai publikasi; ekstraksi angka tabel belum dilakukan.",
       "status": "live",
-      "last_checked": "2026-08-29T00:24:02.945160Z",
+      "last_checked": "2026-08-31T00:23:55.806858Z",
       "records": 25,
       "error": null
     },
@@ -155,8 +155,8 @@
       "url": "https://www.who.int/emergencies/disease-outbreak-news",
       "note": "Diambil dari API publik WHO dan dipetakan pada centroid negara bila lokasi lebih rinci tidak tersedia.",
       "status": "live",
-      "last_checked": "2026-08-29T00:24:02.945160Z",
-      "records": 44,
+      "last_checked": "2026-08-31T00:23:55.806858Z",
+      "records": 43,
       "error": null
     },
     {
@@ -167,10 +167,10 @@
       "access_level": "public",
       "url": "https://www.gdeltproject.org/",
       "note": "Judul disaring untuk nama penyakit dan indikator kejadian; semua rekaman tetap berstatus rumor/verifikasi, dan negara hanya dipetakan bila disebut dalam judul.",
-      "status": "stale",
-      "last_checked": "2026-08-29T00:24:02.945160Z",
-      "records": 21,
-      "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1032)>"
+      "status": "live",
+      "last_checked": "2026-08-31T00:23:55.806858Z",
+      "records": 24,
+      "error": null
     },
     {
       "id": "fao-empres",
@@ -271,7 +271,7 @@
       "access_level": "public",
       "url": "https://www.abc.net.au/news/rural/2026-01-22/cattle-industry-cautious-lumpy-skin-disease-reaches-bali/106256000",
       "status": "imported",
-      "last_checked": "2026-08-29T00:24:02.945160Z",
+      "last_checked": "2026-08-31T00:23:55.806858Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -284,7 +284,7 @@
       "access_level": "public",
       "url": "https://en.antaranews.com/news/375693/indonesia-seeks-woah-recognition-on-fmd-free-zones-without-vaccination",
       "status": "imported",
-      "last_checked": "2026-08-29T00:24:02.945160Z",
+      "last_checked": "2026-08-31T00:23:55.806858Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -297,7 +297,7 @@
       "access_level": "public",
       "url": "https://www.balipost.com/news/2024/04/01/394276/ASF-Masuk-Bali,Satu-Sampel...html",
       "status": "imported",
-      "last_checked": "2026-08-29T00:24:02.945160Z",
+      "last_checked": "2026-08-31T00:23:55.806858Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -310,7 +310,7 @@
       "access_level": "public",
       "url": "https://fao.org/animal-health/situation-updates/asf-in-asia-pacific/en",
       "status": "imported",
-      "last_checked": "2026-08-29T00:24:02.945160Z",
+      "last_checked": "2026-08-31T00:23:55.806858Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -323,7 +323,7 @@
       "access_level": "public",
       "url": "https://fao.org/animal-health/situation-updates/asf-in-asia-pacific/en",
       "status": "imported",
-      "last_checked": "2026-08-29T00:24:02.945160Z",
+      "last_checked": "2026-08-31T00:23:55.806858Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -336,7 +336,7 @@
       "access_level": "public",
       "url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
       "status": "imported",
-      "last_checked": "2026-08-29T00:24:02.945160Z",
+      "last_checked": "2026-08-31T00:23:55.806858Z",
       "records": 95,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -349,7 +349,7 @@
       "access_level": "public",
       "url": "https://link.springer.com/article/10.1007/s11250-024-04067-y",
       "status": "imported",
-      "last_checked": "2026-08-29T00:24:02.945160Z",
+      "last_checked": "2026-08-31T00:23:55.806858Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -362,7 +362,7 @@
       "access_level": "public",
       "url": "https://bali.tribunnews.com/bali/598286/distan-bali-tanggapi-puluhan-ekor-babi-mati-mendadak-sebut-asf-telah-jadi-penyakit-endemis-di-bali",
       "status": "imported",
-      "last_checked": "2026-08-29T00:24:02.945160Z",
+      "last_checked": "2026-08-31T00:23:55.806858Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -375,7 +375,7 @@
       "access_level": "public",
       "url": "https://www.wrlfmd.org/sites/world/files/quick_media/WOAH-FAO%20FMD%20Ref%20Lab%20Report%20Jan-Mar%202026%20%20v3.pdf",
       "status": "imported",
-      "last_checked": "2026-08-29T00:24:02.945160Z",
+      "last_checked": "2026-08-31T00:23:55.806858Z",
       "records": 2,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -401,10 +401,10 @@
         "Asia-Pacific",
         "Global"
       ],
-      "published": "2026-08-29T05:00:00Z",
+      "published": "2026-08-31T05:00:00Z",
       "onset": null,
-      "reported": "2026-08-29T05:00:00Z",
-      "updated": "2026-08-29T05:00:00Z",
+      "reported": "2026-08-31T05:00:00Z",
+      "updated": "2026-08-31T05:00:00Z",
       "evidence": "confirmed",
       "response": "Publikasi berkala",
       "changed24h": true,
@@ -456,10 +456,10 @@
         "Asia-Pacific",
         "Global"
       ],
-      "published": "2026-08-29T05:00:00Z",
+      "published": "2026-08-31T05:00:00Z",
       "onset": null,
-      "reported": "2026-08-29T05:00:00Z",
-      "updated": "2026-08-29T05:00:00Z",
+      "reported": "2026-08-31T05:00:00Z",
+      "updated": "2026-08-31T05:00:00Z",
       "evidence": "confirmed",
       "response": "Publikasi berkala",
       "changed24h": true,
@@ -493,6 +493,215 @@
       "summary": null
     },
     {
+      "id": "gdelt-b842aaad43ee",
+      "record_type": "event",
+      "disease": "Ebola virus disease",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "എബോള വ്യാപനം അതിവേഗം പടരുന്നു ; പുതിയ മേഖലകളിൽ സ്ഥിരീകരിച്ചു | Ebola Outbreak Spreads Rapidly to New Areas in DR Congo",
+      "location": "Democratic Republic of the Congo",
+      "iso3": "COD",
+      "lat": -4.04,
+      "lon": 21.76,
+      "location_precision": "country",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-30T13:00:00Z",
+      "onset": null,
+      "reported": "2026-08-30T13:00:00Z",
+      "updated": "2026-08-30T13:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": true,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • mathrubhumi.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.mathrubhumi.com/health/news/ebola-outbreak-dr-congo-fastest-spread-tps45n7z",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: Malayalam; negara media: India."
+    },
+    {
+      "id": "gdelt-de693a27f7bf",
+      "record_type": "report",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis cases expected to decline at Manila hospital",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-29T16:45:00Z",
+      "onset": null,
+      "reported": "2026-08-29T16:45:00Z",
+      "updated": "2026-08-29T16:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • philstar.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.philstar.com/nation/2026/08/30/2552686/leptospirosis-cases-expected-decline-manila-hospital",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Philippines."
+    },
+    {
+      "id": "gdelt-1221d611b702",
+      "record_type": "report",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis cases seen surging in next 2 weeks",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-29T08:15:00Z",
+      "onset": null,
+      "reported": "2026-08-29T08:15:00Z",
+      "updated": "2026-08-29T08:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • sunstar.com.ph",
+      "source_id": "gdelt",
+      "source_url": "https://www.sunstar.com.ph/manila/leptospirosis-cases-seen-surging-in-next-2-weeks",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Philippines."
+    },
+    {
+      "id": "gdelt-0ad884f1508e",
+      "record_type": "report",
+      "disease": "African Swine Fever (ASF)",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs"
+      ],
+      "title": "Croatia lifts part of African swine fever restriction zones as outbreak eases - Xinhua",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-28T15:45:00Z",
+      "onset": null,
+      "reported": "2026-08-28T15:45:00Z",
+      "updated": "2026-08-28T15:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • english.news.cn",
+      "source_id": "gdelt",
+      "source_url": "https://english.news.cn/africa/20260828/e8f22513aef943daba885289e204d6b0/c.html",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: —."
+    },
+    {
       "id": "who-don-d4e01078e749",
       "record_type": "event",
       "disease": "Ebola virus disease",
@@ -514,7 +723,7 @@
       "updated": "2026-08-28T17:12:36Z",
       "evidence": "confirmed",
       "response": "Monitoring resmi",
-      "changed24h": true,
+      "changed24h": false,
       "changeType": "Konfirmasi/pembaruan resmi",
       "change": "WHO Disease Outbreak News diterbitkan atau diperbarui.",
       "human": {
@@ -543,6 +752,1077 @@
       "verification": "Sumber resmi WHO; koordinat menggunakan centroid negara.",
       "economic": null,
       "summary": "Since the last Disease Outbreak News was published on 14 August 2026, the outbreak has spread from 54 to 60 health zones. The number of affected provinces stands at six out of 26 provinces of the country: Bas-Uélé, Haut-Uélé, Ituri, North Kivu, South Kivu, and Tshopo. Six additional health zones reported cases since the last update - Ganga and Viadana health zones in Bas-Uélé province, Biena, Manguredjipa, and Mutwanga in North Kivu, and Tshopo health zone in Tshopo province. As of 26 August 2026, a total of 5794 confirmed cases, including 2786 deaths, have been reported, corresponding to a cr"
+    },
+    {
+      "id": "gdelt-efe1c5dabe2a",
+      "record_type": "report",
+      "disease": "African Swine Fever (ASF)",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs"
+      ],
+      "title": "Nagaland : African Swine Fever Confirmed in Three Villages of Kohima",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-28T11:30:00Z",
+      "onset": null,
+      "reported": "2026-08-28T11:30:00Z",
+      "updated": "2026-08-28T11:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • sentinelassam.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.sentinelassam.com/breakingnews/nagaland-african-swine-fever-confirmed-in-three-villages-of-kohima",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: India."
+    },
+    {
+      "id": "gdelt-1ca9b43eaabe",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "1st H5N1 bird flu case reported in Australian dolphin",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-28T07:15:00Z",
+      "onset": null,
+      "reported": "2026-08-28T07:15:00Z",
+      "updated": "2026-08-28T07:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • bignewsnetwork.com",
+      "source_id": "gdelt",
+      "source_url": "http://www.bignewsnetwork.com/news/279270697/1st-h5n1-bird-flu-case-reported-in-australian-dolphin",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United States."
+    },
+    {
+      "id": "gdelt-332218e92492",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Callala Bay : H5N1 bird flu detected as more cases emerge in NSW | Milton Ulladulla Times",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-28T04:30:00Z",
+      "onset": null,
+      "reported": "2026-08-28T04:30:00Z",
+      "updated": "2026-08-28T04:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • ulladullatimes.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.ulladullatimes.com.au/story/9339190/callala-bay-h5n1-bird-flu-detected-as-more-cases-emerge-in-nsw/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-2b0cb00f331d",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Callala Bay : H5N1 bird flu detected as more cases emerge in NSW | South Coast Register",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-28T02:00:00Z",
+      "onset": null,
+      "reported": "2026-08-28T02:00:00Z",
+      "updated": "2026-08-28T02:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • southcoastregister.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.southcoastregister.com.au/story/9339190/callala-bay-h5n1-bird-flu-detected-as-more-cases-emerge-in-nsw/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-1a5f4db1a3d9",
+      "record_type": "event",
+      "disease": "Ebola virus disease",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Ebola outbreak officially ends in Uganda as CEPI announces new vaccine candidate",
+      "location": "Uganda",
+      "iso3": "UGA",
+      "lat": 1.37,
+      "lon": 32.29,
+      "location_precision": "country",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-28T00:30:00Z",
+      "onset": null,
+      "reported": "2026-08-28T00:30:00Z",
+      "updated": "2026-08-28T00:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • cidrap.umn.edu",
+      "source_id": "gdelt",
+      "source_url": "https://www.cidrap.umn.edu/ebola/ebola-outbreak-officially-ends-uganda-cepi-announces-new-vaccine-candidate",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United States."
+    },
+    {
+      "id": "gdelt-dd7b85ae71d5",
+      "record_type": "report",
+      "disease": "Foot-and-Mouth Disease (FMD/PMK)",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs"
+      ],
+      "title": "NKY boy hospitalized with staph infection after hand , foot and mouth disease",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-28T00:15:00Z",
+      "onset": null,
+      "reported": "2026-08-28T00:15:00Z",
+      "updated": "2026-08-28T00:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • fox19.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.fox19.com/2026/08/27/nky-boy-hospitalized-with-staph-infection-after-hand-foot-mouth-disease/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United States."
+    },
+    {
+      "id": "gdelt-c633e9d89728",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Illawarra residents urged to be wise after H5 bird flu confirmed | South Coast Register",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-27T11:15:00Z",
+      "onset": null,
+      "reported": "2026-08-27T11:15:00Z",
+      "updated": "2026-08-27T11:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • southcoastregister.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.southcoastregister.com.au/story/9338693/illawarra-residents-urged-to-be-wise-after-h5-bird-flu-confirmed/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-9c150780439a",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Illawarra residents urged to be wise after H5 bird flu confirmed | Illawarra Mercury",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-27T07:45:00Z",
+      "onset": null,
+      "reported": "2026-08-27T07:45:00Z",
+      "updated": "2026-08-27T07:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • illawarramercury.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.illawarramercury.com.au/story/9338693/illawarra-residents-urged-to-be-wise-after-h5-bird-flu-confirmed/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-571f0378a122",
+      "record_type": "report",
+      "disease": "Mpox",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Mpox is back – and in new countries . How this outbreak can be contained",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-26T11:30:00Z",
+      "onset": null,
+      "reported": "2026-08-26T11:30:00Z",
+      "updated": "2026-08-26T11:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • theguardian.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.theguardian.com/global-development/2026/aug/26/global-health-mpox-outbreak-explainer-children",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United Kingdom."
+    },
+    {
+      "id": "gdelt-e9256670f5a6",
+      "record_type": "event",
+      "disease": "Mpox",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Taiwan records first domestic cases of Mpox clade Ib strain",
+      "location": "Taiwan",
+      "iso3": "TWN",
+      "lat": 23.7,
+      "lon": 120.96,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-26T07:45:00Z",
+      "onset": null,
+      "reported": "2026-08-26T07:45:00Z",
+      "updated": "2026-08-26T07:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • focustaiwan.tw",
+      "source_id": "gdelt",
+      "source_url": "https://focustaiwan.tw/society/202608260014",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Taiwan."
+    },
+    {
+      "id": "gdelt-d6b6eb0f3afa",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Serious warning for Aussie wildlife as suspected bird flu case detected in red fox in Adelaide",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-26T07:00:00Z",
+      "onset": null,
+      "reported": "2026-08-26T07:00:00Z",
+      "updated": "2026-08-26T07:00:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • perthnow.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.perthnow.com.au/news/serious-warning-for-aussie-wildlife-as-suspected-bird-flu-case-detected-in-red-fox-in-adelaide-c-22780428",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-16b0822f4086",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Illawarra bird flu : Windang tern tests positive for H5 strain | South Coast Register",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-26T06:30:00Z",
+      "onset": null,
+      "reported": "2026-08-26T06:30:00Z",
+      "updated": "2026-08-26T06:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • southcoastregister.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.southcoastregister.com.au/story/9337845/illawarra-bird-flu-windang-tern-tests-positive-for-h5-strain/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-9f1a71b2db70",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Illawarra bird flu : Windang tern tests positive for H5 strain | Southern Highland News",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-26T05:45:00Z",
+      "onset": null,
+      "reported": "2026-08-26T05:45:00Z",
+      "updated": "2026-08-26T05:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • southernhighlandnews.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.southernhighlandnews.com.au/story/9337845/illawarra-bird-flu-windang-tern-tests-positive-for-h5-strain/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-cc4be0a1cc6e",
+      "record_type": "report",
+      "disease": "Avian influenza",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Dr Vere Nicholson : Avian flu outbreak threatens wildlife extinction | Bay Post - Moruya Examiner",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-26T04:15:00Z",
+      "onset": null,
+      "reported": "2026-08-26T04:15:00Z",
+      "updated": "2026-08-26T04:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • batemansbaypost.com.au",
+      "source_id": "gdelt",
+      "source_url": "https://www.batemansbaypost.com.au/story/9337301/dr-vere-nicholson-avian-flu-outbreak-threatens-wildlife-extinction/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-e9e9b6be3aaf",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Australia confirms first H5N1 bird flu case in local mammal",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-24T22:15:00Z",
+      "onset": null,
+      "reported": "2026-08-24T22:15:00Z",
+      "updated": "2026-08-24T22:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • yahoo.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.yahoo.com/news/articles/australia-confirms-first-h5n1-bird-031307194.html",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: United States."
+    },
+    {
+      "id": "gdelt-130d56bea449",
+      "record_type": "report",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Leptospirosis cases surge ; NKTI now full",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-24T16:30:00Z",
+      "onset": null,
+      "reported": "2026-08-24T16:30:00Z",
+      "updated": "2026-08-24T16:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • philstar.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.philstar.com/nation/2026/08/25/2551586/leptospirosis-cases-surge-nkti-now-full",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Philippines."
+    },
+    {
+      "id": "gdelt-998ed4f70002",
+      "record_type": "report",
+      "disease": "Leptospirosis",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Manila Bulletin - Over 4 , 000 leptospirosis cases logged , 37 % lower than last year DOH",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-24T14:45:00Z",
+      "onset": null,
+      "reported": "2026-08-24T14:45:00Z",
+      "updated": "2026-08-24T14:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • mb.com.ph",
+      "source_id": "gdelt",
+      "source_url": "https://mb.com.ph/2026/08/24/over-4000-leptospirosis-cases-logged-37-lower-than-last-yeardoh",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Philippines."
+    },
+    {
+      "id": "gdelt-16c57f1c9181",
+      "record_type": "report",
+      "disease": "African Swine Fever (ASF)",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs"
+      ],
+      "title": "African Swine Fever Confirmed In Nagaland New Pangsha ; Restrictions Imposed In Noklak",
+      "location": "Lokasi belum teridentifikasi",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-08-24T11:15:00Z",
+      "onset": null,
+      "reported": "2026-08-24T11:15:00Z",
+      "updated": "2026-08-24T11:15:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • northeasttoday.in",
+      "source_id": "gdelt",
+      "source_url": "https://northeasttoday.in/northeast/african-swine-fever-confirmed-in-nagalands-new-pangsha-restrictions-imposed-in-noklak/",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: India."
+    },
+    {
+      "id": "gdelt-40ca4aab0125",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "South Australia reports 2nd suspected mammal bird flu case in seal",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-24T07:30:00Z",
+      "onset": null,
+      "reported": "2026-08-24T07:30:00Z",
+      "updated": "2026-08-24T07:30:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • australianherald.com",
+      "source_id": "gdelt",
+      "source_url": "http://www.australianherald.com/news/279261145/south-australia-reports-2nd-suspected-mammal-bird-flu-case-in-seal",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: Australia."
+    },
+    {
+      "id": "gdelt-b993189f73f6",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "South Australia reports 2nd suspected mammal bird flu case in seal",
+      "location": "Australia",
+      "iso3": "AUS",
+      "lat": -25.27,
+      "lon": 133.78,
+      "location_precision": "country",
+      "scopes": [
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-08-24T04:45:00Z",
+      "onset": null,
+      "reported": "2026-08-24T04:45:00Z",
+      "updated": "2026-08-24T04:45:00Z",
+      "evidence": "rumor",
+      "response": "Perlu verifikasi",
+      "changed24h": false,
+      "changeType": "Sinyal baru",
+      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "GDELT • prokerala.com",
+      "source_id": "gdelt",
+      "source_url": "https://www.prokerala.com/news/articles/a1803922.html",
+      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
+      "economic": null,
+      "summary": "Bahasa: English; negara media: India."
     },
     {
       "id": "kemkes-weekly-8000a24d7d24",
@@ -600,439 +1880,6 @@
       "summary": null
     },
     {
-      "id": "gdelt-cf69c497449a",
-      "record_type": "report",
-      "disease": "Avian influenza",
-      "title": "Little penguin dies from bird flu as case numbers grow",
-      "location": "Lokasi belum teridentifikasi",
-      "iso3": null,
-      "lat": null,
-      "lon": null,
-      "location_precision": "unknown",
-      "scopes": [
-        "Global"
-      ],
-      "published": "2026-08-15T11:45:00Z",
-      "onset": null,
-      "reported": "2026-08-15T11:45:00Z",
-      "updated": "2026-08-15T11:45:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • standard.net.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.standard.net.au/story/9330891/little-penguin-dies-from-bird-flu-as-case-numbers-grow/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia.",
-      "disease_groups": [
-        "Penyakit hewan prioritas",
-        "TADs",
-        "Zoonosis/EID"
-      ]
-    },
-    {
-      "id": "gdelt-9b1f4f826b18",
-      "record_type": "report",
-      "disease": "Avian influenza",
-      "title": "NSW confirms fifth H5 bird flu case , expands vaccine plans | Gloucester Advocate",
-      "location": "Lokasi belum teridentifikasi",
-      "iso3": null,
-      "lat": null,
-      "lon": null,
-      "location_precision": "unknown",
-      "scopes": [
-        "Global"
-      ],
-      "published": "2026-08-15T10:30:00Z",
-      "onset": null,
-      "reported": "2026-08-15T10:30:00Z",
-      "updated": "2026-08-15T10:30:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • gloucesteradvocate.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.gloucesteradvocate.com.au/story/9330870/nsw-confirms-fifth-h5-bird-flu-case-expands-vaccine-plans/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia.",
-      "disease_groups": [
-        "Penyakit hewan prioritas",
-        "TADs",
-        "Zoonosis/EID"
-      ]
-    },
-    {
-      "id": "gdelt-18bb69c4ae14",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "More cases of H5 bird flu detected in Tasmania as crested terns on King Island return positive test",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-15T09:45:00Z",
-      "onset": null,
-      "reported": "2026-08-15T09:45:00Z",
-      "updated": "2026-08-15T09:45:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • abc.net.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.abc.net.au/news/2026-08-14/tas-more-cases-of-bird-flu-in-tasmania/107037894",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia.",
-      "disease_groups": [
-        "Penyakit hewan prioritas",
-        "TADs",
-        "Zoonosis/EID"
-      ]
-    },
-    {
-      "id": "gdelt-412b4b24deba",
-      "record_type": "report",
-      "disease": "Avian influenza",
-      "title": "Penguin found dead from bird flu",
-      "location": "Lokasi belum teridentifikasi",
-      "iso3": null,
-      "lat": null,
-      "lon": null,
-      "location_precision": "unknown",
-      "scopes": [
-        "Global"
-      ],
-      "published": "2026-08-15T09:15:00Z",
-      "onset": null,
-      "reported": "2026-08-15T09:15:00Z",
-      "updated": "2026-08-15T09:15:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • smh.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.smh.com.au/national/penguin-found-dead-from-bird-flu-20260815-p60onc.html",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia.",
-      "disease_groups": [
-        "Penyakit hewan prioritas",
-        "TADs",
-        "Zoonosis/EID"
-      ]
-    },
-    {
-      "id": "gdelt-8cce476d2642",
-      "record_type": "report",
-      "disease": "Avian influenza",
-      "title": "Penguin found dead from bird flu",
-      "location": "Lokasi belum teridentifikasi",
-      "iso3": null,
-      "lat": null,
-      "lon": null,
-      "location_precision": "unknown",
-      "scopes": [
-        "Global"
-      ],
-      "published": "2026-08-15T09:15:00Z",
-      "onset": null,
-      "reported": "2026-08-15T09:15:00Z",
-      "updated": "2026-08-15T09:15:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • theage.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.theage.com.au/national/penguin-found-dead-from-bird-flu-20260815-p60onc.html",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia.",
-      "disease_groups": [
-        "Penyakit hewan prioritas",
-        "TADs",
-        "Zoonosis/EID"
-      ]
-    },
-    {
-      "id": "gdelt-e04a4fb80c25",
-      "record_type": "report",
-      "disease": "Avian influenza",
-      "title": "Little penguin dies from bird flu as case numbers grow",
-      "location": "Lokasi belum teridentifikasi",
-      "iso3": null,
-      "lat": null,
-      "lon": null,
-      "location_precision": "unknown",
-      "scopes": [
-        "Global"
-      ],
-      "published": "2026-08-15T08:30:00Z",
-      "onset": null,
-      "reported": "2026-08-15T08:30:00Z",
-      "updated": "2026-08-15T08:30:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • bendigoadvertiser.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.bendigoadvertiser.com.au/story/9330891/little-penguin-dies-from-bird-flu-as-case-numbers-grow/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia.",
-      "disease_groups": [
-        "Penyakit hewan prioritas",
-        "TADs",
-        "Zoonosis/EID"
-      ]
-    },
-    {
-      "id": "gdelt-a452d1471f2e",
-      "record_type": "report",
-      "disease": "Avian influenza",
-      "title": "Little penguin dies from bird flu as case numbers grow",
-      "location": "Lokasi belum teridentifikasi",
-      "iso3": null,
-      "lat": null,
-      "lon": null,
-      "location_precision": "unknown",
-      "scopes": [
-        "Global"
-      ],
-      "published": "2026-08-15T08:30:00Z",
-      "onset": null,
-      "reported": "2026-08-15T08:30:00Z",
-      "updated": "2026-08-15T08:30:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • theadvocate.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.theadvocate.com.au/story/9330891/little-penguin-dies-from-bird-flu-as-case-numbers-grow/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia.",
-      "disease_groups": [
-        "Penyakit hewan prioritas",
-        "TADs",
-        "Zoonosis/EID"
-      ]
-    },
-    {
-      "id": "gdelt-ae18dc0eed0b",
-      "record_type": "report",
-      "disease": "Avian influenza",
-      "title": "Little penguin dies from bird flu as case numbers grow",
-      "location": "Lokasi belum teridentifikasi",
-      "iso3": null,
-      "lat": null,
-      "lon": null,
-      "location_precision": "unknown",
-      "scopes": [
-        "Global"
-      ],
-      "published": "2026-08-15T07:45:00Z",
-      "onset": null,
-      "reported": "2026-08-15T07:45:00Z",
-      "updated": "2026-08-15T07:45:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • canberratimes.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.canberratimes.com.au/story/9330891/little-penguin-dies-from-bird-flu-as-case-numbers-grow/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia.",
-      "disease_groups": [
-        "Penyakit hewan prioritas",
-        "TADs",
-        "Zoonosis/EID"
-      ]
-    },
-    {
       "id": "who-don-e8844b5f6fb0",
       "record_type": "event",
       "disease": "Ebola virus disease",
@@ -1083,716 +1930,6 @@
       "verification": "Sumber resmi WHO; koordinat menggunakan centroid negara.",
       "economic": null,
       "summary": "The Bundibugyo virus disease (BVD) outbreak in the Democratic Republic of the Congo is in a phase of intense transmission. It is the largest Ebola outbreak ever reported in the country and expanding faster than any previous Ebola outbreak. The epidemic is increasingly characterized by sustained transmission within interconnected geographic clusters. Initially confined to the Mongbwalu health zone in Ituri Province, the outbreak has now expanded to 54 health zones across six provinces (Ituri, North Kivu, South Kivu, Haut-Uélé, Tshopo, and Bas-Uélé). The most recently affected Bas-Uélé province "
-    },
-    {
-      "id": "gdelt-4a26c975e033",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Tasmania confirms second H5 bird flu case on King Island | The Examiner",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-14T05:45:00Z",
-      "onset": null,
-      "reported": "2026-08-14T05:45:00Z",
-      "updated": "2026-08-14T05:45:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • examiner.com.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.examiner.com.au/story/9330366/tasmania-confirms-second-h5-bird-flu-case-on-king-island/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia.",
-      "disease_groups": [
-        "Penyakit hewan prioritas",
-        "TADs",
-        "Zoonosis/EID"
-      ]
-    },
-    {
-      "id": "gdelt-febd59c878cd",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Second case of H5 bird flu detected in Tasmania as crested tern on King Island tests positive",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-14T03:30:00Z",
-      "onset": null,
-      "reported": "2026-08-14T03:30:00Z",
-      "updated": "2026-08-14T03:30:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • abc.net.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.abc.net.au/news/2026-08-14/tas-second-case-of-bird-flu-in-tasmania/107037894",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia.",
-      "disease_groups": [
-        "Penyakit hewan prioritas",
-        "TADs",
-        "Zoonosis/EID"
-      ]
-    },
-    {
-      "id": "gdelt-9688a943c07e",
-      "record_type": "report",
-      "disease": "Avian influenza",
-      "title": "Victoria bird flu : Cases hit 69 , could spread to new species | The Standard",
-      "location": "Lokasi belum teridentifikasi",
-      "iso3": null,
-      "lat": null,
-      "lon": null,
-      "location_precision": "unknown",
-      "scopes": [
-        "Global"
-      ],
-      "published": "2026-08-14T02:30:00Z",
-      "onset": null,
-      "reported": "2026-08-14T02:30:00Z",
-      "updated": "2026-08-14T02:30:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • standard.net.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.standard.net.au/story/9330256/victoria-bird-flu-cases-hit-69-could-spread-to-new-species/",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia.",
-      "disease_groups": [
-        "Penyakit hewan prioritas",
-        "TADs",
-        "Zoonosis/EID"
-      ]
-    },
-    {
-      "id": "gdelt-4c89e5700902",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Bird keepers call for vaccines as bird flu detected inland in South Australia",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-14T02:15:00Z",
-      "onset": null,
-      "reported": "2026-08-14T02:15:00Z",
-      "updated": "2026-08-14T02:15:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • abc.net.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.abc.net.au/news/2026-08-14/bird-keepers-want-vaccines-as-bird-flu-detected-inland-in-sa/107031862",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia.",
-      "disease_groups": [
-        "Penyakit hewan prioritas",
-        "TADs",
-        "Zoonosis/EID"
-      ]
-    },
-    {
-      "id": "gdelt-37840a273cc5",
-      "record_type": "report",
-      "disease": "Avian influenza",
-      "title": "Bird flu detection at Narooma sparks fear for upcoming tourist season",
-      "location": "Lokasi belum teridentifikasi",
-      "iso3": null,
-      "lat": null,
-      "lon": null,
-      "location_precision": "unknown",
-      "scopes": [
-        "Global"
-      ],
-      "published": "2026-08-13T22:30:00Z",
-      "onset": null,
-      "reported": "2026-08-13T22:30:00Z",
-      "updated": "2026-08-13T22:30:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • abc.net.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.abc.net.au/news/2026-08-14/bird-flu-detection-creates-fear-for-bird-filled-tourist-drawcard/107024950",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia.",
-      "disease_groups": [
-        "Penyakit hewan prioritas",
-        "TADs",
-        "Zoonosis/EID"
-      ]
-    },
-    {
-      "id": "gdelt-3983ca267fd2",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Australia Tasmania reports 1st H5N1 bird flu case",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T09:15:00Z",
-      "onset": null,
-      "reported": "2026-08-13T09:15:00Z",
-      "updated": "2026-08-13T09:15:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • sydneysun.com",
-      "source_id": "gdelt",
-      "source_url": "http://www.sydneysun.com/news/279237896/australia-tasmania-reports-1st-h5n1-bird-flu-case",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia.",
-      "disease_groups": [
-        "Penyakit hewan prioritas",
-        "TADs",
-        "Zoonosis/EID"
-      ]
-    },
-    {
-      "id": "gdelt-8943775e1757",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Australia Tasmania reports 1st H5N1 bird flu case",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T09:15:00Z",
-      "onset": null,
-      "reported": "2026-08-13T09:15:00Z",
-      "updated": "2026-08-13T09:15:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • australianherald.com",
-      "source_id": "gdelt",
-      "source_url": "http://www.australianherald.com/news/279237896/australia-tasmania-reports-1st-h5n1-bird-flu-case",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia.",
-      "disease_groups": [
-        "Penyakit hewan prioritas",
-        "TADs",
-        "Zoonosis/EID"
-      ]
-    },
-    {
-      "id": "gdelt-d4f443d74ccc",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Bird flu confirmed in Tassie as battle for survival looms for Coorong pelicans",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T09:15:00Z",
-      "onset": null,
-      "reported": "2026-08-13T09:15:00Z",
-      "updated": "2026-08-13T09:15:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • abc.net.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.abc.net.au/listen/programs/australia-wide/australia-wide/107015088",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia.",
-      "disease_groups": [
-        "Penyakit hewan prioritas",
-        "TADs",
-        "Zoonosis/EID"
-      ]
-    },
-    {
-      "id": "gdelt-8b9041f6c2fa",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Bird flu threat to Tasmania endangered native wildlife spurs contingency plans",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T09:15:00Z",
-      "onset": null,
-      "reported": "2026-08-13T09:15:00Z",
-      "updated": "2026-08-13T09:15:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • abc.net.au",
-      "source_id": "gdelt",
-      "source_url": "https://www.abc.net.au/news/2026-08-13/threat-to-tasmanias-endangered-and-native-wildlife-from-bird-flu/107031902",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: Australia.",
-      "disease_groups": [
-        "Penyakit hewan prioritas",
-        "TADs",
-        "Zoonosis/EID"
-      ]
-    },
-    {
-      "id": "gdelt-3f3108548d82",
-      "record_type": "report",
-      "disease": "Ebola virus disease",
-      "title": "ഏറ്റവും മാരകമായ എബോള വ്യാപനം ; അടുത്ത ആറുമാസത്തിൽ ഏറ്റവും ഉയർന്നഘട്ടമെന്ന് WHO | WHO Warns Worst Ebola Outbreak Peak Expected in Six Months",
-      "location": "Lokasi belum teridentifikasi",
-      "iso3": null,
-      "lat": null,
-      "lon": null,
-      "location_precision": "unknown",
-      "scopes": [
-        "Global"
-      ],
-      "published": "2026-08-13T09:00:00Z",
-      "onset": null,
-      "reported": "2026-08-13T09:00:00Z",
-      "updated": "2026-08-13T09:00:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • mathrubhumi.com",
-      "source_id": "gdelt",
-      "source_url": "https://www.mathrubhumi.com/health/news/who-warns-ebola-outbreak-peak-expected-in-six-months-rsu3q97o",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: Malayalam; negara media: India.",
-      "disease_groups": [
-        "Zoonosis/EID"
-      ]
-    },
-    {
-      "id": "gdelt-ce4c956ec804",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Australia Tasmania reports 1st H5N1 bird flu case",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T06:45:00Z",
-      "onset": null,
-      "reported": "2026-08-13T06:45:00Z",
-      "updated": "2026-08-13T06:45:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • prokerala.com",
-      "source_id": "gdelt",
-      "source_url": "https://www.prokerala.com/news/articles/a1799720.html",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: India.",
-      "disease_groups": [
-        "Penyakit hewan prioritas",
-        "TADs",
-        "Zoonosis/EID"
-      ]
-    },
-    {
-      "id": "gdelt-fe5523a02513",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "Australia Tasmania reports 1st H5N1 bird flu case - Xinhua",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T05:00:00Z",
-      "onset": null,
-      "reported": "2026-08-13T05:00:00Z",
-      "updated": "2026-08-13T05:00:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • english.news.cn",
-      "source_id": "gdelt",
-      "source_url": "https://english.news.cn/20260813/87ac48e9544245f399e2233fc2297f44/c.html",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: —.",
-      "disease_groups": [
-        "Penyakit hewan prioritas",
-        "TADs",
-        "Zoonosis/EID"
-      ]
-    },
-    {
-      "id": "gdelt-e04b85cb6f4c",
-      "record_type": "event",
-      "disease": "Avian influenza",
-      "title": "H5 bird flu case confirmed in Tasmania",
-      "location": "Australia",
-      "iso3": "AUS",
-      "lat": -25.27,
-      "lon": 133.78,
-      "location_precision": "country",
-      "scopes": [
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-08-13T04:30:00Z",
-      "onset": null,
-      "reported": "2026-08-13T04:30:00Z",
-      "updated": "2026-08-13T04:30:00Z",
-      "evidence": "rumor",
-      "response": "Perlu verifikasi",
-      "changed24h": false,
-      "changeType": "Sinyal baru",
-      "change": "Artikel media terdeteksi; belum dianggap kejadian terkonfirmasi.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "GDELT • odt.co.nz",
-      "source_id": "gdelt",
-      "source_url": "https://www.odt.co.nz/news/world/h5-bird-flu-case-confirmed-in-tasmania-hhki7azi",
-      "verification": "Sinyal media terbuka; wajib diverifikasi terhadap sumber primer.",
-      "economic": null,
-      "summary": "Bahasa: English; negara media: New Zealand.",
-      "disease_groups": [
-        "Penyakit hewan prioritas",
-        "TADs",
-        "Zoonosis/EID"
-      ]
     },
     {
       "id": "who-sear-726351e89956",
@@ -8119,58 +8256,6 @@
       "verification": "Sumber resmi WHO; koordinat menggunakan centroid negara.",
       "economic": null,
       "summary": "On 1 September 2025, WHO received an alert from the Ministry of Health of the Democratic Republic of the Congo (DRC) regarding suspected cases of Ebola virus disease (EVD) in the Bulape Health Zone, Kasai Province, DRC. The first known index case was a pregnant woman who presented at Bulape General Reference Hospital on 20 August 2025 with symptoms of high fever, bloody diarrhoea, haemorrhage and extreme weakness. She died on 25 August from multiple organ failure. On 4 September 2025, following confirmatory laboratory testing, the Ministry of Health declared an outbreak of EVD. Ebola virus dis"
-    },
-    {
-      "id": "who-don-aa73b3df59c4",
-      "record_type": "event",
-      "disease": "Cholera",
-      "disease_groups": [
-        "Zoonosis/EID"
-      ],
-      "title": "Cholera – Multi-country with a focus on countries experiencing current surges",
-      "location": "Lokasi belum dipetakan",
-      "iso3": null,
-      "lat": null,
-      "lon": null,
-      "location_precision": "unknown",
-      "scopes": [
-        "Global"
-      ],
-      "published": "2025-08-29T09:00:18Z",
-      "onset": null,
-      "reported": "2025-08-29T09:00:18Z",
-      "updated": "2025-08-29T14:12:24Z",
-      "evidence": "confirmed",
-      "response": "Monitoring resmi",
-      "changed24h": false,
-      "changeType": "Konfirmasi/pembaruan resmi",
-      "change": "WHO Disease Outbreak News diterbitkan atau diperbarui.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "WHO Disease Outbreak News",
-      "source_id": "who-don",
-      "source_url": "https://www.who.int/2025-DON579",
-      "verification": "Sumber resmi WHO; koordinat menggunakan centroid negara.",
-      "economic": null,
-      "summary": "The global cholera situation continues to deteriorate, driven by conflict and poverty, posing a significant public health challenge across multiple WHO regions. Between 1 January and 17 August 2025, a total of 409 222 cholera/Acute Watery Diarrhoea (AWD) cases and 4738 deaths were reported globally, from 31 countries, with six of the 31 countries reporting case fatality rates above 1%, indicating serious gaps in case management and delayed access to care. Cholera is resurging in a number of countries, including some that had not reported substantial case numbers in years, like Chad and the Rep"
     },
     {
       "id": "fmd-idn-2025-zoning",
