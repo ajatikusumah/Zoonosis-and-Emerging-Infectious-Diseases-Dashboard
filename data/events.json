@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "generated_at": "2026-10-17T04:34:43.970379Z",
+    "generated_at": "2026-10-19T04:48:10.922110Z",
     "update_interval_hours": 48,
     "mode": "near-real-time",
-    "records": 245,
+    "records": 247,
     "events": 165,
-    "reports": 80,
+    "reports": 82,
     "imported_records": 104,
     "import_files_scanned": 2,
     "import_validation_errors": 0,
@@ -25,7 +25,7 @@
       "url": "https://infeksiemerging.kemkes.go.id/",
       "note": "Weekly update dan spot report publik; diperlakukan sebagai publikasi, bukan angka kasus terstruktur.",
       "status": "live",
-      "last_checked": "2026-10-17T04:34:43.970379Z",
+      "last_checked": "2026-10-19T04:48:10.922110Z",
       "records": 33,
       "error": null
     },
@@ -38,7 +38,7 @@
       "url": "https://www.kemkes.go.id/id/category/profil-kesehatan",
       "note": "Publikasi tahunan resmi; ditampilkan sebagai referensi dan tidak menaikkan KPI kejadian/kasus.",
       "status": "live",
-      "last_checked": "2026-10-17T04:34:43.970379Z",
+      "last_checked": "2026-10-19T04:48:10.922110Z",
       "records": 1,
       "error": null
     },
@@ -51,7 +51,7 @@
       "url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/",
       "note": "SITREPS bulanan 11 penyakit prioritas; kejadian telah dikonfirmasi sebagai diagnosis definitif (DX). Snapshot resmi terakhir dipertahankan bila proteksi situs menolak klien otomatis.",
       "status": "stale",
-      "last_checked": "2026-10-17T04:34:43.970379Z",
+      "last_checked": "2026-10-19T04:48:10.922110Z",
       "records": 14,
       "error": "SourceFetchError: Halaman AWR tidak dapat dibaca otomatis (kemungkinan proteksi Cloudflare); snapshot resmi terakhir dipertahankan."
     },
@@ -64,7 +64,7 @@
       "url": "https://www.bps.go.id/id/publication/2025/12/12/7d17daec8d62c852fc354945/profil-statistik-kesehatan-2025.html",
       "note": "Publikasi tahunan berbasis Susenas Maret 2025; referensi statistik, bukan feed kejadian wabah.",
       "status": "live",
-      "last_checked": "2026-10-17T04:34:43.970379Z",
+      "last_checked": "2026-10-19T04:48:10.922110Z",
       "records": 1,
       "error": null
     },
@@ -116,8 +116,8 @@
       "url": "https://www.who.int/southeastasia/outbreaks-and-emergencies/surveillance-and-alert/sear-epi-bulletins",
       "note": "Buletin regional ditampilkan sebagai publikasi; ekstraksi angka tabel belum dilakukan.",
       "status": "live",
-      "last_checked": "2026-10-17T04:34:43.970379Z",
-      "records": 23,
+      "last_checked": "2026-10-19T04:48:10.922110Z",
+      "records": 25,
       "error": null
     },
     {
@@ -155,7 +155,7 @@
       "url": "https://www.who.int/emergencies/disease-outbreak-news",
       "note": "Diambil dari API publik WHO dan dipetakan pada centroid negara bila lokasi lebih rinci tidak tersedia.",
       "status": "live",
-      "last_checked": "2026-10-17T04:34:43.970379Z",
+      "last_checked": "2026-10-19T04:48:10.922110Z",
       "records": 45,
       "error": null
     },
@@ -168,7 +168,7 @@
       "url": "https://www.gdeltproject.org/",
       "note": "Judul disaring untuk nama penyakit dan indikator kejadian; semua rekaman tetap berstatus rumor/verifikasi, dan negara hanya dipetakan bila disebut dalam judul.",
       "status": "stale",
-      "last_checked": "2026-10-17T04:34:43.970379Z",
+      "last_checked": "2026-10-19T04:48:10.922110Z",
       "records": 24,
       "error": "HTTPError: HTTP Error 429: Too Many Requests"
     },
@@ -271,7 +271,7 @@
       "access_level": "public",
       "url": "https://www.abc.net.au/news/rural/2026-01-22/cattle-industry-cautious-lumpy-skin-disease-reaches-bali/106256000",
       "status": "imported",
-      "last_checked": "2026-10-17T04:34:43.970379Z",
+      "last_checked": "2026-10-19T04:48:10.922110Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -284,7 +284,7 @@
       "access_level": "public",
       "url": "https://en.antaranews.com/news/375693/indonesia-seeks-woah-recognition-on-fmd-free-zones-without-vaccination",
       "status": "imported",
-      "last_checked": "2026-10-17T04:34:43.970379Z",
+      "last_checked": "2026-10-19T04:48:10.922110Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -297,7 +297,7 @@
       "access_level": "public",
       "url": "https://www.balipost.com/news/2024/04/01/394276/ASF-Masuk-Bali,Satu-Sampel...html",
       "status": "imported",
-      "last_checked": "2026-10-17T04:34:43.970379Z",
+      "last_checked": "2026-10-19T04:48:10.922110Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -310,7 +310,7 @@
       "access_level": "public",
       "url": "https://fao.org/animal-health/situation-updates/asf-in-asia-pacific/en",
       "status": "imported",
-      "last_checked": "2026-10-17T04:34:43.970379Z",
+      "last_checked": "2026-10-19T04:48:10.922110Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -323,7 +323,7 @@
       "access_level": "public",
       "url": "https://fao.org/animal-health/situation-updates/asf-in-asia-pacific/en",
       "status": "imported",
-      "last_checked": "2026-10-17T04:34:43.970379Z",
+      "last_checked": "2026-10-19T04:48:10.922110Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -336,7 +336,7 @@
       "access_level": "public",
       "url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
       "status": "imported",
-      "last_checked": "2026-10-17T04:34:43.970379Z",
+      "last_checked": "2026-10-19T04:48:10.922110Z",
       "records": 95,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -349,7 +349,7 @@
       "access_level": "public",
       "url": "https://link.springer.com/article/10.1007/s11250-024-04067-y",
       "status": "imported",
-      "last_checked": "2026-10-17T04:34:43.970379Z",
+      "last_checked": "2026-10-19T04:48:10.922110Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -362,7 +362,7 @@
       "access_level": "public",
       "url": "https://bali.tribunnews.com/bali/598286/distan-bali-tanggapi-puluhan-ekor-babi-mati-mendadak-sebut-asf-telah-jadi-penyakit-endemis-di-bali",
       "status": "imported",
-      "last_checked": "2026-10-17T04:34:43.970379Z",
+      "last_checked": "2026-10-19T04:48:10.922110Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -375,13 +375,68 @@
       "access_level": "public",
       "url": "https://www.wrlfmd.org/sites/world/files/quick_media/WOAH-FAO%20FMD%20Ref%20Lab%20Report%20Jan-Mar%202026%20%20v3.pdf",
       "status": "imported",
-      "last_checked": "2026-10-17T04:34:43.970379Z",
+      "last_checked": "2026-10-19T04:48:10.922110Z",
       "records": 2,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
     }
   ],
   "records": [
+    {
+      "id": "kemkes-weekly-1ecdbe59f0af",
+      "record_type": "report",
+      "disease": "Ringkasan penyakit infeksi emerging",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Perkembangan Situasi Penyakit Infeksi Emerging Minggu Epidemiologi ke-41 Tahun 2026",
+      "location": "Indonesia",
+      "iso3": "IDN",
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Indonesia",
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-10-17T05:00:00Z",
+      "onset": null,
+      "reported": "2026-10-17T05:00:00Z",
+      "updated": "2026-10-17T05:00:00Z",
+      "evidence": "confirmed",
+      "response": "Publikasi berkala",
+      "changed24h": false,
+      "changeType": "Buletin baru",
+      "change": "Weekly update Kemenkes dipublikasikan.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "Kemenkes RI • Infeksi Emerging",
+      "source_id": "kemkes-infem",
+      "source_url": "https://infeksiemerging.kemkes.go.id/weekly-update/perkembangan-situasi-penyakit-infeksi-emerging-minggu-epidemiologi-ke-41-tahun-2026",
+      "verification": "Publikasi resmi Kemenkes; angka rinci tersedia pada dokumen sumber.",
+      "economic": null,
+      "summary": null
+    },
     {
       "id": "who-don-a99f7f4fb58b",
       "record_type": "event",
@@ -404,7 +459,7 @@
       "updated": "2026-10-16T14:58:58Z",
       "evidence": "confirmed",
       "response": "Monitoring resmi",
-      "changed24h": true,
+      "changed24h": false,
       "changeType": "Konfirmasi/pembaruan resmi",
       "change": "WHO Disease Outbreak News diterbitkan atau diperbarui.",
       "human": {
@@ -646,6 +701,60 @@
       "summary": null
     },
     {
+      "id": "who-sear-1215c82fd858",
+      "record_type": "report",
+      "disease": "Epidemiological bulletin",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "20th edition, Epidemiological Bulletin WHO Health Emergencies Programme WHO Regional Office for South-East...",
+      "location": "WHO South-East Asia Region",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-10-07T05:00:00Z",
+      "onset": null,
+      "reported": "2026-10-07T05:00:00Z",
+      "updated": "2026-10-07T05:00:00Z",
+      "evidence": "confirmed",
+      "response": "Buletin regional",
+      "changed24h": false,
+      "changeType": "Buletin baru",
+      "change": "Buletin epidemiologi regional WHO diterbitkan.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "WHO SEARO • Epidemiological Bulletin",
+      "source_id": "who-sear",
+      "source_url": "https://iris.who.int/server/api/core/bitstreams/64268de9-d0cb-472e-a6b2-83f705dcf463/content",
+      "verification": "Publikasi resmi WHO Regional Office for South-East Asia.",
+      "economic": null,
+      "summary": null
+    },
+    {
       "id": "kemkes-weekly-442d6a94052c",
       "record_type": "report",
       "disease": "Ringkasan penyakit infeksi emerging",
@@ -808,6 +917,60 @@
       "summary": "Since the last Disease Outbreak News was published on 11 September 2026, the Bundibugyo virus outbreak in the Democratic Republic of the Congo has expanded further, with two additional health zones affected. These include Bulu health zone in a new province, Sud Ubangi, located on the north-west part of the country and Dungu health zone in Haut-Uélé province, bordering South Sudan. This brings the total number of affected health zones to 63 across seven provinces out of 26 provinces of the country: Bas-Uélé, Haut-Uélé, Ituri, North Kivu, South Kivu, Sud Ubangi and Tshopo. This latest geographic"
     },
     {
+      "id": "who-sear-23512b0a909a",
+      "record_type": "report",
+      "disease": "Epidemiological bulletin",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "19th edition, Epidemiological Bulletin WHO Health Emergencies Programme WHO Regional Office for South-East...",
+      "location": "WHO South-East Asia Region",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-09-23T05:00:00Z",
+      "onset": null,
+      "reported": "2026-09-23T05:00:00Z",
+      "updated": "2026-09-23T05:00:00Z",
+      "evidence": "confirmed",
+      "response": "Buletin regional",
+      "changed24h": false,
+      "changeType": "Buletin baru",
+      "change": "Buletin epidemiologi regional WHO diterbitkan.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "WHO SEARO • Epidemiological Bulletin",
+      "source_id": "who-sear",
+      "source_url": "https://iris.who.int/server/api/core/bitstreams/5232b09f-ccd4-49ab-9cea-de80cc980c13/content",
+      "verification": "Publikasi resmi WHO Regional Office for South-East Asia.",
+      "economic": null,
+      "summary": null
+    },
+    {
       "id": "kemkes-weekly-b9ed06a9ccb4",
       "record_type": "report",
       "disease": "Ringkasan penyakit infeksi emerging",
@@ -858,61 +1021,6 @@
       "source": "Kemenkes RI • Infeksi Emerging",
       "source_id": "kemkes-infem",
       "source_url": "https://infeksiemerging.kemkes.go.id/weekly-update/perkembangan-situasi-penyakit-infeksi-emerging-minggu-epidemiologi-ke-37-tahun-2026",
-      "verification": "Publikasi resmi Kemenkes; angka rinci tersedia pada dokumen sumber.",
-      "economic": null,
-      "summary": null
-    },
-    {
-      "id": "kemkes-weekly-3f6654052020",
-      "record_type": "report",
-      "disease": "Ringkasan penyakit infeksi emerging",
-      "disease_groups": [
-        "Zoonosis/EID"
-      ],
-      "title": "Perkembangan Situasi Penyakit Infeksi Emerging Minggu Epidemiologi ke-36 Tahun 2026",
-      "location": "Indonesia",
-      "iso3": "IDN",
-      "lat": null,
-      "lon": null,
-      "location_precision": "unknown",
-      "scopes": [
-        "Indonesia",
-        "ASEAN",
-        "Asia-Pacific",
-        "Global"
-      ],
-      "published": "2026-09-12T05:00:00Z",
-      "onset": null,
-      "reported": "2026-09-12T05:00:00Z",
-      "updated": "2026-09-12T05:00:00Z",
-      "evidence": "confirmed",
-      "response": "Publikasi berkala",
-      "changed24h": false,
-      "changeType": "Buletin baru",
-      "change": "Weekly update Kemenkes dipublikasikan.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "Kemenkes RI • Infeksi Emerging",
-      "source_id": "kemkes-infem",
-      "source_url": "https://infeksiemerging.kemkes.go.id/weekly-update/perkembangan-situasi-penyakit-infeksi-emerging-minggu-epidemiologi-ke-36-tahun-2026",
       "verification": "Publikasi resmi Kemenkes; angka rinci tersedia pada dokumen sumber.",
       "economic": null,
       "summary": null
