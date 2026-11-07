@@ -1,18 +1,18 @@
 {
   "metadata": {
-    "generated_at": "2026-11-05T06:55:16.651285Z",
+    "generated_at": "2026-11-07T06:05:47.766544Z",
     "update_interval_hours": 48,
     "mode": "near-real-time",
-    "records": 249,
-    "events": 168,
+    "records": 253,
+    "events": 172,
     "reports": 81,
     "imported_records": 104,
     "import_files_scanned": 2,
     "import_validation_errors": 0,
     "import_validation_warnings": 0,
     "method_note": "Official records and open media signals are stored separately; unknown counts remain null.",
-    "tads_records": 94,
-    "tads_confirmed": 77,
+    "tads_records": 93,
+    "tads_confirmed": 76,
     "tads_rumor": 17
   },
   "sources": [
@@ -25,7 +25,7 @@
       "url": "https://infeksiemerging.kemkes.go.id/",
       "note": "Weekly update dan spot report publik; diperlakukan sebagai publikasi, bukan angka kasus terstruktur.",
       "status": "live",
-      "last_checked": "2026-11-05T06:55:16.651285Z",
+      "last_checked": "2026-11-07T06:05:47.766544Z",
       "records": 33,
       "error": null
     },
@@ -38,7 +38,7 @@
       "url": "https://www.kemkes.go.id/id/category/profil-kesehatan",
       "note": "Publikasi tahunan resmi; ditampilkan sebagai referensi dan tidak menaikkan KPI kejadian/kasus.",
       "status": "live",
-      "last_checked": "2026-11-05T06:55:16.651285Z",
+      "last_checked": "2026-11-07T06:05:47.766544Z",
       "records": 1,
       "error": null
     },
@@ -51,7 +51,7 @@
       "url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/",
       "note": "SITREPS bulanan 11 penyakit prioritas; kejadian telah dikonfirmasi sebagai diagnosis definitif (DX). Snapshot resmi terakhir dipertahankan bila proteksi situs menolak klien otomatis.",
       "status": "stale",
-      "last_checked": "2026-11-05T06:55:16.651285Z",
+      "last_checked": "2026-11-07T06:05:47.766544Z",
       "records": 14,
       "error": "SourceFetchError: Halaman AWR tidak dapat dibaca otomatis (kemungkinan proteksi Cloudflare); snapshot resmi terakhir dipertahankan."
     },
@@ -64,7 +64,7 @@
       "url": "https://www.bps.go.id/id/publication/2025/12/12/7d17daec8d62c852fc354945/profil-statistik-kesehatan-2025.html",
       "note": "Publikasi tahunan berbasis Susenas Maret 2025; referensi statistik, bukan feed kejadian wabah.",
       "status": "live",
-      "last_checked": "2026-11-05T06:55:16.651285Z",
+      "last_checked": "2026-11-07T06:05:47.766544Z",
       "records": 1,
       "error": null
     },
@@ -116,7 +116,7 @@
       "url": "https://www.who.int/southeastasia/outbreaks-and-emergencies/surveillance-and-alert/sear-epi-bulletins",
       "note": "Buletin regional ditampilkan sebagai publikasi; ekstraksi angka tabel belum dilakukan.",
       "status": "live",
-      "last_checked": "2026-11-05T06:55:16.651285Z",
+      "last_checked": "2026-11-07T06:05:47.766544Z",
       "records": 24,
       "error": null
     },
@@ -155,8 +155,8 @@
       "url": "https://www.who.int/emergencies/disease-outbreak-news",
       "note": "Diambil dari API publik WHO dan dipetakan pada centroid negara bila lokasi lebih rinci tidak tersedia.",
       "status": "live",
-      "last_checked": "2026-11-05T06:55:16.651285Z",
-      "records": 48,
+      "last_checked": "2026-11-07T06:05:47.766544Z",
+      "records": 52,
       "error": null
     },
     {
@@ -168,7 +168,7 @@
       "url": "https://www.gdeltproject.org/",
       "note": "Judul disaring untuk nama penyakit dan indikator kejadian; semua rekaman tetap berstatus rumor/verifikasi, dan negara hanya dipetakan bila disebut dalam judul.",
       "status": "stale",
-      "last_checked": "2026-11-05T06:55:16.651285Z",
+      "last_checked": "2026-11-07T06:05:47.766544Z",
       "records": 24,
       "error": "HTTPError: HTTP Error 429: Too Many Requests"
     },
@@ -271,7 +271,7 @@
       "access_level": "public",
       "url": "https://www.abc.net.au/news/rural/2026-01-22/cattle-industry-cautious-lumpy-skin-disease-reaches-bali/106256000",
       "status": "imported",
-      "last_checked": "2026-11-05T06:55:16.651285Z",
+      "last_checked": "2026-11-07T06:05:47.766544Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -284,7 +284,7 @@
       "access_level": "public",
       "url": "https://en.antaranews.com/news/375693/indonesia-seeks-woah-recognition-on-fmd-free-zones-without-vaccination",
       "status": "imported",
-      "last_checked": "2026-11-05T06:55:16.651285Z",
+      "last_checked": "2026-11-07T06:05:47.766544Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -297,7 +297,7 @@
       "access_level": "public",
       "url": "https://www.balipost.com/news/2024/04/01/394276/ASF-Masuk-Bali,Satu-Sampel...html",
       "status": "imported",
-      "last_checked": "2026-11-05T06:55:16.651285Z",
+      "last_checked": "2026-11-07T06:05:47.766544Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -310,7 +310,7 @@
       "access_level": "public",
       "url": "https://fao.org/animal-health/situation-updates/asf-in-asia-pacific/en",
       "status": "imported",
-      "last_checked": "2026-11-05T06:55:16.651285Z",
+      "last_checked": "2026-11-07T06:05:47.766544Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -323,7 +323,7 @@
       "access_level": "public",
       "url": "https://fao.org/animal-health/situation-updates/asf-in-asia-pacific/en",
       "status": "imported",
-      "last_checked": "2026-11-05T06:55:16.651285Z",
+      "last_checked": "2026-11-07T06:05:47.766544Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -336,7 +336,7 @@
       "access_level": "public",
       "url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
       "status": "imported",
-      "last_checked": "2026-11-05T06:55:16.651285Z",
+      "last_checked": "2026-11-07T06:05:47.766544Z",
       "records": 95,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -349,7 +349,7 @@
       "access_level": "public",
       "url": "https://link.springer.com/article/10.1007/s11250-024-04067-y",
       "status": "imported",
-      "last_checked": "2026-11-05T06:55:16.651285Z",
+      "last_checked": "2026-11-07T06:05:47.766544Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -362,7 +362,7 @@
       "access_level": "public",
       "url": "https://bali.tribunnews.com/bali/598286/distan-bali-tanggapi-puluhan-ekor-babi-mati-mendadak-sebut-asf-telah-jadi-penyakit-endemis-di-bali",
       "status": "imported",
-      "last_checked": "2026-11-05T06:55:16.651285Z",
+      "last_checked": "2026-11-07T06:05:47.766544Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -375,7 +375,7 @@
       "access_level": "public",
       "url": "https://www.wrlfmd.org/sites/world/files/quick_media/WOAH-FAO%20FMD%20Ref%20Lab%20Report%20Jan-Mar%202026%20%20v3.pdf",
       "status": "imported",
-      "last_checked": "2026-11-05T06:55:16.651285Z",
+      "last_checked": "2026-11-07T06:05:47.766544Z",
       "records": 2,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -401,10 +401,10 @@
         "Asia-Pacific",
         "Global"
       ],
-      "published": "2026-11-05T05:00:00Z",
+      "published": "2026-11-07T05:00:00Z",
       "onset": null,
-      "reported": "2026-11-05T05:00:00Z",
-      "updated": "2026-11-05T05:00:00Z",
+      "reported": "2026-11-07T05:00:00Z",
+      "updated": "2026-11-07T05:00:00Z",
       "evidence": "confirmed",
       "response": "Publikasi berkala",
       "changed24h": true,
@@ -436,6 +436,266 @@
       "verification": "Publikasi resmi Kemenkes; angka rinci tersedia pada dokumen sumber.",
       "economic": null,
       "summary": null
+    },
+    {
+      "id": "who-don-02d9e1bbceb5",
+      "record_type": "event",
+      "disease": "Ebola virus disease",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Ebola disease caused by Bundibugyo virus - Democratic Republic of the Congo, Kenya and Nigeria",
+      "location": "Democratic Republic of the Congo",
+      "iso3": "COD",
+      "lat": -4.04,
+      "lon": 21.76,
+      "location_precision": "country",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-11-06T17:27:28Z",
+      "onset": null,
+      "reported": "2026-11-06T17:27:28Z",
+      "updated": "2026-11-06T20:54:21Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": true,
+      "changeType": "Konfirmasi/pembaruan resmi",
+      "change": "WHO Disease Outbreak News diterbitkan atau diperbarui.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "WHO Disease Outbreak News",
+      "source_id": "who-don",
+      "source_url": "https://www.who.int/2026-DON625",
+      "verification": "Sumber resmi WHO; koordinat menggunakan centroid negara.",
+      "economic": null,
+      "summary": "Since the publication of the previous Disease Outbreak News on 23 October 2026, the Bundibugyo virus disease (BVD) outbreak has expanded geographically in the Democratic Republic of the Congo. While some areas have seen a slight decline in cases, sustained, high-level transmission continues overall in the Democratic Republic of the Congo. As of 3 November 2026, a total of 10 668 confirmed cases, including 5198 deaths (crude case fatality ratio: 48.7%), have been reported across 67 health zones in eight provinces, with active transmission ongoing in 51 health zones. The high proportion of death"
+    },
+    {
+      "id": "who-don-c94fccc702c4",
+      "record_type": "event",
+      "disease": "Ebola virus disease",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Ebola disease caused by Bundibugyo virus - Democratic Republic of the Congo, Kenya and Nigeria",
+      "location": "Kenya",
+      "iso3": "KEN",
+      "lat": -0.02,
+      "lon": 37.91,
+      "location_precision": "country",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-11-06T17:27:28Z",
+      "onset": null,
+      "reported": "2026-11-06T17:27:28Z",
+      "updated": "2026-11-06T20:54:21Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": true,
+      "changeType": "Konfirmasi/pembaruan resmi",
+      "change": "WHO Disease Outbreak News diterbitkan atau diperbarui.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "WHO Disease Outbreak News",
+      "source_id": "who-don",
+      "source_url": "https://www.who.int/2026-DON625",
+      "verification": "Sumber resmi WHO; koordinat menggunakan centroid negara.",
+      "economic": null,
+      "summary": "Since the publication of the previous Disease Outbreak News on 23 October 2026, the Bundibugyo virus disease (BVD) outbreak has expanded geographically in the Democratic Republic of the Congo. While some areas have seen a slight decline in cases, sustained, high-level transmission continues overall in the Democratic Republic of the Congo. As of 3 November 2026, a total of 10 668 confirmed cases, including 5198 deaths (crude case fatality ratio: 48.7%), have been reported across 67 health zones in eight provinces, with active transmission ongoing in 51 health zones. The high proportion of death"
+    },
+    {
+      "id": "who-don-cb3d79290b97",
+      "record_type": "event",
+      "disease": "Ebola virus disease",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Ebola disease caused by Bundibugyo virus - Democratic Republic of the Congo, Kenya and Nigeria",
+      "location": "Nigeria",
+      "iso3": "NGA",
+      "lat": 9.08,
+      "lon": 8.68,
+      "location_precision": "country",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-11-06T17:27:28Z",
+      "onset": null,
+      "reported": "2026-11-06T17:27:28Z",
+      "updated": "2026-11-06T20:54:21Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": true,
+      "changeType": "Konfirmasi/pembaruan resmi",
+      "change": "WHO Disease Outbreak News diterbitkan atau diperbarui.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "WHO Disease Outbreak News",
+      "source_id": "who-don",
+      "source_url": "https://www.who.int/2026-DON625",
+      "verification": "Sumber resmi WHO; koordinat menggunakan centroid negara.",
+      "economic": null,
+      "summary": "Since the publication of the previous Disease Outbreak News on 23 October 2026, the Bundibugyo virus disease (BVD) outbreak has expanded geographically in the Democratic Republic of the Congo. While some areas have seen a slight decline in cases, sustained, high-level transmission continues overall in the Democratic Republic of the Congo. As of 3 November 2026, a total of 10 668 confirmed cases, including 5198 deaths (crude case fatality ratio: 48.7%), have been reported across 67 health zones in eight provinces, with active transmission ongoing in 51 health zones. The high proportion of death"
+    },
+    {
+      "id": "who-don-95826799669f",
+      "record_type": "event",
+      "disease": "Yellow fever",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Yellow fever - WHO African Region",
+      "location": "Lokasi belum dipetakan",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-11-06T09:01:14Z",
+      "onset": null,
+      "reported": "2026-11-06T09:01:14Z",
+      "updated": "2026-11-06T14:45:20Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": true,
+      "changeType": "Konfirmasi/pembaruan resmi",
+      "change": "WHO Disease Outbreak News diterbitkan atau diperbarui.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "WHO Disease Outbreak News",
+      "source_id": "who-don",
+      "source_url": "https://www.who.int/2026-DON624",
+      "verification": "Sumber resmi WHO; koordinat menggunakan centroid negara.",
+      "economic": null,
+      "summary": "Yellow fever transmission continues in the WHO African Region, with recent outbreak activity concentrated in parts of West Africa. Between 1 January and 12 October 2026, 67 confirmed cases, including 18 deaths, were recorded in nine countries in the Region: Burkina Faso, Cameroon, the Central African Republic, Côte d’Ivoire, Ghana, Guinea, Liberia, Nigeria and Togo. The most recent outbreak activity has been concentrated in Burkina Faso, Côte d’Ivoire, Ghana and Liberia, including in areas close to international borders. Occupational and environmental exposures, including work in or near fores"
+    },
+    {
+      "id": "who-don-fbe47a2b43d6",
+      "record_type": "event",
+      "disease": "Shamonda virus in human",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Shamonda virus in human - France",
+      "location": "France",
+      "iso3": "FRA",
+      "lat": 46.23,
+      "lon": 2.21,
+      "location_precision": "country",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-11-02T14:26:51Z",
+      "onset": null,
+      "reported": "2026-11-02T14:26:51Z",
+      "updated": "2026-11-03T08:48:28Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": false,
+      "changeType": "Konfirmasi/pembaruan resmi",
+      "change": "WHO Disease Outbreak News diterbitkan atau diperbarui.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "WHO Disease Outbreak News",
+      "source_id": "who-don",
+      "source_url": "https://www.who.int/2026-DON623",
+      "verification": "Sumber resmi WHO; koordinat menggunakan centroid negara.",
+      "economic": null,
+      "summary": "On 20 October 2026, the National IHR Focal Point (NFP) of France notified WHO regarding the first documented human infection with Shamonda virus (SHAV). The case was an immunocompromised older man from eastern France with no travel history during the preceding year. He developed severe neurological illness on 23 September 2026 and was diagnosed with severe encephalitis (brain inflammation). The patient died on 8 October 2026. SHAV is recognized primarily as an animal-associated virus, like the closely related Schmallenberg virus circulating in Europe, with no previously documented human infect"
     },
     {
       "id": "kemkes-spot-b4c3a12c5db2",
@@ -8406,59 +8666,6 @@
       "verification": "Publikasi resmi Kemenkes; bukan feed angka kasus terstruktur.",
       "economic": null,
       "summary": null
-    },
-    {
-      "id": "who-don-6b7f2494018a",
-      "record_type": "event",
-      "disease": "Rift Valley fever",
-      "disease_groups": [
-        "TADs",
-        "Zoonosis/EID"
-      ],
-      "title": "Rift Valley fever- Mauritania and Senegal",
-      "location": "Lokasi belum dipetakan",
-      "iso3": null,
-      "lat": null,
-      "lon": null,
-      "location_precision": "unknown",
-      "scopes": [
-        "Global"
-      ],
-      "published": "2025-11-05T15:38:08Z",
-      "onset": null,
-      "reported": "2025-11-05T15:38:08Z",
-      "updated": "2025-11-05T15:38:21Z",
-      "evidence": "confirmed",
-      "response": "Monitoring resmi",
-      "changed24h": false,
-      "changeType": "Konfirmasi/pembaruan resmi",
-      "change": "WHO Disease Outbreak News diterbitkan atau diperbarui.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "WHO Disease Outbreak News",
-      "source_id": "who-don",
-      "source_url": "https://www.who.int/2025-DON584",
-      "verification": "Sumber resmi WHO; koordinat menggunakan centroid negara.",
-      "economic": null,
-      "summary": "Between 20 September and 30 October 2025, a total of 404 confirmed human cases of Rift Valley fever (RVF), including 42 deaths, were reported by national health authorities in two West African countries: Mauritania and Senegal. RVF is a zoonotic disease, which mainly affects animals, but can also infect humans. The majority of human infections result from contact with the blood or organs of infected animals, but human infections have also resulted from the bites of infected mosquitoes. To date, no human-to-human transmission of RVF has been documented. While RVF often leads to severe illness i"
     },
     {
       "id": "fmd-idn-2025-zoning",
