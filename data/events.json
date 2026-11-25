@@ -1,18 +1,18 @@
 {
   "metadata": {
-    "generated_at": "2026-11-23T07:47:24.257388Z",
+    "generated_at": "2026-11-25T08:43:36.265369Z",
     "update_interval_hours": 48,
     "mode": "near-real-time",
-    "records": 256,
-    "events": 175,
+    "records": 258,
+    "events": 177,
     "reports": 81,
     "imported_records": 104,
     "import_files_scanned": 2,
     "import_validation_errors": 0,
     "import_validation_warnings": 0,
     "method_note": "Official records and open media signals are stored separately; unknown counts remain null.",
-    "tads_records": 92,
-    "tads_confirmed": 75,
+    "tads_records": 93,
+    "tads_confirmed": 76,
     "tads_rumor": 17
   },
   "sources": [
@@ -25,8 +25,8 @@
       "url": "https://infeksiemerging.kemkes.go.id/",
       "note": "Weekly update dan spot report publik; diperlakukan sebagai publikasi, bukan angka kasus terstruktur.",
       "status": "live",
-      "last_checked": "2026-11-23T07:47:24.257388Z",
-      "records": 33,
+      "last_checked": "2026-11-25T08:43:36.265369Z",
+      "records": 32,
       "error": null
     },
     {
@@ -38,7 +38,7 @@
       "url": "https://www.kemkes.go.id/id/category/profil-kesehatan",
       "note": "Publikasi tahunan resmi; ditampilkan sebagai referensi dan tidak menaikkan KPI kejadian/kasus.",
       "status": "live",
-      "last_checked": "2026-11-23T07:47:24.257388Z",
+      "last_checked": "2026-11-25T08:43:36.265369Z",
       "records": 1,
       "error": null
     },
@@ -51,7 +51,7 @@
       "url": "https://awr.ditjenpkh.pertanian.go.id/sitreps/",
       "note": "SITREPS bulanan 11 penyakit prioritas; kejadian telah dikonfirmasi sebagai diagnosis definitif (DX). Snapshot resmi terakhir dipertahankan bila proteksi situs menolak klien otomatis.",
       "status": "stale",
-      "last_checked": "2026-11-23T07:47:24.257388Z",
+      "last_checked": "2026-11-25T08:43:36.265369Z",
       "records": 14,
       "error": "SourceFetchError: Halaman AWR tidak dapat dibaca otomatis (kemungkinan proteksi Cloudflare); snapshot resmi terakhir dipertahankan."
     },
@@ -64,7 +64,7 @@
       "url": "https://www.bps.go.id/id/publication/2025/12/12/7d17daec8d62c852fc354945/profil-statistik-kesehatan-2025.html",
       "note": "Publikasi tahunan berbasis Susenas Maret 2025; referensi statistik, bukan feed kejadian wabah.",
       "status": "live",
-      "last_checked": "2026-11-23T07:47:24.257388Z",
+      "last_checked": "2026-11-25T08:43:36.265369Z",
       "records": 1,
       "error": null
     },
@@ -116,8 +116,8 @@
       "url": "https://www.who.int/southeastasia/outbreaks-and-emergencies/surveillance-and-alert/sear-epi-bulletins",
       "note": "Buletin regional ditampilkan sebagai publikasi; ekstraksi angka tabel belum dilakukan.",
       "status": "live",
-      "last_checked": "2026-11-23T07:47:24.257388Z",
-      "records": 24,
+      "last_checked": "2026-11-25T08:43:36.265369Z",
+      "records": 25,
       "error": null
     },
     {
@@ -155,8 +155,8 @@
       "url": "https://www.who.int/emergencies/disease-outbreak-news",
       "note": "Diambil dari API publik WHO dan dipetakan pada centroid negara bila lokasi lebih rinci tidak tersedia.",
       "status": "live",
-      "last_checked": "2026-11-23T07:47:24.257388Z",
-      "records": 55,
+      "last_checked": "2026-11-25T08:43:36.265369Z",
+      "records": 57,
       "error": null
     },
     {
@@ -168,7 +168,7 @@
       "url": "https://www.gdeltproject.org/",
       "note": "Judul disaring untuk nama penyakit dan indikator kejadian; semua rekaman tetap berstatus rumor/verifikasi, dan negara hanya dipetakan bila disebut dalam judul.",
       "status": "stale",
-      "last_checked": "2026-11-23T07:47:24.257388Z",
+      "last_checked": "2026-11-25T08:43:36.265369Z",
       "records": 24,
       "error": "HTTPError: HTTP Error 429: Too Many Requests"
     },
@@ -271,7 +271,7 @@
       "access_level": "public",
       "url": "https://www.abc.net.au/news/rural/2026-01-22/cattle-industry-cautious-lumpy-skin-disease-reaches-bali/106256000",
       "status": "imported",
-      "last_checked": "2026-11-23T07:47:24.257388Z",
+      "last_checked": "2026-11-25T08:43:36.265369Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -284,7 +284,7 @@
       "access_level": "public",
       "url": "https://en.antaranews.com/news/375693/indonesia-seeks-woah-recognition-on-fmd-free-zones-without-vaccination",
       "status": "imported",
-      "last_checked": "2026-11-23T07:47:24.257388Z",
+      "last_checked": "2026-11-25T08:43:36.265369Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -297,7 +297,7 @@
       "access_level": "public",
       "url": "https://www.balipost.com/news/2024/04/01/394276/ASF-Masuk-Bali,Satu-Sampel...html",
       "status": "imported",
-      "last_checked": "2026-11-23T07:47:24.257388Z",
+      "last_checked": "2026-11-25T08:43:36.265369Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -310,7 +310,7 @@
       "access_level": "public",
       "url": "https://fao.org/animal-health/situation-updates/asf-in-asia-pacific/en",
       "status": "imported",
-      "last_checked": "2026-11-23T07:47:24.257388Z",
+      "last_checked": "2026-11-25T08:43:36.265369Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -323,7 +323,7 @@
       "access_level": "public",
       "url": "https://fao.org/animal-health/situation-updates/asf-in-asia-pacific/en",
       "status": "imported",
-      "last_checked": "2026-11-23T07:47:24.257388Z",
+      "last_checked": "2026-11-25T08:43:36.265369Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -336,7 +336,7 @@
       "access_level": "public",
       "url": "https://www.kemkes.go.id/id/profil-kesehatan-indonesia-2024",
       "status": "imported",
-      "last_checked": "2026-11-23T07:47:24.257388Z",
+      "last_checked": "2026-11-25T08:43:36.265369Z",
       "records": 95,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -349,7 +349,7 @@
       "access_level": "public",
       "url": "https://link.springer.com/article/10.1007/s11250-024-04067-y",
       "status": "imported",
-      "last_checked": "2026-11-23T07:47:24.257388Z",
+      "last_checked": "2026-11-25T08:43:36.265369Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -362,7 +362,7 @@
       "access_level": "public",
       "url": "https://bali.tribunnews.com/bali/598286/distan-bali-tanggapi-puluhan-ekor-babi-mati-mendadak-sebut-asf-telah-jadi-penyakit-endemis-di-bali",
       "status": "imported",
-      "last_checked": "2026-11-23T07:47:24.257388Z",
+      "last_checked": "2026-11-25T08:43:36.265369Z",
       "records": 1,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -375,7 +375,7 @@
       "access_level": "public",
       "url": "https://www.wrlfmd.org/sites/world/files/quick_media/WOAH-FAO%20FMD%20Ref%20Lab%20Report%20Jan-Mar%202026%20%20v3.pdf",
       "status": "imported",
-      "last_checked": "2026-11-23T07:47:24.257388Z",
+      "last_checked": "2026-11-25T08:43:36.265369Z",
       "records": 2,
       "error": null,
       "note": "Rekaman agregat/de-identifikasi diimpor dari data/import setelah validasi skema dan persetujuan publish=true."
@@ -401,10 +401,10 @@
         "Asia-Pacific",
         "Global"
       ],
-      "published": "2026-11-23T05:00:00Z",
+      "published": "2026-11-25T05:00:00Z",
       "onset": null,
-      "reported": "2026-11-23T05:00:00Z",
-      "updated": "2026-11-23T05:00:00Z",
+      "reported": "2026-11-25T05:00:00Z",
+      "updated": "2026-11-25T05:00:00Z",
       "evidence": "confirmed",
       "response": "Publikasi berkala",
       "changed24h": true,
@@ -436,6 +436,112 @@
       "verification": "Publikasi resmi Kemenkes; angka rinci tersedia pada dokumen sumber.",
       "economic": null,
       "summary": null
+    },
+    {
+      "id": "who-don-53a30731e082",
+      "record_type": "event",
+      "disease": "Avian influenza",
+      "disease_groups": [
+        "Penyakit hewan prioritas",
+        "TADs",
+        "Zoonosis/EID"
+      ],
+      "title": "Influenza A(H5N1) - United States of America",
+      "location": "United States",
+      "iso3": "USA",
+      "lat": 37.09,
+      "lon": -95.71,
+      "location_precision": "country",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-11-24T10:52:39Z",
+      "onset": null,
+      "reported": "2026-11-24T10:52:39Z",
+      "updated": "2026-11-24T10:57:32Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": true,
+      "changeType": "Konfirmasi/pembaruan resmi",
+      "change": "WHO Disease Outbreak News diterbitkan atau diperbarui.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "WHO Disease Outbreak News",
+      "source_id": "who-don",
+      "source_url": "https://www.who.int/2026-DON629",
+      "verification": "Sumber resmi WHO; koordinat menggunakan centroid negara.",
+      "economic": null,
+      "summary": "Between 16 October and 4 November 2026, the United States of America, through its International Health Regulations (IHR) National Focal Point, notified WHO of three laboratory-confirmed human infections with influenza A(H5) virus in Washington State. These included one fatal case, the first reported death following exposure to infected dairy cattle or a related contaminated environment. All three cases were adults who worked on dairy cattle farms in Yakima County, Washington State, where the highly pathogenic (in animals) avian influenza (HPAI) A(H5N1) virus had recently been detected in dairy"
+    },
+    {
+      "id": "who-don-1c96335d4264",
+      "record_type": "event",
+      "disease": "Circulating vaccine-derived poliovirus type 1",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "Circulating vaccine-derived poliovirus type 1 – Syrian Arab Republic",
+      "location": "Lokasi belum dipetakan",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "Global"
+      ],
+      "published": "2026-11-23T15:53:09Z",
+      "onset": null,
+      "reported": "2026-11-23T15:53:09Z",
+      "updated": "2026-11-23T15:56:38Z",
+      "evidence": "confirmed",
+      "response": "Monitoring resmi",
+      "changed24h": false,
+      "changeType": "Konfirmasi/pembaruan resmi",
+      "change": "WHO Disease Outbreak News diterbitkan atau diperbarui.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "WHO Disease Outbreak News",
+      "source_id": "who-don",
+      "source_url": "https://www.who.int/2026-DON628",
+      "verification": "Sumber resmi WHO; koordinat menggunakan centroid negara.",
+      "economic": null,
+      "summary": "In October 2026, a cluster of four cases of acute flaccid paralysis (AFP) was identified in Al-Mayadin District, Deir Ez Zor Governorate, Syrian Arab Republic. As of 13 November 2026, three confirmed cases of circulating vaccine-derived poliovirus type 1 (cVDPV1) have been reported. Vaccine-derived poliovirus type 1 (VDPV1) was also detected in three contacts who did not present with AFP and are therefore not included in the reported paralytic poliomyelitis case count. Between 9 and 20 November 2026, twelve additional AFP cases were reported from several locations in Deir Ez Zor Governorate. E"
     },
     {
       "id": "kemkes-weekly-b13bba6dd9ae",
@@ -511,10 +617,10 @@
       "published": "2026-11-20T22:38:46Z",
       "onset": null,
       "reported": "2026-11-20T22:38:46Z",
-      "updated": "2026-11-20T22:39:32Z",
+      "updated": "2026-11-24T10:35:53Z",
       "evidence": "confirmed",
       "response": "Monitoring resmi",
-      "changed24h": false,
+      "changed24h": true,
       "changeType": "Konfirmasi/pembaruan resmi",
       "change": "WHO Disease Outbreak News diterbitkan atau diperbarui.",
       "human": {
@@ -563,10 +669,10 @@
       "published": "2026-11-20T22:38:46Z",
       "onset": null,
       "reported": "2026-11-20T22:38:46Z",
-      "updated": "2026-11-20T22:39:32Z",
+      "updated": "2026-11-24T10:35:53Z",
       "evidence": "confirmed",
       "response": "Monitoring resmi",
-      "changed24h": false,
+      "changed24h": true,
       "changeType": "Konfirmasi/pembaruan resmi",
       "change": "WHO Disease Outbreak News diterbitkan atau diperbarui.",
       "human": {
@@ -615,10 +721,10 @@
       "published": "2026-11-20T22:38:46Z",
       "onset": null,
       "reported": "2026-11-20T22:38:46Z",
-      "updated": "2026-11-20T22:39:32Z",
+      "updated": "2026-11-24T10:35:53Z",
       "evidence": "confirmed",
       "response": "Monitoring resmi",
-      "changed24h": false,
+      "changed24h": true,
       "changeType": "Konfirmasi/pembaruan resmi",
       "change": "WHO Disease Outbreak News diterbitkan atau diperbarui.",
       "human": {
@@ -647,6 +753,60 @@
       "verification": "Sumber resmi WHO; koordinat menggunakan centroid negara.",
       "economic": null,
       "summary": "Since the publication of the previous Disease Outbreak News on 6 November 2026, additional confirmed cases and deaths have been reported in the Democratic Republic of the Congo. While some areas have seen a slight decline in cases, sustained, high-level transmission continues overall in the country. As of 17 November 2026, a total of 11 613 confirmed cases, including 5678 deaths (crude case fatality ratio: 48.9%), have been reported across 68 health zones in eight provinces, with active transmission ongoing in 48 health zones. Ituri and Nord Kivu remain the most affected provinces, while Sud-K"
+    },
+    {
+      "id": "who-sear-9eac989dccf0",
+      "record_type": "report",
+      "disease": "Epidemiological bulletin",
+      "disease_groups": [
+        "Zoonosis/EID"
+      ],
+      "title": "23rd edition, Epidemiological Bulletin WHO Health Emergencies Programme WHO Regional Office for South-East...",
+      "location": "WHO South-East Asia Region",
+      "iso3": null,
+      "lat": null,
+      "lon": null,
+      "location_precision": "unknown",
+      "scopes": [
+        "ASEAN",
+        "Asia-Pacific",
+        "Global"
+      ],
+      "published": "2026-11-18T05:00:00Z",
+      "onset": null,
+      "reported": "2026-11-18T05:00:00Z",
+      "updated": "2026-11-18T05:00:00Z",
+      "evidence": "confirmed",
+      "response": "Buletin regional",
+      "changed24h": false,
+      "changeType": "Buletin baru",
+      "change": "Buletin epidemiologi regional WHO diterbitkan.",
+      "human": {
+        "suspected": null,
+        "confirmed": null,
+        "deaths": null
+      },
+      "animal": {
+        "outbreaks": null,
+        "sick": null,
+        "deaths": null,
+        "culled": null,
+        "species": null
+      },
+      "lab": {
+        "result": null,
+        "method": null,
+        "name": null
+      },
+      "actions": null,
+      "pic": null,
+      "next": null,
+      "source": "WHO SEARO • Epidemiological Bulletin",
+      "source_id": "who-sear",
+      "source_url": "https://iris.who.int/server/api/core/bitstreams/a4c66b12-63a5-4982-8912-0e81f6de05b7/content",
+      "verification": "Publikasi resmi WHO Regional Office for South-East Asia.",
+      "economic": null,
+      "summary": null
     },
     {
       "id": "who-don-b2ec7c057202",
@@ -1195,10 +1355,10 @@
       "published": "2026-11-02T14:26:51Z",
       "onset": null,
       "reported": "2026-11-02T14:26:51Z",
-      "updated": "2026-11-03T08:48:28Z",
+      "updated": "2026-11-24T10:36:23Z",
       "evidence": "confirmed",
       "response": "Monitoring resmi",
-      "changed24h": false,
+      "changed24h": true,
       "changeType": "Konfirmasi/pembaruan resmi",
       "change": "WHO Disease Outbreak News diterbitkan atau diperbarui.",
       "human": {
@@ -8763,58 +8923,6 @@
       "source": "Kemenkes RI • Infeksi Emerging",
       "source_id": "kemkes-infem",
       "source_url": "https://infeksiemerging.kemkes.go.id/spot-report/rumor-mpox-di-mali",
-      "verification": "Publikasi resmi Kemenkes; bukan feed angka kasus terstruktur.",
-      "economic": null,
-      "summary": null
-    },
-    {
-      "id": "kemkes-spot-4b2e28ef3f39",
-      "record_type": "report",
-      "disease": "Crimean-Congo haemorrhagic fever",
-      "disease_groups": [
-        "Zoonosis/EID"
-      ],
-      "title": "Crimean Congo Haemorrhagic Fever (CCHF) di Namibia",
-      "location": "Namibia",
-      "iso3": "NAM",
-      "lat": null,
-      "lon": null,
-      "location_precision": "unknown",
-      "scopes": [
-        "Global"
-      ],
-      "published": "2025-11-25T05:00:00Z",
-      "onset": null,
-      "reported": "2025-11-25T05:00:00Z",
-      "updated": "2025-11-25T05:00:00Z",
-      "evidence": "confirmed",
-      "response": "Publikasi kewaspadaan",
-      "changed24h": false,
-      "changeType": "Publikasi baru",
-      "change": "Spot report Kemenkes dipublikasikan.",
-      "human": {
-        "suspected": null,
-        "confirmed": null,
-        "deaths": null
-      },
-      "animal": {
-        "outbreaks": null,
-        "sick": null,
-        "deaths": null,
-        "culled": null,
-        "species": null
-      },
-      "lab": {
-        "result": null,
-        "method": null,
-        "name": null
-      },
-      "actions": null,
-      "pic": null,
-      "next": null,
-      "source": "Kemenkes RI • Infeksi Emerging",
-      "source_id": "kemkes-infem",
-      "source_url": "https://infeksiemerging.kemkes.go.id/spot-report/crimean-congo-haemorrhagic-fever-cchf-di-namibia",
       "verification": "Publikasi resmi Kemenkes; bukan feed angka kasus terstruktur.",
       "economic": null,
       "summary": null
